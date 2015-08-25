@@ -1,8 +1,9 @@
 var React = require('react');
+var Article = require('./article');
 
 React.render(
   <div>
-    <p>Hello World!</p>
+    <Article />
   </div>,
   document.getElementById('content')
 );
