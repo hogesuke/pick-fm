@@ -3,7 +3,7 @@ var Article = require('./article');
 
 React.render(
   <div>
-    <Article />
+    <Article tags={['hoge', 'fuga']} />
   </div>,
   document.getElementById('content')
 );
