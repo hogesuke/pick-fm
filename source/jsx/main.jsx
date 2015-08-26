@@ -1,9 +1,9 @@
 var React = require('react');
-var Article = require('./article');
+var ArticleList = require('./article-list');
 
 React.render(
   <div>
-    <Article tags={['hoge', 'fuga']} />
+    <ArticleList />
   </div>,
   document.getElementById('content')
 );

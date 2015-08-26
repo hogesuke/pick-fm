@@ -10,7 +10,8 @@ var Article = React.createClass({
 
     return (
       <div>
-        {tags}
+        <div>{this.props.title}</div>
+        <div>{tags}</div>
       </div>
     );
   }
