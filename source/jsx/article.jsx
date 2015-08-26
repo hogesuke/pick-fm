@@ -3,7 +3,16 @@ var React = require('react');
 var Article = React.createClass({
 
   render: function () {
-    return <div>article tag={this.props.tags}</div>
+    var tags = [];
+    this.props.tags.forEach(function (tag) {
+      tags.push(<span>{tag},</span>);
+    });
+
+    return (
+      <div>
+        {tags}
+      </div>
+    );
   }
 });
 
