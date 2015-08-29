@@ -6,7 +6,8 @@
   "dependencies": {
     "react": "^0.13.3",
     "underscore": "^1.8.3",
-    "whatwg-fetch": "^0.9.0"
+    "whatwg-fetch": "^0.9.0",
+    "pubsub-js": "^1.5.2"
   },
   "devDependencies": {
     "gulp": "^3.9.0",

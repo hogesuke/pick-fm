@@ -1,4 +1,5 @@
 var React = require('react');
+var PubSub = require('pubsub-js');
 var _ = require('underscore');
 var SearchBox = require('./searchbox');
 var Article = require('./article');
@@ -15,6 +16,12 @@ var ArticleList = React.createClass({
       ],
       searchText: ''
     };
+  },
+  componentWillMount: function () {
+    PubSub.subscribe('Add-to-playlist', function (msg, data) {
+      console.debug('msg', msg);
+      console.debug('data', data);
+    });
   },
   search: function (text) {
     this.setState({
