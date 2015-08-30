@@ -17,12 +17,6 @@ var ArticleList = React.createClass({
       searchText: ''
     };
   },
-  componentWillMount: function () {
-    PubSub.subscribe('Add-to-playlist', function (msg, data) {
-      console.debug('msg', msg);
-      console.debug('data', data);
-    });
-  },
   search: function (text) {
     this.setState({
       searchText: text

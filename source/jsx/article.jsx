@@ -3,7 +3,7 @@ var PubSub = require('pubsub-js');
 
 var Article = React.createClass({
   addToPlayList: function () {
-    PubSub.publish('Add-to-playlist', this.props.title);
+    PubSub.publish('Add-to-playlist', { title: this.props.title });
   },
   render: function () {
     var tags = [];

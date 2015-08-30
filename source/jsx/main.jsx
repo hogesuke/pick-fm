@@ -1,8 +1,11 @@
 var React = require('react');
-var ArticleList = require('./article-list');
+var PubSub = require('pubsub-js');
+var PlayList = require('./playlist');
+var ArticleList = require('./articlelist');
 
 React.render(
   <div>
+    <PlayList />
     <ArticleList />
   </div>,
   document.getElementById('content')
