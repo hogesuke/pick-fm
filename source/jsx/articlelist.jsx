@@ -26,15 +26,16 @@ var ArticleList = React.createClass({
   render: function () {
     var that = this;
 
-    var articles = _.filter(this.state.articles, function (article) {
-      var hitArticles =  _.filter(article.tags, function (tag) {
-        return tag.indexOf(that.state.searchText) !== -1;
+    var articles = _.chain(this.state.articles)
+      .filter(function (article) {
+        var hitArticles =  _.filter(article.tags, function (tag) {
+          return tag.indexOf(that.state.searchText) !== -1;
+        });
+        return hitArticles.length > 0;
+      })
+      .map(function (article) {
+        return <Article title={article.title} tags={article.tags} />;
       });
-      return hitArticles.length > 0;
-    });
-    articles =  _.map(articles, function (article) {
-      return <Article title={article.title} tags={article.tags} />;
-    });
 
     return (
       <div>
