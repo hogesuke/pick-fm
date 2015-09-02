@@ -24,12 +24,10 @@ export default class ArticleList extends React.Component {
     });
   }
   render() {
-    let that = this;
-
     let articles = _.chain(this.state.articles)
       .filter((article) => {
         let hitArticles =  _.filter(article.tags, (tag) => {
-          return tag.indexOf(that.state.searchText) !== -1;
+          return tag.indexOf(this.state.searchText) !== -1;
         });
         return hitArticles.length > 0;
       })
