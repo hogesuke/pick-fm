@@ -1,14 +1,15 @@
-var React = require('react');
-var PubSub = require('pubsub-js');
-var PlayList = require('./playlist');
-var ArticleList = require('./articlelist');
-var Hoge = require('./hoge');
+import React from 'react';
+import PubSub from 'pubsub-js';
+import PlayList from './playlist';
+import ArticleList from './articlelist';
+
+console.debug('PlayList', PlayList);
+console.debug('ArticleList', ArticleList);
 
 React.render(
   <div>
     <PlayList />
     <ArticleList />
-    <Hoge />
   </div>,
   document.getElementById('content')
 );

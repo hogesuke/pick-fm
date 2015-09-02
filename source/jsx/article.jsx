@@ -1,13 +1,13 @@
-var React = require('react');
-var PubSub = require('pubsub-js');
+import React from 'react';
+import PubSub from 'pubsub-js';
 
-var Article = React.createClass({
-  addToPlayList: function () {
+export default class Article extends React.Component {
+  addToPlayList() {
     PubSub.publish('Add-to-playlist', { title: this.props.title });
-  },
-  render: function () {
-    var tags = [];
-    this.props.tags.forEach(function (tag) {
+  }
+  render() {
+    let tags = [];
+    this.props.tags.forEach((tag) => {
       tags.push(<span>{tag},</span>);
     });
 
@@ -15,10 +15,8 @@ var Article = React.createClass({
       <div>
         <div>{this.props.title}</div>
         <div>{tags}</div>
-        <div><button onClick={this.addToPlayList}>Add</button></div>
+        <div><button onClick={this.addToPlayList.bind(this)}>Add</button></div>
       </div>
     );
   }
-});
-
-module.exports = Article;
+}

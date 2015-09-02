@@ -1,12 +1,13 @@
-var React = require('react');
-var PubSub = require('pubsub-js');
-var _ = require('underscore');
-var SearchBox = require('./searchbox');
-var Article = require('./article');
+import React from 'react';
+import PubSub from 'pubsub-js';
+import _ from 'underscore';
+import SearchBox from './searchbox';
+import Article from './article';
 
-var ArticleList = React.createClass({
-  getInitialState: function () {
-    return {
+export default class ArticleList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       articles: [
         { title: 'title1', tags: ['docker', 'react'] },
         { title: 'title2', tags: ['docker', 'angular'] },
@@ -16,34 +17,31 @@ var ArticleList = React.createClass({
       ],
       searchText: ''
     };
-  },
-  search: function (text) {
+  }
+  search(text) {
     this.setState({
       searchText: text
     });
-  },
+  }
+  render() {
+    let that = this;
 
-  render: function () {
-    var that = this;
-
-    var articles = _.chain(this.state.articles)
-      .filter(function (article) {
-        var hitArticles =  _.filter(article.tags, function (tag) {
+    let articles = _.chain(this.state.articles)
+      .filter((article) => {
+        let hitArticles =  _.filter(article.tags, (tag) => {
           return tag.indexOf(that.state.searchText) !== -1;
         });
         return hitArticles.length > 0;
       })
-      .map(function (article) {
+      .map((article) => {
         return <Article title={article.title} tags={article.tags} />;
       });
 
     return (
       <div>
-        <SearchBox handleChange={this.search} />
+        <SearchBox handleChange={this.search.bind(this)} />
         <div>{articles}</div>
       </div>
     );
   }
-});
-
-module.exports = ArticleList;
+}

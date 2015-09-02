@@ -1,19 +1,19 @@
-var React = require('react');
+import React from 'react';
 
-var SearchBox = React.createClass({
-  propTypes: {
-    handleChange: React.PropTypes.func.isRequired
-  },
-  _handleChange: function (event) {
+export default class SearchBox extends React.Component {
+  static get propTypes() {
+    return {
+      handleChange: React.PropTypes.func.isRequired
+    };
+  }
+  _handleChange(event) {
     this.props.handleChange(event.target.value);
-  },
-  render: function () {
+  }
+  render() {
     return (
       <div>
-        <input type="text" onChange={this._handleChange} />
+        <input type="text" onChange={this._handleChange.bind(this)} />
       </div>
     );
   }
-});
-
-module.exports = SearchBox;
+}

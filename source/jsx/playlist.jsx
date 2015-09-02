@@ -1,21 +1,22 @@
-var React = require('react');
-var PubSub = require('pubsub-js');
-var _ = require('underscore');
+import React from 'react';
+import PubSub from 'pubsub-js';
+import _ from 'underscore';
 
-var PlayList = React.createClass({
-  getInitialState: function () {
-    return {
+export default class PlayList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       articles: []
     };
-  },
-  componentWillMount: function () {
-    PubSub.subscribe('Add-to-playlist', this.add);
-  },
-  add: function (msg, article) {
+  }
+  componentWillMount() {
+    PubSub.subscribe('Add-to-playlist', this.add.bind(this));
+  }
+  add(msg, article) {
     this.setState({ articles: this.state.articles.concat([article]) });
-  },
-  render: function () {
-    var articleDoms = _.map(this.state.articles, function (article) {
+  }
+  render() {
+    let articleDoms = _.map(this.state.articles, (article) => {
       return <div>{article.title},</div>;
     });
 
@@ -26,6 +27,4 @@ var PlayList = React.createClass({
       </div>
     );
   }
-});
-
-module.exports = PlayList;
+}
