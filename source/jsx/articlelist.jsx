@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 import _ from 'underscore';
 import SearchBox from './searchbox';
 import Article from './article';
 
-export default class ArticleList extends React.Component {
+export default class ArticleList extends Component {
   constructor(props) {
     super(props);
     this.state = {

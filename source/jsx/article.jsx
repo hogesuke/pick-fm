@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 
-export default class Article extends React.Component {
+export default class Article extends Component {
   addToPlayList() {
     PubSub.publish('Add-to-playlist', { title: this.props.title });
   }

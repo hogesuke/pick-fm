@@ -1,12 +1,9 @@
 import React from 'react';
-import PubSub from 'pubsub-js';
-import PlayList from './playlist';
-import ArticleList from './articlelist';
+import App from './app';
 
 React.render(
   <div>
-    <PlayList />
-    <ArticleList />
+    <App />
   </div>,
   document.getElementById('content')
 );

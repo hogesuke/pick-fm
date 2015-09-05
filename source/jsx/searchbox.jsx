@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-export default class SearchBox extends React.Component {
+export default class SearchBox extends Component {
   static get propTypes() {
     return {
       handleChange: React.PropTypes.func.isRequired

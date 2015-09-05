@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 import _ from 'underscore';
 

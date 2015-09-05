@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PubSub from 'pubsub-js';
 import _ from 'underscore';
 
-export default class TagList extends React.Component {
+export default class TagList extends Component {
   constructor(props) {
     super(props);
     this.state = {
