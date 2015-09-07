@@ -1,15 +1,12 @@
-function todoApp(state = initialState, action) {
+let initialState = {
+  articles: []
+};
+
+function pickApp(state = initialState, action = "") {
   switch (action.type) {
-    case SET_VISIBILITY_FILTER:
+    case ADD_ARTICLE_TO_PLAY_LIST:
       return Object.assign({}, state, {
-        visibilityFilter: action.filter
-      });
-    case ADD_TODO:
-      return Object.assign({}, state, {
-        todos: [...state.todos, {
-          text: action.text,
-          completed: false
-        }]
+        todos: [...state.articles, action.article]
       });
     default:
       return state;
