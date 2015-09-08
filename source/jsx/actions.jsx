@@ -5,3 +5,11 @@ export function addArticleToPlayList(article) {
     article: article
   };
 }
+
+export const SEARCH_ARTICLES = 'SEARCH_ARTICLES';
+export function searchArticles(text) {
+  return {
+    type: ADD_ARTICLE_TO_PLAY_LIST,
+    text: text
+  };
+}
