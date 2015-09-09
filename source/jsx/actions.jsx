@@ -9,7 +9,7 @@ export function addArticleToPlayList(article) {
 export const SEARCH_ARTICLES = 'SEARCH_ARTICLES';
 export function searchArticles(text) {
   return {
-    type: ADD_ARTICLE_TO_PLAY_LIST,
+    type: SEARCH_ARTICLES,
     text: text
   };
 }
