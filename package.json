@@ -15,6 +15,7 @@
     "gulp": "^3.9.0",
     "gulp-webpack": "^1.5.0",
     "jsx-loader": "^0.13.2",
+    "react-redux": "^2.1.1",
     "redux": "^2.0.0",
     "rimraf": "^2.4.2",
     "webpack": "^1.12.0"
