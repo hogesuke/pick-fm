@@ -1,33 +1,23 @@
 import React, { Component } from 'react';
-import PubSub from 'pubsub-js';
+import { connect } from 'react-redux';
+import { SEARCH_ARTICLES } from './actions'
 import _ from 'underscore';
 import SearchBox from './searchbox';
 import Article from './article';
 
 export default class ArticleList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      articles: [
-        { title: 'title1', tags: ['docker', 'react'] },
-        { title: 'title2', tags: ['docker', 'angular'] },
-        { title: 'title3', tags: ['ruby', 'ios'] },
-        { title: 'title4', tags: ['go', 'ios'] },
-        { title: 'title5', tags: ['ruby', 'go'] }
-      ],
-      searchText: ''
-    };
-  }
+  // todo たぶんいらない
+  //constructor(props) {
+  //  super(props);
+  //}
   search(text) {
-    this.setState({
-      searchText: text
-    });
+    this.props.dispatch((text) => searchArticles(text));
   }
   render() {
-    let articles = _.chain(this.state.articles)
+    let articles = _.chain(this.props.articles)
       .filter((article) => {
         let hitArticles =  _.filter(article.tags, (tag) => {
-          return tag.indexOf(this.state.searchText) !== -1;
+          return tag.indexOf(this.props.searchText) !== -1;
         });
         return hitArticles.length > 0;
       })
@@ -43,3 +33,10 @@ export default class ArticleList extends Component {
     );
   }
 }
+
+export default connect(state => {
+  return {
+    articles  : state.articles,
+    searchText: state.searchText
+  };
+});
