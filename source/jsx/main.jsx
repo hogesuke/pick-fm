@@ -1,9 +1,9 @@
 import React from 'react';
-import Redux, { Provider } from 'redux';
+import { createStore, Provider } from 'redux';
 import App from './app';
 import pickApp from './reducers'
 
-let store = Redux.createStore(pickApp);
+let store = createStore(pickApp);
 
 React.render(
   <div>
