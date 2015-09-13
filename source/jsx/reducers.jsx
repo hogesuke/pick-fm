@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import {
-  ADD_ARTICLE_TO_PLAY_LIST
+  ADD_ARTICLE_TO_PLAY_LIST,
+  SEARCH_ARTICLES
 } from './actions';
 
 let initialState = {
@@ -19,6 +20,10 @@ function pickApp(state = initialState, action = "") {
     case ADD_ARTICLE_TO_PLAY_LIST:
       return Object.assign({}, state, {
         articles: [...state.articles, action.article]
+      });
+    case SEARCH_ARTICLES:
+      return Object.assign({}, state, {
+        searchText: action.searchText
       });
     default:
       return state;

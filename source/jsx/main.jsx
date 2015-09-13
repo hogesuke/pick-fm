@@ -5,6 +5,7 @@ import pickApp from './reducers'
 
 let store = createStore(pickApp);
 
+debugger;
 React.render(
   <div>
     <App />
