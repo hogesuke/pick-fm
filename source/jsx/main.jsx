@@ -1,13 +1,14 @@
 import React from 'react';
-import { createStore, Provider } from 'redux';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 import App from './app';
-import pickApp from './reducers'
+import rootReducer from './reducers'
 
-let store = createStore(pickApp);
+let store = createStore(rootReducer);
 
 React.render(
-  <div>
-    <App />
-  </div>,
+  <Provider store={store}>
+    {() => <App />}
+  </Provider>,
   document.getElementById('content')
 );

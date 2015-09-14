@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { SEARCH_ARTICLES } from './actions'
 import _ from 'underscore';
-import SearchBox from './searchbox';
 import Article from './article';
 
 export default class ArticleList extends Component {
-  // todo たぶんいらない
-  //constructor(props) {
-  //  super(props);
-  //}
-  search(text) {
-    this.props.dispatch((text) => searchArticles(text));
-  }
   render() {
     let articles = _.chain(this.props.articles)
       .filter((article) => {
@@ -27,7 +18,6 @@ export default class ArticleList extends Component {
 
     return (
       <div>
-        <SearchBox handleChange={this.search.bind(this)} />
         <div>{articles}</div>
       </div>
     );
@@ -36,7 +26,8 @@ export default class ArticleList extends Component {
 
 export default connect(state => {
   return {
-    articles  : state.articles,
-    searchText: state.searchText
+    articles  : state.pickApp.articles,
+    searchText: state.pickApp.searchText
   };
-});
+})(ArticleList);
+

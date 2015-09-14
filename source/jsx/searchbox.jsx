@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-export default class SearchBox extends Component {
-  static get propTypes() {
-    return {
-      handleChange: React.PropTypes.func.isRequired
-    };
-  }
-  _handleChange(event) {
-    this.props.handleChange(event.target.value);
+class SearchBox extends Component {
+  handleChange(event) {
+    this.props.onChange(event.target.value);
   }
   render() {
     return (
       <div>
-        <input type="text" onChange={this._handleChange.bind(this)} />
+        <input type="text" onChange={this.handleChange.bind(this)} />
       </div>
     );
   }
 }
+
+export default connect()(SearchBox);

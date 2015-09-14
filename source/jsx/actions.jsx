@@ -7,9 +7,8 @@ export function addArticleToPlayList(article) {
 }
 
 export const SEARCH_ARTICLES = 'SEARCH_ARTICLES';
-export function searchArticles(text) {
+export function searchArticles(searchText) {
   return {
-    type: SEARCH_ARTICLES,
-    text: text
+    type: SEARCH_ARTICLES, searchText
   };
 }

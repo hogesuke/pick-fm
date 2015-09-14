@@ -16,6 +16,7 @@ let initialState = {
 };
 
 function pickApp(state = initialState, action = "") {
+  console.debug('reducer');
   switch (action.type) {
     case ADD_ARTICLE_TO_PLAY_LIST:
       return Object.assign({}, state, {
