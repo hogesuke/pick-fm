@@ -1,22 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import PubSub from 'pubsub-js';
 import _ from 'underscore';
 
 export default class PlayList extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      articles: []
-    };
-  }
-  componentWillMount() {
-    PubSub.subscribe('Add-to-playlist', this.add.bind(this));
-  }
-  add(msg, article) {
-    this.setState({ articles: this.state.articles.concat([article]) });
-  }
   render() {
-    let articleDoms = _.map(this.state.articles, (article) => {
+    let articleDoms = _.map(this.props.playListArticles, (article) => {
       return <div>{article.title},</div>;
     });
 
@@ -28,3 +17,9 @@ export default class PlayList extends React.Component {
     );
   }
 }
+
+export default connect(state => {
+  return {
+    playListArticles: state.pickApp.playListArticles
+  }
+})(PlayList);

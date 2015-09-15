@@ -12,15 +12,15 @@ let initialState = {
     { title: 'title4', tags: ['go', 'ios'] },
     { title: 'title5', tags: ['ruby', 'go'] }
   ],
+  playListArticles: [],
   searchText: ''
 };
 
 function pickApp(state = initialState, action = "") {
-  console.debug('reducer');
   switch (action.type) {
     case ADD_ARTICLE_TO_PLAY_LIST:
       return Object.assign({}, state, {
-        articles: [...state.articles, action.article]
+        playListArticles: [...state.playListArticles, action.article]
       });
     case SEARCH_ARTICLES:
       return Object.assign({}, state, {

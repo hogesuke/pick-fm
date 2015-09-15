@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-import PubSub from 'pubsub-js';
+import { connect } from 'react-redux';
+import { addArticleToPlayList } from './actions'
 
-export default class Article extends Component {
-  addToPlayList() {
-    PubSub.publish('Add-to-playlist', { title: this.props.title });
+class Article extends Component {
+  handleAddToPlayList() {
+    this.props.onAddClick(this.props.article);
   }
   render() {
     let tags = [];
-    this.props.tags.forEach((tag) => {
+    this.props.article.tags.forEach((tag) => {
       tags.push(<span>{tag},</span>);
     });
 
     return (
       <div>
-        <div>{this.props.title}</div>
+        <div>{this.props.article.title}</div>
         <div>{tags}</div>
-        <div><button onClick={this.addToPlayList.bind(this)}>Add</button></div>
+        <div><button onClick={this.handleAddToPlayList.bind(this)}>Add</button></div>
       </div>
     );
   }
 }
+
+export default connect()(Article);

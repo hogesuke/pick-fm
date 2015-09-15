@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
 import Article from './article';
+import { addArticleToPlayList } from './actions'
 
-export default class ArticleList extends Component {
+class ArticleList extends Component {
   render() {
     let articles = _.chain(this.props.articles)
       .filter((article) => {
@@ -13,7 +14,7 @@ export default class ArticleList extends Component {
         return hitArticles.length > 0;
       })
       .map((article) => {
-        return <Article title={article.title} tags={article.tags} />;
+        return <Article onAddClick={article => this.props.dispatch(addArticleToPlayList(article))} article={article} />;
       });
 
     return (

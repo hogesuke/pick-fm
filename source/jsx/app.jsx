@@ -6,18 +6,11 @@ import ArticleList from './articlelist';
 import { searchArticles } from './actions'
 
 class App extends Component {
-  //render() {
-  //  return (
-  //    <div>
-  //      <PlayList />
-  //      <ArticleList />
-  //    </div>
-  //  );
-  //}
   render() {
     return (
       <div>
         <SearchBox onChange={text => this.props.dispatch(searchArticles(text))} />
+        <PlayList />
         <ArticleList />
       </div>
     );
