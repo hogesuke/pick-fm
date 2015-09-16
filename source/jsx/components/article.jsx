@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addArticleToPlayList } from './actions'
+import { addArticleToPlayList } from '../actions'
 
 class Article extends Component {
   handleAddToPlayList() {

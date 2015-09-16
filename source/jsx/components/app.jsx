@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PlayList from './playlist';
 import SearchBox from './searchbox';
 import ArticleList from './articlelist';
-import { searchArticles } from './actions'
+import { searchArticles } from '../actions'
 
 class App extends Component {
   render() {

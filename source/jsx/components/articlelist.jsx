@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
 import Article from './article';
-import { addArticleToPlayList } from './actions'
+import { addArticleToPlayList } from '../actions'
 
 class ArticleList extends Component {
   render() {
