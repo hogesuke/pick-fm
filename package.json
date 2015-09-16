@@ -6,8 +6,7 @@
   "dependencies": {
     "react": "^0.13.3",
     "underscore": "^1.8.3",
-    "whatwg-fetch": "^0.9.0",
-    "pubsub-js": "^1.5.2"
+    "whatwg-fetch": "^0.9.0"
   },
   "devDependencies": {
     "babel-core": "^5.8.23",
