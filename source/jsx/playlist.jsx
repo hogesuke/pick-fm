@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PubSub from 'pubsub-js';
 import _ from 'underscore';
 
 export default class PlayList extends React.Component {
