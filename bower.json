@@ -1,0 +1,23 @@
+{
+  "name": "pick-fm",
+  "version": "0.0.1",
+  "homepage": "https://github.com/hogesuke/pick-fm",
+  "authors": [
+    "hogesuke <miyado@gmail.com>"
+  ],
+  "description": "tech系podcastをピックアップして聴けるWebアプリケーション",
+  "main": "www/js/bundle.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "www/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "mediaelement": "~2.18.1"
+  }
+}
