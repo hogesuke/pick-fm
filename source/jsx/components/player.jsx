@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 
 class Player extends Component {
   componentDidMount() {
-    //new MediaElementPlayer('.player');
+    new MediaElementPlayer('.player');
   }
   render() {
     return (
       <div>
-        <div className="player">hoge</div>
+        <audio className="player" src="http://cache.rebuild.fm/podcast-ep108.mp3">hoge</audio>
       </div>
     );
   }
