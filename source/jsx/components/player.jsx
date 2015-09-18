@@ -1,17 +1,30 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'underscore';
 
 class Player extends Component {
-  componentDidMount() {
+  componentDidUpdate() {
     new MediaElementPlayer('.player');
   }
   render() {
+    let article = _.last(this.props.playListArticles);
+
+    if (!article) {
+      return (
+        <div>再生するエピソードを選んでください</div>
+      );
+    }
+
     return (
       <div>
-        <audio className="player" src="http://cache.rebuild.fm/podcast-ep108.mp3">hoge</audio>
+        <audio className="player" src={article.url}>hoge</audio>
       </div>
     );
   }
 }
 
-export default connect()(Player);
+export default connect(state => {
+  return {
+    playListArticles: state.pickApp.playListArticles
+  };
+})(Player);
