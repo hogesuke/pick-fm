@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'underscore';
 
 class Player extends Component {
-  componentDidUpdate() {
-    new MediaElementPlayer('.player');
-  }
   render() {
-    let article = _.last(this.props.playListArticles);
+    let article = this.props.playingArticle;
 
     if (!article) {
       return (
@@ -17,14 +13,10 @@ class Player extends Component {
 
     return (
       <div>
-        <audio className="player" src={article.url}>hoge</audio>
+        <audio className="player" src={article.url} controls>hoge</audio>
       </div>
     );
   }
 }
 
-export default connect(state => {
-  return {
-    playListArticles: state.pickApp.playListArticles
-  };
-})(Player);
+export default connect()(Player);
