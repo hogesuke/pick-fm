@@ -19,7 +19,7 @@ class ArticleList extends Component {
 
     return (
       <div>
-        <div>{articles}</div>
+        <div style={{margin: "10px 0"}}>{articles}</div>
       </div>
     );
   }
