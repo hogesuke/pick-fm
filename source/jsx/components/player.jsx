@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 class Player extends Component {
+  getAudioUrl() {
+    var article = this.props.playingArticle;
+    return article.url + '#t=' + article.startTime + ',' + article.endTime;
+  }
   render() {
-    let article = this.props.playingArticle;
-
-    if (!article) {
+    if (!this.props.playingArticle) {
       return (
         <div>再生するエピソードを選んでください</div>
       );
@@ -13,7 +15,7 @@ class Player extends Component {
 
     return (
       <div>
-        <audio className="player" src={article.url} controls>hoge</audio>
+        <audio className="player" src={this.getAudioUrl()} controls></audio>
       </div>
     );
   }

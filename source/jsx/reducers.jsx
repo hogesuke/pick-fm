@@ -6,11 +6,11 @@ import {
 
 let initialState = {
   articles: [
-    { title: 'title1', tags: ['docker', 'react'], url: 'http://cache.rebuild.fm/podcast-ep108.mp3' },
-    { title: 'title2', tags: ['docker', 'angular'], url: 'http://cache.rebuild.fm/podcast-ep107.mp3' },
-    { title: 'title3', tags: ['ruby', 'ios'], url: 'http://cache.rebuild.fm/podcast-ep106.mp3' },
-    { title: 'title4', tags: ['go', 'ios'], url: 'http://cache.rebuild.fm/podcast-ep106.mp3' },
-    { title: 'title5', tags: ['ruby', 'go'], url: 'http://cache.rebuild.fm/podcast-ep104.mp3' }
+    { title: 'title1', tags: ['docker', 'react'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep108.mp3' },
+    { title: 'title2', tags: ['docker', 'angular'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep107.mp3' },
+    { title: 'title3', tags: ['ruby', 'ios'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep106.mp3' },
+    { title: 'title4', tags: ['go', 'ios'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep106.mp3' },
+    { title: 'title5', tags: ['ruby', 'go'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep104.mp3' }
   ],
   playListArticles: [],
   searchText: ''
