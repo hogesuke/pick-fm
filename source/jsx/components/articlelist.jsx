@@ -31,7 +31,8 @@ class ArticleList extends Component {
 export default connect(state => {
   return {
     articles  : state.pickApp.articles,
-    searchText: state.pickApp.searchText
+    searchText: state.pickApp.searchText,
+    restaurant: state.pickApp.restaurant
   };
 })(ArticleList);
 

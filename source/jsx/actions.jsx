@@ -13,17 +13,11 @@ export function searchArticles(searchText) {
     type: SEARCH_ARTICLES, searchText
   };
 }
-export const FETCH_ARTICLES = 'FETCH_ARTICLES';
-export function fetchArticles(restaurant) {
-  return {
-    type: FETCH_ARTICLES, restaurant
-  };
-}
 
+export const FETCH_ARTICLES = 'FETCH_ARTICLES';
 export function fetchArticles() {
 
   return function (dispatch) {
-    debugger;
 
     return fetch('http://localhost:9200/ldgourmet/restaurant/_search?pretty=true', {
       method: 'get',
@@ -37,7 +31,11 @@ export function fetchArticles() {
         }
       }
     }).then(response => response.json())
-      .then(json => dispatch(fetchArticles(json))
+      .then(json => {
+        return dispatch({
+          type: FETCH_ARTICLES, restaurant: json
+        });
+      }
     );
   };
 }
