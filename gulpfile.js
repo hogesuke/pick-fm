@@ -14,7 +14,7 @@ gulp.task('build', ['cleanBuild'], function (cb) {
 });
 
 gulp.task('watch', function () {
-  gulp.watch('./source/jsx/*/*.jsx', ['build']);
+  gulp.watch('./source/jsx/**/*.jsx', ['build']);
 });
 
 gulp.task('default', ['watch']);

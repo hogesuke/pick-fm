@@ -5,6 +5,9 @@ import Article from './article';
 import { addArticleToPlayList } from '../actions'
 
 class ArticleList extends Component {
+  componentWillMount() {
+    this.props.onLoad('hoge');
+  }
   render() {
     let articles = _.chain(this.props.articles)
       .filter((article) => {

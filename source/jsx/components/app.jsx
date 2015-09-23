@@ -5,7 +5,7 @@ import Player from './player';
 import PlayList from './playlist';
 import SearchBox from './searchbox';
 import ArticleList from './articlelist';
-import { searchArticles } from '../actions'
+import { searchArticles, fetchArticles } from '../actions'
 
 class App extends Component {
   render() {
@@ -14,7 +14,7 @@ class App extends Component {
         <Player playingArticle={this.props.playingArticle} />
         <SearchBox onChange={text => this.props.dispatch(searchArticles(text))} />
         <PlayList />
-        <ArticleList />
+        <ArticleList onLoad={text => this.props.dispatch(fetchArticles(text))} />
       </div>
     );
   }
