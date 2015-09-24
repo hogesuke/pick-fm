@@ -1,4 +1,9 @@
-import fetch from 'isomorphic-fetch';
+import elasticsearch from 'elasticsearch';
+
+let client = elasticsearch.Client({
+  host: 'http://localhost:9200',
+  log: 'trace'
+});
 
 export const ADD_ARTICLE_TO_PLAY_LIST = 'ADD_ARTICLE_TO_PLAY_LIST';
 export function addArticleToPlayList(article) {
@@ -19,21 +24,21 @@ export function fetchArticles() {
 
   return function (dispatch) {
 
-    return fetch('http://localhost:9200/ldgourmet/restaurant/_search?pretty=true', {
-      method: 'get',
+    return client.search({
+      index: 'ldgourmet',
+      type: 'restaurant',
       body: {
-        "query" : {
-          "simple_query_string" : {
+        "query": {
+          "simple_query_string": {
             "query": "白金台 カフェ ボエム",
             "fields": ["name", "name_kana", "address"],
             "default_operator": "and"
           }
         }
       }
-    }).then(response => response.json())
-      .then(json => {
+    }).then(res => {
         return dispatch({
-          type: FETCH_ARTICLES, restaurant: json
+          type: FETCH_ARTICLES, restaurant: res.hits.hits
         });
       }
     );
