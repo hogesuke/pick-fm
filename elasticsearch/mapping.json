@@ -1,0 +1,53 @@
+{
+  "settings": {
+    "analysis": {
+      "analyzer": {
+        "ngram_analyzer": {
+          "tokenizer": "ngram_tokenizer"
+        }
+      },
+      "tokenizer": {
+        "ngram_tokenizer": {
+          "type": "nGram",
+          "min_gram": "2",
+          "max_gram": "3",
+          "token_chars": [
+            "letter",
+            "digit"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "track": {
+      "properties": {
+        "program_name": {
+          "type": "string",
+          "analyzer": "ngram_analyzer"
+        },
+        "personality": {
+          "type": "string",
+          "analyzer": "ngram_analyzer"
+        },
+        "guests": {
+          "type": "string",
+          "analyzer": "ngram_analyzer"
+        },
+        "episode": {
+          "type": "integer"
+        },
+        "tag": {
+          "type": "string",
+          "analyzer": "ngram_analyzer"
+        },
+        "start_time": {
+          "type": "integer"
+        },
+        "end_time": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
