@@ -22,6 +22,9 @@
   "mappings": {
     "track": {
       "properties": {
+        "id": {
+          "type": "integer"
+        },
         "program_name": {
           "type": "string",
           "analyzer": "ngram_analyzer"
