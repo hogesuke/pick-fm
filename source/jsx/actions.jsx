@@ -20,25 +20,25 @@ export function searchArticles(searchText) {
 }
 
 export const FETCH_ARTICLES = 'FETCH_ARTICLES';
-export function fetchArticles() {
+export function fetchArticles(searchText) {
 
   return function (dispatch) {
 
     return client.search({
-      index: 'ldgourmet',
-      type: 'restaurant',
-      body: {
+      index: 'pickfm',
+      type : 'track',
+      body : {
         "query": {
           "simple_query_string": {
-            "query": "白金台 カフェ ボエム",
-            "fields": ["name", "name_kana", "address"],
+            "query" : 'podcast',
+            "fields": ['program_name', 'personality', 'guests', 'tag'],
             "default_operator": "and"
           }
         }
       }
     }).then(res => {
         return dispatch({
-          type: FETCH_ARTICLES, restaurant: res.hits.hits
+          type: FETCH_ARTICLES, tracks: res.hits.hits
         });
       }
     );
