@@ -4,17 +4,17 @@ import { connect } from 'react-redux';
 import Player from './player';
 import PlayList from './playlist';
 import SearchBox from './searchbox';
-import ArticleList from './articlelist';
-import { searchArticles, fetchArticles } from '../actions'
+import TrackList from './tracklist';
+import { searchTracks, fetchTracks } from '../actions'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Player playingArticle={this.props.playingArticle} />
-        <SearchBox onChange={text => this.props.dispatch(fetchArticles(text))} />
+        <Player playingTrack={this.props.playingTrack} />
+        <SearchBox onChange={text => this.props.dispatch(fetchTracks(text))} />
         <PlayList />
-        <ArticleList onLoad={text => this.props.dispatch(fetchArticles(text))} />
+        <TrackList onLoad={text => this.props.dispatch(fetchTracks(text))} />
       </div>
     );
   }
@@ -22,6 +22,6 @@ class App extends Component {
 
 export default connect(state => {
   return {
-    playingArticle: _.last(state.pickApp.playListArticles)
+    playingTrack: _.last(state.pickApp.playListTracks)
   };
 })(App);

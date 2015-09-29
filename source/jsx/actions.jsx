@@ -5,22 +5,22 @@ let client = elasticsearch.Client({
   log: 'trace'
 });
 
-export const ADD_ARTICLE_TO_PLAY_LIST = 'ADD_ARTICLE_TO_PLAY_LIST';
-export function addArticleToPlayList(article) {
+export const ADD_TRACK_TO_PLAY_LIST = 'ADD_TRACK_TO_PLAY_LIST';
+export function addTrackToPlayList(track) {
   return {
-    type   : ADD_ARTICLE_TO_PLAY_LIST, article
+    type: ADD_TRACK_TO_PLAY_LIST, track
   };
 }
 
-export const SEARCH_ARTICLES = 'SEARCH_ARTICLES';
-export function searchArticles(searchText) {
+export const SEARCH_TRACKS = 'SEARCH_TRACKS';
+export function searchTracks(searchText) {
   return {
-    type: SEARCH_ARTICLES, searchText
+    type: SEARCH_TRACKS, searchText
   };
 }
 
-export const FETCH_ARTICLES = 'FETCH_ARTICLES';
-export function fetchArticles(searchText) {
+export const FETCH_TRACKS = 'FETCH_TRACKS';
+export function fetchTracks(searchText) {
 
   return function (dispatch) {
 
@@ -38,7 +38,7 @@ export function fetchArticles(searchText) {
       }
     }).then(res => {
         return dispatch({
-          type: FETCH_ARTICLES, tracks: res.hits.hits
+          type: FETCH_TRACKS, tracks: res.hits.hits
         });
       }
     );

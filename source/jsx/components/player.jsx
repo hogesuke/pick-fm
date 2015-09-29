@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 class Player extends Component {
   getAudioUrl() {
-    var article = this.props.playingArticle;
-    return article.url + '#t=' + article.startTime + ',' + article.endTime;
+    var track = this.props.playingTrack;
+    return track.url + '#t=' + track.startTime + ',' + track.endTime;
   }
   render() {
-    if (!this.props.playingArticle) {
+    if (!this.props.playingTrack) {
       return (
         <div>再生するエピソードを選んでください</div>
       );

@@ -1,33 +1,29 @@
 import { combineReducers } from 'redux';
 import {
-  ADD_ARTICLE_TO_PLAY_LIST,
-  SEARCH_ARTICLES,
-  FETCH_ARTICLES
+  ADD_TRACK_TO_PLAY_LIST,
+  SEARCH_TRACKS,
+  FETCH_TRACKS
 } from './actions';
 
 let initialState = {
-  articles: [
-    { title: 'title1', tags: ['docker', 'react'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep108.mp3' },
-    { title: 'title2', tags: ['docker', 'angular'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep107.mp3' },
-    { title: 'title3', tags: ['ruby', 'ios'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep106.mp3' },
-    { title: 'title4', tags: ['go', 'ios'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep106.mp3' },
-    { title: 'title5', tags: ['ruby', 'go'], startTime: 10, endTime: 15, url: 'http://cache.rebuild.fm/podcast-ep104.mp3' }
+  tracks: [
+    { id: 0, program_name: 'test_program', personality: 'hogesuke', guests: 'hogesuke2', episode: 0, tag: 'hoge', start_time: 10, end_time: 20 }
   ],
-  playListArticles: [],
+  playListTracks: [],
   searchText: ''
 };
 
 function pickApp(state = initialState, action = "") {
   switch (action.type) {
-    case ADD_ARTICLE_TO_PLAY_LIST:
+    case ADD_TRACK_TO_PLAY_LIST:
       return Object.assign({}, state, {
-        playListArticles: [...state.playListArticles, action.article]
+        playListTracks: [...state.playListTracks, action.track]
       });
-    case SEARCH_ARTICLES:
+    case SEARCH_TRACKS:
       return Object.assign({}, state, {
         searchText: action.searchText
       });
-    case FETCH_ARTICLES:
+    case FETCH_TRACKS:
       return Object.assign({}, state, {
         restaurant: action.restaurant
       });

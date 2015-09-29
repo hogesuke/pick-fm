@@ -4,14 +4,14 @@ import _ from 'underscore';
 
 export default class PlayList extends React.Component {
   render() {
-    let articleDoms = _.map(this.props.playListArticles, (article) => {
-      return <div>{article.title},</div>;
+    let trackDoms = _.map(this.props.playListTracks, (track) => {
+      return <div>{track.program_name},</div>;
     });
 
     return (
       <div>
         <h3>Play list</h3>
-        <div>{articleDoms}</div>
+        <div>{trackDoms}</div>
       </div>
     );
   }
@@ -19,6 +19,6 @@ export default class PlayList extends React.Component {
 
 export default connect(state => {
   return {
-    playListArticles: state.pickApp.playListArticles
+    playListTracks: state.pickApp.playListTracks
   }
 })(PlayList);
