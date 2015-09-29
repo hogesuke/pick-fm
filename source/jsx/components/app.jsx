@@ -12,7 +12,7 @@ class App extends Component {
     return (
       <div>
         <Player playingArticle={this.props.playingArticle} />
-        <SearchBox onChange={text => this.props.dispatch(searchArticles(text))} />
+        <SearchBox onChange={text => this.props.dispatch(fetchArticles(text))} />
         <PlayList />
         <ArticleList onLoad={text => this.props.dispatch(fetchArticles(text))} />
       </div>
