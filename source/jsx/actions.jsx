@@ -30,7 +30,7 @@ export function fetchTracks(searchText) {
       body : {
         "query": {
           "simple_query_string": {
-            "query" : 'podcast',
+            "query" : searchText,
             "fields": ['program_name', 'personality', 'guests', 'tag'],
             "default_operator": "and"
           }
@@ -38,7 +38,7 @@ export function fetchTracks(searchText) {
       }
     }).then(res => {
         return dispatch({
-          type: FETCH_TRACKS, tracks: res.hits.hits
+          type: FETCH_TRACKS, tracks: _.pluck(res.hits.hits, '_source')
         });
       }
     );

@@ -25,7 +25,7 @@ function pickApp(state = initialState, action = "") {
       });
     case FETCH_TRACKS:
       return Object.assign({}, state, {
-        restaurant: action.restaurant
+        tracks: action.tracks
       });
     default:
       return state;
