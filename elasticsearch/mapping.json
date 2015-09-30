@@ -44,6 +44,10 @@
           "type": "string",
           "analyzer": "ngram_analyzer"
         },
+        "url": {
+          "type": "string",
+          "analyzer": "ngram_analyzer"
+        },
         "start_time": {
           "type": "integer"
         },

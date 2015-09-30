@@ -13,8 +13,9 @@ CSV.open("data/tracks.csv", "r") do |f|
         "guests": "#{item[3]}",
         "episode": "#{item[4]}",
         "tag": "#{item[5]}",
-        "start_time": "#{item[6]}",
-        "end_time": "#{item[7]}"
+        "url": "#{item[6]}",
+        "start_time": "#{item[7]}",
+        "end_time": "#{item[8]}"
       }
     '`
   end

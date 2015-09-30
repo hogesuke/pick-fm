@@ -1,6 +1,6 @@
-id,program_name,personality,guests,episode,tag,start_time,end_time
-1,rebuild.fm,miyagawa,naoya,1,blog,0,79
-2,rebuild.fm,miyagawa,naoya,1,podcast,79,294
-3,rebuild.fm,miyagawa,naoya,1,LTSV,294,730
-4,rebuild.fm,miyagawa,naoya,1,Apache,294,730
-5,rebuild.fm,miyagawa,naoya,1,hacker_news,730,829
+id,program_name,personality,guests,episode,tag,url,start_time,end_time
+1,rebuild.fm,miyagawa,naoya,1,blog,http://cache.rebuild.fm/podcast-ep1-r2.mp3,0,79
+2,rebuild.fm,miyagawa,naoya,1,podcast,http://cache.rebuild.fm/podcast-ep1-r2.mp3,79,294
+3,rebuild.fm,miyagawa,naoya,1,LTSV,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
+4,rebuild.fm,miyagawa,naoya,1,Apache,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
+5,rebuild.fm,miyagawa,naoya,1,hacker_news,http://cache.rebuild.fm/podcast-ep1-r2.mp3,730,829
