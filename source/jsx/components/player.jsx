@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 class Player extends Component {
   getAudioUrl() {
     var track = this.props.playingTrack;
-    return track.url + '#t=' + track.startTime + ',' + track.endTime;
+    return track.url + '#t=' + track.start_time + ',' + track.end_time;
   }
   render() {
     if (!this.props.playingTrack) {
