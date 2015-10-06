@@ -7,7 +7,6 @@ import {
 
 let initialState = {
   tracks: [
-    { id: 0, program_name: 'test_program', personality: 'hogesuke', guests: 'hogesuke2', episode: 0, tag: 'hoge', start_time: 10, end_time: 20 }
   ],
   playListTracks: [],
   searchText: ''
