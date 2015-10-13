@@ -11,6 +11,10 @@ class Player extends Component {
 
     if (!track) return;
 
+    if (this.audio) {
+      this.audio.pause();
+    }
+
     let audio = this.audio = new Audio(this.getAudioUrl());
     audio.addEventListener('play', function() {
       audio.currentTime = track.start_time;
