@@ -8,11 +8,16 @@ class Player extends Component {
   }
   componentDidUpdate() {
     let track = this.props.playingTrack;
-    if (track) {
-      let audio = React.findDOMNode(this.refs.player);
+
+    if (!track) return;
+
+    let audio = this.audio = new Audio(this.getAudioUrl());
+    audio.addEventListener('play', function() {
       audio.currentTime = track.start_time;
-      audio.play();
-    }
+    });
+  }
+  play() {
+    this.audio.play();
   }
   render() {
     if (!this.props.playingTrack) {
@@ -23,7 +28,7 @@ class Player extends Component {
 
     return (
       <div>
-        <audio ref="player" className="player" src={this.getAudioUrl()} controls></audio>
+        <button onClick={this.play.bind(this)}>Play</button>
       </div>
     );
   }

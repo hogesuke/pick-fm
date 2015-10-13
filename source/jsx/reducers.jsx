@@ -6,8 +6,7 @@ import {
 } from './actions';
 
 let initialState = {
-  tracks: [
-  ],
+  tracks: [],
   playListTracks: [],
   searchText: ''
 };
