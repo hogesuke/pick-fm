@@ -4,3 +4,4 @@ id,program_name,personality,guests,episode,tag,url,start_time,end_time
 3,rebuild.fm,miyagawa,naoya,1,LTSV,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
 4,rebuild.fm,miyagawa,naoya,1,Apache,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
 5,rebuild.fm,miyagawa,naoya,1,hacker_news,http://cache.rebuild.fm/podcast-ep1-r2.mp3,730,829
+6,rebuild.fm,miyagawa,naoya,1,test,http://cache.rebuild.fm/podcast-ep1-r2.mp3,100,103

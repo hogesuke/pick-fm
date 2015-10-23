@@ -15,13 +15,27 @@ class Player extends Component {
       this.audio.pause();
     }
 
-    let audio = this.audio = new Audio(this.getAudioUrl());
-    audio.addEventListener('play', function() {
-      audio.currentTime = track.start_time;
-    });
+    let audio = this.audio = new Audio();
+    audio.currentTime = track.start_time;
+    audio.src = this.getAudioUrl();
+
+    let intervalID = setInterval(() => {
+      if (this.isEnd(audio.currentTime)) {
+        audio.pause();
+        clearInterval(intervalID);
+      }
+    }, 500);
+
+    this.play();
+  }
+  isEnd(currentTime) {
+    return this.props.playingTrack.end_time <= currentTime;
   }
   play() {
     this.audio.play();
+  }
+  pause() {
+    this.audio.pause();
   }
   render() {
     if (!this.props.playingTrack) {
@@ -33,6 +47,7 @@ class Player extends Component {
     return (
       <div>
         <button onClick={this.play.bind(this)}>Play</button>
+        <button onClick={this.pause.bind(this)}>Pause</button>
       </div>
     );
   }
