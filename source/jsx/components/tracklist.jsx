@@ -15,7 +15,7 @@ class TrackList extends Component {
 
     return (
       <div>
-        <div style={{margin: "10px 0"}}>{tracks}</div>
+        <div className="track-list">{tracks}</div>
       </div>
     );
   }
