@@ -31,7 +31,7 @@ export function fetchTracks(searchText) {
         "query": {
           "simple_query_string": {
             "query" : searchText,
-            "fields": ['program_name', 'personality', 'guests', 'tag'],
+            "fields": ['program_name', 'personality', 'guests_en', 'guests_ja', 'tag_en', 'tag_ja'],
             "default_operator": "and"
           }
         }

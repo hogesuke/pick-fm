@@ -10,12 +10,14 @@ CSV.open("data/tracks.csv", "r") do |f|
         "id": "#{item[0]}",
         "program_name": "#{item[1]}",
         "personality": "#{item[2]}",
-        "guests": "#{item[3]}",
-        "episode": "#{item[4]}",
-        "tag": "#{item[5]}",
-        "url": "#{item[6]}",
-        "start_time": "#{item[7]}",
-        "end_time": "#{item[8]}"
+        "guests_en": "#{item[3]}",
+        "guests_ja": "#{item[4]}",
+        "episode": "#{item[5]}",
+        "tag_en": #{item[6]},
+        "tag_ja": "#{item[7]}",
+        "url": "#{item[8]}",
+        "start_time": "#{item[9]}",
+        "end_time": "#{item[10]}"
       }
     '`
   end

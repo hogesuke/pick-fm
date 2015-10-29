@@ -33,14 +33,22 @@
           "type": "string",
           "analyzer": "ngram_analyzer"
         },
-        "guests": {
+        "guests_en": {
+          "type": "string",
+          "analyzer": "ngram_analyzer"
+        },
+        "guests_ja": {
           "type": "string",
           "analyzer": "ngram_analyzer"
         },
         "episode": {
           "type": "integer"
         },
-        "tag": {
+        "tag_en": {
+          "type": "string",
+          "analyzer": "ngram_analyzer"
+        },
+        "tag_ja": {
           "type": "string",
           "analyzer": "ngram_analyzer"
         },

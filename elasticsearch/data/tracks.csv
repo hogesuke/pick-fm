@@ -1,7 +1,17 @@
-id,program_name,personality,guests,episode,tag,url,start_time,end_time
-1,rebuild.fm,miyagawa,naoya,1,blog,http://cache.rebuild.fm/podcast-ep1-r2.mp3,0,79
-2,rebuild.fm,miyagawa,naoya,1,podcast,http://cache.rebuild.fm/podcast-ep1-r2.mp3,79,294
-3,rebuild.fm,miyagawa,naoya,1,LTSV,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
-4,rebuild.fm,miyagawa,naoya,1,Apache,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
-5,rebuild.fm,miyagawa,naoya,1,hacker_news,http://cache.rebuild.fm/podcast-ep1-r2.mp3,730,829
-6,rebuild.fm,miyagawa,naoya,1,test,http://cache.rebuild.fm/podcast-ep1-r2.mp3,100,103
+id,program_name,personality,guests_en,guests_ja,episode,tag_en,tag_ja,url,start_time,end_time
+1,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,"[""test"", ""hoge"", ""fuga""]",,http://cache.rebuild.fm/podcast-ep1-r2.mp3,100,103
+2,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,blog,ブログ,http://cache.rebuild.fm/podcast-ep1-r2.mp3,0,79
+3,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,podcast,ポッドキャスト,http://cache.rebuild.fm/podcast-ep1-r2.mp3,79,294
+4,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,ltsv,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
+5,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,apache,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
+6,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,HackerNews,ハッカーニュース,http://cache.rebuild.fm/podcast-ep1-r2.mp3,730,829
+7,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,,情報収集,http://cache.rebuild.fm/podcast-ep1-r2.mp3,829,994
+8,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,cloud,クラウド,http://cache.rebuild.fm/podcast-ep1-r2.mp3,994,1525
+9,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,DevOps,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,994,1525
+10,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,RubyMotion,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,1525,2297
+11,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,mobile,モバイル開発,http://cache.rebuild.fm/podcast-ep1-r2.mp3,1525,2297
+12,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,SublimeText,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2297,2352
+13,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,emacs,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2297,2352
+14,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,editor,エディタ,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2297,2352
+15,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,ruby,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2352,2456
+16,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,perl,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2456,3172
