@@ -1,17 +1,58 @@
-id,program_name,personality,guests_en,guests_ja,episode,tag_en,tag_ja,url,start_time,end_time
-1,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,"[""test"", ""hoge"", ""fuga""]",,http://cache.rebuild.fm/podcast-ep1-r2.mp3,100,103
-2,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,blog,ブログ,http://cache.rebuild.fm/podcast-ep1-r2.mp3,0,79
-3,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,podcast,ポッドキャスト,http://cache.rebuild.fm/podcast-ep1-r2.mp3,79,294
-4,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,ltsv,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
-5,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,apache,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
-6,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,HackerNews,ハッカーニュース,http://cache.rebuild.fm/podcast-ep1-r2.mp3,730,829
-7,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,,情報収集,http://cache.rebuild.fm/podcast-ep1-r2.mp3,829,994
-8,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,cloud,クラウド,http://cache.rebuild.fm/podcast-ep1-r2.mp3,994,1525
-9,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,DevOps,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,994,1525
-10,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,RubyMotion,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,1525,2297
-11,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,mobile,モバイル開発,http://cache.rebuild.fm/podcast-ep1-r2.mp3,1525,2297
-12,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,SublimeText,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2297,2352
-13,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,emacs,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2297,2352
-14,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,editor,エディタ,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2297,2352
-15,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,ruby,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2352,2456
-16,rebuild.fm,miyagawa,naoya ito,伊藤直也,1,perl,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2456,3172
+id,program_name,personality_en,personality_ja,guests_en,guests_ja,episode,tag_en,tag_ja,url,start_time,end_time
+1,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,"[""test"", ""hoge"", ""fuga""]",,http://cache.rebuild.fm/podcast-ep1-r2.mp3,100,103
+2,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,blog,ブログ,http://cache.rebuild.fm/podcast-ep1-r2.mp3,0,79
+3,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,podcast,ポッドキャスト,http://cache.rebuild.fm/podcast-ep1-r2.mp3,79,294
+4,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,"[""ltsv"", ""apache""]",,http://cache.rebuild.fm/podcast-ep1-r2.mp3,294,730
+5,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,HackerNews,ハッカーニュース,http://cache.rebuild.fm/podcast-ep1-r2.mp3,730,829
+6,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,,情報収集,http://cache.rebuild.fm/podcast-ep1-r2.mp3,829,994
+7,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,cloud,クラウド,http://cache.rebuild.fm/podcast-ep1-r2.mp3,994,1525
+8,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,DevOps,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,994,1525
+9,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,"[""RubyMotion"", ""mobile""]",モバイル開発,http://cache.rebuild.fm/podcast-ep1-r2.mp3,1525,2297
+10,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,"[""SublimeText"", ""emacs"", ""editor""]",エディタ,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2297,2352
+11,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,Ruby,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2352,2456
+12,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,1,Perl,,http://cache.rebuild.fm/podcast-ep1-r2.mp3,2456,3172
+13,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Kentaro Ejima,江島健太郎,2,podcast,ポッドキャスト,http://cache.rebuild.fm/podcast-ep2.mp3,0,75
+14,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Kentaro Ejima,江島健太郎,2,"[""MacBookPro"", ""Apple""]",,http://cache.rebuild.fm/podcast-ep2.mp3,75,180
+15,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Kentaro Ejima,江島健太郎,2,,開発環境,http://cache.rebuild.fm/podcast-ep2.mp3,180,1061
+16,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Kentaro Ejima,江島健太郎,2,RubyonRails,,http://cache.rebuild.fm/podcast-ep2.mp3,746,1200
+17,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Kentaro Ejima,江島健太郎,2,Redis,,http://cache.rebuild.fm/podcast-ep2.mp3,1397,1670
+18,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Kentaro Ejima,江島健太郎,2,heroku,,http://cache.rebuild.fm/podcast-ep2.mp3,1670,1925
+19,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Kentaro Ejima,江島健太郎,2,NewRelic,,http://cache.rebuild.fm/podcast-ep2.mp3,1925,2068
+20,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Kentaro Ejima,江島健太郎,2,AWS,,http://cache.rebuild.fm/podcast-ep2.mp3,2068,2384
+21,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Kentaro Ejima,江島健太郎,2,DegitalOcean,,http://cache.rebuild.fm/podcast-ep2.mp3,2512,2876
+22,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Sadayuki Furuhashi"", ""Kiyoto""]","[""古橋貞之"", ""Kiyoto""]",3,MessagePack,,http://cache.rebuild.fm/podcast-ep3.mp3,0,2210
+23,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Sadayuki Furuhashi"", ""Kiyoto""]","[""古橋貞之"", ""Kiyoto""]",3,discussion,"[""日本語"", ""議論"", ""ディスカッション""]",http://cache.rebuild.fm/podcast-ep3.mp3,637,1045
+24,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Sadayuki Furuhashi"", ""Kiyoto""]","[""古橋貞之"", ""Kiyoto""]",3,TreasureData,,http://cache.rebuild.fm/podcast-ep3.mp3,2210,2439
+25,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Satoru Takabayashi,高林哲,4,"[""blog"", ""Google+""]",ブログ,http://cache.rebuild.fm/podcast-ep4.mp3,0,332
+26,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Satoru Takabayashi,高林哲,4,YakShaving,,http://cache.rebuild.fm/podcast-ep4.mp3,332,1008
+27,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Satoru Takabayashi,高林哲,4,refactoring,リファクタリング,http://cache.rebuild.fm/podcast-ep4.mp3,815,1008
+28,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Satoru Takabayashi,高林哲,4,"[""C++"", ""comunity""]",コミュニティ,http://cache.rebuild.fm/podcast-ep4.mp3,1008,1159
+29,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Satoru Takabayashi,高林哲,4,,生産性,http://cache.rebuild.fm/podcast-ep4.mp3,1159,1395
+30,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Satoru Takabayashi,高林哲,4,,サンフランシスコ,http://cache.rebuild.fm/podcast-ep4.mp3,1395,1864
+31,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Satoru Takabayashi,高林哲,4,review,レビュー,http://cache.rebuild.fm/podcast-ep4.mp3,1591,1864
+32,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Yukihiro Matsumoto,まつもとゆきひろ,5,Ruby,,http://cache.rebuild.fm/podcast-ep5.mp3,0,2112
+33,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,6,,"[""電子出版"", ""電子書籍""]",http://cache.rebuild.fm/podcast-ep6.mp3,0,1352
+34,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Naoya Ito,伊藤直也,6,"[""GoogleReader"", ""RSS""]",,http://cache.rebuild.fm/podcast-ep6.mp3,1352,2480
+35,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Yusuke Wada,和田裕介,7,Perl,,http://cache.rebuild.fm/podcast-ep7.mp3,0,652
+36,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Yusuke Wada,和田裕介,7,blog,ブログ,http://cache.rebuild.fm/podcast-ep7.mp3,105,249
+37,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Yusuke Wada,和田裕介,7,Plagger,,http://cache.rebuild.fm/podcast-ep7.mp3,249,652
+38,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Yusuke Wada,和田裕介,7,,自宅サーバ,http://cache.rebuild.fm/podcast-ep7.mp3,652,736
+39,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Yusuke Wada,和田裕介,7,,仕事環境,http://cache.rebuild.fm/podcast-ep7.mp3,736,1094
+40,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Yusuke Wada,和田裕介,7,,電子出版,http://cache.rebuild.fm/podcast-ep7.mp3,1094,1342
+41,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Yusuke Wada,和田裕介,7,"[""Perl"", ""framework"", ""Plack""]",フレームワーク,http://cache.rebuild.fm/podcast-ep7.mp3,1342,1730
+42,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,Yusuke Wada,和田裕介,7,YAPC,,http://cache.rebuild.fm/podcast-ep7.mp3,1730,2406
+43,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Naoya Ito"", ""Satoru Takabayashi""]","[""伊藤直也"", ""高林哲""]",8,CTO,"[""海外"", ""キャリアパス""]",http://cache.rebuild.fm/podcast-ep8.mp3,0,169
+44,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Naoya Ito"", ""Satoru Takabayashi""]","[""伊藤直也"", ""高林哲""]",8,,面接,http://cache.rebuild.fm/podcast-ep8.mp3,169,292
+45,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Naoya Ito"", ""Satoru Takabayashi""]","[""伊藤直也"", ""高林哲""]",8,Screencast,スクリーンキャスト,http://cache.rebuild.fm/podcast-ep8.mp3,292,694
+46,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Naoya Ito"", ""Satoru Takabayashi""]","[""伊藤直也"", ""高林哲""]",8,,ペアプログラミング,http://cache.rebuild.fm/podcast-ep8.mp3,694,918
+47,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Naoya Ito"", ""Satoru Takabayashi""]","[""伊藤直也"", ""高林哲""]",8,emacs,,http://cache.rebuild.fm/podcast-ep8.mp3,728,1103
+48,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Naoya Ito"", ""Satoru Takabayashi""]","[""伊藤直也"", ""高林哲""]",8,,"[""環境設定"", ""中年の危機""]",http://cache.rebuild.fm/podcast-ep8.mp3,918,1103
+49,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Naoya Ito"", ""Satoru Takabayashi""]","[""伊藤直也"", ""高林哲""]",8,,英語,http://cache.rebuild.fm/podcast-ep8.mp3,1103,1610
+50,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Kenta Murata"", ""Ryo Nakamura""]","[""Kenta Murata"", ""Ryo Nakamura""]",10,"[""RubyonRails"", ""RailsConf""]",,http://cache.rebuild.fm/podcast-ep10.mp3,0,470
+51,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Kenta Murata"", ""Ryo Nakamura""]","[""Kenta Murata"", ""Ryo Nakamura""]",10,RubyonRails,,http://cache.rebuild.fm/podcast-ep10.mp3,470,562
+52,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Kenta Murata"", ""Ryo Nakamura""]","[""Kenta Murata"", ""Ryo Nakamura""]",10,Ruby,,http://cache.rebuild.fm/podcast-ep10.mp3,562,1544
+53,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Kenta Murata"", ""Ryo Nakamura""]","[""Kenta Murata"", ""Ryo Nakamura""]",10,RubyonRails,,http://cache.rebuild.fm/podcast-ep10.mp3,1544,1986
+54,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Kenta Murata"", ""Ryo Nakamura""]","[""Kenta Murata"", ""Ryo Nakamura""]",10,"[""chanko"", ""hackathon""]","[""パフォーマンスチューニング"", ""ハッカソン""]",http://cache.rebuild.fm/podcast-ep10.mp3,1986,2635
+55,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Kenta Murata"", ""Ryo Nakamura""]","[""Kenta Murata"", ""Ryo Nakamura""]",10,"[""TravisCI"", ""CoverWall""]",,http://cache.rebuild.fm/podcast-ep10.mp3,2351,2635
+56,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Kenta Murata"", ""Ryo Nakamura""]","[""Kenta Murata"", ""Ryo Nakamura""]",10,,Ruby会議,http://cache.rebuild.fm/podcast-ep10.mp3,2635,2730
+57,rebuild.fm,Tatsuhiko Miyagawa,宮川達彦,"[""Kenta Murata"", ""Ryo Nakamura""]","[""Kenta Murata"", ""Ryo Nakamura""]",10,cookpad,クックパッド,http://cache.rebuild.fm/podcast-ep10.mp3,2730,2862
