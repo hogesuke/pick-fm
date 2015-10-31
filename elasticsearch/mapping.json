@@ -29,7 +29,11 @@
           "type": "string",
           "analyzer": "ngram_analyzer"
         },
-        "personality": {
+        "personality_en": {
+          "type": "string",
+          "analyzer": "ngram_analyzer"
+        },
+        "personality_ja": {
           "type": "string",
           "analyzer": "ngram_analyzer"
         },
