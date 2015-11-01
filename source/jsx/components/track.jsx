@@ -10,7 +10,7 @@ class Track extends Component {
     return (
       <div>
         <div>{this.props.track.program_name}</div>
-        <div>{this.props.track.tag}</div>
+        <div>{this.props.track.tag_en + ',' + this.props.track.tag_ja}</div>
         <div><button onClick={this.handleAddToPlayList.bind(this)}>Add</button></div>
       </div>
     );
