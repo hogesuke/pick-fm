@@ -38,16 +38,15 @@ class Player extends Component {
     this.audio.pause();
   }
   render() {
-    if (!this.props.playingTrack) {
-      return (
-        <div>再生するエピソードを選んでください</div>
-      );
+    let isDisabled = true;
+    if (this.props.playingTrack) {
+      isDisabled = false;
     }
 
     return (
       <div>
-        <button onClick={this.play.bind(this)}>Play</button>
-        <button onClick={this.pause.bind(this)}>Pause</button>
+        <button onClick={this.play.bind(this)} disabled={isDisabled}>Play</button>
+        <button onClick={this.pause.bind(this)} disabled={isDisabled}>Pause</button>
       </div>
     );
   }

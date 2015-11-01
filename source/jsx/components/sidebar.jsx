@@ -6,7 +6,7 @@ import PlayList from './playlist';
 class SideBar extends Component {
   render() {
     return (
-      <div>
+      <div id="sidebar">
         <Player playingTrack={this.props.playingTrack} />
         <PlayList />
       </div>

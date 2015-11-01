@@ -6,7 +6,7 @@ import { addTrackToPlayList } from '../actions'
 
 class TrackList extends Component {
   componentWillMount() {
-    this.props.onLoad('hoge');
+    this.props.onLoad('Ruby');
   }
   render() {
     let tracks = _.map(this.props.tracks, (track) => {
@@ -15,7 +15,7 @@ class TrackList extends Component {
 
     return (
       <div>
-        <div className="track-list">{tracks}</div>
+        <div id="track-list">{tracks}</div>
       </div>
     );
   }

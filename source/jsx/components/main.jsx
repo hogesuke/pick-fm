@@ -7,7 +7,7 @@ import { fetchTracks } from '../actions'
 class Main extends Component {
   render() {
     return (
-      <div>
+      <div id="main">
         <SearchBox onChange={text => this.props.dispatch(fetchTracks(text))} />
         <TrackList onLoad={text => this.props.dispatch(fetchTracks(text))} />
       </div>
