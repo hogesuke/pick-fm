@@ -49,7 +49,7 @@ html, body, body > #content, body > #content > div {
 .track .left .add-button {
     height: 40px;
     width: 40px;
-    margin-right: 15px;
+    margin: 2px 15px 0 0;
     border: 1px solid #737373;
     background-color: #ffffff;
     color: #737373;
@@ -100,6 +100,38 @@ html, body, body > #content, body > #content > div {
 }
 
 .track .bottom .tag-list {
+    margin-top: 3px;
     padding: 5px 0;
     font-size: 13px;
+}
+
+.track .bottom .tag-list .tag {
+    margin-right: 3px;
+    padding: 2px 5px;
+    background-color: #4e8383;
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+#play-list {
+    padding: 10px 0;
+}
+
+#play-list .track {
+    padding: 4px 5px;
+}
+
+#play-list .track .head .title {
+    font-size: 15px;
+}
+
+#play-list .track .head .time {
+    padding: 2px 0 2px 5px;
+    font-size: 11px;
+    border-radius: 3px;
+}
+
+#play-list .track .bottom .tag-list {
+    padding: 4px 0;
+    font-size: 12px;
 }

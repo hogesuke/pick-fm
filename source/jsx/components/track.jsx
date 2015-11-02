@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'underscore';
 import { addTrackToPlayList } from '../actions'
 
 class Track extends Component {
   handleAddToPlayList() {
     this.props.onAddClick(this.props.track);
+  }
+  handleRemoveFromPlayList() {
+    this.props.onRemoveClick(this.props.track);
   }
   getTitle() {
     let track = this.props.track;
@@ -29,11 +33,38 @@ class Track extends Component {
 
     return `${('0' + min).slice(-2)}:${('0' + sec).slice(-2)}`
   }
+  getTags() {
+    let track = this.props.track;
+    let tags = [];
+
+    if (track.tag_en) {
+      tags = tags.concat(track.tag_en)
+    }
+    if (track.tag_ja) {
+      tags = tags.concat(track.tag_ja)
+    }
+    return tags;
+  }
   render() {
+    let addButton = null;
+    let removeButton = null;
+
+    if (this.props.onAddClick) {
+      addButton = <button className="add-button" onClick={this.handleAddToPlayList.bind(this)}>+</button>;
+    }
+    if (this.props.onRemoveClick) {
+      removeButton = <button className="remove-button" onClick={this.handleRemoveFromPlayList.bind(this)}>-</button>;
+    }
+
+    let tags = _.map(this.getTags(), (tag) => {
+      return <span className="tag">{tag}</span>;
+    });
+
     return (
       <div className="track">
         <div className="left">
-          <button className="add-button" onClick={this.handleAddToPlayList.bind(this)}>+</button>
+          {addButton}
+          {removeButton}
         </div>
         <div className="main">
           <div className="head">
@@ -44,7 +75,7 @@ class Track extends Component {
             </div>
           </div>
           <div className="bottom">
-            <div className="tag-list">{this.props.track.tag_en + ',' + this.props.track.tag_ja}</div>
+            <div className="tag-list">{tags}</div>
           </div>
         </div>
       </div>

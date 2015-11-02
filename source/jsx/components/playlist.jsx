@@ -1,18 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
+import Track from './track';
 
 export default class PlayList extends React.Component {
   render() {
-    let trackDoms = _.map(this.props.playListTracks, (track) => {
-      return <div>{track.program_name},</div>;
+    let tracks = _.map(this.props.playListTracks, (track) => {
+      return <Track track={track} />;
     });
 
     return (
-      <div>
-        <h3>Play list</h3>
-        <div>{trackDoms}</div>
-      </div>
+      <div id="play-list">{tracks}</div>
     );
   }
 }
