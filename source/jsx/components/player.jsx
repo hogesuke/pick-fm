@@ -44,9 +44,9 @@ class Player extends Component {
     }
 
     return (
-      <div>
-        <button onClick={this.play.bind(this)} disabled={isDisabled}>Play</button>
-        <button onClick={this.pause.bind(this)} disabled={isDisabled}>Pause</button>
+      <div id="player">
+        <button onClick={this.play.bind(this)} disabled={isDisabled} className="button play"><i className="fa fa-play"></i></button>
+        <button onClick={this.pause.bind(this)} disabled={isDisabled} className="button pause"><i className="fa fa-pause"></i></button>
       </div>
     );
   }

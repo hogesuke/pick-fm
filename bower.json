@@ -17,5 +17,6 @@
     "tests"
   ],
   "dependencies": {
+    "font-awesome": "~4.4.0"
   }
 }

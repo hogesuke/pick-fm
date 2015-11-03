@@ -22,7 +22,7 @@ html, body, body > #content, body > #content > div {
     width: 300px;
     padding: 10px;
     background-color: #004444;
-    color: #000000;
+    color: #FFFFFF;
 }
 
 #search-box {
@@ -68,7 +68,6 @@ html, body, body > #content, body > #content > div {
 
         .head {
             overflow: hidden;
-            padding: 10px 0;
         }
     }
 
@@ -112,6 +111,28 @@ html, body, body > #content, body > #content > div {
                 color: #ffffff;
                 border-radius: 3px;
             }
+        }
+    }
+}
+
+#player {
+    .button {
+        background-color: #FFFFFF;
+        height: 30px;
+        width: 30px;
+        margin: 3px;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        color: #737373;
+        cursor: pointer;
+
+        &:disabled {
+            background-color: rgba(255, 255, 255, 0.6);
+        }
+
+        &.play {
+        }
+        &.pause {
         }
     }
 }
