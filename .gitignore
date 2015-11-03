@@ -51,6 +51,9 @@ crashlytics-build.properties
 # built js
 www/js/bundle.js
 
+# built css
+www/css/ui.css
+
 # node
 node_modules
 
