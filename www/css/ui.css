@@ -48,6 +48,8 @@ html, body, body > #content, body > #content > div {
       border-radius: 20px;
       font-size: 14px;
       cursor: pointer; }
+      .track .left .add-button:focus {
+        outline: none; }
       .track .left .add-button:hover {
         background-color: #8fcdc5;
         border-color: #8fcdc5;
@@ -93,6 +95,8 @@ html, body, body > #content, body > #content > div {
   border-radius: 15px;
   color: #737373;
   cursor: pointer; }
+  #player .button:focus {
+    outline: none; }
   #player .button:disabled {
     background-color: rgba(255, 255, 255, 0.6); }
 
