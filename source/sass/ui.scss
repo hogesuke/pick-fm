@@ -145,9 +145,13 @@ html, body, body > #content, body > #content > div {
 
 #play-list {
     padding: 10px 0;
+    color: #434343;
 
     .track {
-        padding: 4px 5px;
+        margin-bottom: 8px;
+        padding: 10px 10px;
+        background-color: #e8e8e8;
+        border-radius: 7px;
 
         .head {
             .title {
@@ -157,6 +161,7 @@ html, body, body > #content, body > #content > div {
                 padding: 2px 0 2px 5px;
                 font-size: 11px;
                 border-radius: 3px;
+                background-color: #FFFFFF;
             }
         }
         .bottom {

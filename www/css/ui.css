@@ -101,15 +101,20 @@ html, body, body > #content, body > #content > div {
     background-color: rgba(255, 255, 255, 0.6); }
 
 #play-list {
-  padding: 10px 0; }
+  padding: 10px 0;
+  color: #434343; }
   #play-list .track {
-    padding: 4px 5px; }
+    margin-bottom: 8px;
+    padding: 10px 10px;
+    background-color: #e8e8e8;
+    border-radius: 7px; }
     #play-list .track .head .title {
       font-size: 15px; }
     #play-list .track .head .time {
       padding: 2px 0 2px 5px;
       font-size: 11px;
-      border-radius: 3px; }
+      border-radius: 3px;
+      background-color: #FFFFFF; }
     #play-list .track .bottom .tag-list {
       padding: 4px 0;
       font-size: 12px; }
