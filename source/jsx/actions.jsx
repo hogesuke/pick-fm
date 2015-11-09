@@ -12,7 +12,7 @@ if (getQueryString('environment') === 'develop') {
   elasticsearch_url = 'http://localhost:9200/';
   logLevel = 'trace';
 } else {
-  elasticsearch_url = 'http://elasticsearch.pickfm.net/';
+  elasticsearch_url = 'http://pickfm.net/elasticsearch/';
   logLevel = ['warning', 'error'];
 }
 
