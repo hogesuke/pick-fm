@@ -1,8 +1,24 @@
 import elasticsearch from 'elasticsearch';
 
+let elasticsearch_url, logLevel;
+let getQueryString = ( field, url ) => {
+  var href = url ? url : window.location.href;
+  var reg = new RegExp( '[?&]' + field + '=([^&#]*)', 'i' );
+  var string = reg.exec(href);
+  return string ? string[1] : null;
+};
+
+if (getQueryString('environment') === 'develop') {
+  elasticsearch_url = 'http://localhost:9200/';
+  logLevel = 'trace';
+} else {
+  elasticsearch_url = 'http://elasticsearch.pickfm.net/';
+  logLevel = ['warning', 'error'];
+}
+
 let client = elasticsearch.Client({
-  host: 'http://localhost:9200',
-  log: 'trace'
+  host: elasticsearch_url,
+  log: logLevel
 });
 
 export const ADD_TRACK_TO_PLAY_LIST = 'ADD_TRACK_TO_PLAY_LIST';
