@@ -46,7 +46,7 @@
           "analyzer": "ngram_analyzer"
         },
         "episode": {
-          "type": "integer"
+          "type": "string"
         },
         "tag_en": {
           "type": "string",
