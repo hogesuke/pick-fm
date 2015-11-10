@@ -15,7 +15,7 @@ CSV.open("data/tracks.csv", "r") do |f|
   f.each_with_index do |item, i|
     next if i == 0
     p item
-    `curl -XPUT 'http://localhost:9200/pickfm/track/#{item[0]}' -d '
+    `curl -XPUT 'http://localhost:9200/pickfm/track/#{i}' -d '
       {
         "id": #{i},
         "program_name": #{wrap(item[0])},
