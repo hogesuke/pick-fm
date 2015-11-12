@@ -51,8 +51,8 @@ html, body, body > #content, body > #content > div {
       .track .left .add-button:focus {
         outline: none; }
       .track .left .add-button:hover {
-        background-color: #8fcdc5;
-        border-color: #8fcdc5;
+        background-color: #49ad85;
+        border-color: #49ad85;
         color: #ffffff; }
   .track .main {
     float: left; }
@@ -67,9 +67,7 @@ html, body, body > #content, body > #content > div {
       float: left;
       padding: 3px 0 3px 5px;
       margin: 0 10px;
-      background-color: #eeeeee;
-      color: #737373;
-      border-radius: 5px;
+      color: #8c8c8c;
       font-size: 12px; }
       .track .head .time .time-length {
         float: left; }
@@ -106,15 +104,13 @@ html, body, body > #content, body > #content > div {
   #play-list .track {
     margin-bottom: 8px;
     padding: 10px 10px;
-    background-color: #e8e8e8;
+    background-color: #ffffff;
     border-radius: 7px; }
     #play-list .track .head .title {
       font-size: 15px; }
     #play-list .track .head .time {
       padding: 2px 0 2px 5px;
-      font-size: 11px;
-      border-radius: 3px;
-      background-color: #FFFFFF; }
+      font-size: 11px; }
     #play-list .track .bottom .tag-list {
       padding: 4px 0;
       font-size: 12px; }

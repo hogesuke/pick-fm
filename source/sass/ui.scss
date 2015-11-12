@@ -1,3 +1,9 @@
+$dark-green: #004444;
+$neutral-green: #4e8383;
+$light-green: #49ad85;
+$light-gray: #737373;
+$dark-gray: #434343;
+
 html {
     font-family: Arial, Roboto, “Droid Sans”, “游ゴシック”, YuGothic, “ヒラギノ角ゴ ProN W3”, “Hiragino Kaku Gothic ProN”, “メイリオ”, Meiryo, sans-serif;
 }
@@ -12,7 +18,7 @@ html, body, body > #content, body > #content > div {
     width: 700px; /* todo あとで動的に変更されるように修正する */
     min-height: 100%;
     padding: 10px;
-    color: #434343;
+    color: $dark-gray;
 }
 
 #sidebar {
@@ -21,14 +27,14 @@ html, body, body > #content, body > #content > div {
     min-height: 100%;
     width: 300px;
     padding: 10px;
-    background-color: #004444;
+    background-color: $dark-green;
     color: #FFFFFF;
 }
 
 #search-box {
     width: 100%;
     padding: 5px 10px;
-    border: 1px solid #737373;
+    border: 1px solid $light-gray;
     font-size: 20px;
 }
 
@@ -48,9 +54,9 @@ html, body, body > #content, body > #content > div {
             height: 40px;
             width: 40px;
             margin: 2px 15px 0 0;
-            border: 1px solid #737373;
+            border: 1px solid $light-gray;
             background-color: #ffffff;
-            color: #737373;
+            color: $light-gray;
             border-radius: 20px;
             font-size: 14px;
             cursor: pointer;
@@ -59,8 +65,8 @@ html, body, body > #content, body > #content > div {
                 outline: none;
             }
             &:hover {
-                background-color: #8fcdc5;
-                border-color: #8fcdc5;
+                background-color: $light-green;
+                border-color: $light-green;
                 color: #ffffff;
             }
         }
@@ -86,9 +92,7 @@ html, body, body > #content, body > #content > div {
             float: left;
             padding: 3px 0 3px 5px;
             margin: 0 10px;
-            background-color: #eeeeee;
-            color: #737373;
-            border-radius: 5px;
+            color: #8c8c8c;
             font-size: 12px;
 
             .time-length {
@@ -110,7 +114,7 @@ html, body, body > #content, body > #content > div {
             .tag {
                 margin-right: 3px;
                 padding: 2px 5px;
-                background-color: #4e8383;
+                background-color: $neutral-green;
                 color: #ffffff;
                 border-radius: 3px;
             }
@@ -126,7 +130,7 @@ html, body, body > #content, body > #content > div {
         margin: 3px;
         border: 1px solid transparent;
         border-radius: 15px;
-        color: #737373;
+        color: $light-gray;
         cursor: pointer;
 
         &:focus {
@@ -145,12 +149,12 @@ html, body, body > #content, body > #content > div {
 
 #play-list {
     padding: 10px 0;
-    color: #434343;
+    color: $dark-gray;
 
     .track {
         margin-bottom: 8px;
         padding: 10px 10px;
-        background-color: #e8e8e8;
+        background-color: #ffffff;
         border-radius: 7px;
 
         .head {
@@ -160,8 +164,6 @@ html, body, body > #content, body > #content > div {
             .time {
                 padding: 2px 0 2px 5px;
                 font-size: 11px;
-                border-radius: 3px;
-                background-color: #FFFFFF;
             }
         }
         .bottom {
