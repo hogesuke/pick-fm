@@ -2,4 +2,4 @@ source "https://rubygems.org"
 
 gem 'sinatra', '~> 1.4.6'
 gem 'sinatra-contrib', '~> 1.4.6'
-gem 'elasticsearch', '~> 1.0.14', git: 'git://github.com/elasticsearch/elasticsearch-ruby.git'
+gem 'elasticsearch', '~> 1.0.14'
