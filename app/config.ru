@@ -1,4 +1,4 @@
 require 'bundler'
 Bundler.require
 
-require './app/app'
+require './app'
