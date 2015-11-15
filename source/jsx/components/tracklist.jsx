@@ -10,7 +10,10 @@ class TrackList extends Component {
   }
   render() {
     let tracks = _.map(this.props.tracks, (track) => {
-      return <Track onAddClick={track => this.props.dispatch(addTrackToPlayList(track))} track={track} />;
+      let source = track._source;
+      let episodeTracks = _.pluck(track._episode_tracks.hits, '_source');
+
+      return <Track onAddClick={source => this.props.dispatch(addTrackToPlayList(source))} track={source} episodeTracks={episodeTracks} />;
     });
 
     return (

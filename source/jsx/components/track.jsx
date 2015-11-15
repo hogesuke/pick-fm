@@ -33,8 +33,7 @@ class Track extends Component {
 
     return `${('0' + min).slice(-2)}:${('0' + sec).slice(-2)}`
   }
-  getTags() {
-    let track = this.props.track;
+  getTags(track) {
     let tags = [];
 
     if (track.tag_en) {
@@ -46,6 +45,7 @@ class Track extends Component {
     return tags;
   }
   render() {
+    let track = this.props.track;
     let addButton = null;
     let removeButton = null;
 
@@ -56,8 +56,25 @@ class Track extends Component {
       removeButton = <button className="remove-button" onClick={this.handleRemoveFromPlayList.bind(this)}>-</button>;
     }
 
-    let tags = _.map(this.getTags(), (tag) => {
+    let tags = _.map(this.getTags(track), (tag) => {
       return <span className="tag">{tag}</span>;
+    });
+
+    let timeLineTracks = _.map(this.props.episodeTracks, (episodeTrack) => {
+      let episodeTracks   = this.props.episodeTracks;
+      let episodeEndTime  = _.last(episodeTracks).end_time;
+      let padLeftPercent  = Math.round((episodeTrack.start_time / episodeEndTime) * 100);
+      let trackPercent    = Math.round((episodeTrack.end_time / episodeEndTime) * 100) - padLeftPercent;
+      let padRightPercent = 100 - padLeftPercent - trackPercent;
+      let tags = this.getTags(episodeTrack);
+
+      return (
+        <div style={{width: '100%', height: '100%'}}>
+          <div style={{ width: `${padLeftPercent}%`, backgroundColor: 'red', float: 'left', height: '100%' }}></div>
+          <div style={{ width: `${trackPercent}%`, backgroundColor: 'blue', float: 'left', height: '100%', color: '#ffffff', fontSize: '12px', overflow: 'hidden' }}>{tags}</div>
+          <div style={{ width: `${padRightPercent}%`, backgroundColor: 'green', float: 'left', height: '100%' }}></div>
+        </div>
+      )
     });
 
     return (
@@ -76,6 +93,7 @@ class Track extends Component {
           </div>
           <div className="bottom">
             <div className="tag-list">{tags}</div>
+            <div className="time-line" style={{width: '500px', height: '20px'}}>{timeLineTracks}</div>
           </div>
         </div>
       </div>

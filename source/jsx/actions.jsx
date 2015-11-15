@@ -28,7 +28,7 @@ export function fetchTracks(searchText) {
       .get(`/api/search?search_word=${searchText}`)
       .end((err, res) => {
           return dispatch({
-            type: FETCH_TRACKS, tracks: _.pluck(res.body.hits, '_source')
+            type: FETCH_TRACKS, tracks: res.body.hits
           });
         }
       );

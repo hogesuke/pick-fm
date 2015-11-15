@@ -44,7 +44,7 @@ get '/search' do
 
   results['hits']['hits'].each do |r|
     source = r['_source']
-    episode_tracks = client.search(index: 'pickfm', body: { query: { match: { episode: source['episode'] }}})
+    episode_tracks = client.search(index: 'pickfm', body: { query: { match: { episode: source['episode'] }}, sort: 'start_time', size: 100})
 
     r['_episode_tracks'] = episode_tracks['hits']
   end
