@@ -45,6 +45,8 @@ get '/search' do
   results['hits']['hits'].each do |r|
     source = r['_source']
     episode_tracks = client.search(index: 'pickfm', body: { query: { match: { episode: source['episode'] }}})
+
+    r['_episode_tracks'] = episode_tracks['hits']
   end
 
   results['hits'].to_json
