@@ -93,7 +93,7 @@ class Track extends Component {
           </div>
           <div className="bottom">
             <div className="tag-list">{tags}</div>
-            <div className="time-line" style={{width: '500px', height: '20px'}}>{timeLineTracks}</div>
+            <div className="time-line" style={{width: '500px', height: '15px'}}>{timeLineTracks}</div>
           </div>
         </div>
       </div>
