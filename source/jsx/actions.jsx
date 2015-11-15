@@ -20,9 +20,7 @@ export const FETCH_TRACKS = 'FETCH_TRACKS';
 export function fetchTracks(searchText) {
 
   if (searchText === '') {
-    return function (dispatch) {
-      dispatch({ type: FETCH_TRACKS, tracks: [] });
-    };
+    return { type: FETCH_TRACKS, tracks: [] };
   }
 
   return function (dispatch) {

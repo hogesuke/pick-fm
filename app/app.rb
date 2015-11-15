@@ -29,10 +29,23 @@ get '/search' do
     return { msg: '検索文字列を指定してください' }.to_json
   end
 
-  client = Elasticsearch::Client.new(log: true)
+  client = Elasticsearch::Client.new(log: false)
   client.transport.reload_connections!
   client.cluster.health
-  results = client.search(index: 'pickfm', q: search_word)
+  results = client.search(index: 'pickfm', body: {
+    query: {
+        simple_query_string: {
+            fields: %w(tag_en tag_ja),
+            query: search_word,
+            default_operator: 'and'
+        }
+    }
+  })
+
+  results['hits']['hits'].each do |r|
+    source = r['_source']
+    episode_tracks = client.search(index: 'pickfm', body: { query: { match: { episode: source['episode'] }}})
+  end
 
   results['hits'].to_json
 end
