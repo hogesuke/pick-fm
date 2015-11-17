@@ -69,10 +69,10 @@ class Track extends Component {
       let tags = this.getTags(episodeTrack);
 
       return (
-        <div style={{width: '100%', height: '100%'}}>
-          <div style={{ width: `${padLeftPercent}%`, backgroundColor: 'red', float: 'left', height: '100%' }}></div>
-          <div style={{ width: `${trackPercent}%`, backgroundColor: 'blue', float: 'left', height: '100%', color: '#ffffff', fontSize: '12px', overflow: 'hidden' }}>{tags}</div>
-          <div style={{ width: `${padRightPercent}%`, backgroundColor: 'green', float: 'left', height: '100%' }}></div>
+        <div>
+          <div className="pad" style={{ width: `${padLeftPercent}%` }}></div>
+          <div className="block" style={{ width: `${trackPercent}%` }}>{tags}</div>
+          <div className="pad" style={{ width: `${padRightPercent}%` }}></div>
         </div>
       )
     });
@@ -93,7 +93,7 @@ class Track extends Component {
           </div>
           <div className="bottom">
             <div className="tag-list">{tags}</div>
-            <div className="time-line" style={{width: '500px', height: '15px'}}>{timeLineTracks}</div>
+            <div className="time-line">{timeLineTracks}</div>
           </div>
         </div>
       </div>
