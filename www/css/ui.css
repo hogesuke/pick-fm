@@ -144,3 +144,5 @@ html, body, body > #content, body > #content > div {
     #play-list .track .bottom .tag-list {
       padding: 4px 0;
       font-size: 12px; }
+    #play-list .track .bottom .time-line {
+      display: none; }
