@@ -48,6 +48,7 @@ class Track extends Component {
     let track = this.props.track;
     let addButton = null;
     let removeButton = null;
+    let episodeEndTime = _.last(this.props.episodeTracks).end_time;
 
     if (this.props.onAddClick) {
       addButton = <button className="add-button" onClick={this.handleAddToPlayList.bind(this)}>+</button>;
@@ -61,17 +62,19 @@ class Track extends Component {
     });
 
     let timeLineTracks = _.map(this.props.episodeTracks, (episodeTrack) => {
-      let episodeTracks   = this.props.episodeTracks;
-      let episodeEndTime  = _.last(episodeTracks).end_time;
       let padLeftPercent  = Math.round((episodeTrack.start_time / episodeEndTime) * 100);
       let trackPercent    = Math.round((episodeTrack.end_time / episodeEndTime) * 100) - padLeftPercent;
       let padRightPercent = 100 - padLeftPercent - trackPercent;
-      let tags = this.getTags(episodeTrack);
+      let tags = _.map(this.getTags(episodeTrack), (tag) => {
+        return <span className="tag">{tag}</span>;
+      });
+      let isSelf = episodeTrack.id === track.id;
 
       return (
-        <div>
+        <div className={ isSelf ? 'self' : '' }>
+          <div className="tags">{tags}</div>
           <div className="pad" style={{ width: `${padLeftPercent}%` }}></div>
-          <div className="block" style={{ width: `${trackPercent}%` }}>{tags}</div>
+          <div className="block" style={{ width: `${trackPercent}%` }}></div>
           <div className="pad" style={{ width: `${padRightPercent}%` }}></div>
         </div>
       )
