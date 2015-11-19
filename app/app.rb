@@ -39,7 +39,8 @@ get '/search' do
             query: search_word,
             default_operator: 'and'
         }
-    }
+    },
+    sort: 'episode'
   })
 
   results['hits']['hits'].each do |r|
