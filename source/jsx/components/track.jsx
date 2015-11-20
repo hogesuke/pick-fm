@@ -46,9 +46,13 @@ class Track extends Component {
   }
   render() {
     let track = this.props.track;
-    let addButton = null;
+    let playButton   = null;
+    let addButton    = null;
     let removeButton = null;
 
+    if (this.props.onAddClick) {
+      playButton = <button className="play-button" onClick={this.handleAddToPlayList.bind(this)}><i className="fa fa-play"></i></button>;
+    }
     if (this.props.onAddClick) {
       addButton = <button className="add-button" onClick={this.handleAddToPlayList.bind(this)}>+</button>;
     }
@@ -89,6 +93,7 @@ class Track extends Component {
     return (
       <div className="track">
         <div className="left">
+          {playButton}
           {addButton}
           {removeButton}
         </div>

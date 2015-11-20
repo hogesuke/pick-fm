@@ -37,23 +37,28 @@ html, body, body > #content, body > #content > div {
   overflow: hidden; }
   .track .left {
     float: left;
-    clear: both; }
-    .track .left .add-button {
-      height: 40px;
-      width: 40px;
-      margin: 2px 15px 0 0;
+    clear: both;
+    margin-right: 5px; }
+    .track .left button {
+      height: 30px;
+      width: 30px;
+      margin: 2px 6px 0 0;
       border: 1px solid #737373;
       background-color: #ffffff;
       color: #737373;
-      border-radius: 20px;
-      font-size: 14px;
+      border-radius: 15px;
+      font-size: 11px;
       cursor: pointer; }
-      .track .left .add-button:focus {
+      .track .left button:focus {
         outline: none; }
-      .track .left .add-button:hover {
-        background-color: #49ad85;
-        border-color: #49ad85;
+      .track .left button:hover {
         color: #ffffff; }
+    .track .left .play-button:hover {
+      background-color: #87bbff;
+      border-color: #87bbff; }
+    .track .left .add-button:hover {
+      background-color: #66ad95;
+      border-color: #66ad95; }
   .track .main {
     float: left; }
     .track .main .head {

@@ -1,6 +1,6 @@
 $dark-green: #004444;
 $neutral-green: #4e8383;
-$light-green: #49ad85;
+$light-green: #66ad95;
 $light-gray: #737373;
 $dark-gray: #434343;
 
@@ -49,26 +49,34 @@ html, body, body > #content, body > #content > div {
     .left {
         float: left;
         clear: both;
+        margin-right: 5px;
 
-        .add-button {
-            height: 40px;
-            width: 40px;
-            margin: 2px 15px 0 0;
+        button {
+            height: 30px;
+            width: 30px;
+            margin: 2px 6px 0 0;
             border: 1px solid $light-gray;
             background-color: #ffffff;
             color: $light-gray;
-            border-radius: 20px;
-            font-size: 14px;
+            border-radius: 15px;
+            font-size: 11px;
             cursor: pointer;
 
             &:focus {
                 outline: none;
             }
             &:hover {
-                background-color: $light-green;
-                border-color: $light-green;
                 color: #ffffff;
             }
+        }
+
+        .play-button:hover {
+            background-color: #87bbff;
+            border-color: #87bbff;
+        }
+        .add-button:hover {
+            background-color: $light-green;
+            border-color: $light-green;
         }
     }
 
