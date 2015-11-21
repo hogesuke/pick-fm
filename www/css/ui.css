@@ -140,7 +140,8 @@ html, body, body > #content, body > #content > div {
     margin-bottom: 8px;
     padding: 10px 10px;
     background-color: #ffffff;
-    border-radius: 7px; }
+    border-radius: 7px;
+    overflow: hidden; }
     #play-list .track .head .title {
       font-size: 15px; }
     #play-list .track .head .time {
