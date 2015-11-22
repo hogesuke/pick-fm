@@ -17,6 +17,7 @@
     "gulp-sass": "^2.1.0",
     "gulp-webpack": "^1.5.0",
     "isomorphic-fetch": "^2.1.1",
+    "jquery": "^2.1.4",
     "jsx-loader": "^0.13.2",
     "react-redux": "^2.1.1",
     "redux": "^2.0.0",
