@@ -14,8 +14,8 @@ html, body, body > #content, body > #content > div {
 
 #main {
     float: left;
+    box-sizing: border-box;
     height: 100%;
-    width: 700px; /* todo あとで動的に変更されるように修正する */
     min-height: 100%;
     padding: 10px;
     color: $dark-gray;
@@ -23,6 +23,7 @@ html, body, body > #content, body > #content > div {
 
 #sidebar {
     float: left;
+    box-sizing: border-box;
     height: 100%;
     min-height: 100%;
     width: 300px;
