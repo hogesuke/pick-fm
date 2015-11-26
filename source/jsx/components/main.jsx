@@ -8,8 +8,11 @@ class Main extends Component {
   render() {
     return (
       <div id="main" style={{ width: this.props.width }}>
-        <SearchBox onChange={text => this.props.dispatch(fetchTracks(text))} />
-        <TrackList onLoad={text => this.props.dispatch(fetchTracks(text))} />
+        <div id="tool-bar"></div>
+        <div id="main-container">
+          <SearchBox onChange={text => this.props.dispatch(fetchTracks(text))} />
+          <TrackList onLoad={text => this.props.dispatch(fetchTracks(text))} />
+        </div>
       </div>
     );
   }

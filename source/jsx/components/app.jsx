@@ -25,7 +25,7 @@ class App extends Component {
     let window_x  = $window.width();
     let sidebar_x = 300;
 
-    return window_x - sidebar_x - 20;
+    return window_x - sidebar_x;
   }
   render() {
     return (
