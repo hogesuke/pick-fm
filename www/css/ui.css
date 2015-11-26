@@ -14,6 +14,9 @@ html, body, body > #content, body > #content > div {
   color: #434343; }
 
 #tool-bar {
+  position: absolute;
+  top: 0;
+  z-index: 10000;
   height: 50px;
   width: 100%;
   background-color: #004444; }

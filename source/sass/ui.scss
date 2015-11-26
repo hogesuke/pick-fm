@@ -22,6 +22,9 @@ html, body, body > #content, body > #content > div {
 }
 
 #tool-bar {
+    position: absolute;
+    top: 0;
+    z-index: 10000;
     height: 50px;
     width: 100%;
     background-color: $dark-green;
