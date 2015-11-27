@@ -20,18 +20,11 @@ class App extends Component {
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize.bind(this));
   }
-  getMainWidth() {
-    let $window   = $(window);
-    let window_x  = $window.width();
-    let sidebar_x = 300;
-
-    return window_x - sidebar_x;
-  }
   render() {
     return (
       <div>
         <SideBar />
-        <Main width={this.state.mainWidth} />
+        <Main />
       </div>
     );
   }

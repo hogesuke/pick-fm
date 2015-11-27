@@ -13,11 +13,11 @@ html, body, body > #content, body > #content > div {
 }
 
 #main {
+    position: relative;
     float: left;
     box-sizing: border-box;
-    overflow: scroll;
     height: 100%;
-    min-height: 100%;
+    width: calc(100% - 300px);
     color: $dark-gray;
 }
 
@@ -30,8 +30,15 @@ html, body, body > #content, body > #content > div {
     background-color: $dark-green;
 }
 
-#main-container {
-    padding: 10px;
+#main-body {
+    box-sizing: border-box;
+    position: absolute;
+    top: 50px;
+    padding: 20px;
+    overflow-y: scroll;
+    height: calc(100% - 50px);
+    width: 100%;
+    min-width: 500px;
 }
 
 #sidebar {

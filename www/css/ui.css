@@ -6,11 +6,11 @@ html, body, body > #content, body > #content > div {
   height: 100%; }
 
 #main {
+  position: relative;
   float: left;
   box-sizing: border-box;
-  overflow: scroll;
   height: 100%;
-  min-height: 100%;
+  width: calc(100% - 300px);
   color: #434343; }
 
 #tool-bar {
@@ -21,8 +21,15 @@ html, body, body > #content, body > #content > div {
   width: 100%;
   background-color: #004444; }
 
-#main-container {
-  padding: 10px; }
+#main-body {
+  box-sizing: border-box;
+  position: absolute;
+  top: 50px;
+  padding: 20px;
+  overflow-y: scroll;
+  height: calc(100% - 50px);
+  width: 100%;
+  min-width: 500px; }
 
 #sidebar {
   float: left;
