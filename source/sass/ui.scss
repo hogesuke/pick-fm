@@ -4,6 +4,8 @@ $light-green: #66ad95;
 $light-gray: #737373;
 $dark-gray: #434343;
 
+$tool-bar-height: 60px;
+
 html {
     font-family: Arial, Roboto, “Droid Sans”, “游ゴシック”, YuGothic, “ヒラギノ角ゴ ProN W3”, “Hiragino Kaku Gothic ProN”, “メイリオ”, Meiryo, sans-serif;
 }
@@ -22,21 +24,23 @@ html, body, body > #content, body > #content > div {
 }
 
 #tool-bar {
+    box-sizing: border-box;
     position: absolute;
     top: 0;
     z-index: 10000;
-    height: 50px;
+    height: $tool-bar-height;
     width: 100%;
+    padding: 10px;
     background-color: $dark-green;
 }
 
 #main-body {
     box-sizing: border-box;
     position: absolute;
-    top: 50px;
+    top: $tool-bar-height;
     padding: 20px;
     overflow-y: scroll;
-    height: calc(100% - 50px);
+    height: calc(100% - #{$tool-bar-height});
     width: 100%;
     min-width: 500px;
 }

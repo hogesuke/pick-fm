@@ -14,20 +14,22 @@ html, body, body > #content, body > #content > div {
   color: #434343; }
 
 #tool-bar {
+  box-sizing: border-box;
   position: absolute;
   top: 0;
   z-index: 10000;
-  height: 50px;
+  height: 60px;
   width: 100%;
+  padding: 10px;
   background-color: #004444; }
 
 #main-body {
   box-sizing: border-box;
   position: absolute;
-  top: 50px;
+  top: 60px;
   padding: 20px;
   overflow-y: scroll;
-  height: calc(100% - 50px);
+  height: calc(100% - 60px);
   width: 100%;
   min-width: 500px; }
 

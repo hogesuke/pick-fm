@@ -8,9 +8,10 @@ class Main extends Component {
   render() {
     return (
       <div id="main">
-        <div id="tool-bar"></div>
-        <div id="main-body">
+        <div id="tool-bar">
           <SearchBox onChange={text => this.props.dispatch(fetchTracks(text))} />
+        </div>
+        <div id="main-body">
           <TrackList onLoad={text => this.props.dispatch(fetchTracks(text))} />
         </div>
       </div>
