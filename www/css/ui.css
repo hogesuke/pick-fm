@@ -20,7 +20,7 @@ html, body, body > #content, body > #content > div {
   z-index: 10000;
   height: 60px;
   width: 100%;
-  padding: 10px;
+  padding: 10px 0;
   background-color: #004444; }
 
 #main-body {
@@ -45,7 +45,7 @@ html, body, body > #content, body > #content > div {
 
 #search-box {
   box-sizing: border-box;
-  width: 100%;
+  width: calc(100% - 100px);
   padding: 5px 10px;
   border: 1px solid #737373;
   font-size: 20px; }
@@ -137,19 +137,22 @@ html, body, body > #content, body > #content > div {
     .track .bottom .time-line > div.self .block {
       background-color: #eed2cf; }
 
-#player .button {
-  background-color: #FFFFFF;
-  height: 30px;
-  width: 30px;
-  margin: 3px;
-  border: 1px solid transparent;
-  border-radius: 15px;
-  color: #737373;
-  cursor: pointer; }
-  #player .button:focus {
-    outline: none; }
-  #player .button:disabled {
-    background-color: rgba(255, 255, 255, 0.6); }
+#player {
+  float: left;
+  margin-right: 10px; }
+  #player .button {
+    background-color: #FFFFFF;
+    height: 30px;
+    width: 30px;
+    margin: 3px;
+    border: 1px solid transparent;
+    border-radius: 15px;
+    color: #737373;
+    cursor: pointer; }
+    #player .button:focus {
+      outline: none; }
+    #player .button:disabled {
+      background-color: rgba(255, 255, 255, 0.6); }
 
 #play-list {
   padding: 10px 0;
