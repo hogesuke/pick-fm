@@ -20,8 +20,7 @@ html, body, body > #content, body > #content > div {
   z-index: 10000;
   height: 60px;
   width: 100%;
-  padding: 10px 0;
-  background-color: #004444; }
+  padding: 10px 0; }
 
 #main-body {
   box-sizing: border-box;
