@@ -4,7 +4,9 @@ $light-green: #66ad95;
 $light-gray: #737373;
 $dark-gray: #434343;
 
+$side-bar-width: 80px;
 $tool-bar-height: 60px;
+$main-bar-width: 80px;
 
 html {
     font-family: Arial, Roboto, “Droid Sans”, “游ゴシック”, YuGothic, “ヒラギノ角ゴ ProN W3”, “Hiragino Kaku Gothic ProN”, “メイリオ”, Meiryo, sans-serif;
@@ -19,29 +21,37 @@ html, body, body > #content, body > #content > div {
     float: left;
     box-sizing: border-box;
     height: 100%;
-    width: calc(100% - 300px);
+    width: calc(100% - #{$side-bar-width});
     color: $dark-gray;
-}
 
-#tool-bar {
-    box-sizing: border-box;
-    position: absolute;
-    top: 0;
-    z-index: 10000;
-    height: $tool-bar-height;
-    width: 100%;
-    padding: 10px 0;
-}
+    #tool-bar {
+        box-sizing: border-box;
+        position: absolute;
+        top: 0;
+        z-index: 10000;
+        height: $tool-bar-height;
+        width: 100%;
+        padding: 10px 0;
+    }
 
-#main-body {
-    box-sizing: border-box;
-    position: absolute;
-    top: $tool-bar-height;
-    padding: 20px;
-    overflow-y: scroll;
-    height: calc(100% - #{$tool-bar-height});
-    width: 100%;
-    min-width: 500px;
+    #main-body {
+        box-sizing: border-box;
+        position: absolute;
+        top: $tool-bar-height;
+        padding: 20px;
+        overflow-y: scroll;
+        height: calc(100% - #{$tool-bar-height});
+        width: 100%;
+        min-width: 500px;
+
+        #play-list, #track-list {
+            float: left;
+        }
+
+        #play-list {
+            width: 300px;
+        }
+    }
 }
 
 #sidebar {
@@ -49,7 +59,7 @@ html, body, body > #content, body > #content > div {
     box-sizing: border-box;
     height: 100%;
     min-height: 100%;
-    width: 300px;
+    width: $side-bar-width;
     padding: 10px;
     background-color: $dark-green;
     color: #FFFFFF;

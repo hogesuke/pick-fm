@@ -16,11 +16,7 @@ class TrackList extends Component {
       return <Track onAddClick={source => this.props.dispatch(addTrackToPlayList(source))} track={source} episodeTracks={episodeTracks} />;
     });
 
-    return (
-      <div>
-        <div id="track-list">{tracks}</div>
-      </div>
-    );
+    return  <div id="track-list">{tracks}</div>;
   }
 }
 
