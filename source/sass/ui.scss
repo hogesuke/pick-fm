@@ -29,10 +29,17 @@ html, body, body > #content, body > #content > div {
         box-sizing: border-box;
         position: absolute;
         top: 0;
-        z-index: 10000;
         height: $tool-bar-height;
         width: 100%;
-        padding: 10px 0;
+        padding: 10px;
+
+        #search-box {
+            box-sizing: border-box;
+            width: 100%;
+            padding: 5px 10px;
+            border: 1px solid $light-gray;
+            font-size: 20px;
+        }
     }
 
     #main-body {
@@ -82,14 +89,6 @@ html, body, body > #content, body > #content > div {
         padding: 10px;
         background-color: #5aa2a2;
     }
-}
-
-#search-box {
-    box-sizing: border-box;
-    width: calc(100% - 100px);
-    padding: 5px 10px;
-    border: 1px solid $light-gray;
-    font-size: 20px;
 }
 
 .track {
@@ -224,8 +223,7 @@ html, body, body > #content, body > #content > div {
 }
 
 #player {
-    float: left;
-    margin-right: 10px;
+    margin-bottom: 10px;
 
     .button {
         background-color: #FFFFFF;

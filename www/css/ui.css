@@ -16,10 +16,15 @@ html, body, body > #content, body > #content > div {
     box-sizing: border-box;
     position: absolute;
     top: 0;
-    z-index: 10000;
     height: 60px;
     width: 100%;
-    padding: 10px 0; }
+    padding: 10px; }
+    #main #tool-bar #search-box {
+      box-sizing: border-box;
+      width: 100%;
+      padding: 5px 10px;
+      border: 1px solid #737373;
+      font-size: 20px; }
   #main #main-body {
     box-sizing: border-box;
     position: absolute;
@@ -58,13 +63,6 @@ html, body, body > #content, body > #content > div {
     width: 300px;
     padding: 10px;
     background-color: #5aa2a2; }
-
-#search-box {
-  box-sizing: border-box;
-  width: calc(100% - 100px);
-  padding: 5px 10px;
-  border: 1px solid #737373;
-  font-size: 20px; }
 
 .track {
   padding: 12px 10px;
@@ -154,8 +152,7 @@ html, body, body > #content, body > #content > div {
       background-color: #eed2cf; }
 
 #player {
-  float: left;
-  margin-right: 10px; }
+  margin-bottom: 10px; }
   #player .button {
     background-color: #FFFFFF;
     height: 30px;
