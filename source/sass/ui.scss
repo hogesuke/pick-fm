@@ -4,9 +4,10 @@ $light-green: #66ad95;
 $light-gray: #737373;
 $dark-gray: #434343;
 
-$side-bar-width: 80px;
+$side-bar-width: 75px;
 $tool-bar-height: 60px;
 $main-bar-width: 80px;
+$play-list-width: 300px;
 
 html {
     font-family: Arial, Roboto, “Droid Sans”, “游ゴシック”, YuGothic, “ヒラギノ角ゴ ProN W3”, “Hiragino Kaku Gothic ProN”, “メイリオ”, Meiryo, sans-serif;
@@ -38,19 +39,30 @@ html, body, body > #content, body > #content > div {
         box-sizing: border-box;
         position: absolute;
         top: $tool-bar-height;
-        padding: 20px;
-        overflow-y: scroll;
+        overflow: hidden;
         height: calc(100% - #{$tool-bar-height});
         width: 100%;
         min-width: 500px;
 
-        #play-list, #track-list {
+        #play-list {
             float: left;
+            overflow-y: auto;
+            box-sizing: border-box;
+            height: 100%;
+            width: 300px;
+            padding: 10px;
+            background-color: #5aa2a2;
         }
 
-        #play-list {
-            width: 300px;
+        #track-list {
+            float: left;
+            overflow-y: auto;
+            box-sizing: border-box;
+            padding: 10px;
+            height: 100%;
+            width: calc(100% - #{$play-list-width});
         }
+
     }
 }
 
@@ -71,9 +83,6 @@ html, body, body > #content, body > #content > div {
     padding: 5px 10px;
     border: 1px solid $light-gray;
     font-size: 20px;
-}
-
-#track-list {
 }
 
 .track {
