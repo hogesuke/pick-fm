@@ -4,7 +4,7 @@ $light-green: #66ad95;
 $light-gray: #737373;
 $dark-gray: #434343;
 
-$side-bar-width: 75px;
+$menu-list-width: 75px;
 $tool-bar-height: 60px;
 $main-bar-width: 80px;
 $play-list-width: 300px;
@@ -22,7 +22,7 @@ html, body, body > #content, body > #content > div {
     float: left;
     box-sizing: border-box;
     height: 100%;
-    width: calc(100% - #{$side-bar-width});
+    width: calc(100% - #{$menu-list-width + $play-list-width});
     color: $dark-gray;
 
     #tool-bar {
@@ -44,23 +44,13 @@ html, body, body > #content, body > #content > div {
         width: 100%;
         min-width: 500px;
 
-        #play-list {
-            float: left;
-            overflow-y: auto;
-            box-sizing: border-box;
-            height: 100%;
-            width: 300px;
-            padding: 10px;
-            background-color: #5aa2a2;
-        }
-
         #track-list {
             float: left;
             overflow-y: auto;
             box-sizing: border-box;
             padding: 10px;
             height: 100%;
-            width: calc(100% - #{$play-list-width});
+            width: 100%;
         }
 
     }
@@ -71,10 +61,27 @@ html, body, body > #content, body > #content > div {
     box-sizing: border-box;
     height: 100%;
     min-height: 100%;
-    width: $side-bar-width;
-    padding: 10px;
-    background-color: $dark-green;
     color: #FFFFFF;
+
+    #menu-list {
+        float: left;
+        overflow-y: auto;
+        box-sizing: border-box;
+        height: 100%;
+        width: $menu-list-width;
+        padding: 10px;
+        background-color: $dark-green;
+    }
+
+    #play-list {
+        float: left;
+        overflow-y: auto;
+        box-sizing: border-box;
+        height: 100%;
+        width: 300px;
+        padding: 10px;
+        background-color: #5aa2a2;
+    }
 }
 
 #search-box {

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Player from './player';
 import SearchBox from './searchbox';
-import PlayList from './playlist';
 import TrackList from './tracklist';
 import { fetchTracks } from '../actions';
 
@@ -15,7 +14,6 @@ class Main extends Component {
           <SearchBox onChange={text => this.props.dispatch(fetchTracks(text))} />
         </div>
         <div id="main-body">
-          <PlayList />
           <TrackList onLoad={text => this.props.dispatch(fetchTracks(text))} />
         </div>
       </div>

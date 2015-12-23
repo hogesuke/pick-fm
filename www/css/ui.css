@@ -10,7 +10,7 @@ html, body, body > #content, body > #content > div {
   float: left;
   box-sizing: border-box;
   height: 100%;
-  width: calc(100% - 75px);
+  width: calc(100% - 375px);
   color: #434343; }
   #main #tool-bar {
     box-sizing: border-box;
@@ -28,31 +28,36 @@ html, body, body > #content, body > #content > div {
     height: calc(100% - 60px);
     width: 100%;
     min-width: 500px; }
-    #main #main-body #play-list {
-      float: left;
-      overflow-y: auto;
-      box-sizing: border-box;
-      height: 100%;
-      width: 300px;
-      padding: 10px;
-      background-color: #5aa2a2; }
     #main #main-body #track-list {
       float: left;
       overflow-y: auto;
       box-sizing: border-box;
       padding: 10px;
       height: 100%;
-      width: calc(100% - 300px); }
+      width: 100%; }
 
 #sidebar {
   float: left;
   box-sizing: border-box;
   height: 100%;
   min-height: 100%;
-  width: 75px;
-  padding: 10px;
-  background-color: #004444;
   color: #FFFFFF; }
+  #sidebar #menu-list {
+    float: left;
+    overflow-y: auto;
+    box-sizing: border-box;
+    height: 100%;
+    width: 75px;
+    padding: 10px;
+    background-color: #004444; }
+  #sidebar #play-list {
+    float: left;
+    overflow-y: auto;
+    box-sizing: border-box;
+    height: 100%;
+    width: 300px;
+    padding: 10px;
+    background-color: #5aa2a2; }
 
 #search-box {
   box-sizing: border-box;
