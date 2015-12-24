@@ -92,23 +92,23 @@ class Track extends Component {
 
     return (
       <div className="track">
-        <div className="left">
-          {playButton}
-          {addButton}
-          {removeButton}
-        </div>
-        <div className="main">
-          <div className="head">
+        <div className="head">
+          <div className="track-information">
             <div className="title">{this.getTitle()}</div>
             <div className="time">
               <div className="time-length">{this.getTimeLength()}</div>
               <div className="time-range">（{this.getTimeRange()}）</div>
             </div>
           </div>
-          <div className="bottom">
-            <div className="tag-list">{tags}</div>
-            <div className="time-line">{timeLineTracks}</div>
+          <div className="track-controller">
+            {playButton}
+            {addButton}
+            {removeButton}
           </div>
+        </div>
+        <div className="bottom">
+          <div className="tag-list">{tags}</div>
+          <div className="time-line">{timeLineTracks}</div>
         </div>
       </div>
     );

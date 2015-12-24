@@ -92,79 +92,80 @@ html, body, body > #content, body > #content > div {
 }
 
 .track {
-    padding: 12px 10px;
+    float: left;
     overflow: hidden;
-
-    .left {
-        float: left;
-        clear: both;
-        margin-right: 5px;
-
-        button {
-            height: 30px;
-            width: 30px;
-            margin: 2px 6px 0 0;
-            border: 1px solid $light-gray;
-            background-color: #ffffff;
-            color: $light-gray;
-            border-radius: 15px;
-            font-size: 11px;
-            cursor: pointer;
-
-            &:focus {
-                outline: none;
-            }
-            &:hover {
-                color: #ffffff;
-            }
-        }
-
-        .play-button:hover {
-            background-color: #87bbff;
-            border-color: #87bbff;
-        }
-        .add-button:hover {
-            background-color: $light-green;
-            border-color: $light-green;
-        }
-    }
-
-    .main {
-        float: left;
-
-        .head {
-            overflow: hidden;
-        }
-    }
+    width: calc(50% - 20px);
+    margin: 10px;
+    box-shadow: #D7D7D7 0 0 3px 2px;
 
     .head {
         overflow: hidden;
+        padding: 10px 10px;
+        background-color: #3d3d3d;
+        color: #ffffff;
 
-        .title {
-            float: left;
-            font-size: 17px;
-        }
+        .track-information {
+            overflow: hidden;
 
-        .time {
-            float: left;
-            padding: 3px 0 3px 5px;
-            margin: 0 10px;
-            color: #8c8c8c;
-            font-size: 12px;
-
-            .time-length {
+            .title {
                 float: left;
+                font-size: 17px;
             }
 
-            .time-range {
+            .time {
                 float: left;
+                padding: 3px 0 3px 5px;
+                margin: 0 10px;
+                color: #bebebe;
+                font-size: 12px;
+
+                .time-length {
+                    float: left;
+                }
+
+                .time-range {
+                    float: left;
+                }
+            }
+        }
+
+        .track-controller {
+            clear: both;
+            margin: 5px 5px 0 0;
+
+            button {
+                height: 30px;
+                width: 30px;
+                margin: 2px 6px 0 0;
+                border: 1px solid transparent;
+                background-color: #ffffff;
+                color: $light-gray;
+                border-radius: 15px;
+                font-size: 11px;
+                cursor: pointer;
+
+                &:focus {
+                    outline: none;
+                }
+                &:hover {
+                    color: #ffffff;
+                }
+            }
+
+            .play-button:hover {
+                background-color: #87bbff;
+                border-color: #87bbff;
+            }
+            .add-button:hover {
+                background-color: $light-green;
+                border-color: $light-green;
             }
         }
     }
 
     .bottom {
         .tag-list {
-            margin-top: 3px;
+            margin: 5px 10px;
             padding: 5px 0;
             font-size: 13px;
 
@@ -181,8 +182,6 @@ html, body, body > #content, body > #content > div {
             width: 500px;
             margin-top: 5px;
             padding: 10px;
-            border: 1px solid #c6c6c6;
-            border-radius: 5px;
 
             > div {
                 width: 100%;
@@ -254,10 +253,11 @@ html, body, body > #content, body > #content > div {
     color: $dark-gray;
 
     .track {
-        margin-bottom: 8px;
-        padding: 10px 10px;
+        box-sizing: border-box;
+        margin: 0 0 8px 0;
+        width: 100%;
         background-color: #ffffff;
-        border-radius: 7px;
+        box-shadow: #346969 0 0 3px 2px;
         overflow: hidden;
 
         .head {
