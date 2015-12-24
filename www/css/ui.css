@@ -124,7 +124,8 @@ html, body, body > #content, body > #content > div {
       color: #ffffff;
       border-radius: 3px; }
   .track .bottom .time-line {
-    width: 500px;
+    box-sizing: border-box;
+    width: 100%;
     margin-top: 5px;
     padding: 10px; }
     .track .bottom .time-line > div {
@@ -148,9 +149,9 @@ html, body, body > #content, body > #content > div {
         float: left;
         box-sizing: border-box;
         height: 100%;
-        background-color: #d0eed2; }
+        background-color: #c1deea; }
     .track .bottom .time-line > div.self .block {
-      background-color: #eed2cf; }
+      background-color: #f2d5dd; }
 
 #player {
   margin-bottom: 10px; }

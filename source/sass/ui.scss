@@ -179,7 +179,8 @@ html, body, body > #content, body > #content > div {
         }
 
         .time-line {
-            width: 500px;
+            box-sizing: border-box;
+            width: 100%;
             margin-top: 5px;
             padding: 10px;
 
@@ -209,12 +210,12 @@ html, body, body > #content, body > #content > div {
                     float: left;
                     box-sizing: border-box;
                     height: 100%;
-                    background-color: #d0eed2;
+                    background-color: #c1deea;
                 }
             }
             > div.self {
                 .block {
-                    background-color: #eed2cf;
+                    background-color: #f2d5dd;
                 }
             }
         }
