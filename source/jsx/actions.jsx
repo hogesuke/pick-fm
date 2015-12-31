@@ -9,6 +9,7 @@ export function addTrackToPlayList(track) {
   };
 }
 
+// todo これいらないのでは？
 export const SEARCH_TRACKS = 'SEARCH_TRACKS';
 export function searchTracks(searchText) {
   return {
@@ -28,7 +29,7 @@ export function fetchTracks(searchText) {
       .get(`/api/search?search_word=${searchText}`)
       .end((err, res) => {
           return dispatch({
-            type: FETCH_TRACKS, tracks: res.body.hits
+            type: FETCH_TRACKS, tracks: res.body.hits, searchText
           });
         }
       );

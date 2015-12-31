@@ -45,6 +45,7 @@ class Track extends Component {
     return tags;
   }
   render() {
+    console.debug('Track: render');
     let track = this.props.track;
     let playButton   = null;
     let addButton    = null;
@@ -61,7 +62,11 @@ class Track extends Component {
     }
 
     let tags = _.map(this.getTags(track), (tag) => {
-      return <span className="tag">{tag}</span>;
+      return <span
+        className={ this.props.searchText && new RegExp(this.props.searchText, 'i').test(tag) ? 'tag hit' : 'tag' }
+      >
+        {tag}
+      </span>;
     });
 
     // todo この辺の汚い感じどうにかしたい
@@ -115,4 +120,9 @@ class Track extends Component {
   }
 }
 
-export default connect()(Track);
+export default connect(state => {
+  return {
+    searchText: state.pickApp.searchText
+  };
+})(Track);
+

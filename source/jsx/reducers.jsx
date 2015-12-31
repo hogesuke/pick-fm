@@ -17,13 +17,14 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         playListTracks: [...state.playListTracks, action.track]
       });
-    case SEARCH_TRACKS:
+    case SEARCH_TRACKS: // todo これいらないのでは？
       return Object.assign({}, state, {
         searchText: action.searchText
       });
     case FETCH_TRACKS:
       return Object.assign({}, state, {
-        tracks: action.tracks
+        tracks: action.tracks,
+        searchText: action.searchText
       });
     default:
       return state;

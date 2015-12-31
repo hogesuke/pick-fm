@@ -114,15 +114,20 @@ html, body, body > #content, body > #content > div {
         background-color: #66ad95;
         border-color: #66ad95; }
   .track .bottom .tag-list {
+    overflow: hidden;
     margin: 5px 10px;
-    padding: 5px 0;
-    font-size: 13px; }
+    padding: 5px 0; }
     .track .bottom .tag-list .tag {
-      margin-right: 3px;
-      padding: 2px 5px;
-      background-color: #4e8383;
+      display: block;
+      float: left;
+      margin: 0 3px 3px 0;
+      padding: 3px 5px;
+      background-color: #9ec4c4;
       color: #ffffff;
+      font-size: 12px;
       border-radius: 3px; }
+      .track .bottom .tag-list .tag.hit {
+        background-color: #4e8383; }
   .track .bottom .time-line {
     box-sizing: border-box;
     width: 100%;
@@ -176,11 +181,16 @@ html, body, body > #content, body > #content > div {
   background-color: #ffffff;
   box-shadow: #346969 0 0 3px 2px;
   overflow: hidden; }
-  #play-list .track .head .title {
-    font-size: 15px; }
-  #play-list .track .head .time {
-    padding: 2px 0 2px 5px;
-    font-size: 11px; }
+  #play-list .track .head {
+    padding-bottom: 0;
+    background-color: #ffffff; }
+    #play-list .track .head .title {
+      font-size: 15px;
+      color: #3d3d3d; }
+    #play-list .track .head .time {
+      padding: 2px 0 2px 5px;
+      font-size: 11px;
+      color: #737373; }
   #play-list .track .bottom .tag-list {
     padding: 4px 0;
     font-size: 12px; }

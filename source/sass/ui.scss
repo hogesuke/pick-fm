@@ -1,5 +1,5 @@
 $dark-green: #004444;
-$neutral-green: #4e8383;
+$neutral-green: #9ec4c4;
 $light-green: #66ad95;
 $light-gray: #737373;
 $dark-gray: #434343;
@@ -165,16 +165,23 @@ html, body, body > #content, body > #content > div {
 
     .bottom {
         .tag-list {
+            overflow: hidden;
             margin: 5px 10px;
             padding: 5px 0;
-            font-size: 13px;
 
             .tag {
-                margin-right: 3px;
-                padding: 2px 5px;
+                display: block;
+                float: left;
+                margin: 0 3px 3px 0;
+                padding: 3px 5px;
                 background-color: $neutral-green;
                 color: #ffffff;
+                font-size: 12px;
                 border-radius: 3px;
+
+                &.hit {
+                    background-color: #4e8383;
+                }
             }
         }
 
@@ -259,12 +266,17 @@ html, body, body > #content, body > #content > div {
         overflow: hidden;
 
         .head {
+            padding-bottom: 0;
+            background-color: #ffffff;
+
             .title {
                 font-size: 15px;
+                color: #3d3d3d;
             }
             .time {
                 padding: 2px 0 2px 5px;
                 font-size: 11px;
+                color: $light-gray;
             }
         }
         .bottom {
