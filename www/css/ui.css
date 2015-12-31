@@ -61,7 +61,7 @@ html, body, body > #content, body > #content > div {
     box-sizing: border-box;
     height: 100%;
     width: 300px;
-    padding: 10px;
+    padding: 10px 15px;
     background-color: #5aa2a2; }
 
 .track {
@@ -169,23 +169,20 @@ html, body, body > #content, body > #content > div {
     #player .button:disabled {
       background-color: rgba(255, 255, 255, 0.6); }
 
-#play-list {
-  padding: 10px 0;
-  color: #434343; }
-  #play-list .track {
-    box-sizing: border-box;
-    margin: 0 0 8px 0;
-    width: 100%;
-    background-color: #ffffff;
-    box-shadow: #346969 0 0 3px 2px;
-    overflow: hidden; }
-    #play-list .track .head .title {
-      font-size: 15px; }
-    #play-list .track .head .time {
-      padding: 2px 0 2px 5px;
-      font-size: 11px; }
-    #play-list .track .bottom .tag-list {
-      padding: 4px 0;
-      font-size: 12px; }
-    #play-list .track .bottom .time-line {
-      display: none; }
+#play-list .track {
+  box-sizing: border-box;
+  margin: 0 0 12px 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: #346969 0 0 3px 2px;
+  overflow: hidden; }
+  #play-list .track .head .title {
+    font-size: 15px; }
+  #play-list .track .head .time {
+    padding: 2px 0 2px 5px;
+    font-size: 11px; }
+  #play-list .track .bottom .tag-list {
+    padding: 4px 0;
+    font-size: 12px; }
+  #play-list .track .bottom .time-line {
+    display: none; }

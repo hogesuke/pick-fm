@@ -86,7 +86,7 @@ html, body, body > #content, body > #content > div {
         box-sizing: border-box;
         height: 100%;
         width: 300px;
-        padding: 10px;
+        padding: 10px 15px;
         background-color: #5aa2a2;
     }
 }
@@ -250,12 +250,9 @@ html, body, body > #content, body > #content > div {
 }
 
 #play-list {
-    padding: 10px 0;
-    color: $dark-gray;
-
     .track {
         box-sizing: border-box;
-        margin: 0 0 8px 0;
+        margin: 0 0 12px 0;
         width: 100%;
         background-color: #ffffff;
         box-shadow: #346969 0 0 3px 2px;
