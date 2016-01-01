@@ -45,7 +45,6 @@ class Track extends Component {
     return tags;
   }
   render() {
-    console.debug('Track: render');
     let track = this.props.track;
     let playButton   = null;
     let addButton    = null;

@@ -9,7 +9,6 @@ class TrackList extends Component {
     this.props.onLoad('Ruby');
   }
   render() {
-    console.debug('tracklist: searchText', this.props.searchText);
     let tracks = _.map(this.props.tracks, (track) => {
       let source = track._source;
       let episodeTracks = _.pluck(track._episode_tracks.hits, '_source');
