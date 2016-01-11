@@ -67,7 +67,7 @@ html, body, body > #content, body > #content > div {
 .track {
   float: left;
   overflow: hidden;
-  width: calc(50% - 20px);
+  width: calc(100% - 20px);
   margin: 10px;
   box-shadow: #D7D7D7 0 0 3px 2px; }
   .track .head {
