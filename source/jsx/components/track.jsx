@@ -7,9 +7,6 @@ class Track extends Component {
   handleAddToPlayList() {
     this.props.onAddClick(this.props.track);
   }
-  handleRemoveFromPlayList() {
-    this.props.onRemoveClick(this.props.track);
-  }
   getTitle() {
     let track = this.props.track;
     return `${track.program_name} ep${track.episode} `
@@ -47,25 +44,17 @@ class Track extends Component {
   render() {
     let track = this.props.track;
     let playButton   = null;
-    let addButton    = null;
-    let removeButton = null;
 
     if (this.props.onAddClick) {
       playButton = <button className="play-button" onClick={this.handleAddToPlayList.bind(this)}><i className="fa fa-play"></i></button>;
     }
-    if (this.props.onAddClick) {
-      addButton = <button className="add-button" onClick={this.handleAddToPlayList.bind(this)}>+</button>;
-    }
-    if (this.props.onRemoveClick) {
-      removeButton = <button className="remove-button" onClick={this.handleRemoveFromPlayList.bind(this)}>-</button>;
-    }
 
     let tags = _.map(this.getTags(track), (tag) => {
-      return <span
-        className={ this.props.searchText && new RegExp(this.props.searchText, 'i').test(tag) ? 'tag hit' : 'tag' }
-      >
-        {tag}
-      </span>;
+      return (
+        <span className={ this.props.searchText && new RegExp(this.props.searchText, 'i').test(tag) ? 'tag hit' : 'tag' } >
+          {tag}
+        </span>
+      );
     });
 
     // todo この辺の汚い感じどうにかしたい
@@ -106,8 +95,6 @@ class Track extends Component {
           </div>
           <div className="track-controller">
             {playButton}
-            {addButton}
-            {removeButton}
           </div>
         </div>
         <div className="bottom">

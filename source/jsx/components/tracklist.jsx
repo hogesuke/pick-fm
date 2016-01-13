@@ -13,7 +13,12 @@ class TrackList extends Component {
       let source = track._source;
       let episodeTracks = _.pluck(track._episode_tracks.hits, '_source');
 
-      return <Track onAddClick={source => this.props.dispatch(addTrackToPlayList(source))} track={source} episodeTracks={episodeTracks} />;
+      return (
+        <Track
+          onAddClick={source => this.props.dispatch(addTrackToPlayList(source))}
+          track={source} episodeTracks={episodeTracks}
+        />
+      );
     });
 
     return  <div id="track-list">{tracks}</div>;
