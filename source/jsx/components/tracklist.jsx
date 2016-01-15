@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
 import Track from './track';
-import { addTrackToPlayList } from '../actions'
+import { setPlayingTrack } from '../actions'
 
 class TrackList extends Component {
   componentWillMount() {
@@ -15,7 +15,7 @@ class TrackList extends Component {
 
       return (
         <Track
-          onAddClick={source => this.props.dispatch(addTrackToPlayList(source))}
+          onPlayClick={track => this.props.dispatch(setPlayingTrack(track))}
           track={source} episodeTracks={episodeTracks}
         />
       );

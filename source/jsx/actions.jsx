@@ -2,18 +2,10 @@ import elasticsearch from 'elasticsearch';
 import request from 'superagent';
 import _ from 'underscore';
 
-export const ADD_TRACK_TO_PLAY_LIST = 'ADD_TRACK_TO_PLAY_LIST';
-export function addTrackToPlayList(track) {
+export const SET_PLAYING_TRACK = 'SET_PLAYING_TRACK';
+export function setPlayingTrack(track) {
   return {
-    type: ADD_TRACK_TO_PLAY_LIST, track
-  };
-}
-
-// todo これいらないのでは？
-export const SEARCH_TRACKS = 'SEARCH_TRACKS';
-export function searchTracks(searchText) {
-  return {
-    type: SEARCH_TRACKS, searchText
+    type: SET_PLAYING_TRACK, track
   };
 }
 

@@ -26,24 +26,19 @@ class Player extends Component {
     audio.play();
   }
   isEnd(currentTime) {
-    // todo endedメソッドで判定可能っぽい。後で試してみる
     return this.props.playingTrack.end_time <= currentTime;
   }
   render() {
-    let isDisabled = true;
-    if (this.audio) {
-      isDisabled = false;
-    }
-
     return (
       <div id="player">
-        <PlayAndPauseButton
-          audio={ this.audio }
-          isDisabled={ isDisabled }
-        />
+        <PlayAndPauseButton audio={ this.audio } />
       </div>
     );
   }
 }
 
-export default connect()(Player);
+export default connect(state => {
+  return {
+    playingTrack: state.pickApp.playingTrack
+  }
+})(Player);

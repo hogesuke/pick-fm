@@ -4,15 +4,15 @@ import _ from 'underscore';
 import Player from './player';
 import Track from './track';
 
-export default class PlayList extends React.Component {
+export default class EpisodeList extends React.Component {
   render() {
-    let tracks = _.map(this.props.playListTracks, (track) => {
+    let tracks = _.map(this.props.episodeListTracks, (track) => {
       return <Track track={track} />;
     });
 
     return (
       <div id="play-list">
-        <Player playingTrack={this.props.playingTrack} />
+        <Player />
         {tracks}
       </div>
     );
@@ -21,7 +21,6 @@ export default class PlayList extends React.Component {
 
 export default connect(state => {
   return {
-    playListTracks: state.pickApp.playListTracks,
-    playingTrack  : _.last(state.pickApp.playListTracks)
+    episodeListTracks: state.pickApp.episodeListTracks
   }
-})(PlayList);
+})(EpisodeList);

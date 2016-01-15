@@ -26,7 +26,7 @@ class PlayAndPauseButton extends Component {
     return (
       <button
         onClick={ this.playOrPause.bind(this, this.props.audio) }
-        disabled={ this.props.isDisabled }
+        disabled={ this.props.audio ? false : true }
         className="button play"
       >
         <i className={ this.isPlaying(this.props.audio) ? 'fa fa-pause' : 'fa fa-play' }></i>

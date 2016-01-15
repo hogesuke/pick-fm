@@ -1,25 +1,21 @@
 import { combineReducers } from 'redux';
 import {
-  ADD_TRACK_TO_PLAY_LIST,
-  SEARCH_TRACKS,
+  SET_PLAYING_TRACK,
   FETCH_TRACKS
 } from './actions';
 
 let initialState = {
   tracks: [],
-  playListTracks: [],
+  episodeListTracks: [],
+  playingTrack: null,
   searchText: ''
 };
 
 function pickApp(state = initialState, action = "") {
   switch (action.type) {
-    case ADD_TRACK_TO_PLAY_LIST:
+    case SET_PLAYING_TRACK:
       return Object.assign({}, state, {
-        playListTracks: [...state.playListTracks, action.track]
-      });
-    case SEARCH_TRACKS: // todo これいらないのでは？
-      return Object.assign({}, state, {
-        searchText: action.searchText
+        playingTrack: action.track
       });
     case FETCH_TRACKS:
       return Object.assign({}, state, {
