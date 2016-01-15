@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
-import Player from './player';
 import Track from './track';
 
 export default class EpisodeList extends React.Component {
@@ -12,7 +11,6 @@ export default class EpisodeList extends React.Component {
 
     return (
       <div id="play-list">
-        <Player />
         {tracks}
       </div>
     );

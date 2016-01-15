@@ -38,8 +38,30 @@ html, body, body > #content, body > #content > div {
       overflow-y: auto;
       box-sizing: border-box;
       padding: 10px;
-      height: 100%;
+      height: calc(100% - 50px);
       width: 100%; }
+    #main #main-body #player {
+      float: left;
+      position: relative;
+      box-sizing: border-box;
+      height: 50px;
+      width: 100%;
+      padding: 10px;
+      background-color: #8598C4;
+      box-shadow: #D7D7D7 0 0 0 3px; }
+      #main #main-body #player .button {
+        background-color: #FFFFFF;
+        height: 30px;
+        width: 30px;
+        margin: 3px;
+        border: 1px solid transparent;
+        border-radius: 15px;
+        color: #737373;
+        cursor: pointer; }
+        #main #main-body #player .button:focus {
+          outline: none; }
+        #main #main-body #player .button:disabled {
+          background-color: rgba(255, 255, 255, 0.6); }
 
 #sidebar {
   float: left;
@@ -54,7 +76,7 @@ html, body, body > #content, body > #content > div {
     height: 100%;
     width: 75px;
     padding: 10px;
-    background-color: #004444; }
+    background-color: #243E79; }
   #sidebar #play-list {
     float: left;
     overflow-y: auto;
@@ -62,18 +84,19 @@ html, body, body > #content, body > #content > div {
     height: 100%;
     width: 300px;
     padding: 10px 15px;
-    background-color: #5aa2a2; }
+    background-color: #566EA4; }
 
 .track {
   float: left;
   overflow: hidden;
   width: calc(100% - 20px);
   margin: 10px;
-  box-shadow: #D7D7D7 0 0 3px 2px; }
+  border: solid 1px #ddd;
+  box-shadow: #ececec 0 0 0 3px; }
   .track .head {
     overflow: hidden;
     padding: 10px 10px;
-    background-color: #3d3d3d;
+    background-color: #122A60;
     color: #ffffff; }
     .track .head .track-information {
       overflow: hidden; }
@@ -157,22 +180,6 @@ html, body, body > #content, body > #content > div {
         background-color: #c1deea; }
     .track .bottom .time-line > div.self .block {
       background-color: #f2d5dd; }
-
-#player {
-  margin-bottom: 10px; }
-  #player .button {
-    background-color: #FFFFFF;
-    height: 30px;
-    width: 30px;
-    margin: 3px;
-    border: 1px solid transparent;
-    border-radius: 15px;
-    color: #737373;
-    cursor: pointer; }
-    #player .button:focus {
-      outline: none; }
-    #player .button:disabled {
-      background-color: rgba(255, 255, 255, 0.6); }
 
 #play-list .track {
   box-sizing: border-box;
