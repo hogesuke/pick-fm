@@ -65,3 +65,4 @@ vendor
 
 # db
 config/database.yml
+db/migrate
