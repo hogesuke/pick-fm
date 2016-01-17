@@ -9,6 +9,13 @@ export function setPlayingTrack(track) {
   };
 }
 
+export const SET_PLAYING_AUDIO = 'SET_PLAYING_AUDIO';
+export function setPlayingAudio(audio) {
+  return {
+    type: SET_PLAYING_AUDIO, audio
+  };
+}
+
 export const FETCH_TRACKS = 'FETCH_TRACKS';
 export function fetchTracks(searchText) {
 

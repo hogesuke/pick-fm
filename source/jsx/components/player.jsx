@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setPlayingAudio } from '../actions'
 import PlayAndPauseButton from './playAndPauseButton';
+import TimeBar from './timebar';
 
 class Player extends Component {
   componentWillReceiveProps(nextProps) {
@@ -24,6 +26,8 @@ class Player extends Component {
     }, 500);
 
     audio.play();
+
+    this.props.dispatch(setPlayingAudio(audio))
   }
   isEnd(currentTime) {
     return this.props.playingTrack.end_time <= currentTime;
@@ -31,7 +35,10 @@ class Player extends Component {
   render() {
     return (
       <div id="player">
-        <PlayAndPauseButton audio={ this.audio } />
+        <div className="controllers">
+          <PlayAndPauseButton audio={ this.audio } />
+        </div>
+        <TimeBar />
       </div>
     );
   }

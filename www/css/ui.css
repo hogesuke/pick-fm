@@ -42,26 +42,47 @@ html, body, body > #content, body > #content > div {
       width: 100%; }
     #main #main-body #player {
       float: left;
-      position: relative;
+      overflow: hidden;
       box-sizing: border-box;
+      position: relative;
       height: 50px;
       width: 100%;
       padding: 10px;
-      background-color: #8598C4;
-      box-shadow: #D7D7D7 0 0 0 3px; }
-      #main #main-body #player .button {
-        background-color: #FFFFFF;
-        height: 30px;
-        width: 30px;
-        margin: 3px;
-        border: 1px solid transparent;
-        border-radius: 15px;
-        color: #737373;
-        cursor: pointer; }
-        #main #main-body #player .button:focus {
-          outline: none; }
-        #main #main-body #player .button:disabled {
-          background-color: rgba(255, 255, 255, 0.6); }
+      background-color: #FFFFFF;
+      box-shadow: #dddddd 0 0 2px 3px; }
+      #main #main-body #player .controllers {
+        float: left;
+        box-sizing: border-box;
+        width: 200px; }
+        #main #main-body #player .controllers .button {
+          background-color: #FFFFFF;
+          height: 30px;
+          width: 30px;
+          margin: 3px;
+          border: 1px solid transparent;
+          border-radius: 15px;
+          color: #737373;
+          cursor: pointer; }
+          #main #main-body #player .controllers .button:focus {
+            outline: none; }
+          #main #main-body #player .controllers .button:disabled {
+            background-color: rgba(255, 255, 255, 0.6); }
+      #main #main-body #player #time-bar {
+        float: left;
+        box-sizing: border-box;
+        height: 3px;
+        width: calc(100% - 200px);
+        margin-top: 13px; }
+        #main #main-body #player #time-bar .fill {
+          float: left;
+          height: 100%;
+          background-color: #122a60;
+          transition: width 0.1s linear; }
+        #main #main-body #player #time-bar .unfill {
+          float: left;
+          height: 100%;
+          background-color: #dddddd;
+          transition: width 0.1s linear; }
 
 #sidebar {
   float: left;
@@ -92,7 +113,7 @@ html, body, body > #content, body > #content > div {
   width: calc(100% - 20px);
   margin: 10px;
   border: solid 1px #ddd;
-  box-shadow: #ececec 0 0 0 3px; }
+  box-shadow: #eeeeee 0 0 2px 2px; }
   .track .head {
     overflow: hidden;
     padding: 10px 10px;
