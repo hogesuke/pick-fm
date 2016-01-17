@@ -62,3 +62,6 @@ www/bower_components
 
 # bundler
 vendor
+
+# db
+config/database.yml
