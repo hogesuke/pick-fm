@@ -1,9 +1,13 @@
 # coding: utf-8
 require 'sinatra'
 require 'sinatra/reloader'
+require 'active_record'
 require 'elasticsearch'
 require 'json'
 require 'pp'
+
+ActiveRecord::Base.configurations = YAML.load_file(File.join(__dir__, '../config/database.yml'))
+ActiveRecord::Base.establish_connection(settings.environment)
 
 configure :production, :development do
   # todo
@@ -40,12 +44,26 @@ get '/search' do
             default_operator: 'and'
         }
     },
-    sort: 'episode'
+    sort: 'episode_no'
   })
 
   results['hits']['hits'].each do |r|
     source = r['_source']
-    episode_tracks = client.search(index: 'pickfm', body: { query: { match: { episode: source['episode'] }}, sort: 'start_time', size: 100})
+    episode_tracks = client.search(index: 'pickfm',
+                                   body: {
+                                       query: {
+                                           match: {
+                                               episode_no: source['episode_no']
+                                           }
+                                       },
+                                       filter: {
+                                         term: {
+                                             class: source['class']
+                                         }
+                                       },
+                                       sort: 'start_time',
+                                       size: 100
+                                   })
 
     r['_episode_tracks'] = episode_tracks['hits']
   end

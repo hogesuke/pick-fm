@@ -75,3 +75,9 @@ thirteen:
     person_id: 2
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
+
+fourteen:
+    episode_id: 99
+    person_id: 2
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>

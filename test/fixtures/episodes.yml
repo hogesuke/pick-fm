@@ -79,8 +79,17 @@ ten:
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
-98a:
+98:
     id: 98
+    program_id: 1
+    episode_no: 98
+    class: regular
+    url: http://cache.rebuild.fm/podcast-ep98.mp3
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+98a:
+    id: 99
     program_id: 1
     episode_no: 98
     class: aftershow

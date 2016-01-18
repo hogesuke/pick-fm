@@ -70,3 +70,9 @@ program_id,episode_no,class,tag_en,tag_ja,start_time,end_time
 1,98,aftershow,,"[""響け！ユーフォニアム""]",2361,2500
 1,98,aftershow,,"[""ブルーレイディスクレコーダー"",""4K"",""ソニー"",""nasne""]",2350,2696
 1,98,aftershow,,"[""ダンまち"",""ラノベ""]",2696,2973
+1,98,regular,,"[""一度死んだ話""]",0,196
+1,98,regular,"[""Docker"",""RunC""]",,197,775
+1,98,regular,"[""Elixir"",""Phoenix""]",,775,1449
+1,98,regular,"[""Crystal"",""Ruby""]",,1449,1530
+1,98,regular,"[""PM"",""Product Manager""]",,1531,4094
+1,98,regular,"[""PM"",""Product Manager""]",,1866,4094
