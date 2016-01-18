@@ -25,27 +25,13 @@
         "id": {
           "type": "integer"
         },
-        "program_name": {
-          "type": "string",
-          "analyzer": "ngram_analyzer"
+        "program_id": {
+          "type": "integer"
         },
-        "personality_en": {
-          "type": "string",
-          "analyzer": "ngram_analyzer"
+        "episode_no": {
+          "type": "integer"
         },
-        "personality_ja": {
-          "type": "string",
-          "analyzer": "ngram_analyzer"
-        },
-        "guests_en": {
-          "type": "string",
-          "analyzer": "ngram_analyzer"
-        },
-        "guests_ja": {
-          "type": "string",
-          "analyzer": "ngram_analyzer"
-        },
-        "episode": {
+        "class": {
           "type": "string"
         },
         "tag_en": {
@@ -53,10 +39,6 @@
           "analyzer": "ngram_analyzer"
         },
         "tag_ja": {
-          "type": "string",
-          "analyzer": "ngram_analyzer"
-        },
-        "url": {
           "type": "string",
           "analyzer": "ngram_analyzer"
         },

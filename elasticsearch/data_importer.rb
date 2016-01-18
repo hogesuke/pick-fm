@@ -18,17 +18,13 @@ CSV.open("data/tracks.csv", "r") do |f|
     `curl -XPUT 'http://localhost:9200/pickfm/track/#{i}' -d '
       {
         "id": #{i},
-        "program_name": #{wrap(item[0])},
-        "personality_en": #{wrap(item[1])},
-        "personality_ja": #{wrap(item[2])},
-        "guests_en": #{wrap(item[3])},
-        "guests_ja": #{wrap(item[4])},
-        "episode": #{wrap(item[5])},
-        "tag_en": #{wrap(item[6])},
-        "tag_ja": #{wrap(item[7])},
-        "url": #{wrap(item[8])},
-        "start_time": #{item[9]},
-        "end_time": #{item[10]}
+        "program_id": #{wrap(item[0])},
+        "episode_no": #{item[1]},
+        "class": #{wrap(item[2])},
+        "tag_en": #{wrap(item[3])},
+        "tag_ja": #{wrap(item[4])},
+        "start_time": #{item[5]},
+        "end_time": #{item[6]}
       }
     '`
   end
