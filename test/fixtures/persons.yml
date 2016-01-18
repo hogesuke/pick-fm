@@ -1,0 +1,89 @@
+one:
+    id: 1
+    name_ja: 宮川達彦
+    name_en: Tatsuhiko Miyagawa
+    nickname:
+    twitter_id: miyagawa
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+two:
+    id: 2
+    name_ja: 伊藤直也
+    name_en: Naoya Ito
+    nickname:
+    twitter_id: naoya_ito
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+three:
+    id: 3
+    name_ja: 江島健太郎
+    name_en: Kentaro Ejima
+    nickname:
+    twitter_id: kenn
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+four:
+    id: 4
+    name_ja: 古橋貞之
+    name_en: Sadayuki Furuhashi
+    nickname:
+    twitter_id: frsyuki
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+five:
+    id: 5
+    name_ja:
+    name_en: Kiyoto Tamura
+    nickname:
+    twitter_id: kiyototamura
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+six:
+    id: 6
+    name_ja: 高林哲
+    name_en: Satoru Takabayashi
+    nickname:
+    twitter_id:
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+seven:
+    id: 7
+    name_ja: まつもとゆきひろ
+    name_en: Yukihiro Matsumoto
+    nickname: matz
+    twitter_id: yukihiro_matz
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+eight:
+    id: 8
+    name_ja: 和田裕介
+    name_en: Yusuke Wada
+    nickname: ゆーすけべー
+    twitter_id: yusukebe
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+nine:
+    id: 9
+    name_ja:
+    name_en: Kenta Murata
+    nickname:
+    twitter_id: mrkn
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+ten:
+    id: 10
+    name_ja:
+    name_en: Ryo Nakamura
+    nickname:
+    twitter_id: r7kamura
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>

@@ -1,0 +1,11 @@
+one:
+    person_id: 1
+    program_id: 1
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+two:
+    person_id: 8
+    program_id: 2
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>

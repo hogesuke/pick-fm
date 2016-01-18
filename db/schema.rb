@@ -38,16 +38,16 @@ ActiveRecord::Schema.define(version: 20160117084949) do
     t.datetime "updated_at"
   end
 
-  create_table "programs", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "description", limit: 255
+  create_table "persons_programs", id: false, force: :cascade do |t|
+    t.integer  "person_id",  limit: 4
+    t.integer  "program_id", limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "programs_persons", id: false, force: :cascade do |t|
-    t.integer  "program_id", limit: 4
-    t.integer  "person_id",  limit: 4
+  create_table "programs", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.string   "description", limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

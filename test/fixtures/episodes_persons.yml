@@ -1,0 +1,77 @@
+one:
+    episode_id: 1
+    person_id: 2
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+two:
+    episode_id: 2
+    person_id: 3
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+three:
+    episode_id: 3
+    person_id: 4
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+four:
+    episode_id: 3
+    person_id: 5
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+five:
+    episode_id: 4
+    person_id: 6
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+six:
+    episode_id: 5
+    person_id: 7
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+seven:
+    episode_id: 6
+    person_id: 2
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+eight:
+    episode_id: 7
+    person_id: 8
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+nine:
+    episode_id: 8
+    person_id: 2
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+ten:
+    episode_id: 8
+    person_id: 6
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+eleven:
+    episode_id: 10
+    person_id: 9
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+twelve:
+    episode_id: 10
+    person_id: 10
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+thirteen:
+    episode_id: 98
+    person_id: 2
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>

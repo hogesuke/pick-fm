@@ -1,0 +1,13 @@
+one:
+    id: 1
+    name: Rebuild.fm
+    description: リビルドだよ
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+two:
+    id: 2
+    name: wada.fm
+    description: ワダエフエムだよ
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
