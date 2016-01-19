@@ -3,7 +3,8 @@
     "analysis": {
       "analyzer": {
         "ngram_analyzer": {
-          "tokenizer": "ngram_tokenizer"
+          "tokenizer": "ngram_tokenizer",
+          "filter": [ "greek_lowercase_filter" ]
         }
       },
       "tokenizer": {
@@ -16,6 +17,9 @@
             "digit"
           ]
         }
+      },
+      "filter": {
+        "greek_lowercase_filter": { "type": "lowercase", "language": "greek" }
       }
     }
   },
