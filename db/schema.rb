@@ -14,10 +14,10 @@
 ActiveRecord::Schema.define(version: 20160117084949) do
 
   create_table "episodes", force: :cascade do |t|
-    t.integer  "program_id", limit: 4
-    t.integer  "episode_no", limit: 4
-    t.string   "class",      limit: 255
-    t.string   "url",        limit: 255
+    t.integer  "program_id",   limit: 4
+    t.integer  "episode_no",   limit: 4
+    t.string   "episode_type", limit: 255
+    t.string   "url",          limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

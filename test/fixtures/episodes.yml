@@ -2,7 +2,7 @@ one:
     id: 1
     program_id: 1
     episode_no: 1
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep1-r2.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
@@ -11,7 +11,7 @@ two:
     id: 2
     program_id: 1
     episode_no: 2
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep2.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
@@ -20,7 +20,7 @@ three:
     id: 3
     program_id: 1
     episode_no: 3
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep3.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
@@ -29,7 +29,7 @@ four:
     id: 4
     program_id: 1
     episode_no: 4
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep4.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
@@ -38,7 +38,7 @@ five:
     id: 5
     program_id: 1
     episode_no: 5
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep5.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
@@ -47,7 +47,7 @@ six:
     id: 6
     program_id: 1
     episode_no: 6
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep6.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
@@ -56,7 +56,7 @@ seven:
     id: 7
     program_id: 1
     episode_no: 7
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep7.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
@@ -65,7 +65,7 @@ eight:
     id: 8
     program_id: 1
     episode_no: 8
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep8.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
@@ -74,25 +74,25 @@ ten:
     id: 10
     program_id: 1
     episode_no: 10
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep10.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
 98:
-    id: 98
+    id: 11
     program_id: 1
     episode_no: 98
-    class: regular
+    episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep98.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
 98a:
-    id: 99
+    id: 12
     program_id: 1
     episode_no: 98
-    class: aftershow
+    episode_type: aftershow
     url: http://cache.rebuild.fm/podcast-ep98a.mp3
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
