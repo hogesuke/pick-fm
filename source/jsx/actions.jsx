@@ -28,7 +28,10 @@ export function fetchTracks(searchText) {
       .get(`/api/search?search_word=${searchText}`)
       .end((err, res) => {
           return dispatch({
-            type: FETCH_TRACKS, tracks: res.body.hits, searchText
+            type    : FETCH_TRACKS,
+            tracks  : res.body.hits,
+            episodes: res.body.episodes,
+            searchText
           });
         }
       );
