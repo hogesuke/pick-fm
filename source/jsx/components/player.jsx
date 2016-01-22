@@ -34,10 +34,18 @@ class Player extends Component {
     return this.props.playingTrack.end_time <= currentTime;
   }
   render() {
+    let episode     = this.props.playingEpisode;
+    let programName = episode && episode.program.name;
+    let episodeNo   = episode && episode.episode_no;
+
     return (
       <div id="player">
         <div className="controllers">
           <PlayAndPauseButton audio={ this.audio } />
+        </div>
+        <div className="track-info">
+          <span className="program-name">{programName}</span>
+          <span className="episode-no" style={{ display: episode ? 'inline' : 'none' }}>{episodeNo}</span>
         </div>
         <TimeBar />
       </div>

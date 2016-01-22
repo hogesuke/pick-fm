@@ -38,21 +38,34 @@ html, body, body > #content, body > #content > div {
       overflow-y: auto;
       box-sizing: border-box;
       padding: 10px;
-      height: calc(100% - 50px);
+      height: calc(100% - 60px);
       width: 100%; }
     #main #main-body #player {
       float: left;
       overflow: hidden;
       box-sizing: border-box;
       position: relative;
-      height: 50px;
+      height: 60px;
       width: 100%;
       padding: 10px;
       background-color: #FFFFFF;
       box-shadow: #dddddd 0 0 2px 3px; }
+      #main #main-body #player .track-info {
+        float: left;
+        height: 15px;
+        width: calc(100% - 200px);
+        font-size: 14px;
+        color: #737373; }
+        #main #main-body #player .track-info .episode-no {
+          margin-left: 5px; }
+          #main #main-body #player .track-info .episode-no:before {
+            content: "Episode"; }
       #main #main-body #player .controllers {
         float: left;
+        display: flex;
+        align-items: center;
         box-sizing: border-box;
+        height: 100%;
         width: 200px; }
         #main #main-body #player .controllers .button {
           background-color: #FFFFFF;
@@ -72,7 +85,7 @@ html, body, body > #content, body > #content > div {
         box-sizing: border-box;
         height: 3px;
         width: calc(100% - 200px);
-        margin-top: 13px; }
+        margin-top: 10px; }
         #main #main-body #player #time-bar .fill {
           float: left;
           height: 100%;
