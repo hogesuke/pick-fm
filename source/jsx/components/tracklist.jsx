@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
 import Track from './track';
+import { fetchTracks } from '../actions';
 
 class TrackList extends Component {
   componentWillMount() {
-    this.props.onLoad('Ruby');
+    this.props.dispatch(fetchTracks('ruby'));
   }
   getEpisode(track) {
     return this.props.episodes.find(function (e) {

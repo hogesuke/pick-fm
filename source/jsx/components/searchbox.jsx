@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { fetchTracks } from '../actions';
 
 class SearchBox extends Component {
   handleChange(event) {
-    this.props.onChange(event.target.value);
+    this.props.dispatch(fetchTracks(event.target.value));
   }
   render() {
     return (
