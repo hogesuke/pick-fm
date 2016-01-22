@@ -37,3 +37,19 @@ export function fetchTracks(searchText) {
       );
   };
 }
+
+export const FETCH_EPISODES = 'FETCH_EPISODES';
+export function fetchEpisodes(programId) {
+
+  return function (dispatch) {
+    request
+      .get(`/api/programs/${programId}/episodes`)
+      .end((err, res) => {
+          return dispatch({
+            type    : FETCH_EPISODES,
+            episodes: res.body
+          });
+        }
+      );
+  };
+}

@@ -2,17 +2,18 @@ import { combineReducers } from 'redux';
 import {
   SET_PLAYING_TRACK,
   SET_PLAYING_AUDIO,
-  FETCH_TRACKS
+  FETCH_TRACKS,
+  FETCH_EPISODES
 } from './actions';
 
 let initialState = {
-  searchResultTracks: [],
+  searchResultTracks  : [],
   searchResultEpisodes: [],
-  episodeListTracks: [],
-  playingTrack: null,
+  episodes            : [],
+  playingTrack  : null,
   playingEpisode: null,
-  playingAudio: null,
-  searchText: ''
+  playingAudio  : null,
+  searchText    : ''
 };
 
 function pickApp(state = initialState, action = "") {
@@ -31,6 +32,10 @@ function pickApp(state = initialState, action = "") {
         searchResultTracks: action.tracks,
         searchResultEpisodes: action.episodes,
         searchText: action.searchText
+      });
+    case FETCH_EPISODES:
+      return Object.assign({}, state, {
+        episodes: action.episodes
       });
     default:
       return state;
