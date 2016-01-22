@@ -65,15 +65,19 @@ get '/search' do
     source = r['_source']
     episode_tracks = client.search(index: 'pickfm',
                                    body: {
-                                       query: {
-                                           match: {
-                                               episode_no: source['episode_no']
-                                           }
-                                       },
                                        filter: {
-                                         term: {
-                                             episode_type: source['episode_type']
-                                         }
+                                           and: [
+                                               {
+                                                   term: {
+                                                       episode_no: source['episode_no'],
+                                                   }
+                                               },
+                                               {
+                                                   term: {
+                                                       episode_type: source['episode_type']
+                                                   }
+                                               }
+                                           ]
                                        },
                                        sort: 'start_time',
                                        size: 100
