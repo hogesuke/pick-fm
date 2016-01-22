@@ -35,7 +35,7 @@
         "episode_no": {
           "type": "integer"
         },
-        "class": {
+        "episode_type": {
           "type": "string"
         },
         "tag_en": {

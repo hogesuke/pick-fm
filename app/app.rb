@@ -72,7 +72,7 @@ get '/search' do
                                        },
                                        filter: {
                                          term: {
-                                             class: source['class']
+                                             episode_type: source['episode_type']
                                          }
                                        },
                                        sort: 'start_time',

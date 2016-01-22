@@ -20,7 +20,7 @@ CSV.open("data/tracks.csv", "r") do |f|
         "id": #{i},
         "program_id": #{wrap(item[0])},
         "episode_no": #{item[1]},
-        "class": #{wrap(item[2])},
+        "episode_type": #{wrap(item[2])},
         "tag_en": #{wrap(item[3])},
         "tag_ja": #{wrap(item[4])},
         "start_time": #{item[5]},
