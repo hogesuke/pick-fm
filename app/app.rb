@@ -88,7 +88,10 @@ get '/search' do
     exist = episodes.any? { |e| e['program_id'] == source['program_id'].to_i and e['episode_no'] == source['episode_no'].to_i }
 
     unless exist
-      episode = Episode.where({ :program_id => source['program_id'], :episode_no => source['episode_no'] }).first
+      episode = Episode.where({
+                                  :program_id => source['program_id'],
+                                  :episode_no => source['episode_no']
+                              }).first
       episodes.push(episode)
     end
   end
