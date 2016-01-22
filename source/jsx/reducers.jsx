@@ -10,6 +10,7 @@ let initialState = {
   searchResultEpisodes: [],
   episodeListTracks: [],
   playingTrack: null,
+  playingEpisode: null,
   playingAudio: null,
   searchText: ''
 };
@@ -18,7 +19,8 @@ function pickApp(state = initialState, action = "") {
   switch (action.type) {
     case SET_PLAYING_TRACK:
       return Object.assign({}, state, {
-        playingTrack: action.track
+        playingTrack: action.track,
+        playingEpisode: action.episode
       });
     case SET_PLAYING_AUDIO:
       return Object.assign({}, state, {

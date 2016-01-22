@@ -3,9 +3,9 @@ import request from 'superagent';
 import _ from 'underscore';
 
 export const SET_PLAYING_TRACK = 'SET_PLAYING_TRACK';
-export function setPlayingTrack(track) {
+export function setPlayingTrack(track, episode) {
   return {
-    type: SET_PLAYING_TRACK, track
+    type: SET_PLAYING_TRACK, track, episode
   };
 }
 

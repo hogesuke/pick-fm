@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
+import { setPlayingTrack } from '../actions'
 
 class Track extends Component {
-  handlePlayTrack() {
-    this.props.onPlayClick(this.props.track);
+  handlePlayClick() {
+    this.props.dispatch(setPlayingTrack(this.props.track, this.props.episode));
   }
   getTitle() {
     let track = this.props.track;
@@ -43,17 +44,6 @@ class Track extends Component {
   }
   render() {
     let track = this.props.track;
-    let playButton   = null;
-
-    if (this.props.onPlayClick) {
-      playButton = (
-        <button
-          className="play-button"
-          onClick={this.handlePlayTrack.bind(this)}>
-          <i className="fa fa-play"></i>
-        </button>
-      );
-    }
 
     let tags = _.map(this.getTags(track), (tag) => {
       return (
@@ -100,7 +90,11 @@ class Track extends Component {
             </div>
           </div>
           <div className="track-controller">
-            {playButton}
+            <button
+              className="play-button"
+              onClick={this.handlePlayClick.bind(this)}>
+              <i className="fa fa-play"></i>
+            </button>
           </div>
         </div>
         <div className="bottom">

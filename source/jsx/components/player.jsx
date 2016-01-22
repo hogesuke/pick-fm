@@ -6,7 +6,8 @@ import TimeBar from './timebar';
 
 class Player extends Component {
   componentWillReceiveProps(nextProps) {
-    let track = nextProps.playingTrack;
+    let track   = nextProps.playingTrack;
+    let episode = nextProps.playingEpisode;
 
     if (!track) return;
 
@@ -16,7 +17,7 @@ class Player extends Component {
 
     let audio = this.audio = new Audio();
     audio.currentTime = track.start_time;
-    audio.src = track.url;
+    audio.src = episode.url;
 
     let intervalID = setInterval(() => {
       if (this.isEnd(audio.currentTime)) {
@@ -46,6 +47,7 @@ class Player extends Component {
 
 export default connect(state => {
   return {
-    playingTrack: state.pickApp.playingTrack
+    playingTrack  : state.pickApp.playingTrack,
+    playingEpisode: state.pickApp.playingEpisode
   }
 })(Player);
