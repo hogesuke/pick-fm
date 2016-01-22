@@ -10,7 +10,7 @@ class Track extends Component {
   getTitle() {
     let track = this.props.track;
     let episode = this.props.episode;
-    return `${episode.program.name} ep${track.episode_no} `
+    return `${episode.program.name} Episode ${track.episode_no} `
   }
   getTimeLength() {
     let track = this.props.track;
