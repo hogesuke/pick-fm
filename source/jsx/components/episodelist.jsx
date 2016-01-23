@@ -9,11 +9,17 @@ export default class EpisodeList extends React.Component {
   }
   render() {
     let episodes = _.map(this.props.episodes, (e) => {
-      return <div>{e.episode_no}</div>;
+      return (
+        <div className="episode">
+          <div className="head">
+            <span className="title">{e.program.name} Episode {e.episode_no}</span>
+          </div>
+        </div>
+      );
     });
 
     return (
-      <div id="play-list">
+      <div id="episode-list">
         {episodes}
       </div>
     );

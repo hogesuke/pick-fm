@@ -7,7 +7,7 @@ $dark-gray: #434343;
 $menu-list-width: 75px;
 $tool-bar-height: 60px;
 $main-bar-width: 80px;
-$play-list-width: 300px;
+$episode-list-width: 300px;
 $player-controllers-width: 200px;
 $player-height: 60px;
 
@@ -24,7 +24,7 @@ html, body, body > #content, body > #content > div {
     float: left;
     box-sizing: border-box;
     height: 100%;
-    width: calc(100% - #{$menu-list-width + $play-list-width});
+    width: calc(100% - #{$menu-list-width + $episode-list-width});
     color: $dark-gray;
 
     #tool-bar {
@@ -163,7 +163,7 @@ html, body, body > #content, body > #content > div {
         background-color: $dark-blue;
     }
 
-    #play-list {
+    #episode-list {
         float: left;
         overflow-y: auto;
         box-sizing: border-box;
@@ -313,13 +313,14 @@ html, body, body > #content, body > #content > div {
     }
 }
 
-#play-list {
-    .track {
+#episode-list {
+    .episode {
         box-sizing: border-box;
-        margin: 0 0 12px 0;
+        margin-bottom: 12px;
+        padding: 5px;
         width: 100%;
         background-color: #ffffff;
-        box-shadow: #346969 0 0 3px 2px;
+        box-shadow: #122a60 0 0 3px 2px;
         overflow: hidden;
 
         .head {
