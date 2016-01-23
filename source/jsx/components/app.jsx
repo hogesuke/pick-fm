@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import _ from 'underscore';
-import $ from 'jquery';
 import { connect } from 'react-redux';
 import SideBar from './sidebar';
 import Main from './main';
@@ -10,7 +8,7 @@ class App extends Component {
     return (
       <div>
         <SideBar />
-        <Main />
+        {this.props.children}
       </div>
     );
   }
