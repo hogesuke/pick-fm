@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerStateReducer as router } from 'redux-router';
 import {
   SET_PLAYING_TRACK,
   SET_PLAYING_AUDIO,
@@ -43,7 +44,8 @@ function pickApp(state = initialState, action = "") {
 }
 
 const rootReducer = combineReducers({
-  pickApp
+  pickApp,
+  router
 });
 
 export default rootReducer;

@@ -1,19 +1,35 @@
 import React from 'react';
-import { createStore, applyMiddleware } from 'redux';
+import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { Provider } from 'react-redux';
-import App from './components/app';
+import { Route, IndexRoute } from 'react-router';
+import { createHistory } from 'history';
+import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router';
 import rootReducer from './reducers'
+import App from './components/app';
+import Main from './components/main';
 
-const createStoreWithMiddleware = applyMiddleware(
-  thunkMiddleware
-)(createStore);
+const routes = (
+  <Route path="/" component={App}>
+    <IndexRoute component={Main} />
+    <Route path="search" component={Main} />
+  </Route>
+);
 
-let store = createStoreWithMiddleware(rootReducer);
+const store = compose(
+  applyMiddleware(thunkMiddleware),
+  reduxReactRouter({
+    routes,
+    createHistory
+  })
+)(createStore)(rootReducer);
 
-React.render(
-  <Provider store={store}>
-    {() => <App />}
-  </Provider>,
+ReactDOM.render(
+  <div>
+    <Provider store={store}>
+      <ReduxRouter />
+    </Provider>
+  </div>,
   document.getElementById('content')
 );
