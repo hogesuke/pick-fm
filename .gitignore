@@ -62,7 +62,11 @@ www/bower_components
 
 # bundler
 vendor
+.bundle
 
 # db
 config/database.yml
 db/migrate
+
+# others
+www/audio
