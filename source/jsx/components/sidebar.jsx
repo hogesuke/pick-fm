@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import MenuList from './menulist';
-import EpisodeList from './episodelist';
+import MenuList from './MenuList';
+import EpisodeList from './EpisodeList';
 
 class SideBar extends Component {
   render() {

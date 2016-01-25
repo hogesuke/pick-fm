@@ -15,7 +15,10 @@ html {
     font-family: Arial, Roboto, “Droid Sans”, “游ゴシック”, YuGothic, “ヒラギノ角ゴ ProN W3”, “Hiragino Kaku Gothic ProN”, “メイリオ”, Meiryo, sans-serif;
 }
 
-html, body, body > #content, body > #content > div, body > #content > div > div {
+html, body, body > #content,
+body > #content > div,
+body > #content > div > div,
+body > #content > div > div > div {
     height: 100%;
 }
 

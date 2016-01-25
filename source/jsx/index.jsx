@@ -7,13 +7,15 @@ import { Route, IndexRoute } from 'react-router';
 import { createHistory } from 'history';
 import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router';
 import rootReducer from './reducers'
-import App from './components/app';
-import Main from './components/main';
+import App from './containers/App';
+import SearchPage from './containers/SearchPage';
+import ProgramPage from './containers/ProgramPage';
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={Main} />
-    <Route path="search" component={Main} />
+    <IndexRoute component={ProgramPage} />
+    <Route path="program" component={ProgramPage} />
+    <Route path="search" component={SearchPage} />
   </Route>
 );
 

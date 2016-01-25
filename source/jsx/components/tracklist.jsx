@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
-import Track from './track';
+import Track from './Track';
 import { fetchTracks } from '../actions';
 
 class TrackList extends Component {
