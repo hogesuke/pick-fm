@@ -4,6 +4,7 @@ one:
     episode_no: 1
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep1-r2.mp3
+    time_length: 3173
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -13,6 +14,7 @@ two:
     episode_no: 2
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep2.mp3
+    time_length: 2876
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -22,6 +24,7 @@ three:
     episode_no: 3
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep3.mp3
+    time_length: 2439
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -31,6 +34,7 @@ four:
     episode_no: 4
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep4.mp3
+    time_length: 1864
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -40,6 +44,7 @@ five:
     episode_no: 5
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep5.mp3
+    time_length: 2112
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -49,6 +54,7 @@ six:
     episode_no: 6
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep6.mp3
+    time_length: 2480
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -58,6 +64,7 @@ seven:
     episode_no: 7
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep7.mp3
+    time_length: 2406
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -67,6 +74,7 @@ eight:
     episode_no: 8
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep8.mp3
+    time_length: 1610
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -76,6 +84,7 @@ ten:
     episode_no: 10
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep10.mp3
+    time_length: 2862
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -85,6 +94,7 @@ ten:
     episode_no: 98
     episode_type: regular
     url: http://cache.rebuild.fm/podcast-ep98.mp3
+    time_length: 2782
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -94,5 +104,6 @@ ten:
     episode_no: 98
     episode_type: aftershow
     url: http://cache.rebuild.fm/podcast-ep98a.mp3
+    time_length: 3366
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>

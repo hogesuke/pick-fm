@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160117084949) do
     t.integer  "episode_no",   limit: 4
     t.string   "episode_type", limit: 255
     t.string   "url",          limit: 255
+    t.integer  "time_length",  limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
   end
