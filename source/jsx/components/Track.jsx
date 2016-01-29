@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
 import { setPlayingTrack } from '../actions'
+import TimeLine from '../components/TimeLine';
 
 class Track extends Component {
   handlePlayClick() {
@@ -43,7 +44,7 @@ class Track extends Component {
     return tags;
   }
   render() {
-    let track = this.props.track;
+    let { track, episodeTracks } = this.props;
 
     let tags = _.map(this.getTags(track), (tag) => {
       return (
@@ -52,32 +53,6 @@ class Track extends Component {
         </span>
       );
     });
-
-    // todo この辺の汚い感じどうにかしたい
-    let timeLineTracks = null;
-
-    if (!!this.props.episodeTracks) {
-      let episodeEndTime = _.last(this.props.episodeTracks).end_time;
-
-      timeLineTracks = _.map(this.props.episodeTracks, (episodeTrack) => {
-        let padLeftPercent = Math.round((episodeTrack.start_time / episodeEndTime) * 100);
-        let trackPercent = Math.round((episodeTrack.end_time / episodeEndTime) * 100) - padLeftPercent;
-        let padRightPercent = 100 - padLeftPercent - trackPercent;
-        let tags = _.map(this.getTags(episodeTrack), (tag) => {
-          return <span className="tag">{tag}</span>;
-        });
-        let isSelf = episodeTrack.id === track.id;
-
-        return (
-          <div className={ isSelf ? 'self' : '' }>
-            <div className="tags">{tags}</div>
-            <div className="pad" style={{ width: `${padLeftPercent}%` }}></div>
-            <div className="block" style={{ width: `${trackPercent}%` }}></div>
-            <div className="pad" style={{ width: `${padRightPercent}%` }}></div>
-          </div>
-        )
-      });
-    }
 
     return (
       <div className="track">
@@ -99,7 +74,9 @@ class Track extends Component {
         </div>
         <div className="bottom">
           <div className="tag-list">{tags}</div>
-          <div className="time-line">{timeLineTracks}</div>
+          <div className="time-line">
+            <TimeLine track={track} episodeTracks={episodeTracks} />
+          </div>
         </div>
       </div>
     );
