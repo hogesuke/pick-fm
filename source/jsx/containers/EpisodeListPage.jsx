@@ -1,24 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchBox from '../components/SearchBox';
-import Episode from '../components/Episode';
+import EpisodeList from '../components/EpisodeList';
 import Player from '../components/Player';
 import { setSelectedProgramId, setSelectedEpisodeId } from '../actions';
 
 class EpisodeListPage extends Component {
   componentWillMount() {
     this.setSelectedProgramId(this.props.params.programId);
-    this.setSelectedEpisodeId(this.props.params.episodeId);
   }
   componentWillReceiveProps(nextProps) {
     this.setSelectedProgramId(nextProps.params.programId);
-    this.setSelectedEpisodeId(this.props.params.episodeId);
   }
   setSelectedProgramId(id) {
     this.props.dispatch(setSelectedProgramId(id));
-  }
-  setSelectedEpisodeId(id) {
-    this.props.dispatch(setSelectedEpisodeId(id));
   }
   render() {
     return (
@@ -28,7 +23,7 @@ class EpisodeListPage extends Component {
             <SearchBox />
           </div>
           <div id="main-body">
-            <Episode />
+            <EpisodeList programId={this.props.params.programId} />
             <Player />
           </div>
         </div>

@@ -45,6 +45,7 @@ get '/search' do
     return { msg: '検索文字列を指定してください' }.to_json
   end
 
+  # todo clientって使いまわせないかね？
   client = Elasticsearch::Client.new(log: false)
   client.transport.reload_connections!
   client.cluster.health
@@ -127,6 +128,34 @@ get '/programs/:id/episodes' do
 
   program = Program.find(id)
   episodes = program.episodes
+
+  client = Elasticsearch::Client.new(log: false)
+  client.transport.reload_connections!
+  client.cluster.health
+
+  episodes.each do |e|
+    results = client.search(index: 'pickfm',
+                            body: {
+                                filter: {
+                                    and: [
+                                        {
+                                            term: {
+                                                episode_no: e.episode_no,
+                                            }
+                                        },
+                                        {
+                                            term: {
+                                                episode_type: e.episode_type
+                                            }
+                                        }
+                                    ]
+                                },
+                                sort: 'start_time',
+                                size: 100
+                            })
+
+    e.tracks = results['hits']['hits'].collect { |h| h['_source'] }
+  end
 
   episodes.to_json
 end

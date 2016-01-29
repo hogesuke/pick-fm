@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
 import { fetchEpisodes } from '../actions';
+import Episode from '../components/Episode';
 
 export default class EpisodeList extends React.Component {
   componentWillMount() {
@@ -9,13 +10,7 @@ export default class EpisodeList extends React.Component {
   }
   render() {
     let episodes = _.map(this.props.episodes, (e) => {
-      return (
-        <div className="episode">
-          <div className="head">
-            <span className="title">{e.program.name} Episode {e.episode_no}</span>
-          </div>
-        </div>
-      );
+      return <Episode episode={e} />;
     });
 
     return (
@@ -27,7 +22,11 @@ export default class EpisodeList extends React.Component {
 }
 
 EpisodeList.propTypes = {
-  programId: PropTypes.number.isRequired
+  programId: (props, propName) => {
+    if (!/^[1-9][0-9]*$/.test(props[propName])) {
+      return new Error('Validation failed!');
+    }
+  }
 };
 
 export default connect(state => {

@@ -1,37 +1,58 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
-import Track from './Track';
-import { fetchTracks } from '../actions';
+import { setPlayingTrack } from '../actions'
+import TimeLine from '../components/TimeLine';
 
-class TrackList extends Component {
-  componentWillMount() {
-    this.props.dispatch(fetchTracks('ruby'));
+class Episode extends Component {
+  handlePlayClick() {
+    this.props.dispatch(setPlayingTrack(this.props.track, this.props.episode));
   }
-  getEpisode(track) {
-    return this.props.episodes.find(function (e) {
-      return e.program_id === track.program_id && e.episode_no === track.episode_no;
-    });
+  getTitle() {
+    let { episode } = this.props;
+    return `Episode ${episode.episode_no} `
+  }
+  getTimeLength() {
+    let { episode } = this.props;
+
+    let length = episode.time_length;
+    let min    = Math.floor(length / 60);
+    let sec    = length % 60;
+
+    return `${min}m${sec}s`
   }
   render() {
-    let tracks = _.map(this.props.tracks, (track) => {
-      return (
-        <Track
-          track={track}
-          episodeTracks={track.episode_tracks}
-          episode={this.getEpisode(track)}
-        />
-      );
-    });
+    let { episode } = this.props;
 
-    return  <div id="track-list">{tracks}</div>;
+    return (
+      <div className="track">
+        <div className="head">
+          <div className="track-information">
+            <div className="title">{this.getTitle()}</div>
+            <div className="time">
+              <div className="time-length">{this.getTimeLength()}</div>
+            </div>
+          </div>
+          <div className="track-controller">
+            <button
+              className="play-button"
+              onClick={this.handlePlayClick.bind(this)}>
+              <i className="fa fa-play"></i>
+            </button>
+          </div>
+        </div>
+        <div className="bottom">
+          <div className="time-line">
+            <TimeLine episodeTracks={episode.tracks} />
+          </div>
+        </div>
+      </div>
+    );
   }
 }
 
 export default connect(state => {
   return {
-    tracks  : state.pickApp.searchResultTracks,
-    episodes: state.pickApp.searchResultEpisodes
+    searchText: state.pickApp.searchText
   };
-})(TrackList);
-
+})(Episode);
