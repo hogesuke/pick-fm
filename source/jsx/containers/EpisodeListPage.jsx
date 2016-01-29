@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SideBar from '../components/SideBar';
 import SearchBox from '../components/SearchBox';
 import Episode from '../components/Episode';
 import Player from '../components/Player';
@@ -24,7 +23,6 @@ class EpisodeListPage extends Component {
   render() {
     return (
       <div>
-        <SideBar />
         <div id="main">
           <div id="tool-bar">
             <SearchBox />
@@ -38,12 +36,5 @@ class EpisodeListPage extends Component {
     );
   }
 }
-
-//EpisodeListPage.defaultProps = {
-//  params: {
-//    programId: 1,
-//    episodeId: 1
-//  }
-//};
 
 export default connect()(EpisodeListPage);

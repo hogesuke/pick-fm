@@ -4,10 +4,8 @@ $light-green: #66ad95;
 $light-gray: #737373;
 $dark-gray: #434343;
 
-$menu-list-width: 75px;
 $tool-bar-height: 60px;
 $main-bar-width: 80px;
-$episode-list-width: 300px;
 $player-controllers-width: 200px;
 $player-height: 60px;
 
@@ -27,7 +25,7 @@ body > #content > div > div > div {
     float: left;
     box-sizing: border-box;
     height: 100%;
-    width: calc(100% - #{$menu-list-width + $episode-list-width});
+    width: 100%;
     color: $dark-gray;
 
     #tool-bar {
@@ -146,34 +144,6 @@ body > #content > div > div > div {
                 }
             }
         }
-    }
-}
-
-#sidebar {
-    float: left;
-    box-sizing: border-box;
-    height: 100%;
-    min-height: 100%;
-    color: #FFFFFF;
-
-    #menu-list {
-        float: left;
-        overflow-y: auto;
-        box-sizing: border-box;
-        height: 100%;
-        width: $menu-list-width;
-        padding: 10px;
-        background-color: $dark-blue;
-    }
-
-    #episode-list {
-        float: left;
-        overflow-y: auto;
-        box-sizing: border-box;
-        height: 100%;
-        width: 300px;
-        padding: 10px 15px;
-        background-color: #566EA4;
     }
 }
 
