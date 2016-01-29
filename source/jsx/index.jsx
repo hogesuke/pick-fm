@@ -8,13 +8,17 @@ import { createHistory } from 'history';
 import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router';
 import rootReducer from './reducers'
 import App from './containers/App';
+import ProgramListPage from './containers/ProgramListPage';
+import EpisodeListPage from './containers/EpisodeListPage';
+import EpisodeDetailPage from './containers/EpisodeDetailPage';
 import SearchPage from './containers/SearchPage';
-import ProgramPage from './containers/ProgramPage';
 
 const routes = (
   <Route path="/" component={App}>
-    <IndexRoute component={ProgramPage} />
-    <Route path="program" component={ProgramPage} />
+    <IndexRoute component={ProgramListPage} />
+    <Route path="programs" component={ProgramListPage} />
+    <Route path="programs/:programId/episodes" component={EpisodeListPage} />
+    <Route path="programs/:programId/episodes/:episodeId" component={EpisodeDetailPage} />
     <Route path="search" component={SearchPage} />
   </Route>
 );

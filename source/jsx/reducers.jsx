@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
 import { routerStateReducer as router } from 'redux-router';
 import {
+  SET_SELECTED_PROGRAM_ID,
+  SET_SELECTED_EPISODE_ID,
   SET_PLAYING_TRACK,
   SET_PLAYING_AUDIO,
   FETCH_TRACKS,
@@ -11,14 +13,24 @@ let initialState = {
   searchResultTracks  : [],
   searchResultEpisodes: [],
   episodes            : [],
-  playingTrack  : null,
-  playingEpisode: null,
-  playingAudio  : null,
-  searchText    : ''
+  selectedProgramId: null,
+  selectedEpisodeId: null,
+  playingTrack     : null,
+  playingEpisode   : null,
+  playingAudio     : null,
+  searchText       : ''
 };
 
 function pickApp(state = initialState, action = "") {
   switch (action.type) {
+    case SET_SELECTED_PROGRAM_ID:
+      return Object.assign({}, state, {
+        selectedProgramId: action.id
+      });
+    case SET_SELECTED_EPISODE_ID:
+      return Object.assign({}, state, {
+        selectedEpisodeId: action.id
+      });
     case SET_PLAYING_TRACK:
       return Object.assign({}, state, {
         playingTrack: action.track,

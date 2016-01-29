@@ -8,10 +8,14 @@ class SideBar extends Component {
     return (
       <div id="sidebar">
         <MenuList />
-        <EpisodeList />
+        <EpisodeList programId={this.props.programId} />
       </div>
     );
   }
 }
 
-export default connect()(SideBar);
+export default connect(state => {
+  return {
+    programId: state.pickApp.selectedProgramId
+  };
+})(SideBar);

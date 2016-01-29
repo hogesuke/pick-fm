@@ -2,6 +2,20 @@ import elasticsearch from 'elasticsearch';
 import request from 'superagent';
 import _ from 'underscore';
 
+export const SET_SELECTED_PROGRAM_ID = 'SET_SELECTED_PROGRAM_ID';
+export function setSelectedProgramId(id) {
+  return {
+    type: SET_SELECTED_PROGRAM_ID, id
+  };
+}
+
+export const SET_SELECTED_EPISODE_ID = 'SET_SELECTED_EPISODE_ID';
+export function setSelectedEpisodeId(id) {
+  return {
+    type: SET_SELECTED_EPISODE_ID, id
+  };
+}
+
 export const SET_PLAYING_TRACK = 'SET_PLAYING_TRACK';
 export function setPlayingTrack(track, episode) {
   return {

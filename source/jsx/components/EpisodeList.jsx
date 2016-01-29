@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
 import { fetchEpisodes } from '../actions';
 
 export default class EpisodeList extends React.Component {
   componentWillMount() {
-    this.props.dispatch(fetchEpisodes(1)); // todo program_idの指定、ハードコーディングやめたい
+    this.props.dispatch(fetchEpisodes(this.props.programId));
   }
   render() {
     let episodes = _.map(this.props.episodes, (e) => {
@@ -25,6 +25,10 @@ export default class EpisodeList extends React.Component {
     );
   }
 }
+
+EpisodeList.propTypes = {
+  programId: PropTypes.number.isRequired
+};
 
 export default connect(state => {
   return {
