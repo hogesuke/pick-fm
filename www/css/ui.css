@@ -36,7 +36,7 @@ body > #content > div > div > div {
     height: calc(100% - 60px);
     width: 100%;
     min-width: 500px; }
-    #main #main-body #track-list {
+    #main #main-body #track-list, #main #main-body #episode-list {
       float: left;
       overflow-y: auto;
       box-sizing: border-box;
@@ -194,27 +194,3 @@ body > #content > div > div > div {
         background-color: #c1deea; }
     .track .bottom .time-line > div.self .block {
       background-color: #f2d5dd; }
-
-#episode-list .episode {
-  box-sizing: border-box;
-  margin-bottom: 12px;
-  padding: 5px;
-  width: 100%;
-  background-color: #ffffff;
-  box-shadow: #122a60 0 0 3px 2px;
-  overflow: hidden; }
-  #episode-list .episode .head {
-    padding-bottom: 0;
-    background-color: #ffffff; }
-    #episode-list .episode .head .title {
-      font-size: 15px;
-      color: #3d3d3d; }
-    #episode-list .episode .head .time {
-      padding: 2px 0 2px 5px;
-      font-size: 11px;
-      color: #737373; }
-  #episode-list .episode .bottom .tag-list {
-    padding: 4px 0;
-    font-size: 12px; }
-  #episode-list .episode .bottom .time-line {
-    display: none; }

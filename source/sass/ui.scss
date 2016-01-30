@@ -54,7 +54,7 @@ body > #content > div > div > div {
         width: 100%;
         min-width: 500px;
 
-        #track-list {
+        #track-list, #episode-list {
             float: left;
             overflow-y: auto;
             box-sizing: border-box;
@@ -281,42 +281,6 @@ body > #content > div > div > div {
                 .block {
                     background-color: #f2d5dd;
                 }
-            }
-        }
-    }
-}
-
-#episode-list {
-    .episode {
-        box-sizing: border-box;
-        margin-bottom: 12px;
-        padding: 5px;
-        width: 100%;
-        background-color: #ffffff;
-        box-shadow: #122a60 0 0 3px 2px;
-        overflow: hidden;
-
-        .head {
-            padding-bottom: 0;
-            background-color: #ffffff;
-
-            .title {
-                font-size: 15px;
-                color: #3d3d3d;
-            }
-            .time {
-                padding: 2px 0 2px 5px;
-                font-size: 11px;
-                color: $light-gray;
-            }
-        }
-        .bottom {
-            .tag-list {
-                padding: 4px 0;
-                font-size: 12px;
-            }
-            .time-line {
-                display: none;
             }
         }
     }
