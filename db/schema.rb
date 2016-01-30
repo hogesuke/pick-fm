@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160117084949) do
   create_table "programs", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.string   "description", limit: 255
+    t.string   "thumbnail",   limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end

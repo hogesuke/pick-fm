@@ -10,6 +10,6 @@ two:
     id: 2
     name: wada.fm
     description: ワダエフエムだよ
-    thumbnail:
+    thumbnail: wadafm.jpg
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
