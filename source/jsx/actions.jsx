@@ -30,6 +30,22 @@ export function setPlayingAudio(audio) {
   };
 }
 
+export const FETCH_PROGRAMS = 'FETCH_PROGRAMS';
+export function fetchPrograms() {
+
+  return function (dispatch) {
+    request
+      .get(`/api/programs`)
+      .end((err, res) => {
+          return dispatch({
+            type    : FETCH_PROGRAMS,
+            programs: res.body
+          });
+        }
+      );
+  };
+}
+
 export const FETCH_TRACKS = 'FETCH_TRACKS';
 export function fetchTracks(searchText) {
 

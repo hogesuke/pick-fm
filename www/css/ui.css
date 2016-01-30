@@ -36,7 +36,7 @@ body > #content > div > div > div {
     height: calc(100% - 60px);
     width: 100%;
     min-width: 500px; }
-    #main #main-body #track-list, #main #main-body #episode-list {
+    #main #main-body #program-list, #main #main-body #track-list, #main #main-body #episode-list {
       float: left;
       overflow-y: auto;
       box-sizing: border-box;
@@ -99,6 +99,36 @@ body > #content > div > div > div {
           height: 100%;
           background-color: #dddddd;
           transition: width 0.1s linear; }
+
+.program {
+  position: relative;
+  float: left;
+  overflow: hidden;
+  height: 300px;
+  width: 300px;
+  margin: 5px 10px;
+  cursor: pointer;
+  background-size: 300px; }
+  .program .overlay {
+    position: relative;
+    height: 100%;
+    width: 100%; }
+    .program .overlay:hover {
+      background-color: rgba(255, 255, 255, 0.15); }
+  .program .description {
+    position: absolute;
+    bottom: 0;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 15px;
+    color: #EEEEEE;
+    background-color: rgba(0, 0, 0, 0.7); }
+    .program .description .title {
+      margin: 5px 0;
+      font-size: 22px;
+      letter-spacing: 1px; }
+    .program .description .personality {
+      font-size: 13px; }
 
 .track {
   float: left;

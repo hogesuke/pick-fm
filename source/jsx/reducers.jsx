@@ -5,6 +5,7 @@ import {
   SET_SELECTED_EPISODE_ID,
   SET_PLAYING_TRACK,
   SET_PLAYING_AUDIO,
+  FETCH_PROGRAMS,
   FETCH_TRACKS,
   FETCH_EPISODES
 } from './actions';
@@ -12,6 +13,7 @@ import {
 let initialState = {
   searchResultTracks  : [],
   searchResultEpisodes: [],
+  programs            : [],
   episodes            : [],
   selectedProgramId: null,
   selectedEpisodeId: null,
@@ -39,6 +41,10 @@ function pickApp(state = initialState, action = "") {
     case SET_PLAYING_AUDIO:
       return Object.assign({}, state, {
         playingAudio: action.audio
+      });
+    case FETCH_PROGRAMS:
+      return Object.assign({}, state, {
+        programs: action.programs
       });
     case FETCH_TRACKS:
       return Object.assign({}, state, {
