@@ -18,15 +18,27 @@ body > #content > div,
 body > #content > div > div,
 body > #content > div > div > div {
     height: 100%;
+    width: 100%;
+}
+
+body {
+    background-color: #efefef;
 }
 
 #main {
     position: relative;
-    float: left;
     box-sizing: border-box;
     height: 100%;
-    width: 100%;
     color: $dark-gray;
+    background-color: #ffffff;
+
+    @media screen and (min-width: 1281px) {
+        width: 1280px;
+        margin: 0 auto;
+    }
+    @media screen and (max-width: 1240px) {
+        width: 100%;
+    }
 
     #tool-bar {
         box-sizing: border-box;
@@ -35,6 +47,8 @@ body > #content > div > div > div {
         height: $tool-bar-height;
         width: 100%;
         padding: 10px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0;
+        z-index: 10000;
 
         #search-box {
             box-sizing: border-box;
@@ -72,7 +86,7 @@ body > #content > div > div > div {
             width: 100%;
             padding: 10px;
             background-color: #FFFFFF;
-            box-shadow: #dddddd 0 0 2px 3px;
+            box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px 0;
 
             .track-info {
                 float: left;
@@ -192,8 +206,8 @@ body > #content > div > div > div {
     overflow: hidden;
     width: calc(100% - 20px);
     margin: 10px;
-    border: solid 1px #ddd;
-    box-shadow: #eeeeee 0 0 2px 2px;
+    border: solid 1px #dddddd;
+    box-shadow: rgba(0, 0, 0, 0.07) 0 0 2px 1px;
 
     .head {
         overflow: hidden;

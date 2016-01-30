@@ -74,9 +74,7 @@ class Track extends Component {
         </div>
         <div className="bottom">
           <div className="tag-list">{tags}</div>
-          <div className="time-line">
-            <TimeLine track={track} episodeTracks={episodeTracks} />
-          </div>
+          <TimeLine track={track} episodeTracks={episodeTracks} />
         </div>
       </div>
     );

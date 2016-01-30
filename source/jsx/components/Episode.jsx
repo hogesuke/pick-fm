@@ -42,9 +42,7 @@ class Episode extends Component {
           </div>
         </div>
         <div className="bottom">
-          <div className="time-line">
-            <TimeLine episodeTracks={episode.tracks} />
-          </div>
+          <TimeLine episodeTracks={episode.tracks} />
         </div>
       </div>
     );
