@@ -2,6 +2,7 @@ one:
     id: 1
     name: Rebuild.fm
     description: リビルドだよ
+    thumbnail: rebuildfm.png
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
@@ -9,5 +10,6 @@ two:
     id: 2
     name: wada.fm
     description: ワダエフエムだよ
+    thumbnail:
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
