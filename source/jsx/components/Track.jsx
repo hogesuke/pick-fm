@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
-import { setPlayingTrack } from '../actions'
+import { setPlayingTrack, setPlayingEpisode } from '../actions'
 import TimeLine from '../components/TimeLine';
 
 class Track extends Component {
   handlePlayClick() {
-    this.props.dispatch(setPlayingTrack(this.props.track, this.props.episode));
+    this.props.dispatch(setPlayingTrack(this.props.track));
+    this.props.dispatch(setPlayingEpisode(this.props.episode));
   }
   getTitle() {
     let track = this.props.track;

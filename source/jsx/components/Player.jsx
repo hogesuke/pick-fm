@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setPlayingAudio } from '../actions'
+import { setPlayingAudio, setIsPlaying } from '../actions'
 import PlayAndPauseButton from './playAndPauseButton';
 import TimeBar from './timebar';
 
@@ -8,26 +8,41 @@ class Player extends Component {
   componentWillReceiveProps(nextProps) {
     let track   = nextProps.playingTrack;
     let episode = nextProps.playingEpisode;
+    let audio   = null;
 
-    if (!track) return;
+    if (!episode) { return; }
 
     if (this.audio) {
       this.audio.pause();
     }
 
-    let audio = this.audio = new Audio();
-    audio.currentTime = track.start_time;
+    audio = this.audio = new Audio();
     audio.src = episode.url;
 
-    let intervalID = setInterval(() => {
-      if (this.isEnd(audio.currentTime)) {
-        audio.pause();
-        clearInterval(intervalID);
-      }
-    }, 500);
+    if (track && episode) {
+      audio.currentTime = track.start_time;
+
+      let intervalID = setInterval(() => {
+        if (this.isEnd(audio.currentTime)) {
+          audio.pause();
+          clearInterval(intervalID);
+
+          this.props.dispatch(setIsPlaying(false));
+        }
+      }, 500);
+    }
+
+    audio.addEventListener('playing', () => {
+      this.props.dispatch(setIsPlaying(true))
+    });
+    audio.addEventListener('pause', () => {
+      this.props.dispatch(setIsPlaying(false))
+    });
+    audio.addEventListener('ended', () => {
+      this.props.dispatch(setIsPlaying(false))
+    });
 
     audio.play();
-
     this.props.dispatch(setPlayingAudio(audio))
   }
   isEnd(currentTime) {

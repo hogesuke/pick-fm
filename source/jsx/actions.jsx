@@ -17,9 +17,15 @@ export function setSelectedEpisodeId(id) {
 }
 
 export const SET_PLAYING_TRACK = 'SET_PLAYING_TRACK';
-export function setPlayingTrack(track, episode) {
+export function setPlayingTrack(track) {
   return {
-    type: SET_PLAYING_TRACK, track, episode
+    type: SET_PLAYING_TRACK, track
+  };
+}
+export const SET_PLAYING_EPISODE = 'SET_PLAYING_EPISODE';
+export function setPlayingEpisode(episode) {
+  return {
+    type: SET_PLAYING_EPISODE, episode
   };
 }
 
@@ -27,6 +33,13 @@ export const SET_PLAYING_AUDIO = 'SET_PLAYING_AUDIO';
 export function setPlayingAudio(audio) {
   return {
     type: SET_PLAYING_AUDIO, audio
+  };
+}
+
+export const SET_IS_PLAYING = 'SET_IS_PLAYING';
+export function setIsPlaying(isPlaying) {
+  return {
+    type: SET_IS_PLAYING, isPlaying
   };
 }
 

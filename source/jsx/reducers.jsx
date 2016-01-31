@@ -4,7 +4,9 @@ import {
   SET_SELECTED_PROGRAM_ID,
   SET_SELECTED_EPISODE_ID,
   SET_PLAYING_TRACK,
+  SET_PLAYING_EPISODE,
   SET_PLAYING_AUDIO,
+  SET_IS_PLAYING,
   FETCH_PROGRAMS,
   FETCH_TRACKS,
   FETCH_EPISODES
@@ -15,12 +17,13 @@ let initialState = {
   searchResultEpisodes: [],
   programs            : [],
   episodes            : [],
-  selectedProgramId: null,
-  selectedEpisodeId: null,
-  playingTrack     : null,
-  playingEpisode   : null,
-  playingAudio     : null,
-  searchText       : ''
+  selectedProgramId   : null,
+  selectedEpisodeId   : null,
+  playingTrack        : null,
+  playingEpisode      : null,
+  playingAudio        : null,
+  isPlaying           : false,
+  searchText          : ''
 };
 
 function pickApp(state = initialState, action = "") {
@@ -35,12 +38,19 @@ function pickApp(state = initialState, action = "") {
       });
     case SET_PLAYING_TRACK:
       return Object.assign({}, state, {
-        playingTrack: action.track,
+        playingTrack: action.track
+      });
+    case SET_PLAYING_EPISODE:
+      return Object.assign({}, state, {
         playingEpisode: action.episode
       });
     case SET_PLAYING_AUDIO:
       return Object.assign({}, state, {
         playingAudio: action.audio
+      });
+    case SET_IS_PLAYING:
+      return Object.assign({}, state, {
+        isPlaying: action.isPlaying
       });
     case FETCH_PROGRAMS:
       return Object.assign({}, state, {
