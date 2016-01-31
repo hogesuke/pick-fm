@@ -16,10 +16,10 @@ class Track extends Component {
   getTimeLength() {
     let track = this.props.track;
     let length = track.end_time - track.start_time;
-    let min = Math.floor(length / 60);
-    let sec = length % 60;
+    let min    = ('0' + Math.floor(length / 60)).slice(-2);
+    let sec    = ('0' + length % 60).slice(-2);
 
-    return `${min}m${sec}s`
+    return `${min}:${sec}`
   }
   getTimeRange() {
     let track = this.props.track;

@@ -17,10 +17,10 @@ class Episode extends Component {
     let { episode } = this.props;
 
     let length = episode.time_length;
-    let min    = Math.floor(length / 60);
-    let sec    = length % 60;
+    let min    = ('0' + Math.floor(length / 60)).slice(-2);
+    let sec    = ('0' + length % 60).slice(-2);
 
-    return `${min}m${sec}s`
+    return `${min}:${sec}`
   }
   render() {
     let { episode } = this.props;
