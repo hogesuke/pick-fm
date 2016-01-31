@@ -45,11 +45,11 @@ class Track extends Component {
     return tags;
   }
   render() {
-    let { track, episodeTracks } = this.props;
+    let { track, episodeTracks, searchText } = this.props;
 
     let tags = _.map(this.getTags(track), (tag) => {
       return (
-        <span className={ this.props.searchText && new RegExp(this.props.searchText, 'i').test(tag) ? 'tag hit' : 'tag' } >
+        <span key={tag} className={ searchText && new RegExp(searchText, 'i').test(tag) ? 'tag hit' : 'tag' } >
           {tag}
         </span>
       );

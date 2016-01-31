@@ -24,13 +24,13 @@ class TimeLine extends Component {
       let padRightPercent = 100 - padLeftPercent - trackPercent;
 
       let tags = _.map(this.getTags(episodeTrack), (tag) => {
-        return <span className="tag">{tag}</span>;
+        return <span key={tag} className="tag">{tag}</span>;
       });
 
       let isSelf = !!track ? episodeTrack.id === track.id : false;
 
       return (
-        <div className={ isSelf ? 'self' : '' }>
+        <div key={episodeTrack.id} className={ isSelf ? 'self' : '' }>
           <div className="tags">{tags}</div>
           <div className="pad"   style={{ width: `${padLeftPercent}%` }}></div>
           <div className="block" style={{ width: `${trackPercent}%` }}></div>

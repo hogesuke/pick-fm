@@ -10,7 +10,7 @@ export default class EpisodeList extends React.Component {
   }
   render() {
     let episodes = _.map(this.props.episodes, (e) => {
-      return <Episode episode={e} />;
+      return <Episode key={e.id} episode={e} />;
     });
 
     return (

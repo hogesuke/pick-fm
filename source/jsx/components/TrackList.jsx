@@ -17,6 +17,7 @@ class TrackList extends Component {
     let tracks = _.map(this.props.tracks, (track) => {
       return (
         <Track
+          key={track.id}
           track={track}
           episodeTracks={track.episode_tracks}
           episode={this.getEpisode(track)}
