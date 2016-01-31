@@ -9,7 +9,7 @@ class SearchBox extends Component {
   render() {
     return (
       <div>
-        <input type="text" id="search-box" onChange={this.handleChange.bind(this)} placeholder="Input search word." />
+        <input type="text" id="search-box" onChange={this.handleChange.bind(this)} placeholder="&#xf002;" />
       </div>
     );
   }

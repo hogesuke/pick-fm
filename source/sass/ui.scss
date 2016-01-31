@@ -1,8 +1,12 @@
 $dark-blue: #243E79;
 $neutral-green: #9ec4c4;
 $light-green: #66ad95;
-$light-gray: #737373;
+$light-gray: #dddddd;
+$medium-gray: #aaaaaa;
 $dark-gray: #434343;
+$text-light-gray: rgba(0, 0, 0, 0.44);
+$text-medium-gray: rgba(0, 0, 0, 0.7);
+$text-dark-gray: rgba(0, 0, 0, 0.8);
 
 $tool-bar-height: 60px;
 $main-bar-width: 80px;
@@ -29,8 +33,9 @@ body {
     position: relative;
     box-sizing: border-box;
     height: 100%;
-    color: $dark-gray;
-    background-color: #ffffff;
+    color: $text-dark-gray;
+    //background-color: #ffffff;
+    background-color: #efefef;
 
     @media screen and (min-width: 1281px) {
         width: 1280px;
@@ -47,15 +52,18 @@ body {
         height: $tool-bar-height;
         width: 100%;
         padding: 10px;
+        background-color: #ffffff;
         box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0;
         z-index: 10000;
 
         #search-box {
             box-sizing: border-box;
             width: 100%;
-            padding: 5px 10px;
-            border: 1px solid $light-gray;
+            padding: 8px 10px;
+            border: 1px solid $medium-gray;
+            font-family: FontAwesome;
             font-size: 20px;
+            color: $text-dark-gray;
         }
     }
 
@@ -93,7 +101,7 @@ body {
                 height: 15px;
                 width: calc(100% - #{$player-controllers-width});
                 font-size: 14px;
-                color: $light-gray;
+                color: $text-dark-gray;
 
                 .program-name {
 
@@ -121,7 +129,7 @@ body {
                     margin: 3px;
                     border: 1px solid transparent;
                     border-radius: 15px;
-                    color: $light-gray;
+                    color: $text-medium-gray;
                     cursor: pointer;
 
                     &:focus {
@@ -153,7 +161,7 @@ body {
                 .unfill {
                     float: left;
                     height: 100%;
-                    background-color: #dddddd;
+                    background-color: $light-gray;
                     transition: width 0.1s linear;
                 }
             }
@@ -206,29 +214,31 @@ body {
     overflow: hidden;
     width: calc(100% - 20px);
     margin: 10px;
-    border: solid 1px #dddddd;
+    background-color: #ffffff;
+    border: solid 1px $light-gray;
     box-shadow: rgba(0, 0, 0, 0.07) 0 0 2px 1px;
 
     .head {
         overflow: hidden;
-        padding: 10px 10px;
-        background-color: #122A60;
-        color: #ffffff;
+        padding: 13px;
+        border-bottom: solid 1px $light-gray;
 
         .track-information {
             overflow: hidden;
 
             .title {
                 float: left;
-                font-size: 17px;
+                margin-bottom: 7px;
+                color: $text-dark-gray;
+                font-size: 20px;
             }
 
             .time {
                 float: left;
-                padding: 3px 0 3px 5px;
-                margin: 0 10px;
-                color: #bebebe;
-                font-size: 12px;
+                //padding: 3px 0 3px 5px;
+                margin: 4px 0 0 15px;
+                color: $text-light-gray;
+                font-size: 13px;
 
                 .time-length {
                     float: left;
@@ -236,6 +246,22 @@ body {
 
                 .time-range {
                     float: left;
+                }
+            }
+
+            .guests {
+                clear: both;
+                color: $text-medium-gray;
+
+                .ahead {
+                    margin-right: 5px;
+                    font-size: 14px;
+                    color: $text-light-gray;
+                }
+
+                .guest-name {
+                    margin-right: 10px;
+                    font-size: 13px;
                 }
             }
         }
@@ -250,7 +276,7 @@ body {
                 margin: 2px 6px 0 0;
                 border: 1px solid transparent;
                 background-color: #ffffff;
-                color: $light-gray;
+                color: $text-medium-gray;
                 border-radius: 15px;
                 font-size: 11px;
                 cursor: pointer;
@@ -275,10 +301,12 @@ body {
     }
 
     .bottom {
+        padding: 13px;
+
         .tag-list {
             overflow: hidden;
-            margin: 5px 10px;
-            padding: 5px 0;
+            margin-bottom: 5px;
+            padding-bottom: 5px;
 
             .tag {
                 display: block;
@@ -299,8 +327,8 @@ body {
         .time-line {
             box-sizing: border-box;
             width: 100%;
-            margin-top: 5px;
-            padding: 10px;
+            //padding: 10px;
+            background-color: #ffffff;
 
             > div {
                 width: 100%;
@@ -312,7 +340,7 @@ body {
                     top: 0;
                     left: 0;
                     padding: 4px 0 0 4px;
-                    color: $light-gray;
+                    color: $text-light-gray;
                     font-size: 12px;
                     text-wrap: none;
 

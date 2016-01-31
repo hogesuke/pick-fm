@@ -43,6 +43,13 @@ class Track extends Component {
     }
     return tags;
   }
+  getGuestsDom() {
+    let { episode } = this.props;
+    return episode.guests.map((g) => {
+      let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
+      return <span key={name} className="guest-name">{name}</span>
+    });
+  }
   render() {
     let { track, episodeTracks, searchText } = this.props;
 
@@ -62,6 +69,10 @@ class Track extends Component {
             <div className="time">
               <div className="time-length">{this.getTimeLength()}</div>
               <div className="time-range">（{this.getTimeRange()}）</div>
+            </div>
+            <div className="guests">
+              <span className="ahead">Guests:</span>
+              {this.getGuestsDom()}
             </div>
           </div>
           <div className="track-controller">
