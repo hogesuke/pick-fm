@@ -155,10 +155,12 @@ body {
   box-shadow: rgba(0, 0, 0, 0.07) 0 0 2px 1px; }
   .track .head {
     overflow: hidden;
-    padding: 13px;
+    position: relative;
+    height: auto;
     border-bottom: solid 1px #dddddd; }
     .track .head .track-information {
-      overflow: hidden; }
+      overflow: hidden;
+      padding: 13px 13px 13px 60px; }
       .track .head .track-information .title {
         float: left;
         margin-bottom: 7px;
@@ -184,16 +186,14 @@ body {
           margin-right: 10px;
           font-size: 13px; }
     .track .head .track-controller {
-      clear: both;
-      margin: 5px 5px 0 0; }
+      position: absolute;
+      height: 100%; }
       .track .head .track-controller button {
-        height: 30px;
-        width: 30px;
-        margin: 2px 6px 0 0;
-        border: 1px solid transparent;
+        height: 100%;
+        width: 50px;
+        border: none;
         background-color: #ffffff;
         color: rgba(0, 0, 0, 0.7);
-        border-radius: 15px;
         font-size: 11px;
         cursor: pointer; }
         .track .head .track-controller button:focus {

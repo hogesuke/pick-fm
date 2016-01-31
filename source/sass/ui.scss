@@ -220,11 +220,13 @@ body {
 
     .head {
         overflow: hidden;
-        padding: 13px;
+        position: relative;
+        height: auto;
         border-bottom: solid 1px $light-gray;
 
         .track-information {
             overflow: hidden;
+            padding: 13px 13px 13px 60px;
 
             .title {
                 float: left;
@@ -235,7 +237,6 @@ body {
 
             .time {
                 float: left;
-                //padding: 3px 0 3px 5px;
                 margin: 4px 0 0 15px;
                 color: $text-light-gray;
                 font-size: 13px;
@@ -267,17 +268,15 @@ body {
         }
 
         .track-controller {
-            clear: both;
-            margin: 5px 5px 0 0;
+            position: absolute;
+            height: 100%;
 
             button {
-                height: 30px;
-                width: 30px;
-                margin: 2px 6px 0 0;
-                border: 1px solid transparent;
+                height: 100%;
+                width: 50px;
+                border: none;
                 background-color: #ffffff;
                 color: $text-medium-gray;
-                border-radius: 15px;
                 font-size: 11px;
                 cursor: pointer;
 

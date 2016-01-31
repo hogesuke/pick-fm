@@ -64,6 +64,13 @@ class Track extends Component {
     return (
       <div className="track">
         <div className="head">
+          <div className="track-controller">
+            <button
+              className="play-button"
+              onClick={this.handlePlayClick.bind(this)}>
+              <i className="fa fa-play"></i>
+            </button>
+          </div>
           <div className="track-information">
             <div className="title">{this.getTitle()}</div>
             <div className="time">
@@ -74,13 +81,6 @@ class Track extends Component {
               <span className="ahead">Guests:</span>
               {this.getGuestsDom()}
             </div>
-          </div>
-          <div className="track-controller">
-            <button
-              className="play-button"
-              onClick={this.handlePlayClick.bind(this)}>
-              <i className="fa fa-play"></i>
-            </button>
           </div>
         </div>
         <div className="bottom">
