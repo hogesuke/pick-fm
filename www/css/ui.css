@@ -40,7 +40,7 @@ body {
       width: 100%;
       padding: 8px 10px;
       border: 1px solid #aaaaaa;
-      font-family: FontAwesome;
+      font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
       font-size: 20px;
       color: rgba(0, 0, 0, 0.8); }
   #main #main-body {
