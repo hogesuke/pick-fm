@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'underscore';
 import Track from './Track';
 import { fetchTracks } from '../actions';
 
@@ -14,7 +13,7 @@ class TrackList extends Component {
     });
   }
   render() {
-    let tracks = _.map(this.props.tracks, (track) => {
+    let tracks = this.props.tracks.map((track) => {
       return (
         <Track
           key={track.id}

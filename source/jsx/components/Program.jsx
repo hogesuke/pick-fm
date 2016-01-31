@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import _ from 'underscore';
 import { setPlayingTrack } from '../actions'
 
 class Program extends Component {
   render() {
     let { program } = this.props;
 
-    let personalities = _.map(program.personalities, (p) => {
+    let personalities = program.personalities.map((p) => {
       let name = p.name_ja ? p.name_ja : (p.name_en ? p.name_en : p.nickname);
       return <span>{name}</span>
     });

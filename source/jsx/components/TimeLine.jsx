@@ -18,12 +18,12 @@ class TimeLine extends Component {
     let { track, episodeTracks } = this.props;
     let episodeEndTime = _.last(episodeTracks).end_time;
 
-    let timeLineTracks = _.map(episodeTracks, (episodeTrack) => {
+    let timeLineTracks = episodeTracks.map((episodeTrack) => {
       let padLeftPercent  = Math.round((episodeTrack.start_time / episodeEndTime) * 100);
       let trackPercent    = Math.round((episodeTrack.end_time / episodeEndTime) * 100) - padLeftPercent;
       let padRightPercent = 100 - padLeftPercent - trackPercent;
 
-      let tags = _.map(this.getTags(episodeTrack), (tag) => {
+      let tags = this.getTags(episodeTrack).map((tag) => {
         return <span key={tag} className="tag">{tag}</span>;
       });
 

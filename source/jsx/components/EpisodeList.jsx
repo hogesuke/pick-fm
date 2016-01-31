@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import _ from 'underscore';
 import { fetchEpisodes } from '../actions';
 import Episode from '../components/Episode';
 
@@ -9,7 +8,7 @@ export default class EpisodeList extends React.Component {
     this.props.dispatch(fetchEpisodes(this.props.programId));
   }
   render() {
-    let episodes = _.map(this.props.episodes, (e) => {
+    let episodes = this.props.episodes.map((e) => {
       return <Episode key={e.id} episode={e} />;
     });
 

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import _ from 'underscore';
 import { setPlayingTrack, setPlayingEpisode } from '../actions'
 import TimeLine from '../components/TimeLine';
 
@@ -47,7 +46,7 @@ class Track extends Component {
   render() {
     let { track, episodeTracks, searchText } = this.props;
 
-    let tags = _.map(this.getTags(track), (tag) => {
+    let tags = this.getTags(track).map((tag) => {
       return (
         <span key={tag} className={ searchText && new RegExp(searchText, 'i').test(tag) ? 'tag hit' : 'tag' } >
           {tag}

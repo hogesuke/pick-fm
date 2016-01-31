@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import _ from 'underscore';
 import { fetchPrograms } from '../actions';
 import Program from '../components/Program';
 
@@ -9,7 +8,7 @@ export default class ProgramList extends React.Component {
     this.props.dispatch(fetchPrograms());
   }
   render() {
-    let programs = _.map(this.props.programs, (p) => {
+    let programs = this.props.programs.map((p) => {
       return <Program program={p} />;
     });
 
