@@ -9,7 +9,7 @@ class Program extends Component {
 
     let personalities = program.personalities.map((p) => {
       let name = p.name_ja ? p.name_ja : (p.name_en ? p.name_en : p.nickname);
-      return <span>{name}</span>
+      return <span key={p.id}>{name}</span>
     });
 
     return (

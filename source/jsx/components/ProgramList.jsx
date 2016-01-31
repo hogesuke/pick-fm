@@ -9,7 +9,7 @@ export default class ProgramList extends React.Component {
   }
   render() {
     let programs = this.props.programs.map((p) => {
-      return <Program program={p} />;
+      return <Program key={p.id} program={p} />;
     });
 
     return (
