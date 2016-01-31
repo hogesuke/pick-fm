@@ -65,14 +65,15 @@ body {
       position: relative;
       height: 60px;
       width: 100%;
-      padding: 10px;
+      padding: 10px 20px;
       background-color: #FFFFFF;
       box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px 0; }
       #main #main-body #player .track-info {
         float: left;
-        height: 15px;
+        height: 18px;
         width: calc(100% - 200px);
-        font-size: 14px;
+        margin: 1px 0;
+        font-size: 16px;
         color: rgba(0, 0, 0, 0.8); }
         #main #main-body #player .track-info .episode-no {
           margin-left: 5px; }
@@ -237,7 +238,7 @@ body {
           left: 0;
           padding: 4px 0 0 4px;
           color: rgba(0, 0, 0, 0.44);
-          font-size: 12px;
+          font-size: 13px;
           text-wrap: none; }
           .track .bottom .time-line > div .tags .tag {
             padding-right: 6px; }
