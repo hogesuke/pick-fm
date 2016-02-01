@@ -204,9 +204,6 @@ body {
       .track .head .track-controller .play-button:hover {
         background-color: #87bbff;
         border-color: #87bbff; }
-      .track .head .track-controller .add-button:hover {
-        background-color: #66ad95;
-        border-color: #66ad95; }
   .track .bottom {
     padding: 13px; }
     .track .bottom .tag-list {
@@ -218,12 +215,12 @@ body {
         float: left;
         margin: 0 3px 3px 0;
         padding: 3px 5px;
-        background-color: #9ec4c4;
+        background-color: rgba(56, 110, 195, 0.37);
         color: #ffffff;
         font-size: 12px;
         border-radius: 3px; }
         .track .bottom .tag-list .tag.hit {
-          background-color: #4e8383; }
+          background-color: #386EC3; }
     .track .bottom .time-line {
       box-sizing: border-box;
       width: 100%;

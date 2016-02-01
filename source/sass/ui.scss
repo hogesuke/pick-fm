@@ -1,6 +1,3 @@
-$dark-blue: #243E79;
-$neutral-green: #9ec4c4;
-$light-green: #66ad95;
 $light-gray: #dddddd;
 $medium-gray: #aaaaaa;
 $dark-gray: #434343;
@@ -293,10 +290,6 @@ body {
                 background-color: #87bbff;
                 border-color: #87bbff;
             }
-            .add-button:hover {
-                background-color: $light-green;
-                border-color: $light-green;
-            }
         }
     }
 
@@ -313,13 +306,13 @@ body {
                 float: left;
                 margin: 0 3px 3px 0;
                 padding: 3px 5px;
-                background-color: $neutral-green;
+                background-color: rgba(56, 110, 195, 0.37);
                 color: #ffffff;
                 font-size: 12px;
                 border-radius: 3px;
 
                 &.hit {
-                    background-color: #4e8383;
+                    background-color: #386EC3;
                 }
             }
         }
