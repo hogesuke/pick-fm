@@ -56,16 +56,16 @@ body {
       overflow-y: auto;
       box-sizing: border-box;
       padding: 10px;
-      height: calc(100% - 60px);
+      height: calc(100% - 70px);
       width: 100%; }
     #main #main-body #player {
       float: left;
       overflow: hidden;
       box-sizing: border-box;
       position: relative;
-      height: 60px;
+      height: 70px;
       width: 100%;
-      padding: 10px 20px;
+      padding: 15px 20px;
       background-color: #FFFFFF;
       box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px 0; }
       #main #main-body #player .track-info {
