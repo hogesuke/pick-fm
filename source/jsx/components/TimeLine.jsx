@@ -1,45 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
+import TimeLineBlock from '../components/TimeLineBlock';
 
 class TimeLine extends Component {
-  getTags(track) {
-    let tags = [];
-
-    if (track.tag_en) {
-      tags = tags.concat(track.tag_en)
-    }
-    if (track.tag_ja) {
-      tags = tags.concat(track.tag_ja)
-    }
-    return tags;
-  }
   render() {
     let { track, episodeTracks } = this.props;
     let episodeEndTime = _.last(episodeTracks).end_time;
 
-    let timeLineTracks = episodeTracks.map((episodeTrack) => {
-      let padLeftPercent  = Math.round((episodeTrack.start_time / episodeEndTime) * 100);
-      let trackPercent    = Math.round((episodeTrack.end_time / episodeEndTime) * 100) - padLeftPercent;
-      let padRightPercent = 100 - padLeftPercent - trackPercent;
-
-      let tags = this.getTags(episodeTrack).map((tag) => {
-        return <span key={tag} className="tag">{tag}</span>;
-      });
-
-      let isSelf = !!track ? episodeTrack.id === track.id : false;
-
+    let blocks = episodeTracks.map((episodeTrack) => {
       return (
-        <div key={episodeTrack.id} className={ isSelf ? 'self' : '' }>
-          <div className="tags">{tags}</div>
-          <div className="pad"   style={{ width: `${padLeftPercent}%` }}></div>
-          <div className="block" style={{ width: `${trackPercent}%` }}></div>
-          <div className="pad"   style={{ width: `${padRightPercent}%` }}></div>
-        </div>
-      )
+        <TimeLineBlock
+          key={episodeTrack.id}
+          track={episodeTrack}
+          episodeEndTime={episodeEndTime}
+          isActive={(track && track.id) === episodeTrack.id}
+        />
+      );
     });
 
-    return <div className="time-line">{timeLineTracks}</div>;
+    return <div className="time-line">{blocks}</div>;
   }
 }
 
