@@ -4,9 +4,9 @@ $light-green: #66ad95;
 $light-gray: #dddddd;
 $medium-gray: #aaaaaa;
 $dark-gray: #434343;
-$text-light-gray: rgba(0, 0, 0, 0.44);
-$text-medium-gray: rgba(0, 0, 0, 0.7);
-$text-dark-gray: rgba(0, 0, 0, 0.8);
+$text-light-gray: #a9a9a9;
+$text-medium-gray: #4C4C4C;
+$text-dark-gray: #333333;
 
 $tool-bar-height: 60px;
 $main-bar-width: 80px;
@@ -327,7 +327,6 @@ body {
         .time-line {
             box-sizing: border-box;
             width: 100%;
-            //padding: 10px;
             background-color: #ffffff;
 
             > div {
@@ -340,7 +339,7 @@ body {
                     top: 0;
                     left: 0;
                     padding: 4px 0 0 4px;
-                    color: $text-light-gray;
+                    color: $text-medium-gray;
                     font-size: 13px;
                     text-wrap: none;
 
@@ -356,12 +355,12 @@ body {
                     float: left;
                     box-sizing: border-box;
                     height: 100%;
-                    background-color: #c1deea;
+                    background-color: rgba(0, 0, 0, 0.12);
                 }
             }
             > div.self {
                 .block {
-                    background-color: #f2d5dd;
+                    background-color: rgba(222, 10, 10, 0.35);
                 }
             }
         }
