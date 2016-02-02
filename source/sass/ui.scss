@@ -8,7 +8,7 @@ $text-dark-gray: #333333;
 $tool-bar-height: 60px;
 $main-bar-width: 80px;
 $player-controllers-width: 200px;
-$player-height: 70px;
+$player-height: 65px;
 
 html {
     font-family: 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
@@ -124,9 +124,8 @@ body {
                     background-color: #FFFFFF;
                     height: 30px;
                     width: 30px;
-                    margin: 3px;
-                    border: 1px solid transparent;
-                    border-radius: 15px;
+                    border: none;
+                    font-size: 14px;
                     color: $text-medium-gray;
                     cursor: pointer;
 
@@ -348,13 +347,17 @@ body {
                     float: left;
                     box-sizing: border-box;
                     height: 100%;
-                    background-color: rgba(0, 0, 0, 0.12);
                 }
             }
-            > div.self {
-                .block {
-                    background-color: rgba(222, 10, 10, 0.35);
-                }
+            .block .fill {
+                float: left;
+                height: 100%;
+                background-color: rgba(222, 10, 10, 0.35);
+            }
+            .block .unfill {
+                float: left;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.12);
             }
         }
     }

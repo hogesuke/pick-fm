@@ -56,14 +56,14 @@ body {
       overflow-y: auto;
       box-sizing: border-box;
       padding: 10px;
-      height: calc(100% - 70px);
+      height: calc(100% - 65px);
       width: 100%; }
     #main #main-body #player {
       float: left;
       overflow: hidden;
       box-sizing: border-box;
       position: relative;
-      height: 70px;
+      height: 65px;
       width: 100%;
       padding: 15px 20px;
       background-color: #FFFFFF;
@@ -90,9 +90,8 @@ body {
           background-color: #FFFFFF;
           height: 30px;
           width: 30px;
-          margin: 3px;
-          border: 1px solid transparent;
-          border-radius: 15px;
+          border: none;
+          font-size: 14px;
           color: #4C4C4C;
           cursor: pointer; }
           #main #main-body #player .controllers .button:focus {
@@ -245,7 +244,12 @@ body {
         .track .bottom .time-line > div .block {
           float: left;
           box-sizing: border-box;
-          height: 100%;
-          background-color: rgba(0, 0, 0, 0.12); }
-      .track .bottom .time-line > div.self .block {
+          height: 100%; }
+      .track .bottom .time-line .block .fill {
+        float: left;
+        height: 100%;
         background-color: rgba(222, 10, 10, 0.35); }
+      .track .bottom .time-line .block .unfill {
+        float: left;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.12); }
