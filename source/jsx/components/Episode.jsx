@@ -61,8 +61,4 @@ class Episode extends Component {
   }
 }
 
-export default connect(state => {
-  return {
-    searchText: state.pickApp.searchText
-  };
-})(Episode);
+export default connect()(Episode);
