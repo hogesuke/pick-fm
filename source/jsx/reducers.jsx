@@ -9,7 +9,8 @@ import {
   SET_IS_PLAYING,
   FETCH_PROGRAMS,
   FETCH_TRACKS,
-  FETCH_EPISODES
+  FETCH_EPISODES,
+  FETCH_EPISODE
 } from './actions';
 
 let initialState = {
@@ -65,6 +66,10 @@ function pickApp(state = initialState, action = "") {
     case FETCH_EPISODES:
       return Object.assign({}, state, {
         episodes: action.episodes
+      });
+    case FETCH_EPISODE:
+      return Object.assign({}, state, {
+        episodes: [action.episode]
       });
     default:
       return state;

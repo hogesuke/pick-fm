@@ -160,6 +160,47 @@ get '/programs/:id/episodes' do
   episodes.to_json
 end
 
+get '/programs/:program_id/episodes/:episode_no/:episode_type' do
+  program_id   = params[:program_id]
+  episode_no   = params[:episode_no]
+  episode_type = params[:episode_type]
+
+  unless valid_number?(program_id) and valid_number?(episode_no)
+    status(400)
+    return { err_msg: 'パラメータが不正です' }.to_json
+  end
+
+  episode = Episode.where({ :program_id => program_id, :episode_no => episode_no, :episode_type => episode_type }).first
+
+  client = Elasticsearch::Client.new(log: false)
+  client.transport.reload_connections!
+  client.cluster.health
+
+  results = client.search(index: 'pickfm',
+                          body: {
+                              filter: {
+                                  and: [
+                                      {
+                                          term: {
+                                              episode_no: episode.episode_no,
+                                          }
+                                      },
+                                      {
+                                          term: {
+                                              episode_type: episode.episode_type
+                                          }
+                                      }
+                                  ]
+                              },
+                              sort: 'start_time',
+                              size: 100
+                          })
+
+  episode.tracks = results['hits']['hits'].collect { |h| h['_source'] }
+
+  episode.to_json
+end
+
 get '/episodes/:id' do
   id = params[:id]
 

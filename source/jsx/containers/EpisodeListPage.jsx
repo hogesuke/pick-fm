@@ -3,17 +3,14 @@ import { connect } from 'react-redux';
 import SearchBox from '../components/SearchBox';
 import EpisodeList from '../components/EpisodeList';
 import Player from '../components/Player';
-import { setSelectedProgramId, setSelectedEpisodeId } from '../actions';
+import { setSelectedProgramId, fetchEpisodes } from '../actions';
 
 class EpisodeListPage extends Component {
   componentWillMount() {
-    this.setSelectedProgramId(this.props.params.programId);
-  }
-  componentWillReceiveProps(nextProps) {
-    this.setSelectedProgramId(nextProps.params.programId);
-  }
-  setSelectedProgramId(id) {
-    this.props.dispatch(setSelectedProgramId(id));
+    let { programId } = this.props.params;
+
+    this.props.dispatch(setSelectedProgramId(programId));
+    this.props.dispatch(fetchEpisodes(programId));
   }
   render() {
     return (
@@ -23,7 +20,7 @@ class EpisodeListPage extends Component {
             <SearchBox />
           </div>
           <div id="main-body">
-            <EpisodeList programId={this.props.params.programId} />
+            <EpisodeList />
             <Player />
           </div>
         </div>

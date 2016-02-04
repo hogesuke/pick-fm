@@ -2,24 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SideBar from '../components/SideBar';
 import SearchBox from '../components/SearchBox';
-import Episode from '../components/Episode';
+import EpisodeList from '../components/EpisodeList';
 import Player from '../components/Player';
-import { setSelectedProgramId, setSelectedEpisodeId } from '../actions';
+import { fetchEpisode, setSelectedProgramId } from '../actions';
 
 class EpisodeDetailPage extends Component {
   componentWillMount() {
-    this.setSelectedProgramId(this.props.params.programId);
-    this.setSelectedEpisodeId(this.props.params.episodeId);
-  }
-  componentWillReceiveProps(nextProps) {
-    this.setSelectedProgramId(nextProps.params.programId);
-    this.setSelectedEpisodeId(this.props.params.episodeId);
-  }
-  setSelectedProgramId(id) {
-    this.props.dispatch(setSelectedProgramId(id));
-  }
-  setSelectedEpisodeId(id) {
-    this.props.dispatch(setSelectedEpisodeId(id));
+    let { programId, episodeNo, episodeType } = this.props.params;
+
+    this.props.dispatch(setSelectedProgramId(programId));
+    this.props.dispatch(fetchEpisode(programId, episodeNo, episodeType));
   }
   render() {
     return (
@@ -30,7 +22,7 @@ class EpisodeDetailPage extends Component {
             <SearchBox />
           </div>
           <div id="main-body">
-            <Episode />
+            <EpisodeList />
             <Player />
           </div>
         </div>
@@ -38,12 +30,5 @@ class EpisodeDetailPage extends Component {
     );
   }
 }
-
-//EpisodeDetailPage.defaultProps = {
-//  params: {
-//    programId: 1,
-//    episodeId: 1
-//  }
-//};
 
 export default connect()(EpisodeDetailPage);

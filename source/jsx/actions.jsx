@@ -96,3 +96,21 @@ export function fetchEpisodes(programId) {
       );
   };
 }
+
+export const FETCH_EPISODE = 'FETCH_EPISODE';
+export function fetchEpisode(programId, episodeNo, episodeType) {
+
+  if (!episodeType) { episodeType = 'regular' }
+
+  return function (dispatch) {
+    request
+      .get(`/api/programs/${programId}/episodes/${episodeNo}/${episodeType}`)
+      .end((err, res) => {
+          return dispatch({
+            type   : FETCH_EPISODE,
+            episode: res.body
+          });
+        }
+      );
+  };
+}

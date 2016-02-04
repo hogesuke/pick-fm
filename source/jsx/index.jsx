@@ -18,7 +18,8 @@ const routes = (
     <IndexRoute component={ProgramListPage} />
     <Route path="programs" component={ProgramListPage} />
     <Route path="programs/:programId/episodes" component={EpisodeListPage} />
-    <Route path="programs/:programId/episodes/:episodeId" component={EpisodeDetailPage} />
+    <Route path="programs/:programId/episodes/:episodeNo" component={EpisodeDetailPage} />
+    <Route path="programs/:programId/episodes/:episodeNo/:episodeType" component={EpisodeDetailPage} />
     <Route path="search" component={SearchPage} />
   </Route>
 );
