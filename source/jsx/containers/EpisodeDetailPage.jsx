@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SideBar from '../components/SideBar';
 import SearchBox from '../components/SearchBox';
 import EpisodeList from '../components/EpisodeList';
 import Player from '../components/Player';
@@ -16,7 +15,6 @@ class EpisodeDetailPage extends Component {
   render() {
     return (
       <div>
-        <SideBar />
         <div id="main">
           <div id="tool-bar">
             <SearchBox />
