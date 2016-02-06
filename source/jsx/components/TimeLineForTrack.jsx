@@ -4,36 +4,34 @@ import _ from 'underscore';
 import TimeLineBlock from '../components/TimeLineBlock';
 
 class TimeLineForTrack extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { activeTrack: this.props.track, intervalID: null };
-  }
-  componentWillReceiveProps(nextProps) {
-    let { track } = nextProps;
+  isActive(track) {
+    let { playingEpisode, playingTrack } = this.props;
 
-    if (!this.isActive(nextProps)) {
-      this.setState({ activeTrack: this.props.track });
-      return;
+    if (!playingEpisode || !playingTrack) {
+      return false;
     }
-
-    this.setState({ activeTrack: track });
-  }
-  isActive(props) {
-    let { playingTrack, playingEpisode, track, episodeTracks } = props;
-    return playingTrack.id === track.id && playingEpisode.episode_no === _.first(episodeTracks).episode_no;
+    if (playingEpisode.episode_no !== track.episode_no) {
+      return false;
+    }
+    if (playingEpisode.episode_type !== track.episode_type) {
+      return false;
+    }
+    if (playingTrack.id !== track.id) {
+      return false;
+    }
+    return true;
   }
   render() {
     let { episodeTracks } = this.props;
-    let { activeTrack } = this.state;
-    let episodeEndTime = _.last(episodeTracks).end_time;
+    let episodeLength = _.last(episodeTracks).end_time;
 
-    let blocks = episodeTracks.map((episodeTrack) => {
+    let blocks = episodeTracks.map((track) => {
       return (
         <TimeLineBlock
-          key={episodeTrack.id}
-          track={episodeTrack}
-          episodeEndTime={episodeEndTime}
-          isActive={(activeTrack && activeTrack.id) === episodeTrack.id}
+          key={track.id}
+          track={track}
+          episodeLength={episodeLength}
+          isActive={this.isActive(track)}
         />
       );
     });

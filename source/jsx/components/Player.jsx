@@ -7,35 +7,38 @@ import TimeBar from './TimeBar';
 class Player extends Component {
   componentWillReceiveProps(nextProps) {
     let { dispatch } = this.props;
-    let track   = nextProps.playingTrack;
-    let episode = nextProps.playingEpisode;
-    let audio   = null;
+    let { playingTrack, playingEpisode } = nextProps;
 
-    if (!episode) { return; }
+    if (!playingEpisode) { return; }
 
     if (this.audio) {
       this.audio.pause();
     }
 
-    audio = this.audio = new Audio();
-    audio.src = episode.url;
-    audio.play();
+    let audio = this.audio = new Audio();
+    audio.src = playingEpisode.url;
 
+    if (playingTrack) {
+      // track再生の場合
+      audio.currentTime = playingTrack.start_time;
+    }
+
+    audio.play();
     dispatch(setPlayingAudio(audio));
 
-    if (track && episode) {
-      audio.currentTime = track.start_time;
+    let intervalID = setInterval(() => {
+      let currentTime = audio.currentTime;
 
-      let intervalID = setInterval(() => {
-        if (this.isEnd(audio.currentTime)) {
-          audio.pause();
-          dispatch(initPlaying());
-        }
-        dispatch(setAudioCurrentTime(audio.currentTime));
-      }, 100);
+      if (this.isEnd(currentTime)) {
+        audio.pause();
+        dispatch(initPlaying());
+        return;
+      }
 
-      dispatch(setAudioIntervalID(intervalID));
-    }
+      dispatch(setAudioCurrentTime(currentTime));
+    }, 100);
+
+    dispatch(setAudioIntervalID(intervalID));
 
     audio.addEventListener('playing', () => {
       dispatch(setIsPlaying(true));
@@ -44,11 +47,18 @@ class Player extends Component {
       dispatch(setIsPlaying(false));
     });
     audio.addEventListener('ended', () => {
-      dispatch(setIsPlaying(false));
+      dispatch(initPlaying());
     });
   }
   isEnd(currentTime) {
-    return this.props.playingTrack.end_time <= currentTime;
+    let { playingTrack } = this.props;
+
+    if (playingTrack) {
+      // track再生の場合
+      return this.props.playingTrack.end_time <= currentTime;
+    }
+    // episode再生の場合
+    return false;
   }
   render() {
     let episode     = this.props.playingEpisode;

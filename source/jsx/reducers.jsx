@@ -60,7 +60,7 @@ function pickApp(state = initialState, action = "") {
       });
     case SET_AUDIO_INTERVAL_ID:
       return Object.assign({}, state, {
-        audioIntervalID: action.audioIntervalID
+        audioIntervalID: action.intervalID
       });
     case SET_AUDIO_CURRENT_TIME:
       return Object.assign({}, state, {
