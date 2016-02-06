@@ -7,6 +7,9 @@ import {
   SET_PLAYING_EPISODE,
   SET_PLAYING_AUDIO,
   SET_IS_PLAYING,
+  SET_AUDIO_INTERVAL_ID,
+  SET_AUDIO_CURRENT_TIME,
+  INIT_PLAYING,
   FETCH_PROGRAMS,
   FETCH_TRACKS,
   FETCH_EPISODES,
@@ -23,6 +26,8 @@ let initialState = {
   playingTrack        : null,
   playingEpisode      : null,
   playingAudio        : null,
+  audioIntervalID     : null,
+  audioCurrentTime    : null,
   isPlaying           : false,
   searchText          : ''
 };
@@ -52,6 +57,28 @@ function pickApp(state = initialState, action = "") {
     case SET_IS_PLAYING:
       return Object.assign({}, state, {
         isPlaying: action.isPlaying
+      });
+    case SET_AUDIO_INTERVAL_ID:
+      return Object.assign({}, state, {
+        audioIntervalID: action.intervalID
+      });
+    case SET_AUDIO_CURRENT_TIME:
+      return Object.assign({}, state, {
+        audioCurrentTime: action.currentTime
+      });
+    case INIT_PLAYING:
+      let { audioIntervalID } = state;
+
+      if (audioIntervalID) {
+        clearInterval(audioIntervalID);
+      }
+      return Object.assign({}, state, {
+        playingAudio    : null,
+        playingTrack    : null,
+        playingEpisode  : null,
+        audioIntervalID : null,
+        audioCurrentTime: null,
+        isPlaying       : false
       });
     case FETCH_PROGRAMS:
       return Object.assign({}, state, {

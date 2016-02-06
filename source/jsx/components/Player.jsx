@@ -1,52 +1,64 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setPlayingAudio, setIsPlaying } from '../actions'
+import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, initPlaying } from '../actions'
 import PlayAndPauseButton from './PlayAndPauseButton';
 import TimeBar from './TimeBar';
 
 class Player extends Component {
   componentWillReceiveProps(nextProps) {
-    let track   = nextProps.playingTrack;
-    let episode = nextProps.playingEpisode;
-    let audio   = null;
+    let { dispatch } = this.props;
+    let { playingTrack, playingEpisode } = nextProps;
 
-    if (!episode) { return; }
+    if (!playingEpisode) { return; }
 
     if (this.audio) {
       this.audio.pause();
     }
 
-    audio = this.audio = new Audio();
-    audio.src = episode.url;
+    let audio = this.audio = new Audio();
+    audio.src = playingEpisode.url;
 
-    if (track && episode) {
-      audio.currentTime = track.start_time;
-
-      let intervalID = setInterval(() => {
-        if (this.isEnd(audio.currentTime)) {
-          audio.pause();
-          clearInterval(intervalID);
-
-          this.props.dispatch(setIsPlaying(false));
-        }
-      }, 500);
+    if (playingTrack) {
+      // track再生の場合
+      audio.currentTime = playingTrack.start_time;
     }
 
+    audio.play();
+    dispatch(setPlayingAudio(audio));
+
+    let intervalID = setInterval(() => {
+      let currentTime = audio.currentTime;
+
+      if (this.isEnd(currentTime)) {
+        audio.pause();
+        dispatch(initPlaying());
+        return;
+      }
+
+      dispatch(setAudioCurrentTime(currentTime));
+    }, 100);
+
+    dispatch(setAudioIntervalID(intervalID));
+
     audio.addEventListener('playing', () => {
-      this.props.dispatch(setIsPlaying(true))
+      dispatch(setIsPlaying(true));
     });
     audio.addEventListener('pause', () => {
-      this.props.dispatch(setIsPlaying(false))
+      dispatch(setIsPlaying(false));
     });
     audio.addEventListener('ended', () => {
-      this.props.dispatch(setIsPlaying(false))
+      dispatch(initPlaying());
     });
-
-    audio.play();
-    this.props.dispatch(setPlayingAudio(audio))
   }
   isEnd(currentTime) {
-    return this.props.playingTrack.end_time <= currentTime;
+    let { playingTrack } = this.props;
+
+    if (playingTrack) {
+      // track再生の場合
+      return this.props.playingTrack.end_time <= currentTime;
+    }
+    // episode再生の場合
+    return false;
   }
   render() {
     let episode     = this.props.playingEpisode;

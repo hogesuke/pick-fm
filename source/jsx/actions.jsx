@@ -43,6 +43,27 @@ export function setIsPlaying(isPlaying) {
   };
 }
 
+export const SET_AUDIO_INTERVAL_ID = 'SET_AUDIO_INTERVAL_ID';
+export function setAudioIntervalID(intervalID) {
+  return {
+    type: SET_AUDIO_INTERVAL_ID, intervalID
+  };
+}
+
+export const SET_AUDIO_CURRENT_TIME = 'SET_AUDIO_CURRENT_TIME';
+export function setAudioCurrentTime(currentTime) {
+  return {
+    type: SET_AUDIO_CURRENT_TIME, currentTime
+  };
+}
+
+export const INIT_PLAYING = 'INIT_PLAYING';
+export function initPlaying() {
+  return {
+    type: INIT_PLAYING
+  };
+}
+
 export const FETCH_PROGRAMS = 'FETCH_PROGRAMS';
 export function fetchPrograms() {
 
