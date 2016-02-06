@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
 import { setPlayingTrack, setPlayingEpisode } from '../actions'
-import TimeLine from '../components/TimeLine';
+import TimeLineForEpisode from '../components/TimeLineForEpisode';
 
 class Episode extends Component {
   handlePlayClick() {
@@ -54,7 +54,7 @@ class Episode extends Component {
           </div>
         </div>
         <div className="bottom">
-          <TimeLine episodeTracks={episode.tracks} />
+          <TimeLineForEpisode episodeTracks={episode.tracks} />
         </div>
       </div>
     );

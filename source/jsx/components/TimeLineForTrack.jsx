@@ -3,61 +3,24 @@ import { connect } from 'react-redux';
 import _ from 'underscore';
 import TimeLineBlock from '../components/TimeLineBlock';
 
-class TimeLine extends Component {
+class TimeLineForTrack extends Component {
   constructor(props) {
     super(props);
     this.state = { activeTrack: this.props.track, intervalID: null };
   }
   componentWillReceiveProps(nextProps) {
-    let { playingAudio, track, episodeTracks } = nextProps;
-    let { intervalID } = this.state;
+    let { track } = nextProps;
 
     if (!this.isActive(nextProps)) {
       this.setState({ activeTrack: this.props.track });
-      if (intervalID) {
-        clearInterval(intervalID);
-      }
       return;
     }
 
-    switch (this.getKind()) {
-      case 'EPISODE':
-        let currentTime = playingAudio.currentTime;
-        let activeTrack = episodeTracks.find((t) => {
-          return t.start_time <= currentTime && currentTime <= t.end_time;
-        });
-
-        intervalID = setInterval(() => {
-          let { activeTrack } = this.state;
-          let currentTime = playingAudio.currentTime;
-          let newActiveTrack = episodeTracks.find((t) => {
-            return t.start_time <= currentTime && currentTime <= t.end_time;
-          });
-
-          if (activeTrack.id !== newActiveTrack.id) {
-            clearInterval(intervalID);
-            this.setState({ activeTrack: newActiveTrack });
-          }
-        }, 100);
-
-        this.setState({ activeTrack: activeTrack });
-        this.setState({ intervalID: intervalID });
-        break;
-      case 'TRACK':
-        this.setState({ activeTrack: track });
-        break;
-    }
+    this.setState({ activeTrack: track });
   }
   isActive(props) {
     let { playingTrack, playingEpisode, track, episodeTracks } = props;
-
-    if (this.getKind() === 'EPISODE') {
-      return playingEpisode.episode_no === _.first(episodeTracks).episode_no;
-    }
     return playingTrack.id === track.id && playingEpisode.episode_no === _.first(episodeTracks).episode_no;
-  }
-  getKind() {
-    return this.props.track ? 'TRACK' : 'EPISODE';
   }
   render() {
     let { episodeTracks } = this.props;
@@ -85,5 +48,5 @@ export default connect(state => {
     playingEpisode: state.pickApp.playingEpisode,
     playingAudio  : state.pickApp.playingAudio
   };
-})(TimeLine);
+})(TimeLineForTrack);
 

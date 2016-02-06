@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setPlayingTrack, setPlayingEpisode } from '../actions'
-import TimeLine from '../components/TimeLine';
+import TimeLineForTrack from '../components/TimeLineForTrack';
 
 class Track extends Component {
   handlePlayClick() {
@@ -85,7 +85,7 @@ class Track extends Component {
         </div>
         <div className="bottom">
           <div className="tag-list">{tags}</div>
-          <TimeLine track={track} episodeTracks={episodeTracks} />
+          <TimeLineForTrack track={track} episodeTracks={episodeTracks} />
         </div>
       </div>
     );
