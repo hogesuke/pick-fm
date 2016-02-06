@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setPlayingAudio, setIsPlaying } from '../actions'
-import PlayAndPauseButton from './playAndPauseButton';
-import TimeBar from './timebar';
+import PlayAndPauseButton from './PlayAndPauseButton';
+import TimeBar from './TimeBar';
 
 class Player extends Component {
   componentWillReceiveProps(nextProps) {
