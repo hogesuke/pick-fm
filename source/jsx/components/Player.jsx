@@ -36,7 +36,7 @@ class Player extends Component {
       }
 
       dispatch(setAudioCurrentTime(currentTime));
-    }, 100);
+    }, 1000);
 
     dispatch(setAudioIntervalID(intervalID));
 
