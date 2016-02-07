@@ -5,16 +5,12 @@ import { connect } from 'react-redux';
 class TimeBar extends Component {
   constructor(props) {
     super(props);
-    this.state = { isPlaying: false };
-  }
-  componentWillMount() {
-    this.setState({ fillPercentage: 0 });
+    this.state = { fillPercentage: 0 };
   }
   componentWillReceiveProps(nextProps) {
-    let track = nextProps.playingTrack;
-    let audio = nextProps.playingAudio;
+    let { playingTrack, playingEpisode, playingAudio } = nextProps;
 
-    if (!track || !audio) {
+    if (!playingAudio || (!playingTrack && !playingEpisode)) {
       this.setState({ fillPercentage: 0 });
       return;
     }
@@ -23,21 +19,30 @@ class TimeBar extends Component {
       clearInterval(this.state.intervalId);
     }
 
-    let timeLength = track.end_time - track.start_time;
+    let timeLength, startTime;
 
+    debugger;
+    if (playingTrack) {
+      timeLength = playingTrack.end_time - playingTrack.start_time;
+      startTime  = playingTrack.start_time;
+    } else {
+      timeLength = playingEpisode.time_length;
+      startTime  = 0;
+    }
 
     let intervalId = setInterval(() => {
-      let currentTimePosition = (Math.round(audio.currentTime * 10) / 10) - track.start_time;
+      let currentTimePosition = (Math.round(playingAudio.currentTime * 10) / 10) - startTime;
       this.setState({ fillPercentage: (currentTimePosition / timeLength) * 100 });
     }, 100);
 
     this.setState({ intervalId: intervalId });
   }
   render() {
+    let { fillPercentage } = this.state;
     return (
       <div id="time-bar">
-        <div className="fill" style={{ width: this.state.fillPercentage + '%' }} ></div>
-        <div className="unfill" style={{ width: 100 - this.state.fillPercentage + '%' }} ></div>
+        <div className="fill" style={{ width: fillPercentage + '%' }} ></div>
+        <div className="unfill" style={{ width: 100 - fillPercentage + '%' }} ></div>
       </div>
     );
   }
@@ -45,7 +50,8 @@ class TimeBar extends Component {
 
 export default connect(state => {
   return {
-    playingTrack: state.pickApp.playingTrack,
-    playingAudio: state.pickApp.playingAudio
+    playingTrack  : state.pickApp.playingTrack,
+    playingEpisode: state.pickApp.playingEpisode,
+    playingAudio  : state.pickApp.playingAudio
   }
 })(TimeBar);
