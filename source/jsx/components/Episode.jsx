@@ -66,7 +66,7 @@ class Episode extends Component {
           </div>
         </div>
         <div className="bottom">
-          <TimeLineForEpisode episodeTracks={episode.tracks} />
+          <TimeLineForEpisode episode={episode} />
         </div>
       </div>
     );

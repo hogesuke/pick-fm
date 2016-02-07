@@ -22,16 +22,17 @@ class TimeLineForTrack extends Component {
     return true;
   }
   render() {
-    let { episodeTracks } = this.props;
-    let episodeLength = _.last(episodeTracks).end_time;
+    let { episode, track } = this.props;
+    let episodeLength = _.last(episode.tracks).end_time;
 
-    let blocks = episodeTracks.map((track) => {
+    let blocks = episode.tracks.map((episodeTrack) => {
       return (
         <TimeLineBlock
-          key={track.id}
-          track={track}
+          key={episodeTrack.id}
+          track={episodeTrack}
           episodeLength={episodeLength}
-          isActive={this.isActive(track)}
+          isActive={this.isActive(episodeTrack)}
+          isHit={track.id === episodeTrack.id}
         />
       );
     });

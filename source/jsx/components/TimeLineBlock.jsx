@@ -3,6 +3,9 @@ import { connect } from 'react-redux';
 import _ from 'underscore';
 
 class TimeLineBlock extends Component {
+  handleClick() {
+    this.props.onClick();
+  }
   constructor(props) {
     super(props);
     this.state = { unfillPercentage: 100, intervalID: null };
@@ -40,7 +43,7 @@ class TimeLineBlock extends Component {
     return tags;
   }
   render() {
-    let { track, episodeLength, isActive } = this.props;
+    let { track, episodeLength, isHit } = this.props;
     let { unfillPercentage } = this.state;
 
     if (unfillPercentage === void 0) {
@@ -56,11 +59,11 @@ class TimeLineBlock extends Component {
     });
 
     return (
-      <div className={ isActive ? 'active' : '' }>
+      <div className="block-container" onClick={this.handleClick.bind(this)}>
         <div className="tags">{tags}</div>
         <div className="pad" style={{ width: `${padLeftPercent}%` }}></div>
         <div className="block" style={{ width: `${trackPercent}%` }}>
-          <div className="unfill" style={{ width: `${unfillPercentage}%` }}></div>
+          <div className={isHit ? 'unfill hit' : 'unfill'} style={{ width: `${unfillPercentage}%` }}></div>
           <div className="fill" style={{ width: `${100 - unfillPercentage}%` }}></div>
         </div>
         <div className="pad" style={{ width: `${padRightPercent}%` }}></div>

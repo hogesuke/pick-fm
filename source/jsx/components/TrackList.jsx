@@ -14,12 +14,12 @@ class TrackList extends Component {
   }
   render() {
     let tracks = this.props.tracks.map((track) => {
+      let episode = this.getEpisode(track);
       return (
         <Track
           key={track.id}
           track={track}
-          episodeTracks={track.episode_tracks}
-          episode={this.getEpisode(track)}
+          episode={episode}
         />
       );
     });

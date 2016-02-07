@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
 import _ from 'underscore';
 import TimeLineBlock from '../components/TimeLineBlock';
 
 class TimeLineForEpisode extends Component {
   isActive(track) {
-    let { playingEpisode } = this.props;
+    let { playingTrack, playingEpisode } = this.props;
 
     if (!playingEpisode) {
       return false;
@@ -16,19 +17,32 @@ class TimeLineForEpisode extends Component {
     if (playingEpisode.episode_type !== track.episode_type) {
       return false;
     }
+    if (playingTrack) {
+      // track単位での再生の場合
+      if (playingTrack.id !== track.id) {
+        return false;
+      }
+    }
     return true;
   }
+  onClickTimeLineBlock(track, episode) {
+    let { dispatch } = this.props;
+    dispatch(initPlaying());
+    dispatch(setPlayingTrack(track));
+    dispatch(setPlayingEpisode(episode));
+  }
   render() {
-    let { episodeTracks } = this.props;
-    let episodeLength = _.last(episodeTracks).end_time;
+    let { episode } = this.props;
+    let episodeLength = _.last(episode.tracks).end_time;
 
-    let blocks = episodeTracks.map((track) => {
+    let blocks = episode.tracks.map((track) => {
       return (
         <TimeLineBlock
           key={track.id}
           track={track}
           episodeLength={episodeLength}
           isActive={this.isActive(track)}
+          onClick={() => { this.onClickTimeLineBlock(track, episode); }}
         />
       );
     });
@@ -39,6 +53,7 @@ class TimeLineForEpisode extends Component {
 
 export default connect(state => {
   return {
+    playingTrack: state.pickApp.playingTrack,
     playingEpisode: state.pickApp.playingEpisode
   };
 })(TimeLineForEpisode);

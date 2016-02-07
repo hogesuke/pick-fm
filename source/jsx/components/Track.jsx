@@ -54,7 +54,7 @@ class Track extends Component {
     });
   }
   render() {
-    let { track, episodeTracks, searchText } = this.props;
+    let { track, episode, searchText } = this.props;
 
     let tags = this.getTags(track).map((tag) => {
       return (
@@ -88,7 +88,7 @@ class Track extends Component {
         </div>
         <div className="bottom">
           <div className="tag-list">{tags}</div>
-          <TimeLineForTrack track={track} episodeTracks={episodeTracks} />
+          <TimeLineForTrack track={track} episode={episode} />
         </div>
       </div>
     );

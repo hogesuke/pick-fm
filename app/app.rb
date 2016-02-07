@@ -64,35 +64,38 @@ get '/search' do
 
   results['hits']['hits'].each do |r|
     source = r['_source']
-    episode_tracks = client.search(index: 'pickfm',
-                                   body: {
-                                       filter: {
-                                           and: [
-                                               {
-                                                   term: {
-                                                       episode_no: source['episode_no'],
-                                                   }
-                                               },
-                                               {
-                                                   term: {
-                                                       episode_type: source['episode_type']
-                                                   }
-                                               }
-                                           ]
-                                       },
-                                       sort: 'start_time',
-                                       size: 100
-                                   })
 
-    source['episode_tracks'] = episode_tracks['hits']['hits'].collect { |h| h['_source'] }
-
+    # すでにEpisodeを取得済みか
     exist = episodes.any? { |e| e['program_id'] == source['program_id'].to_i and e['episode_no'] == source['episode_no'].to_i }
 
     unless exist
+      # まだ取得していない場合
       episode = Episode.where({
                                   :program_id => source['program_id'],
                                   :episode_no => source['episode_no']
                               }).first
+
+      episode_tracks = client.search(index: 'pickfm',
+                                     body: {
+                                         filter: {
+                                             and: [
+                                                 {
+                                                     term: {
+                                                         episode_no: source['episode_no'],
+                                                     }
+                                                 },
+                                                 {
+                                                     term: {
+                                                         episode_type: source['episode_type']
+                                                     }
+                                                 }
+                                             ]
+                                         },
+                                         sort: 'start_time',
+                                         size: 100
+                                     })
+
+      episode.tracks = episode_tracks['hits']['hits'].collect { |h| h['_source'] }
       episodes.push(episode)
     end
   end
