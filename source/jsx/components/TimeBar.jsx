@@ -21,7 +21,6 @@ class TimeBar extends Component {
 
     let timeLength, startTime;
 
-    debugger;
     if (playingTrack) {
       timeLength = playingTrack.end_time - playingTrack.start_time;
       startTime  = playingTrack.start_time;
