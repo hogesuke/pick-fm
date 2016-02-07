@@ -13,8 +13,8 @@ class SearchPage extends Component {
         </div>
         <div id="main-body">
           <TrackList />
-          <Player />
         </div>
+        <Player />
       </div>
     );
   }

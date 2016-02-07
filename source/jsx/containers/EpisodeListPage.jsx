@@ -21,8 +21,8 @@ class EpisodeListPage extends Component {
           </div>
           <div id="main-body">
             <EpisodeList />
-            <Player />
           </div>
+          <Player />
         </div>
       </div>
     );

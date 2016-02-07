@@ -31,14 +31,13 @@ body {
     box-sizing: border-box;
     height: 100%;
     color: $text-dark-gray;
-    //background-color: #ffffff;
     background-color: #efefef;
 
     @media screen and (min-width: 1281px) {
         width: 1280px;
         margin: 0 auto;
     }
-    @media screen and (max-width: 1240px) {
+    @media screen and (max-width: 1280px) {
         width: 100%;
     }
 
@@ -81,86 +80,90 @@ body {
             height: calc(100% - #{$player-height});
             width: 100%;
         }
+        #program-list {
+            height: 100%;
+        }
+    }
 
-        #player {
+    #player {
+        float: left;
+        overflow: hidden;
+        box-sizing: border-box;
+        position: absolute;
+        bottom: 0;
+        height: $player-height;
+        width: 100%;
+        padding: 15px 20px;
+        background-color: #FFFFFF;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px 0;
+
+        .track-info {
             float: left;
-            overflow: hidden;
+            height: 18px;
+            width: calc(100% - #{$player-controllers-width});
+            margin: 1px 0;
+            font-size: 16px;
+            color: $text-dark-gray;
+
+            .program-name {
+
+            }
+            .episode-no {
+                margin-left: 5px;
+
+                &:before {
+                    content: "Episode";
+                }
+            }
+        }
+        .controllers {
+            float: left;
+            display: flex;
+            align-items: center;
             box-sizing: border-box;
-            position: relative;
-            height: $player-height;
-            width: 100%;
-            padding: 15px 20px;
-            background-color: #FFFFFF;
-            box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px 0;
+            height: 100%;
+            width: $player-controllers-width;
 
-            .track-info {
-                float: left;
-                height: 18px;
-                width: calc(100% - #{$player-controllers-width});
-                margin: 1px 0;
-                font-size: 16px;
-                color: $text-dark-gray;
+            .button {
+                background-color: #FFFFFF;
+                height: 30px;
+                width: 30px;
+                border: none;
+                font-size: 14px;
+                color: $text-medium-gray;
+                cursor: pointer;
 
-                .program-name {
-
+                &:focus {
+                    outline: none;
                 }
-                .episode-no {
-                    margin-left: 5px;
+                &:disabled {
+                    background-color: rgba(255, 255, 255, 0.6);
+                }
 
-                    &:before {
-                        content: "Episode";
-                    }
+                &.play {
+                }
+                &.pause {
                 }
             }
-            .controllers {
+        }
+        #time-bar {
+            float: left;
+            box-sizing: border-box;
+            height: 3px;
+            width: calc(100% - #{$player-controllers-width});
+            margin-top: 10px;
+
+            .fill {
                 float: left;
-                display: flex;
-                align-items: center;
-                box-sizing: border-box;
                 height: 100%;
-                width: $player-controllers-width;
-
-                .button {
-                    background-color: #FFFFFF;
-                    height: 30px;
-                    width: 30px;
-                    border: none;
-                    font-size: 14px;
-                    color: $text-medium-gray;
-                    cursor: pointer;
-
-                    &:focus {
-                        outline: none;
-                    }
-                    &:disabled {
-                        background-color: rgba(255, 255, 255, 0.6);
-                    }
-
-                    &.play {
-                    }
-                    &.pause {
-                    }
-                }
+                background-color: #122a60;
+                transition: width 0.1s linear;
             }
-            #time-bar {
+            .unfill {
                 float: left;
-                box-sizing: border-box;
-                height: 3px;
-                width: calc(100% - #{$player-controllers-width});
-                margin-top: 10px;
-
-                .fill {
-                    float: left;
-                    height: 100%;
-                    background-color: #122a60;
-                    transition: width 0.1s linear;
-                }
-                .unfill {
-                    float: left;
-                    height: 100%;
-                    background-color: $light-gray;
-                    transition: width 0.1s linear;
-                }
+                height: 100%;
+                background-color: $light-gray;
+                transition: width 0.1s linear;
             }
         }
     }
