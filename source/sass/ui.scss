@@ -1,7 +1,7 @@
 $light-gray: #dddddd;
 $medium-gray: #aaaaaa;
 $dark-gray: #434343;
-$text-light-gray: #a9a9a9;
+$text-light-gray: #a0a0a0;
 $text-medium-gray: #4C4C4C;
 $text-dark-gray: #333333;
 
@@ -234,7 +234,6 @@ body {
                 color: $text-dark-gray;
                 font-size: 20px;
             }
-
             .time {
                 float: left;
                 margin: 4px 0 0 15px;
@@ -249,7 +248,12 @@ body {
                     float: left;
                 }
             }
-
+            .delivered-at {
+                float: left;
+                margin: 4px 0 0 10px;
+                color: $text-light-gray;
+                font-size: 13px;
+            }
             .guests {
                 clear: both;
                 color: $text-medium-gray;

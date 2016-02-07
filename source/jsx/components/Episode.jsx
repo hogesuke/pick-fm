@@ -31,6 +31,13 @@ class Episode extends Component {
       return <span key={name} className="guest-name">{name}</span>
     });
   }
+  getDeliveredAtDom() {
+    let { episode } = this.props;
+    let date  = new Date(episode.delivered_at);
+    let month = ('0' + (date.getMonth() + 1)).slice(-2);
+    let day   = ('0' + date.getDate()).slice(-2);
+    return <span>{`${date.getFullYear()}/${month}/${day}`}</span>;
+  }
   render() {
     let { episode } = this.props;
 
@@ -48,6 +55,9 @@ class Episode extends Component {
             <div className="title">{this.getTitle()}</div>
             <div className="time">
               <div className="time-length">{this.getTimeLength()}</div>
+            </div>
+            <div className="delivered-at">
+              {this.getDeliveredAtDom()}
             </div>
             <div className="guests">
               <span className="ahead">Guests:</span>

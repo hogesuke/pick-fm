@@ -172,19 +172,24 @@ body {
       .track .head .track-information .time {
         float: left;
         margin: 4px 0 0 15px;
-        color: #a9a9a9;
+        color: #a0a0a0;
         font-size: 13px; }
         .track .head .track-information .time .time-length {
           float: left; }
         .track .head .track-information .time .time-range {
           float: left; }
+      .track .head .track-information .delivered-at {
+        float: left;
+        margin: 4px 0 0 10px;
+        color: #a0a0a0;
+        font-size: 13px; }
       .track .head .track-information .guests {
         clear: both;
         color: #4C4C4C; }
         .track .head .track-information .guests .ahead {
           margin-right: 5px;
           font-size: 14px;
-          color: #a9a9a9; }
+          color: #a0a0a0; }
         .track .head .track-information .guests .guest-name {
           margin-right: 10px;
           font-size: 13px; }
