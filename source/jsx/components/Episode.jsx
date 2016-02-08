@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
-import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
-import TimeLineForEpisode from '../components/TimeLineForEpisode';
+import { setPlayingEpisode, initPlaying } from '../actions'
+import TimeLineForEpisode from './TimeLineForEpisode';
 
 class Episode extends Component {
   handlePlayClick() {
     let { dispatch, episode } = this.props;
 
     dispatch(initPlaying());
-    dispatch(setPlayingEpisode(episode));
+    setTimeout(() => {
+      dispatch(setPlayingEpisode(episode));
+    }, 100);
   }
   getTitle() {
     let { episode } = this.props;
