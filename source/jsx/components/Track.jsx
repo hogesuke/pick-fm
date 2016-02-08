@@ -8,8 +8,10 @@ class Track extends Component {
     let { dispatch, track, episode } = this.props;
 
     dispatch(initPlaying());
-    dispatch(setPlayingTrack(track));
-    dispatch(setPlayingEpisode(episode));
+    setTimeout(() => {
+      dispatch(setPlayingTrack(track));
+      dispatch(setPlayingEpisode(episode));
+    }, 100);
   }
   getTitle() {
     let track = this.props.track;
