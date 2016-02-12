@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
 import _ from 'underscore';
-import TimeLineBlock from '../components/TimeLineBlock';
+import TimeLineBlock from './TimeLineBlock';
 
 class TimeLineForEpisode extends Component {
   isActive(track) {
@@ -53,7 +53,7 @@ class TimeLineForEpisode extends Component {
 
 export default connect(state => {
   return {
-    playingTrack: state.pickApp.playingTrack,
+    playingTrack  : state.pickApp.playingTrack,
     playingEpisode: state.pickApp.playingEpisode
   };
 })(TimeLineForEpisode);
