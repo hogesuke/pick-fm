@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
 import { connect } from 'react-redux';
-import { setIsPlaying } from '../actions'
 
-class PlayAndPauseButton extends Component {
+class PlayToggleButtonForPlayer extends Component {
   toggle() {
     let { playingAudio, isPlaying } = this.props;
 
@@ -24,7 +23,6 @@ class PlayAndPauseButton extends Component {
     return 'fa fa-pause';
   }
   render() {
-
     return (
       <button
         onClick={ this.toggle.bind(this) }
@@ -41,4 +39,4 @@ export default connect(state => {
     isPlaying   : state.pickApp.isPlaying,
     playingAudio: state.pickApp.playingAudio
   }
-})(PlayAndPauseButton);
+})(PlayToggleButtonForPlayer);

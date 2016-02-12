@@ -9,6 +9,7 @@ import {
   SET_IS_PLAYING,
   SET_AUDIO_INTERVAL_ID,
   SET_AUDIO_CURRENT_TIME,
+  TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
   FETCH_PROGRAMS,
   FETCH_TRACKS,
@@ -66,19 +67,34 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         audioCurrentTime: action.currentTime
       });
+    case TOGGLE_ACTIVE_EPISODE:
+      let toggledEpisodes = state.episodes.map((e) => {
+        if (e.id === action.id) {
+          e.isActive = !e.isActive;
+        } else {
+          e.isActive = false;
+        }
+        return e;
+      });
+      return Object.assign({}, state, {
+        episodes: toggledEpisodes
+      });
     case INIT_PLAYING:
-      let { audioIntervalID } = state;
-
-      if (audioIntervalID) {
-        clearInterval(audioIntervalID);
+      if (state.audioIntervalID) {
+        clearInterval(state.audioIntervalID);
       }
+      let inactiveEpisodes = state.episodes.map((e) => {
+        e.isActive = false;
+        return e;
+      });
       return Object.assign({}, state, {
         playingAudio    : null,
         playingTrack    : null,
         playingEpisode  : null,
         audioIntervalID : null,
         audioCurrentTime: null,
-        isPlaying       : false
+        isPlaying       : false,
+        episodes        : inactiveEpisodes
       });
     case FETCH_PROGRAMS:
       return Object.assign({}, state, {
@@ -91,6 +107,9 @@ function pickApp(state = initialState, action = "") {
         searchText: action.searchText
       });
     case FETCH_EPISODES:
+      action.episodes.map((e) => {
+        e.isActive = false;
+      });
       return Object.assign({}, state, {
         episodes: action.episodes
       });

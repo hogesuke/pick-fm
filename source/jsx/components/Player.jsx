@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, initPlaying } from '../actions'
-import PlayAndPauseButton from './PlayAndPauseButton';
+import PlayToggleButtonForPlayer from './PlayToggleButtonForPlayer';
 import TimeBar from './TimeBar';
 
 class Player extends Component {
@@ -68,7 +68,7 @@ class Player extends Component {
     return (
       <div id="player">
         <div className="controllers">
-          <PlayAndPauseButton />
+          <PlayToggleButtonForPlayer />
         </div>
         <div className="track-info">
           <span className="program-name">{programName}</span>

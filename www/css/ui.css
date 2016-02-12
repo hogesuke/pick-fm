@@ -196,7 +196,7 @@ body {
     .track .head .track-controller {
       position: absolute;
       height: 100%; }
-      .track .head .track-controller button {
+      .track .head .track-controller .button {
         height: 100%;
         width: 50px;
         border: none;
@@ -204,13 +204,12 @@ body {
         color: #4C4C4C;
         font-size: 11px;
         cursor: pointer; }
-        .track .head .track-controller button:focus {
+        .track .head .track-controller .button:focus {
           outline: none; }
-        .track .head .track-controller button:hover {
+        .track .head .track-controller .button:hover {
           color: #ffffff; }
-      .track .head .track-controller .play-button:hover {
-        background-color: #87bbff;
-        border-color: #87bbff; }
+          .track .head .track-controller .button:hover.play {
+            background-color: #87bbff; }
   .track .bottom {
     padding: 13px; }
     .track .bottom .tag-list {

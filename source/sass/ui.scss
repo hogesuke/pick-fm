@@ -275,7 +275,7 @@ body {
             position: absolute;
             height: 100%;
 
-            button {
+            .button {
                 height: 100%;
                 width: 50px;
                 border: none;
@@ -289,12 +289,11 @@ body {
                 }
                 &:hover {
                     color: #ffffff;
-                }
-            }
 
-            .play-button:hover {
-                background-color: #87bbff;
-                border-color: #87bbff;
+                    &.play {
+                        background-color: #87bbff;
+                    }
+                }
             }
         }
     }
