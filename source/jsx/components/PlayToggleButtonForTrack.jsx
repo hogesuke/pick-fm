@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
 import { connect } from 'react-redux';
-import { setPlayingEpisode, initPlaying, toggleActiveEpisode } from '../actions'
+import { setPlayingTrack, setPlayingEpisode, initPlaying, toggleActiveTrack } from '../actions'
 
-class PlayToggleButtonForEpisode extends Component {
+class PlayToggleButtonForTrack extends Component {
   handleClick() {
-    let { episode, isPlaying } = this.props;
+    let { track, isPlaying } = this.props;
 
-    if (episode.isActive && isPlaying) {
+    if (track.isActive && isPlaying) {
       this.handlePauseClick();
-    } else if (episode.isActive) {
+    } else if (track.isActive) {
       this.handleResumeClick();
     } else {
       this.handlePlayClick();
     }
   }
   handlePlayClick() {
-    let { dispatch, episode } = this.props;
+    let { dispatch, track, episode } = this.props;
 
     dispatch(initPlaying());
     setTimeout(() => {
+      dispatch(setPlayingTrack(track));
       dispatch(setPlayingEpisode(episode));
-      dispatch(toggleActiveEpisode(episode.id));
+      dispatch(toggleActiveTrack(track.id));
     }, 100);
   }
   handlePauseClick() {
@@ -33,9 +34,9 @@ class PlayToggleButtonForEpisode extends Component {
     playingAudio.play();
   }
   getClassName() {
-    let { isPlaying, episode } = this.props;
+    let { isPlaying, track } = this.props;
 
-    if (episode.isActive && isPlaying) {
+    if (track.isActive && isPlaying) {
       return 'fa fa-pause';
     }
     return 'fa fa-play';
@@ -57,4 +58,4 @@ export default connect(state => {
     isPlaying   : state.pickApp.isPlaying,
     playingAudio: state.pickApp.playingAudio
   }
-})(PlayToggleButtonForEpisode);
+})(PlayToggleButtonForTrack);

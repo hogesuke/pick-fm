@@ -57,6 +57,13 @@ export function setAudioCurrentTime(currentTime) {
   };
 }
 
+export const TOGGLE_ACTIVE_TRACK = 'TOGGLE_ACTIVE_TRACK';
+export function toggleActiveTrack(id) {
+  return {
+    type: TOGGLE_ACTIVE_TRACK, id
+  };
+}
+
 export const TOGGLE_ACTIVE_EPISODE = 'TOGGLE_ACTIVE_EPISODE';
 export function toggleActiveEpisode(id) {
   return {

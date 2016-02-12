@@ -9,6 +9,7 @@ import {
   SET_IS_PLAYING,
   SET_AUDIO_INTERVAL_ID,
   SET_AUDIO_CURRENT_TIME,
+  TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
   FETCH_PROGRAMS,
@@ -67,6 +68,18 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         audioCurrentTime: action.currentTime
       });
+    case TOGGLE_ACTIVE_TRACK:
+      let toggledTracks = state.searchResultTracks.map((t) => {
+        if (t.id === action.id) {
+          t.isActive = !t.isActive;
+        } else {
+          t.isActive = false;
+        }
+        return t;
+      });
+      return Object.assign({}, state, {
+        searchResultTracks: toggledTracks
+      });
     case TOGGLE_ACTIVE_EPISODE:
       let toggledEpisodes = state.episodes.map((e) => {
         if (e.id === action.id) {
@@ -83,24 +96,32 @@ function pickApp(state = initialState, action = "") {
       if (state.audioIntervalID) {
         clearInterval(state.audioIntervalID);
       }
+      let inactiveTracks = state.searchResultTracks.map((t) => {
+        t.isActive = false;
+        return t;
+      });
       let inactiveEpisodes = state.episodes.map((e) => {
         e.isActive = false;
         return e;
       });
       return Object.assign({}, state, {
-        playingAudio    : null,
-        playingTrack    : null,
-        playingEpisode  : null,
-        audioIntervalID : null,
-        audioCurrentTime: null,
-        isPlaying       : false,
-        episodes        : inactiveEpisodes
+        playingAudio      : null,
+        playingTrack      : null,
+        playingEpisode    : null,
+        audioIntervalID   : null,
+        audioCurrentTime  : null,
+        isPlaying         : false,
+        searchResultTracks: inactiveTracks,
+        episodes          : inactiveEpisodes
       });
     case FETCH_PROGRAMS:
       return Object.assign({}, state, {
         programs: action.programs
       });
     case FETCH_TRACKS:
+      action.tracks.map((t) => {
+        t.isActive = false;
+      });
       return Object.assign({}, state, {
         searchResultTracks: action.tracks,
         searchResultEpisodes: action.episodes,

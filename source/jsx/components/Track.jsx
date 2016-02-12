@@ -2,17 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
 import TimeLineForTrack from '../components/TimeLineForTrack';
+import PlayToggleButtonForTrack from './PlayToggleButtonForTrack';
 
 class Track extends Component {
-  handlePlayClick() {
-    let { dispatch, track, episode } = this.props;
-
-    dispatch(initPlaying());
-    setTimeout(() => {
-      dispatch(setPlayingTrack(track));
-      dispatch(setPlayingEpisode(episode));
-    }, 100);
-  }
   getTitle() {
     let track = this.props.track;
     let episode = this.props.episode;
@@ -70,11 +62,7 @@ class Track extends Component {
       <div className="track">
         <div className="head">
           <div className="track-controller">
-            <button
-              className="play-button"
-              onClick={this.handlePlayClick.bind(this)}>
-              <i className="fa fa-play"></i>
-            </button>
+            <PlayToggleButtonForTrack track={track} episode={episode} />
           </div>
           <div className="track-information">
             <div className="title">{this.getTitle()}</div>
