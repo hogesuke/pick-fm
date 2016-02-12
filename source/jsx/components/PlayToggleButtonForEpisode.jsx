@@ -39,7 +39,6 @@ class PlayToggleButtonForEpisode extends Component {
     let { isPlaying, episode } = this.props;
 
     if (episode.isActive && isPlaying) {
-      console.debug('pause icon');
       return 'fa fa-pause';
     }
     return 'fa fa-play';
