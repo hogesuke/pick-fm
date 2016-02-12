@@ -68,7 +68,7 @@ class Player extends Component {
     return (
       <div id="player">
         <div className="controllers">
-          <PlayAndPauseButton audio={ this.audio } />
+          <PlayAndPauseButton />
         </div>
         <div className="track-info">
           <span className="program-name">{programName}</span>

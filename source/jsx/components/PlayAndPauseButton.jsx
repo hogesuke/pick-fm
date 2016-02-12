@@ -4,25 +4,33 @@ import { connect } from 'react-redux';
 import { setIsPlaying } from '../actions'
 
 class PlayAndPauseButton extends Component {
-  toggle(audio) {
-    if (!audio) { return false; }
+  toggle() {
+    let { playingAudio, isPlaying } = this.props;
 
-    if (audio.paused) {
-      audio.play();
+    if (!playingAudio) { return false; }
+
+    if (isPlaying) {
+      playingAudio.pause();
     } else {
-      audio.pause();
+      playingAudio.play();
     }
   }
+  getClassName() {
+    let { isPlaying } = this.props;
+
+    if (!isPlaying) {
+      return 'fa fa-play';
+    }
+    return 'fa fa-pause';
+  }
   render() {
-    let { audio, isPlaying } = this.props;
 
     return (
       <button
-        onClick={ this.toggle.bind(this, audio) }
-        disabled={ audio ? false : true }
+        onClick={ this.toggle.bind(this) }
         className="button play"
       >
-        <i className={ isPlaying ? 'fa fa-pause' : 'fa fa-play' }>&nbsp;</i>
+        <i className={this.getClassName()}></i>
       </button>
     );
   }
@@ -30,6 +38,7 @@ class PlayAndPauseButton extends Component {
 
 export default connect(state => {
   return {
-    isPlaying: state.pickApp.isPlaying
+    isPlaying   : state.pickApp.isPlaying,
+    playingAudio: state.pickApp.playingAudio
   }
 })(PlayAndPauseButton);
