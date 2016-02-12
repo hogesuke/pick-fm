@@ -32,7 +32,6 @@ class TimeLineForEpisode extends Component {
     setTimeout(() => {
       dispatch(setPlayingTrack(track));
       dispatch(setPlayingEpisode(episode));
-      dispatch(setPlayingEpisode(episode));
       dispatch(toggleActiveEpisode(episode.id));
     }, 100);
   }
