@@ -16,7 +16,6 @@ import SearchPage from './containers/SearchPage';
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={ProgramListPage} />
-    <Route path="programs" component={ProgramListPage} />
     <Route path="programs/:programId/episodes" component={EpisodeListPage} />
     <Route path="programs/:programId/episodes/:episodeNo" component={EpisodeDetailPage} />
     <Route path="programs/:programId/episodes/:episodeNo/:episodeType" component={EpisodeDetailPage} />

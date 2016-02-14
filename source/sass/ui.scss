@@ -14,10 +14,9 @@ html {
     font-family: 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
 }
 
-html, body, body > #content,
-body > #content > div,
-body > #content > div > div,
-body > #content > div > div > div {
+html, body,
+body > #content,
+body > #content > div {
     height: 100%;
     width: 100%;
 }

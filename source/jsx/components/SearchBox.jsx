@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { pushState } from 'redux-router';
 import { fetchTracks } from '../actions';
 
 class SearchBox extends Component {
   handleChange(event) {
-    this.props.dispatch(fetchTracks(event.target.value));
+    let { dispatch, currentLocation } = this.props;
+    dispatch(fetchTracks(event.target.value));
+
+    if (!/^\/search/.test(currentLocation)) {
+      dispatch(pushState(null, '/search', ''));
+    }
   }
   render() {
     return (
@@ -15,4 +21,8 @@ class SearchBox extends Component {
   }
 }
 
-export default connect()(SearchBox);
+export default connect(state => {
+  return {
+    currentLocation: state.router.location.pathname
+  }
+})(SearchBox);

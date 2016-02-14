@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SearchBox from '../components/SearchBox';
 import EpisodeList from '../components/EpisodeList';
-import Player from '../components/Player';
 import { setSelectedProgramId, fetchEpisodes } from '../actions';
 
 class EpisodeListPage extends Component {
@@ -13,19 +11,7 @@ class EpisodeListPage extends Component {
     this.props.dispatch(fetchEpisodes(programId));
   }
   render() {
-    return (
-      <div>
-        <div id="main">
-          <div id="tool-bar">
-            <SearchBox />
-          </div>
-          <div id="main-body">
-            <EpisodeList />
-          </div>
-          <Player />
-        </div>
-      </div>
-    );
+    return <EpisodeList />;
   }
 }
 
