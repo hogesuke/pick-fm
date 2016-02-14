@@ -64,7 +64,6 @@ get '/search' do
   end
 
   filter_conditions = []
-  pp classified_words
 
   if classified_words[:guest]
     filter_conditions.push(generate_guest_conditions(classified_words[:guest]))
