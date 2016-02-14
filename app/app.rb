@@ -66,11 +66,23 @@ get '/search' do
   filter_conditions = []
 
   if classified_words[:guest]
-    filter_conditions.push(generate_guest_conditions(classified_words[:guest]))
+    g_cond = generate_guest_conditions(classified_words[:guest])
+
+    if g_cond.nil?
+      return { hits: [], episodes: [] }.to_json
+    end
+
+    filter_conditions.push(g_cond)
   end
 
   if classified_words[:program]
-    filter_conditions.push(generate_program_conditions(classified_words[:program]))
+    p_cond = generate_program_conditions(classified_words[:program])
+
+    if p_cond.nil?
+      return { hits: [], episodes: [] }.to_json
+    end
+
+    filter_conditions.push(p_cond)
   end
 
   condition = {
@@ -279,6 +291,11 @@ def generate_guest_conditions(guests)
                       })
     end
   end
+
+  if conditions.size == 0
+    return nil
+  end
+
   { or: conditions }
 end
 
@@ -295,6 +312,11 @@ def generate_program_conditions(programs)
                       })
     end
   end
+
+  if conditions.size == 0
+    return nil
+  end
+
   conditions
 end
 
