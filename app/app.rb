@@ -12,7 +12,7 @@ require_relative 'models/episode'
 
 ActiveRecord::Base.configurations = YAML.load_file(File.join(__dir__, '../config/database.yml'))
 ActiveRecord::Base.establish_connection(settings.environment)
-ActiveRecord::Base.logger = Logger.new(STDOUT) # todo あとで消す
+# ActiveRecord::Base.logger = Logger.new(STDOUT) # todo あとで消す
 
 configure :production, :development do
 
@@ -38,27 +38,64 @@ after do
 end
 
 get '/search' do
-  search_word = params[:search_word]
+  search_words = params[:search_words]
 
-  if search_word.nil?
+  if search_words.nil?
     status(400)
     return { msg: '検索文字列を指定してください' }.to_json
+  end
+
+  words = search_words.split(/\s+/)
+  classified_words = {}
+
+  words.each do |w|
+    is_match = false
+    %w(tag program guest).each do |type|
+      if w.start_with?("#{type}:")
+        classified_words[type.to_sym] = [] if classified_words[type.to_sym].nil?
+        classified_words[type.to_sym].push(w.sub(/#{type}:/, ''))
+        is_match = true
+      end
+    end
+    unless is_match
+      classified_words[:tag] = [] if classified_words[:tag].nil?
+      classified_words[:tag].push(w)
+    end
+  end
+
+  filter_conditions = []
+  pp classified_words
+
+  if classified_words[:guest]
+    filter_conditions.push(generate_guest_conditions(classified_words[:guest]))
+  end
+
+  if classified_words[:program]
+    filter_conditions.push(generate_program_conditions(classified_words[:program]))
+  end
+
+  condition = {
+      query: {
+          simple_query_string: {
+              fields: %w(tag_en tag_ja),
+              query: classified_words[:tag].join(' '),
+              default_operator: 'and'
+          }
+      },
+      sort: 'episode_no'
+  }
+
+  if filter_conditions.size > 0
+    condition[:filter] = {
+        and: filter_conditions
+    }
   end
 
   # todo clientって使いまわせないかね？
   client = Elasticsearch::Client.new(log: false)
   client.transport.reload_connections!
   client.cluster.health
-  results = client.search(index: 'pickfm', body: {
-    query: {
-        simple_query_string: {
-            fields: %w(tag_en tag_ja),
-            query: search_word,
-            default_operator: 'and'
-        }
-    },
-    sort: 'episode_no'
-  })
+  results = client.search(index: 'pickfm', body: condition)
 
   episodes = []
 
@@ -213,6 +250,53 @@ get '/episodes/:id' do
   end
 
   Episode.find(id).to_json
+end
+
+
+def generate_guest_conditions(guests)
+  conditions = []
+
+  guests.each do |guest|
+    episodes = Episode.find_by_guest(guest)
+    episodes.each do |e|
+      conditions.push({
+                          and: [
+                              {
+                                  term: {
+                                      program_id: e.program_id
+                                  }
+                              },
+                              {
+                                  term: {
+                                      episode_no: e.episode_no,
+                                  }
+                              },
+                              {
+                                  term: {
+                                      episode_type: e.episode_type,
+                                  }
+                              }
+                          ]
+                      })
+    end
+  end
+  { or: conditions }
+end
+
+def generate_program_conditions(programs)
+  conditions = []
+
+  programs.each do |program|
+    programs = Program.find_with_name(program)
+    programs.each do |p|
+      conditions.push({
+                          term: {
+                              program_id: p.id
+                          }
+                      })
+    end
+  end
+  conditions
 end
 
 def valid_number?(id)

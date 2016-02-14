@@ -103,7 +103,7 @@ export function fetchTracks(searchText) {
 
   return function (dispatch) {
     request
-      .get(`/api/search?search_word=${searchText}`)
+      .get(`/api/search?search_words=${searchText}`)
       .end((err, res) => {
           return dispatch({
             type    : FETCH_TRACKS,
