@@ -3,12 +3,12 @@ import { connect } from 'react-redux';
 import _ from 'underscore';
 
 class TimeLineBlock extends Component {
-  handleClick() {
-    this.props.onClick();
-  }
   constructor(props) {
     super(props);
     this.state = { unfillPercentage: 100, intervalID: null };
+  }
+  handleClick() {
+    this.props.onClick();
   }
   componentWillReceiveProps(nextProps) {
     let { track, isActive, audioCurrentTime } = nextProps;
