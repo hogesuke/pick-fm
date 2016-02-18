@@ -299,25 +299,23 @@ def generate_guest_conditions(guests)
   { or: conditions }
 end
 
-def generate_program_conditions(programs)
+def generate_program_conditions(program_ids)
   conditions = []
 
-  programs.each do |program|
-    programs = Program.find_with_name(program)
-    programs.each do |p|
-      conditions.push({
-                          term: {
-                              program_id: p.id
-                          }
-                      })
-    end
+  program_ids.each do |program_id|
+    program = Program.find(program_id)
+    conditions.push({
+                        term: {
+                            program_id: program.id
+                        }
+                    })
   end
 
   if conditions.size == 0
     return nil
   end
 
-  conditions
+  { or: conditions }
 end
 
 def valid_number?(id)
