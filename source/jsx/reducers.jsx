@@ -1,3 +1,4 @@
+import _ from 'underscore';
 import { combineReducers } from 'redux';
 import { routerStateReducer as router } from 'redux-router';
 import {
@@ -9,6 +10,9 @@ import {
   SET_IS_PLAYING,
   SET_AUDIO_INTERVAL_ID,
   SET_AUDIO_CURRENT_TIME,
+  ADD_FILTER_PROGRAM,
+  REMOVE_FILTER_PROGRAM,
+  ADD_FILTER_GUEST,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
@@ -31,7 +35,9 @@ let initialState = {
   audioIntervalID     : null,
   audioCurrentTime    : null,
   isPlaying           : false,
-  searchText          : ''
+  searchText          : '',
+  filterPrograms      : [],
+  filterGuests        : []
 };
 
 function pickApp(state = initialState, action = "") {
@@ -67,6 +73,20 @@ function pickApp(state = initialState, action = "") {
     case SET_AUDIO_CURRENT_TIME:
       return Object.assign({}, state, {
         audioCurrentTime: action.currentTime
+      });
+    case ADD_FILTER_PROGRAM:
+      return Object.assign({}, state, {
+        filterPrograms: [...state.filterPrograms, action.program]
+      });
+    case REMOVE_FILTER_PROGRAM:
+      return Object.assign({}, state, {
+        filterPrograms: _.reject(state.filterPrograms, (p) => {
+          return action.program === p;
+        })
+      });
+    case ADD_FILTER_GUEST:
+      return Object.assign({}, state, {
+        filterGuests: [...state.filterGuests, action.guest]
       });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {
@@ -123,7 +143,7 @@ function pickApp(state = initialState, action = "") {
         t.isActive = false;
       });
       return Object.assign({}, state, {
-        searchResultTracks: action.tracks,
+        searchResultTracks  : action.tracks,
         searchResultEpisodes: action.episodes,
         searchText: action.searchText
       });

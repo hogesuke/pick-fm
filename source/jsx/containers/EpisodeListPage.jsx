@@ -7,7 +7,6 @@ class EpisodeListPage extends Component {
   componentWillMount() {
     let { programId } = this.props.params;
 
-    this.props.dispatch(setSelectedProgramId(programId));
     this.props.dispatch(fetchEpisodes(programId));
   }
   render() {

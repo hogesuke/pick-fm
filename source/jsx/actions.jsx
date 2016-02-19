@@ -57,6 +57,27 @@ export function setAudioCurrentTime(currentTime) {
   };
 }
 
+export const ADD_FILTER_PROGRAM = 'ADD_FILTER_PROGRAM';
+export function addFilterProgram(program) {
+  return {
+    type: ADD_FILTER_PROGRAM, program
+  };
+}
+
+export const REMOVE_FILTER_PROGRAM = 'REMOVE_FILTER_PROGRAM';
+export function removeFilterProgram(program) {
+  return {
+    type: REMOVE_FILTER_PROGRAM, program
+  };
+}
+
+export const ADD_FILTER_GUEST = 'ADD_FILTER_GUEST';
+export function addFilterGuest(guest) {
+  return {
+    type: ADD_FILTER_GUEST, guest
+  };
+}
+
 export const TOGGLE_ACTIVE_TRACK = 'TOGGLE_ACTIVE_TRACK';
 export function toggleActiveTrack(id) {
   return {
@@ -101,9 +122,14 @@ export function fetchTracks(searchText) {
     return { type: FETCH_TRACKS, tracks: [] };
   }
 
-  return function (dispatch) {
+  return function (dispatch, getState) {
+    let filterPrograms = getState().pickApp.filterPrograms;
+    let options = filterPrograms.map((p) => {
+      return `program:${p}`;
+    });
+
     request
-      .get(`/api/search?search_words=${searchText}`)
+      .get(`/api/search?search_words=${searchText} ${options.join(' ')}`)
       .end((err, res) => {
           return dispatch({
             type    : FETCH_TRACKS,

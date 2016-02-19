@@ -8,5 +8,4 @@ class SearchPage extends Component {
   }
 }
 
-
 export default connect()(SearchPage);

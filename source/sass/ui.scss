@@ -78,6 +78,9 @@ body {
             padding: 10px;
             height: calc(100% - #{$player-height});
             width: 100%;
+
+            #search-options {
+            }
         }
         #program-list {
             height: 100%;

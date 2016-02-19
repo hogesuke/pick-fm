@@ -1,16 +1,26 @@
 import React, { Component } from 'react';
+import _ from 'underscore';
 import { connect } from 'react-redux';
 import { pushState } from 'redux-router';
-import { fetchTracks } from '../actions';
+import { fetchTracks, addFilterProgram } from '../actions';
 
 class SearchBox extends Component {
   handleChange(event) {
-    let { dispatch, currentLocation } = this.props;
-    dispatch(fetchTracks(event.target.value));
+    let { dispatch, currentLocation, filterPrograms, selectedProgramId } = this.props;
 
-    if (!/^\/search/.test(currentLocation)) {
-      dispatch(pushState(null, '/search', ''));
+    if (event.target.value.length < 2) {
+      return;
     }
+
+    if (/^\/programs\/[0-9]+\/episodes/.test(currentLocation)) {
+      dispatch(pushState(null, '/search', ''));
+
+      if (!_.contains(filterPrograms, selectedProgramId)) {
+        dispatch(addFilterProgram(selectedProgramId));
+      }
+    }
+
+    dispatch(fetchTracks(event.target.value));
   }
   render() {
     return (
@@ -23,6 +33,8 @@ class SearchBox extends Component {
 
 export default connect(state => {
   return {
-    currentLocation: state.router.location.pathname
+    currentLocation  : state.router.location.pathname,
+    filterPrograms   : state.pickApp.filterPrograms,
+    selectedProgramId: state.pickApp.selectedProgramId
   }
 })(SearchBox);
