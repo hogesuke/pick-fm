@@ -13,6 +13,7 @@ import {
   ADD_FILTER_PROGRAM,
   REMOVE_FILTER_PROGRAM,
   ADD_FILTER_GUEST,
+  REMOVE_FILTER_GUEST,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
@@ -87,6 +88,12 @@ function pickApp(state = initialState, action = "") {
     case ADD_FILTER_GUEST:
       return Object.assign({}, state, {
         filterGuests: [...state.filterGuests, action.guest]
+      });
+    case REMOVE_FILTER_GUEST:
+      return Object.assign({}, state, {
+        filterGuests: _.reject(state.filterGuests, (g) => {
+          return action.guest.id === g.id;
+        })
       });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {

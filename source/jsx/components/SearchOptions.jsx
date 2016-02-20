@@ -15,10 +15,9 @@ class SearchOptions extends Component {
     }
   }
   render() {
-    let { programs, filterPrograms } = this.props;
+    let { programs, filterPrograms, filterGuests } = this.props;
 
     let programCheckboxes = programs.map((p) => {
-      console.debug('filterPrograms', filterPrograms);
       return (
         <label key={p.id}>
           <input
@@ -31,9 +30,20 @@ class SearchOptions extends Component {
       );
     });
 
+    let guestButtons = filterGuests.map((g) => {
+      return (
+        <button key={g.id}>{g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname)}</button>
+      );
+    });
+
     return (
       <div id="search-options">
-        {programCheckboxes}
+        <div>
+          {programCheckboxes}
+        </div>
+        <div>
+          {guestButtons}
+        </div>
       </div>
     );
   }
@@ -42,6 +52,7 @@ class SearchOptions extends Component {
 export default connect(state => {
   return {
     programs      : state.pickApp.programs,
-    filterPrograms: state.pickApp.filterPrograms
+    filterPrograms: state.pickApp.filterPrograms,
+    filterGuests  : state.pickApp.filterGuests
   };
 })(SearchOptions);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { pushState } from 'redux-router';
+import { addFilterGuest, fetchTracks } from '../actions';
 import _ from 'underscore';
 import TimeLineForEpisode from './TimeLineForEpisode';
 import PlayToggleButtonForEpisode from './PlayToggleButtonForEpisode';
@@ -22,7 +24,7 @@ class Episode extends Component {
     let { episode } = this.props;
     return episode.guests.map((g) => {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
-      return <span key={name} className="guest-name">{name}</span>
+      return <a key={name} className="guest-name" onClick={() => { this.handleGuestClick(g); }}>{name}</a>;
     });
   }
   getDeliveredAtDom() {
@@ -31,6 +33,13 @@ class Episode extends Component {
     let month = ('0' + (date.getMonth() + 1)).slice(-2);
     let day   = ('0' + date.getDate()).slice(-2);
     return <span>{`${date.getFullYear()}/${month}/${day}`}</span>;
+  }
+  handleGuestClick(guest) {
+    const { dispatch } = this.props;
+
+    dispatch(pushState(null, '/search', ''));
+    dispatch(addFilterGuest(guest));
+    dispatch(fetchTracks(''));
   }
   render() {
     let { episode } = this.props;

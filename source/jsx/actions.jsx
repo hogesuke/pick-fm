@@ -78,6 +78,13 @@ export function addFilterGuest(guest) {
   };
 }
 
+export const REMOVE_FILTER_GUEST = 'REMOVE_FILTER_GUEST';
+export function removeFilterGuest(guest) {
+  return {
+    type: REMOVE_FILTER_GUEST, guest
+  };
+}
+
 export const TOGGLE_ACTIVE_TRACK = 'TOGGLE_ACTIVE_TRACK';
 export function toggleActiveTrack(id) {
   return {
@@ -118,14 +125,16 @@ export function fetchPrograms() {
 export const FETCH_TRACKS = 'FETCH_TRACKS';
 export function fetchTracks(searchText) {
 
-  if (searchText === '') {
-    return { type: FETCH_TRACKS, tracks: [] };
-  }
-
   return function (dispatch, getState) {
     let filterPrograms = getState().pickApp.filterPrograms;
-    let options = filterPrograms.map((p) => {
-      return `program:${p}`;
+    let filterGuests   = getState().pickApp.filterGuests;
+    let options = [];
+
+    filterPrograms.forEach((p) => {
+      options.push(`program:${p}`);
+    });
+    filterGuests.forEach((g) => {
+      options.push(`guest:${g.id}`);
     });
 
     request
