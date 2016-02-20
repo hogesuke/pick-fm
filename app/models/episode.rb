@@ -4,13 +4,8 @@ class Episode < ActiveRecord::Base
 
   attr_accessor :tracks
 
-  scope :find_by_guest, -> (guest) do
-    joins(:persons).merge(Person.where('name_ja like ? or name_en like ? or nickname like ?',
-                                       "%#{guest}%", "%#{guest}%", "%#{guest}%"))
-  end
-
-  scope :find_by_program, -> (program) do
-    joins(:program).merge(Program.where('name like ?', "%#{program}%"))
+  scope :find_by_guest_id, -> (guest_id) do
+    joins(:persons).merge(Person.where({ :id => guest_id }))
   end
 
   def as_json(options={})

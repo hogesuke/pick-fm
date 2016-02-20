@@ -45,6 +45,8 @@ get '/search' do
     return { msg: '検索文字列を指定してください' }.to_json
   end
 
+  search_words = search_words.strip
+
   words = search_words.split(/\s+/)
   classified_words = {}
 
@@ -86,15 +88,18 @@ get '/search' do
   end
 
   condition = {
-      query: {
-          simple_query_string: {
-              fields: %w(tag_en tag_ja),
-              query: classified_words[:tag].join(' '),
-              default_operator: 'and'
-          }
-      },
-      sort: 'episode_no'
+      sort: 'episode_no' # todo ソート条件もパラメータで設定できるようにする
   }
+
+  unless classified_words[:tag].nil?
+    condition[:query] = {
+        simple_query_string: {
+            fields: %w(tag_en tag_ja),
+            query: classified_words[:tag].join(' '),
+            default_operator: 'and'
+        }
+    }
+  end
 
   if filter_conditions.size > 0
     condition[:filter] = {
@@ -263,12 +268,11 @@ get '/episodes/:id' do
   Episode.find(id).to_json
 end
 
-
-def generate_guest_conditions(guests)
+def generate_guest_conditions(guest_ids)
   conditions = []
 
-  guests.each do |guest|
-    episodes = Episode.find_by_guest(guest)
+  guest_ids.each do |guest_id|
+    episodes = Episode.find_by_guest_id(guest_id)
     episodes.each do |e|
       conditions.push({
                           and: [
