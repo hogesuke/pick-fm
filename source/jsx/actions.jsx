@@ -162,3 +162,20 @@ export function fetchEpisode(programId, episodeNo, episodeType) {
       );
   };
 }
+
+export const FETCH_GUESTS = 'FETCH_GUESTS';
+export function fetchGuests(guestIds) {
+
+  return function (dispatch) {
+    request
+      .get(`/api/guests`)
+      .query({ ids: guestIds })
+      .end((err, res) => {
+          return dispatch({
+            type  : FETCH_GUESTS,
+            guests: res.body
+          });
+        }
+      );
+  };
+}

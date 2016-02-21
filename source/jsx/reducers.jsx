@@ -20,7 +20,8 @@ import {
   FETCH_TRACKS,
   CLEAR_TRACKS,
   FETCH_EPISODES,
-  FETCH_EPISODE
+  FETCH_EPISODE,
+  FETCH_GUESTS
 } from './actions';
 
 let initialState = {
@@ -28,6 +29,7 @@ let initialState = {
   searchResultEpisodes: [],
   programs            : [],
   episodes            : [],
+  guests              : [],
   selectedProgramId   : null,
   selectedEpisodeId   : null,
   playingTrack        : null,
@@ -150,6 +152,10 @@ function pickApp(state = initialState, action = "") {
     case FETCH_EPISODE:
       return Object.assign({}, state, {
         episodes: [action.episode]
+      });
+    case FETCH_GUESTS:
+      return Object.assign({}, state, {
+        guests: action.guests
       });
     default:
       return state;
