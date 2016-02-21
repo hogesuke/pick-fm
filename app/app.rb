@@ -255,6 +255,26 @@ get '/episodes/:id' do
   Episode.find(id).to_json
 end
 
+get '/guests' do
+  ids = params[:ids]
+
+  if ids.nil?
+    status(400)
+    return { msg: '取得対象のIDを指定してください' }.to_json
+  end
+
+  ids = ids.split(',')
+
+  ids.each do |id|
+    unless valid_number?(id)
+      status(400)
+      return { err_msg: 'パラメータが不正です' }.to_json
+    end
+  end
+
+  Person.find(ids).to_json
+end
+
 def generate_guest_conditions(guest_ids)
   conditions = []
 
