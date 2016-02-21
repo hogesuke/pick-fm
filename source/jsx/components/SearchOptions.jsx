@@ -1,24 +1,58 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addFilterProgram, removeFilterProgram } from '../actions';
+import { pushState } from 'redux-router';
 import _ from 'underscore';
 
 class SearchOptions extends Component {
   handleFilterProgramChange(event) {
     const { value, checked } = event.target;
-    const { dispatch } = this.props;
+    const { dispatch, query } = this.props;
+    let newQuery = null;
 
     if (checked) {
-      dispatch(addFilterProgram(parseInt(value, 10)));
+      newQuery = this.addQuery(query, 'program', value);
     } else {
-      dispatch(removeFilterProgram(parseInt(value, 10)));
+      newQuery = this.removeQuery(query, 'program', value);
     }
+
+    dispatch(pushState(null, '/search', newQuery));
+  }
+  addQuery(currentQuery, key, value) {
+    if (!currentQuery) {
+      return { [key]: [value] };
+    }
+    if (!currentQuery[key]) {
+      return Object.assign({}, currentQuery, { [key]: [value] });
+    }
+
+    return Object.assign({}, currentQuery, { [key]: [...currentQuery[key], value] });
+  }
+  removeQuery(currentQuery, key, value) {
+    if (!currentQuery || !currentQuery[key]) {
+      return currentQuery;
+    }
+
+    const queryValues = Array.isArray(currentQuery[key]) ? currentQuery[key] : [currentQuery[key]];
+
+    if (!_.contains(queryValues, value)) {
+      return currentQuery;
+    }
+
+    let newArray = _.reject(queryValues, (q) => {
+      return q === value;
+    });
+
+    return Object.assign({}, currentQuery, { [key]: newArray });
   }
   render() {
-    let { programs, filterPrograms } = this.props;
+    const { programs, query } = this.props;
+    let filterPrograms = Array.isArray(query.program) ? query.program : [query.program];
+
+    filterPrograms = filterPrograms.map((p) => {
+      return parseInt(p);
+    });
 
     let programCheckboxes = programs.map((p) => {
-      console.debug('filterPrograms', filterPrograms);
       return (
         <label key={p.id}>
           <input
@@ -41,7 +75,7 @@ class SearchOptions extends Component {
 
 export default connect(state => {
   return {
-    programs      : state.pickApp.programs,
-    filterPrograms: state.pickApp.filterPrograms
+    query   : state.router.location.query,
+    programs: state.pickApp.programs
   };
 })(SearchOptions);

@@ -18,6 +18,7 @@ import {
   INIT_PLAYING,
   FETCH_PROGRAMS,
   FETCH_TRACKS,
+  CLEAR_TRACKS,
   FETCH_EPISODES,
   FETCH_EPISODE
 } from './actions';
@@ -73,20 +74,6 @@ function pickApp(state = initialState, action = "") {
     case SET_AUDIO_CURRENT_TIME:
       return Object.assign({}, state, {
         audioCurrentTime: action.currentTime
-      });
-    case ADD_FILTER_PROGRAM:
-      return Object.assign({}, state, {
-        filterPrograms: [...state.filterPrograms, action.program]
-      });
-    case REMOVE_FILTER_PROGRAM:
-      return Object.assign({}, state, {
-        filterPrograms: _.reject(state.filterPrograms, (p) => {
-          return action.program === p;
-        })
-      });
-    case ADD_FILTER_GUEST:
-      return Object.assign({}, state, {
-        filterGuests: [...state.filterGuests, action.guest]
       });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {
@@ -146,6 +133,12 @@ function pickApp(state = initialState, action = "") {
         searchResultTracks  : action.tracks,
         searchResultEpisodes: action.episodes,
         searchText: action.searchText
+      });
+    case CLEAR_TRACKS:
+      return Object.assign({}, state, {
+        searchResultTracks  : [],
+        searchResultEpisodes: [],
+        searchText: ''
       });
     case FETCH_EPISODES:
       action.episodes.map((e) => {
