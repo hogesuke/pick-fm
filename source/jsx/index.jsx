@@ -9,16 +9,18 @@ import { reduxReactRouter, routerStateReducer, ReduxRouter } from 'redux-router'
 import rootReducer from './reducers'
 import App from './containers/App';
 import ProgramListPage from './containers/ProgramListPage';
-import EpisodeListPage from './containers/EpisodeListPage';
+import ProgramEpisodeListPage from './containers/ProgramEpisodeListPage';
+import GuestEpisodeListPage from './containers/GuestEpisodeListPage';
 import EpisodeDetailPage from './containers/EpisodeDetailPage';
 import SearchPage from './containers/SearchPage';
 
 const routes = (
   <Route path="/" component={App}>
     <IndexRoute component={ProgramListPage} />
-    <Route path="programs/:programId/episodes" component={EpisodeListPage} />
+    <Route path="programs/:programId/episodes" component={ProgramEpisodeListPage} />
     <Route path="programs/:programId/episodes/:episodeNo" component={EpisodeDetailPage} />
     <Route path="programs/:programId/episodes/:episodeNo/:episodeType" component={EpisodeDetailPage} />
+    <Route path="guests/:guestId/episodes" component={GuestEpisodeListPage} />
     <Route path="search" component={SearchPage} />
   </Route>
 );

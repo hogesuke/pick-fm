@@ -19,7 +19,8 @@ import {
   FETCH_PROGRAMS,
   FETCH_TRACKS,
   CLEAR_TRACKS,
-  FETCH_EPISODES,
+  FETCH_PROGRAM_EPISODES,
+  FETCH_GUEST_EPISODES,
   FETCH_EPISODE,
   FETCH_GUESTS
 } from './actions';
@@ -142,7 +143,14 @@ function pickApp(state = initialState, action = "") {
         searchResultEpisodes: [],
         searchText: ''
       });
-    case FETCH_EPISODES:
+    case FETCH_PROGRAM_EPISODES:
+      action.episodes.map((e) => {
+        e.isActive = false;
+      });
+      return Object.assign({}, state, {
+        episodes: action.episodes
+      });
+    case FETCH_GUEST_EPISODES:
       action.episodes.map((e) => {
         e.isActive = false;
       });

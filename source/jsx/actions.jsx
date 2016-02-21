@@ -129,15 +129,31 @@ export function clearTracks() {
   };
 }
 
-export const FETCH_EPISODES = 'FETCH_EPISODES';
-export function fetchEpisodes(programId) {
+export const FETCH_PROGRAM_EPISODES = 'FETCH_PROGRAM_EPISODES';
+export function fetchProgramEpisodes(programId) {
 
   return function (dispatch) {
     request
       .get(`/api/programs/${programId}/episodes`)
       .end((err, res) => {
           return dispatch({
-            type    : FETCH_EPISODES,
+            type    : FETCH_PROGRAM_EPISODES,
+            episodes: res.body
+          });
+        }
+      );
+  };
+}
+
+export const FETCH_GUEST_EPISODES = 'FETCH_GUEST_EPISODES';
+export function fetchGuestEpisodes(guestId) {
+
+  return function (dispatch) {
+    request
+      .get(`/api/guests/${guestId}/episodes`)
+      .end((err, res) => {
+          return dispatch({
+            type    : FETCH_GUEST_EPISODES,
             episodes: res.body
           });
         }

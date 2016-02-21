@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import EpisodeList from '../components/EpisodeList';
-import { setSelectedProgramId, fetchEpisodes } from '../actions';
+import { fetchProgramEpisodes } from '../actions';
 
-class EpisodeListPage extends Component {
+class ProgramEpisodeListPage extends Component {
   componentWillMount() {
     let { programId } = this.props.params;
 
-    this.props.dispatch(fetchEpisodes(programId));
+    this.props.dispatch(fetchProgramEpisodes(programId));
   }
   render() {
     return <EpisodeList />;
   }
 }
 
-export default connect()(EpisodeListPage);
+export default connect()(ProgramEpisodeListPage);

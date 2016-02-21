@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import _ from 'underscore';
 import TimeLineForEpisode from './TimeLineForEpisode';
 import PlayToggleButtonForEpisode from './PlayToggleButtonForEpisode';
@@ -22,7 +23,7 @@ class Episode extends Component {
     let { episode } = this.props;
     return episode.guests.map((g) => {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
-      return <span key={name} className="guest-name">{name}</span>
+      return <Link key={name} to={`/guests/${g.id}/episodes`} className="guest-name">{name}</Link>
     });
   }
   getDeliveredAtDom() {
