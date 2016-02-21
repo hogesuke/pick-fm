@@ -38,47 +38,24 @@ after do
 end
 
 get '/search' do
-  search_words = params[:search_words]
+  pp params
+  words           = params[:word]
+  filter_programs = params[:program]
+  filter_guests   = params[:guest]
 
-  if search_words.nil?
+  if words.nil?
     status(400)
     return { msg: '検索文字列を指定してください' }.to_json
   end
 
-  search_words = search_words.strip
-
-  words = search_words.split(/\s+/)
-  classified_words = {}
-
-  words.each do |w|
-    is_match = false
-    %w(tag program guest).each do |type|
-      if w.start_with?("#{type}:")
-        classified_words[type.to_sym] = [] if classified_words[type.to_sym].nil?
-        classified_words[type.to_sym].push(w.sub(/#{type}:/, ''))
-        is_match = true
-      end
-    end
-    unless is_match
-      classified_words[:tag] = [] if classified_words[:tag].nil?
-      classified_words[:tag].push(w)
-    end
-  end
+  words           = words.strip.split(/\s+/)
+  filter_programs = filter_programs.split(',') unless filter_programs.nil?
+  filter_guests   = filter_guests.split(',') unless filter_guests.nil?
 
   filter_conditions = []
 
-  if classified_words[:guest]
-    g_cond = generate_guest_conditions(classified_words[:guest])
-
-    if g_cond.nil?
-      return { hits: [], episodes: [] }.to_json
-    end
-
-    filter_conditions.push(g_cond)
-  end
-
-  if classified_words[:program]
-    p_cond = generate_program_conditions(classified_words[:program])
+  unless filter_programs.nil?
+    p_cond = generate_program_conditions(filter_programs)
 
     if p_cond.nil?
       return { hits: [], episodes: [] }.to_json
@@ -87,15 +64,25 @@ get '/search' do
     filter_conditions.push(p_cond)
   end
 
+  unless filter_guests.nil?
+    g_cond = generate_guest_conditions(filter_guests)
+
+    if g_cond.nil?
+      return { hits: [], episodes: [] }.to_json
+    end
+
+    filter_conditions.push(g_cond)
+  end
+
   condition = {
       sort: 'episode_no' # todo ソート条件もパラメータで設定できるようにする
   }
 
-  unless classified_words[:tag].nil?
+  unless words.nil?
     condition[:query] = {
         simple_query_string: {
             fields: %w(tag_en tag_ja),
-            query: classified_words[:tag].join(' '),
+            query: words.join(' '),
             default_operator: 'and'
         }
     }
