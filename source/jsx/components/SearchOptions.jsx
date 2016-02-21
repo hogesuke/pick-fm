@@ -82,7 +82,7 @@ class SearchOptions extends Component {
     let filterIds = query.program ? (Array.isArray(query.program) ? query.program : [query.program]) : [];
 
     filterIds = filterIds.map((id) => {
-      return parseInt(id);
+      return parseInt(id, 10);
     });
 
     return programs.map((p) => {
@@ -103,7 +103,7 @@ class SearchOptions extends Component {
     let filterIds = query.guest ? (Array.isArray(query.guest) ? query.guest : [query.guest]) : [];
 
     filterIds = filterIds.map((id) => {
-      return parseInt(id);
+      return parseInt(id, 10);
     });
 
     let filterGuests = _.filter(guests, (g) => {
@@ -113,9 +113,20 @@ class SearchOptions extends Component {
     return filterGuests.map((g) => {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
       return (
-        <button key={g.id}>{name}</button>
+        <div key={g.id}>
+          <button onClick={() => { this.removeGuestFilter(g.id.toString(10))}}>
+            <i className="fa fa-times"></i>
+          </button>
+          <span>{name}</span>
+        </div>
       );
     });
+  }
+  removeGuestFilter(id) {
+    const { dispatch, query } = this.props;
+
+    let newQuery = this.removeQuery(query, 'guest', id);
+    dispatch(pushState(null, '/search', newQuery));
   }
   render() {
     return (
