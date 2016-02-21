@@ -176,6 +176,7 @@ get '/programs/:id/episodes' do
   client.transport.reload_connections!
   client.cluster.health
 
+  # todo 【！！！】programで絞込みできてない
   episodes.each do |e|
     results = client.search(index: 'pickfm',
                             body: {
@@ -219,6 +220,7 @@ get '/programs/:program_id/episodes/:episode_no/:episode_type' do
   client.transport.reload_connections!
   client.cluster.health
 
+  # todo 【！！！】programで絞込みできてない
   results = client.search(index: 'pickfm',
                           body: {
                               filter: {
@@ -273,6 +275,54 @@ get '/guests' do
   end
 
   Person.find(ids).to_json
+end
+
+get '/guests/:id/episodes' do
+  id = params[:id]
+
+  unless valid_number?(id)
+    status(400)
+    return { err_msg: 'パラメータが不正です' }.to_json
+  end
+
+  person   = Person.find(id)
+  episodes = person.episodes
+
+  client = Elasticsearch::Client.new(log: false)
+  client.transport.reload_connections!
+  client.cluster.health
+
+  # todo いい加減、共通化すること
+  episodes.each do |e|
+    results = client.search(index: 'pickfm',
+                            body: {
+                                filter: {
+                                    and: [
+                                        {
+                                            term: {
+                                                program_id: e.program_id,
+                                            }
+                                        },
+                                        {
+                                            term: {
+                                                episode_no: e.episode_no,
+                                            }
+                                        },
+                                        {
+                                            term: {
+                                                episode_type: e.episode_type
+                                            }
+                                        }
+                                    ]
+                                },
+                                sort: 'start_time',
+                                size: 100
+                            })
+
+    e.tracks = results['hits']['hits'].collect { |h| h['_source'] }
+  end
+
+  episodes.to_json
 end
 
 def generate_guest_conditions(guest_ids)
