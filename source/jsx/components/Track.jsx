@@ -6,26 +6,24 @@ import PlayToggleButtonForTrack from './PlayToggleButtonForTrack';
 
 class Track extends Component {
   getTitle() {
-    let track = this.props.track;
-    let episode = this.props.episode;
+    const { track, episode } = this.props;
     return `${episode.program.name} Episode ${track.episode_no} `
   }
   getTimeLength() {
-    let track = this.props.track;
-    let length = track.end_time - track.start_time;
-    let min    = ('0' + Math.floor(length / 60)).slice(-2);
-    let sec    = ('0' + length % 60).slice(-2);
+    const { track } = this.props;
+    const length    = track.end_time - track.start_time;
+    const min       = ('0' + Math.floor(length / 60)).slice(-2);
+    const sec       = ('0' + length % 60).slice(-2);
 
     return `${min}:${sec}`
   }
   getTimeRange() {
-    let track = this.props.track;
-
+    const { track } = this.props;
     return `${this.formatTime(track.start_time)} - ${this.formatTime(track.end_time)}`
   }
   formatTime(time) {
-    let min = Math.floor(time / 60);
-    let sec = time % 60;
+    const min = Math.floor(time / 60);
+    const sec = time % 60;
 
     return `${('0' + min).slice(-2)}:${('0' + sec).slice(-2)}`
   }
@@ -41,14 +39,14 @@ class Track extends Component {
     return tags;
   }
   getGuestsDom() {
-    let { episode } = this.props;
+    const { episode } = this.props;
     return episode.guests.map((g) => {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
       return <span key={name} className="guest-name">{name}</span>
     });
   }
   render() {
-    let { track, episode, searchText } = this.props;
+    const { track, episode, searchText } = this.props;
 
     let tags = this.getTags(track).map((tag) => {
       return (

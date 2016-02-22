@@ -12,20 +12,19 @@ class Episode extends Component {
     dispatch(setSelectedGuestId(guestId));
   }
   getTitle() {
-    let { episode } = this.props;
-    return `Episode ${episode.episode_no} `
+    const { episode } = this.props;
+    return `${episode.program.name} Episode ${episode.episode_no} `
   }
   getTimeLength() {
-    let { episode } = this.props;
-
-    let length = episode.time_length;
-    let min    = ('0' + Math.floor(length / 60)).slice(-2);
-    let sec    = ('0' + length % 60).slice(-2);
+    const { episode } = this.props;
+    const length      = episode.time_length;
+    const min         = ('0' + Math.floor(length / 60)).slice(-2);
+    const sec         = ('0' + length % 60).slice(-2);
 
     return `${min}:${sec}`
   }
   getGuestsDom() {
-    let { episode } = this.props;
+    const { episode } = this.props;
     return episode.guests.map((g) => {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
       return (
@@ -41,14 +40,14 @@ class Episode extends Component {
     });
   }
   getDeliveredAtDom() {
-    let { episode } = this.props;
-    let date  = new Date(episode.delivered_at);
-    let month = ('0' + (date.getMonth() + 1)).slice(-2);
-    let day   = ('0' + date.getDate()).slice(-2);
+    const { episode } = this.props;
+    const date  = new Date(episode.delivered_at);
+    const month = ('0' + (date.getMonth() + 1)).slice(-2);
+    const day   = ('0' + date.getDate()).slice(-2);
     return <span>{`${date.getFullYear()}/${month}/${day}`}</span>;
   }
   render() {
-    let { episode } = this.props;
+    const { episode } = this.props;
 
     return (
       <div className="track">
