@@ -10,11 +10,11 @@ class SearchBox extends Component {
     this.state = { searchText: '' };
   }
   handleChange(event) {
-    const { dispatch, selectedProgramId, selectedGuestId, query } = this.props;
+    const { dispatch, selectedProgramId, selectedGuestId, query, currentLocation } = this.props;
 
     this.setState({ searchText: event.target.value });
 
-    if (this.isSearchPage()) {
+    if (this.isSearchPage(currentLocation)) {
       dispatch(pushState(null, '/search', Object.assign({}, query, { word: event.target.value })));
       return;
     }
@@ -23,34 +23,41 @@ class SearchBox extends Component {
       return;
     }
 
-    if (this.isProgramPage()) {
+    if (this.isProgramPage(currentLocation)) {
       dispatch(pushState(null, '/search', { word: event.target.value }));
       return;
     }
-    if (this.isProgramEpisodePage()) {
+    if (this.isProgramEpisodePage(currentLocation)) {
       dispatch(pushState(null, '/search', { program: selectedProgramId, word: event.target.value }));
       return;
     }
-    if (this.isGuestEpisodePage()) {
+    if (this.isGuestEpisodePage(currentLocation)) {
       dispatch(pushState(null, '/search', { guest: selectedGuestId, word: event.target.value }));
       return;
     }
   }
   componentWillMount() {
-    const { dispatch, query } = this.props;
+    const { dispatch, query, currentLocation } = this.props;
 
-    if (this.isSearchPage() && query.word) {
+    if (this.isSearchPage(currentLocation) && query.word) {
       this.setState({ searchText: query.word });
       dispatch(fetchTracks(query.word));
     }
   }
-  componentDidUpdate(prevProps) {
-    const { dispatch } = this.props;
-    const searchText   = this.state.searchText;
-    const prevQuery    = JSON.stringify(prevProps.query);
-    const currentQury  = JSON.stringify(this.props.query);
+  componentWillReceiveProps(nextProps) {
+    const { currentLocation } = nextProps;
 
-    if (this.isSearchPage()) {
+    if (!this.isSearchPage(currentLocation)) {
+      this.setState({ searchText: '' });
+    }
+  }
+  componentDidUpdate(prevProps) {
+    const { dispatch, currentLocation } = this.props;
+    const { searchText } = this.state;
+    const prevQuery      = JSON.stringify(prevProps.query);
+    const currentQury    = JSON.stringify(this.props.query);
+
+    if (this.isSearchPage(currentLocation)) {
       if (searchText.length < 2) {
         dispatch(clearTracks());
         return;
@@ -60,21 +67,17 @@ class SearchBox extends Component {
       }
     }
   }
-  isProgramPage() {
-    const { currentLocation } = this.props;
-    return /(^\/programs\/?$|^\/$|^$)/.test(currentLocation);
+  isProgramPage(location) {
+    return /(^\/programs\/?$|^\/$|^$)/.test(location);
   }
-  isProgramEpisodePage() {
-    const { currentLocation } = this.props;
-    return /^\/programs\/[0-9]+\/episodes/.test(currentLocation);
+  isProgramEpisodePage(location) {
+    return /^\/programs\/[0-9]+\/episodes/.test(location);
   }
-  isGuestEpisodePage() {
-    const { currentLocation } = this.props;
-    return /^\/guests\/[0-9]+\/episodes/.test(currentLocation);
+  isGuestEpisodePage(location) {
+    return /^\/guests\/[0-9]+\/episodes/.test(location);
   }
-  isSearchPage() {
-    const { currentLocation } = this.props;
-    return /^\/search/.test(currentLocation);
+  isSearchPage(location) {
+    return /^\/search/.test(location);
   }
   render() {
     return (
