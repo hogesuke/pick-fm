@@ -16,6 +16,13 @@ export function setSelectedEpisodeId(id) {
   };
 }
 
+export const SET_SELECTED_GUEST_ID = 'SET_SELECTED_GUEST_ID';
+export function setSelectedGuestId(id) {
+  return {
+    type: SET_SELECTED_GUEST_ID, id
+  };
+}
+
 export const SET_PLAYING_TRACK = 'SET_PLAYING_TRACK';
 export function setPlayingTrack(track) {
   return {

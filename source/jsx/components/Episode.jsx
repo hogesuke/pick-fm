@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
+import { setSelectedGuestId } from '../actions';
 import _ from 'underscore';
 import TimeLineForEpisode from './TimeLineForEpisode';
 import PlayToggleButtonForEpisode from './PlayToggleButtonForEpisode';
 
 class Episode extends Component {
+  handleGuestLinkClick(guestId) {
+    const { dispatch } = this.props;
+    dispatch(setSelectedGuestId(guestId));
+  }
   getTitle() {
     let { episode } = this.props;
     return `Episode ${episode.episode_no} `
@@ -23,7 +28,16 @@ class Episode extends Component {
     let { episode } = this.props;
     return episode.guests.map((g) => {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
-      return <Link key={name} to={`/guests/${g.id}/episodes`} className="guest-name">{name}</Link>
+      return (
+        <Link
+          key={name}
+          to={`/guests/${g.id}/episodes`}
+          onClick={() => { this.handleGuestLinkClick(g.id) }}
+          className="guest-name"
+        >
+          {name}
+        </Link>
+      );
     });
   }
   getDeliveredAtDom() {

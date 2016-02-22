@@ -10,7 +10,7 @@ class SearchBox extends Component {
     this.state = { searchText: '' };
   }
   handleChange(event) {
-    const { dispatch, selectedProgramId, query } = this.props;
+    const { dispatch, selectedProgramId, selectedGuestId, query } = this.props;
 
     this.setState({ searchText: event.target.value });
 
@@ -27,8 +27,12 @@ class SearchBox extends Component {
       dispatch(pushState(null, '/search', { word: event.target.value }));
       return;
     }
-    if (this.isEpisodePage()) {
+    if (this.isProgramEpisodePage()) {
       dispatch(pushState(null, '/search', { program: selectedProgramId, word: event.target.value }));
+      return;
+    }
+    if (this.isGuestEpisodePage()) {
+      dispatch(pushState(null, '/search', { guest: selectedGuestId, word: event.target.value }));
       return;
     }
   }
@@ -60,9 +64,13 @@ class SearchBox extends Component {
     const { currentLocation } = this.props;
     return /(^\/programs\/?$|^\/$|^$)/.test(currentLocation);
   }
-  isEpisodePage() {
+  isProgramEpisodePage() {
     const { currentLocation } = this.props;
     return /^\/programs\/[0-9]+\/episodes/.test(currentLocation);
+  }
+  isGuestEpisodePage() {
+    const { currentLocation } = this.props;
+    return /^\/guests\/[0-9]+\/episodes/.test(currentLocation);
   }
   isSearchPage() {
     const { currentLocation } = this.props;
@@ -86,6 +94,7 @@ export default connect(state => {
   return {
     query            : state.router.location.query,
     currentLocation  : state.router.location.pathname,
-    selectedProgramId: state.pickApp.selectedProgramId
+    selectedProgramId: state.pickApp.selectedProgramId,
+    selectedGuestId  : state.pickApp.selectedGuestId
   }
 })(SearchBox);

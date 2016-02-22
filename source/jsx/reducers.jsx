@@ -4,6 +4,7 @@ import { routerStateReducer as router } from 'redux-router';
 import {
   SET_SELECTED_PROGRAM_ID,
   SET_SELECTED_EPISODE_ID,
+  SET_SELECTED_GUEST_ID,
   SET_PLAYING_TRACK,
   SET_PLAYING_EPISODE,
   SET_PLAYING_AUDIO,
@@ -33,6 +34,7 @@ let initialState = {
   guests              : [],
   selectedProgramId   : null,
   selectedEpisodeId   : null,
+  selectedGuestId     : null,
   playingTrack        : null,
   playingEpisode      : null,
   playingAudio        : null,
@@ -53,6 +55,10 @@ function pickApp(state = initialState, action = "") {
     case SET_SELECTED_EPISODE_ID:
       return Object.assign({}, state, {
         selectedEpisodeId: action.id
+      });
+    case SET_SELECTED_GUEST_ID:
+      return Object.assign({}, state, {
+        selectedGuestId: action.id
       });
     case SET_PLAYING_TRACK:
       return Object.assign({}, state, {
