@@ -16,7 +16,7 @@ body {
   box-sizing: border-box;
   height: 100%;
   color: #333333;
-  background-color: #efefef; }
+  background-color: #868686; }
   @media screen and (min-width: 1281px) {
     #main {
       width: 1280px;
@@ -31,17 +31,18 @@ body {
     height: 60px;
     width: 100%;
     padding: 10px;
-    background-color: #ffffff;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0;
+    background-color: #2f2f2f;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
     z-index: 10000; }
     #main #tool-bar #search-box {
       box-sizing: border-box;
       width: 100%;
       padding: 8px 10px;
       border: 1px solid #aaaaaa;
+      background-color: transparent;
       font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
       font-size: 20px;
-      color: #333333; }
+      color: #eeeeee; }
   #main #main-body {
     box-sizing: border-box;
     position: absolute;
@@ -59,6 +60,25 @@ body {
       width: 100%; }
     #main #main-body #program-list {
       height: 100%; }
+  #main #search-options {
+    margin: 0 10px;
+    padding: 10px;
+    background-color: #464646;
+    color: #eeeeee; }
+    #main #search-options .programs {
+      font-size: 16px; }
+      #main #search-options .programs input {
+        font-size: 16px; }
+    #main #search-options .guests {
+      margin-top: 10px;
+      font-size: 16px; }
+      #main #search-options .guests .remove-button {
+        background-color: transparent;
+        border: none;
+        font-size: 16px;
+        color: #d51f1c; }
+        #main #search-options .guests .remove-button:hover {
+          cursor: pointer; }
   #main #player {
     float: left;
     overflow: hidden;
@@ -68,15 +88,15 @@ body {
     height: 65px;
     width: 100%;
     padding: 15px 20px;
-    background-color: #FFFFFF;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px 0; }
+    background-color: #2f2f2f;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 2px 0; }
     #main #player .track-info {
       float: left;
       height: 18px;
       width: calc(100% - 200px);
       margin: 1px 0;
       font-size: 16px;
-      color: #333333; }
+      color: #eeeeee; }
       #main #player .track-info .episode-no {
         margin-left: 5px; }
         #main #player .track-info .episode-no:before {
@@ -89,12 +109,12 @@ body {
       height: 100%;
       width: 200px; }
       #main #player .controllers .button {
-        background-color: #FFFFFF;
         height: 30px;
         width: 30px;
         border: none;
+        background-color: transparent;
         font-size: 14px;
-        color: #4C4C4C;
+        color: #eeeeee;
         cursor: pointer; }
         #main #player .controllers .button:focus {
           outline: none; }
@@ -138,7 +158,7 @@ body {
     box-sizing: border-box;
     width: 100%;
     padding: 15px;
-    color: #EEEEEE;
+    color: #eeeeee;
     background-color: rgba(0, 0, 0, 0.7); }
     .program .description .title {
       margin: 5px 0;
@@ -154,7 +174,7 @@ body {
   margin: 10px;
   background-color: #ffffff;
   border: solid 1px #dddddd;
-  box-shadow: rgba(0, 0, 0, 0.07) 0 0 2px 1px; }
+  box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px; }
   .track .head {
     overflow: hidden;
     position: relative;

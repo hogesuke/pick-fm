@@ -1,9 +1,11 @@
 $light-gray: #dddddd;
 $medium-gray: #aaaaaa;
-$dark-gray: #434343;
+$dark-gray: #2f2f2f;
 $text-light-gray: #a0a0a0;
 $text-medium-gray: #4C4C4C;
 $text-dark-gray: #333333;
+$text-light-gray: #a0a0a0;
+$text-light-on-gray: #eeeeee;
 
 $tool-bar-height: 60px;
 $main-bar-width: 80px;
@@ -30,7 +32,7 @@ body {
     box-sizing: border-box;
     height: 100%;
     color: $text-dark-gray;
-    background-color: #efefef;
+    background-color: #868686;
 
     @media screen and (min-width: 1281px) {
         width: 1280px;
@@ -47,8 +49,8 @@ body {
         height: $tool-bar-height;
         width: 100%;
         padding: 10px;
-        background-color: #ffffff;
-        box-shadow: rgba(0, 0, 0, 0.2) 0 1px 2px 0;
+        background-color: $dark-gray;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
         z-index: 10000;
 
         #search-box {
@@ -56,9 +58,10 @@ body {
             width: 100%;
             padding: 8px 10px;
             border: 1px solid $medium-gray;
+            background-color: transparent;
             font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
             font-size: 20px;
-            color: $text-dark-gray;
+            color: $text-light-on-gray;
         }
     }
 
@@ -78,12 +81,39 @@ body {
             padding: 10px;
             height: calc(100% - #{$player-height});
             width: 100%;
-
-            #search-options {
-            }
         }
         #program-list {
             height: 100%;
+        }
+    }
+
+    #search-options {
+        margin: 0 10px;
+        padding: 10px;
+        background-color: #464646;
+        color: $text-light-on-gray;
+
+        .programs {
+            font-size: 16px;
+
+            input {
+                font-size: 16px;
+            }
+        }
+        .guests {
+            margin-top: 10px;
+            font-size: 16px;
+
+            .remove-button {
+                background-color: transparent;
+                border: none;
+                font-size: 16px;
+                color: #d51f1c;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
         }
     }
 
@@ -96,8 +126,8 @@ body {
         height: $player-height;
         width: 100%;
         padding: 15px 20px;
-        background-color: #FFFFFF;
-        box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 2px 0;
+        background-color: $dark-gray;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 2px 0;
 
         .track-info {
             float: left;
@@ -105,7 +135,7 @@ body {
             width: calc(100% - #{$player-controllers-width});
             margin: 1px 0;
             font-size: 16px;
-            color: $text-dark-gray;
+            color: $text-light-on-gray;
 
             .program-name {
 
@@ -127,12 +157,12 @@ body {
             width: $player-controllers-width;
 
             .button {
-                background-color: #FFFFFF;
                 height: 30px;
                 width: 30px;
                 border: none;
+                background-color: transparent;
                 font-size: 14px;
-                color: $text-medium-gray;
+                color: $text-light-on-gray;
                 cursor: pointer;
 
                 &:focus {
@@ -197,7 +227,7 @@ body {
         box-sizing: border-box;
         width: 100%;
         padding: 15px;
-        color: #EEEEEE;
+        color: $text-light-on-gray;
         background-color: rgba(0, 0, 0, 0.7);
 
         .title {
@@ -218,7 +248,7 @@ body {
     margin: 10px;
     background-color: #ffffff;
     border: solid 1px $light-gray;
-    box-shadow: rgba(0, 0, 0, 0.07) 0 0 2px 1px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px;
 
     .head {
         overflow: hidden;

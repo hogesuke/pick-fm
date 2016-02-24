@@ -114,7 +114,7 @@ class SearchOptions extends Component {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
       return (
         <div key={g.id}>
-          <button onClick={() => { this.removeGuestFilter(g.id.toString(10))}}>
+          <button className="remove-button" onClick={() => { this.removeGuestFilter(g.id.toString(10))}}>
             <i className="fa fa-times"></i>
           </button>
           <span>{name}</span>
@@ -131,8 +131,8 @@ class SearchOptions extends Component {
   render() {
     return (
       <div id="search-options">
-        <div>{this.getProgramDoms()}</div>
-        <div>{this.getGuestDoms()}</div>
+        <div className="programs">{this.getProgramDoms()}</div>
+        <div className="guests">{this.getGuestDoms()}</div>
       </div>
     );
   }
