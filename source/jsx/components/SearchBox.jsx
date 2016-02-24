@@ -70,7 +70,7 @@ class SearchBox extends Component {
         setTimeout(() => {
           this.setState({ isSuspension: false });
 
-          if (searchText !== this.state.searchText) {
+          if (searchText !== this.state.searchText || currentQury !== JSON.stringify(this.props.query)) {
             dispatch(fetchTracks(this.state.searchText));
           }
         }, 1000);
