@@ -7,7 +7,7 @@ import { fetchTracks, clearTracks } from '../actions';
 class SearchBox extends Component {
   constructor(props) {
     super(props);
-    this.state = { searchText: '' };
+    this.state = { searchText: '', isSuspension: false };
   }
   handleChange(event) {
     const { dispatch, selectedProgramId, selectedGuestId, query, currentLocation } = this.props;
@@ -53,17 +53,27 @@ class SearchBox extends Component {
   }
   componentDidUpdate(prevProps) {
     const { dispatch, currentLocation } = this.props;
-    const { searchText } = this.state;
-    const prevQuery      = JSON.stringify(prevProps.query);
-    const currentQury    = JSON.stringify(this.props.query);
+    const { searchText, isSuspension } = this.state;
+    const prevQuery   = JSON.stringify(prevProps.query);
+    const currentQury = JSON.stringify(this.props.query);
 
-    if (this.isSearchPage(currentLocation)) {
+    if (this.isSearchPage(currentLocation) && !isSuspension) {
       if (searchText.length < 2) {
         dispatch(clearTracks());
         return;
       }
       if (prevQuery !== currentQury) {
         dispatch(fetchTracks(searchText));
+        this.setState({ isSuspension: true });
+
+        // 1sec以内は次の検索リクエストを飛ばさないようにする
+        setTimeout(() => {
+          this.setState({ isSuspension: false });
+
+          if (searchText !== this.state.searchText) {
+            dispatch(fetchTracks(this.state.searchText));
+          }
+        }, 1000);
       }
     }
   }
