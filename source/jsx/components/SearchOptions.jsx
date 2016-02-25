@@ -61,14 +61,16 @@ class SearchOptions extends Component {
 
     return programs.map((p) => {
       return (
-        <label key={p.id}>
-          <input
-            type="checkbox"
-            value={p.id}
-            checked={_.contains(filterIds, p.id)}
-            onChange={this.handleFilterProgramChange.bind(this)}
-          />{p.name}
-        </label>
+        <div key={p.id} className="program">
+          <label>
+            <input
+              type="checkbox"
+              value={p.id}
+              checked={_.contains(filterIds, p.id)}
+              onChange={this.handleFilterProgramChange.bind(this)}
+            />{p.name}
+          </label>
+        </div>
       );
     });
   }
@@ -83,7 +85,7 @@ class SearchOptions extends Component {
     return filterGuests.map((g) => {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
       return (
-        <div key={g.id}>
+        <div key={g.id} className="guest">
           <button className="remove-button" onClick={() => { this.removeGuestFilter(g.id.toString(10))}}>
             <i className="fa fa-times"></i>
           </button>

@@ -61,24 +61,35 @@ body {
     #main #main-body #program-list {
       height: 100%; }
   #main #search-options {
-    margin: 0 10px;
+    margin: 5px 10px;
     padding: 10px;
-    background-color: #464646;
-    color: #eeeeee; }
+    background-color: #626262;
+    color: #eeeeee;
+    border: solid 1px #5c5c5c;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px; }
     #main #search-options .programs {
+      overflow: hidden;
       font-size: 16px; }
-      #main #search-options .programs input {
-        font-size: 16px; }
+      #main #search-options .programs .program {
+        float: left;
+        margin-right: 10px; }
+        #main #search-options .programs .program input {
+          font-size: 16px; }
     #main #search-options .guests {
-      margin-top: 10px;
+      overflow: hidden;
       font-size: 16px; }
-      #main #search-options .guests .remove-button {
-        background-color: transparent;
-        border: none;
-        font-size: 16px;
-        color: #d51f1c; }
-        #main #search-options .guests .remove-button:hover {
-          cursor: pointer; }
+      #main #search-options .guests .guest {
+        float: left;
+        margin-right: 10px; }
+        #main #search-options .guests .guest:hover {
+          text-decoration: underline; }
+        #main #search-options .guests .guest .remove-button {
+          background-color: transparent;
+          border: none;
+          font-size: 16px;
+          color: #2b2b2b; }
+          #main #search-options .guests .guest .remove-button:hover {
+            cursor: pointer; }
   #main #player {
     float: left;
     overflow: hidden;
@@ -136,151 +147,156 @@ body {
         height: 100%;
         background-color: #dddddd;
         transition: width 0.1s linear; }
-
-.program {
-  position: relative;
-  float: left;
-  overflow: hidden;
-  height: 300px;
-  width: 300px;
-  margin: 5px 10px;
-  cursor: pointer;
-  background-size: 300px; }
-  .program .overlay {
-    position: relative;
-    height: 100%;
-    width: 100%; }
-    .program .overlay:hover {
-      background-color: rgba(255, 255, 255, 0.15); }
-  .program .description {
-    position: absolute;
-    bottom: 0;
-    box-sizing: border-box;
-    width: 100%;
-    padding: 15px;
-    color: #eeeeee;
-    background-color: rgba(0, 0, 0, 0.7); }
-    .program .description .title {
-      margin: 5px 0;
-      font-size: 22px;
-      letter-spacing: 1px; }
-    .program .description .personality {
-      font-size: 13px; }
-
-.track {
-  float: left;
-  overflow: hidden;
-  width: calc(100% - 20px);
-  margin: 10px;
-  background-color: #ffffff;
-  border: solid 1px #dddddd;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px; }
-  .track .head {
+  #main .track {
+    float: left;
     overflow: hidden;
-    position: relative;
-    height: auto;
-    border-bottom: solid 1px #dddddd; }
-    .track .head .track-information {
+    width: calc(100% - 20px);
+    margin: 10px;
+    background-color: #ffffff;
+    border: solid 1px #dddddd;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px; }
+    #main .track .head {
       overflow: hidden;
-      padding: 13px 13px 13px 60px; }
-      .track .head .track-information .title {
-        float: left;
-        margin-bottom: 7px;
-        color: #333333;
-        font-size: 20px; }
-      .track .head .track-information .time {
-        float: left;
-        margin: 4px 0 0 15px;
-        color: #a0a0a0;
-        font-size: 13px; }
-        .track .head .track-information .time .time-length {
-          float: left; }
-        .track .head .track-information .time .time-range {
-          float: left; }
-      .track .head .track-information .delivered-at {
-        float: left;
-        margin: 4px 0 0 10px;
-        color: #a0a0a0;
-        font-size: 13px; }
-      .track .head .track-information .guests {
-        clear: both;
-        color: #4C4C4C; }
-        .track .head .track-information .guests .ahead {
-          margin-right: 5px;
-          font-size: 14px;
-          color: #a0a0a0; }
-        .track .head .track-information .guests .guest-name {
-          margin-right: 10px;
+      position: relative;
+      height: auto;
+      border-bottom: solid 1px #dddddd; }
+      #main .track .head .track-information {
+        overflow: hidden;
+        padding: 13px 13px 13px 60px; }
+        #main .track .head .track-information .title {
+          float: left;
+          margin-bottom: 7px;
+          color: #333333;
+          font-size: 20px; }
+        #main .track .head .track-information .time {
+          float: left;
+          margin: 4px 0 0 15px;
+          color: #a0a0a0;
           font-size: 13px; }
-    .track .head .track-controller {
+          #main .track .head .track-information .time .time-length {
+            float: left; }
+          #main .track .head .track-information .time .time-range {
+            float: left; }
+        #main .track .head .track-information .delivered-at {
+          float: left;
+          margin: 4px 0 0 10px;
+          color: #a0a0a0;
+          font-size: 13px; }
+        #main .track .head .track-information .guests {
+          clear: both;
+          color: #4C4C4C; }
+          #main .track .head .track-information .guests .ahead {
+            margin-right: 5px;
+            font-size: 14px;
+            color: #a0a0a0; }
+          #main .track .head .track-information .guests .guest-name {
+            margin-right: 10px;
+            font-size: 13px; }
+          #main .track .head .track-information .guests a.guest-name {
+            color: #315dca;
+            text-decoration: none; }
+            #main .track .head .track-information .guests a.guest-name:hover {
+              cursor: pointer; }
+            #main .track .head .track-information .guests a.guest-name:active {
+              color: #ca3f41; }
+      #main .track .head .track-controller {
+        position: absolute;
+        height: 100%; }
+        #main .track .head .track-controller .button {
+          height: 100%;
+          width: 50px;
+          border: none;
+          background-color: #ffffff;
+          color: #4C4C4C;
+          font-size: 11px;
+          cursor: pointer; }
+          #main .track .head .track-controller .button:focus {
+            outline: none; }
+          #main .track .head .track-controller .button:hover {
+            color: #ffffff; }
+            #main .track .head .track-controller .button:hover.play {
+              background-color: #87bbff; }
+    #main .track .bottom {
+      padding: 13px; }
+      #main .track .bottom .tag-list {
+        overflow: hidden;
+        margin-bottom: 5px;
+        padding-bottom: 5px; }
+        #main .track .bottom .tag-list .tag {
+          display: block;
+          float: left;
+          margin: 0 3px 3px 0;
+          padding: 3px 5px;
+          background-color: rgba(56, 110, 195, 0.37);
+          color: #ffffff;
+          font-size: 12px;
+          border-radius: 3px; }
+          #main .track .bottom .tag-list .tag.hit {
+            background-color: #386EC3; }
+      #main .track .bottom .time-line {
+        box-sizing: border-box;
+        width: 100%;
+        background-color: #ffffff; }
+        #main .track .bottom .time-line .block-container {
+          width: 100%;
+          height: 20px;
+          position: relative; }
+          #main .track .bottom .time-line .block-container:hover {
+            box-shadow: rgba(0, 55, 255, 0.3) 0 0 0 2px;
+            cursor: pointer; }
+          #main .track .bottom .time-line .block-container .tags {
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: 4px 0 0 4px;
+            color: #4C4C4C;
+            font-size: 13px;
+            text-wrap: none; }
+            #main .track .bottom .time-line .block-container .tags .tag {
+              padding-right: 6px; }
+          #main .track .bottom .time-line .block-container .pad {
+            float: left;
+            height: 100%; }
+          #main .track .bottom .time-line .block-container .block {
+            float: left;
+            box-sizing: border-box;
+            height: 100%; }
+            #main .track .bottom .time-line .block-container .block .fill {
+              float: left;
+              height: 100%;
+              background-color: rgba(222, 10, 10, 0.35); }
+            #main .track .bottom .time-line .block-container .block .unfill {
+              float: left;
+              height: 100%;
+              background-color: rgba(0, 0, 0, 0.12); }
+              #main .track .bottom .time-line .block-container .block .unfill.hit {
+                background-color: rgba(56, 110, 195, 0.35); }
+  #main #program-list .program {
+    position: relative;
+    float: left;
+    overflow: hidden;
+    height: 300px;
+    width: 300px;
+    margin: 5px 10px;
+    cursor: pointer;
+    background-size: 300px; }
+    #main #program-list .program .overlay {
+      position: relative;
+      height: 100%;
+      width: 100%; }
+      #main #program-list .program .overlay:hover {
+        background-color: rgba(255, 255, 255, 0.15); }
+    #main #program-list .program .description {
       position: absolute;
-      height: 100%; }
-      .track .head .track-controller .button {
-        height: 100%;
-        width: 50px;
-        border: none;
-        background-color: #ffffff;
-        color: #4C4C4C;
-        font-size: 11px;
-        cursor: pointer; }
-        .track .head .track-controller .button:focus {
-          outline: none; }
-        .track .head .track-controller .button:hover {
-          color: #ffffff; }
-          .track .head .track-controller .button:hover.play {
-            background-color: #87bbff; }
-  .track .bottom {
-    padding: 13px; }
-    .track .bottom .tag-list {
-      overflow: hidden;
-      margin-bottom: 5px;
-      padding-bottom: 5px; }
-      .track .bottom .tag-list .tag {
-        display: block;
-        float: left;
-        margin: 0 3px 3px 0;
-        padding: 3px 5px;
-        background-color: rgba(56, 110, 195, 0.37);
-        color: #ffffff;
-        font-size: 12px;
-        border-radius: 3px; }
-        .track .bottom .tag-list .tag.hit {
-          background-color: #386EC3; }
-    .track .bottom .time-line {
+      bottom: 0;
       box-sizing: border-box;
       width: 100%;
-      background-color: #ffffff; }
-      .track .bottom .time-line .block-container {
-        width: 100%;
-        height: 20px;
-        position: relative; }
-        .track .bottom .time-line .block-container:hover {
-          box-shadow: rgba(0, 55, 255, 0.3) 0 0 0 2px;
-          cursor: pointer; }
-        .track .bottom .time-line .block-container .tags {
-          position: absolute;
-          top: 0;
-          left: 0;
-          padding: 4px 0 0 4px;
-          color: #4C4C4C;
-          font-size: 13px;
-          text-wrap: none; }
-          .track .bottom .time-line .block-container .tags .tag {
-            padding-right: 6px; }
-        .track .bottom .time-line .block-container .pad {
-          float: left;
-          height: 100%; }
-        .track .bottom .time-line .block-container .block {
-          float: left;
-          box-sizing: border-box;
-          height: 100%; }
-          .track .bottom .time-line .block-container .block .fill {
-            float: left;
-            height: 100%;
-            background-color: rgba(222, 10, 10, 0.35); }
-          .track .bottom .time-line .block-container .block .unfill {
-            float: left;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.12); }
-            .track .bottom .time-line .block-container .block .unfill.hit {
-              background-color: rgba(56, 110, 195, 0.35); }
+      padding: 15px;
+      color: #eeeeee;
+      background-color: rgba(0, 0, 0, 0.7); }
+      #main #program-list .program .description .title {
+        margin: 5px 0;
+        font-size: 22px;
+        letter-spacing: 1px; }
+      #main #program-list .program .description .personality {
+        font-size: 13px; }
