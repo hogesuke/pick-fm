@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
 import { connect } from 'react-redux';
-import { pushState } from 'redux-router';
+import { pushState, replaceState } from 'redux-router';
 import { fetchTracks, clearTracks } from '../actions';
 
 class SearchBox extends Component {
@@ -15,7 +15,7 @@ class SearchBox extends Component {
     this.setState({ searchText: event.target.value });
 
     if (this.isSearchPage(currentLocation)) {
-      dispatch(pushState(null, '/search', Object.assign({}, query, { word: event.target.value })));
+      dispatch(replaceState(null, '/search', Object.assign({}, query, { word: event.target.value })));
       return;
     }
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { pushState } from 'redux-router';
+import { replaceState } from 'redux-router';
 import { fetchGuests } from '../actions';
 import _ from 'underscore';
 
@@ -16,7 +16,7 @@ class SearchOptions extends Component {
       newQuery = this.removeQuery(query, 'program', value);
     }
 
-    dispatch(pushState(null, '/search', newQuery));
+    dispatch(replaceState(null, '/search', newQuery));
   }
   componentWillMount() {
     const { guest } = this.props.query;
@@ -126,7 +126,7 @@ class SearchOptions extends Component {
     const { dispatch, query } = this.props;
 
     let newQuery = this.removeQuery(query, 'guest', id);
-    dispatch(pushState(null, '/search', newQuery));
+    dispatch(replaceState(null, '/search', newQuery));
   }
   render() {
     return (
