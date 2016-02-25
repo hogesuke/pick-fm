@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { replaceState } from 'redux-router';
 import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
 import TimeLineForTrack from '../components/TimeLineForTrack';
 import PlayToggleButtonForTrack from './PlayToggleButtonForTrack';
+import QueryUtil from '../util/QueryUtil'
 
 class Track extends Component {
+  handleGuestLinkClick(guestId) {
+    const { dispatch, query } = this.props;
+    dispatch(replaceState(null, '/search', QueryUtil.addQuery(query, 'guest', guestId)));
+  }
   getTitle() {
     const { track, episode } = this.props;
     return `${episode.program.name} Episode ${track.episode_no} `
@@ -42,7 +48,7 @@ class Track extends Component {
     const { episode } = this.props;
     return episode.guests.map((g) => {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
-      return <span key={name} className="guest-name">{name}</span>
+      return <a key={g.id} onClick={() => { this.handleGuestLinkClick(g.id) }} className="guest-name">{name}</a>
     });
   }
   render() {
@@ -85,7 +91,8 @@ class Track extends Component {
 
 export default connect(state => {
   return {
-    searchText: state.pickApp.searchText
+    searchText: state.pickApp.searchText,
+    query     : state.router.location.query
   };
 })(Track);
 

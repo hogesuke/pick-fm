@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { replaceState } from 'redux-router';
 import { fetchGuests } from '../actions';
+import QueryUtil from '../util/QueryUtil'
 import _ from 'underscore';
 
 class SearchOptions extends Component {
@@ -11,9 +12,9 @@ class SearchOptions extends Component {
     let newQuery = null;
 
     if (checked) {
-      newQuery = this.addQuery(query, 'program', value);
+      newQuery = QueryUtil.addQuery(query, 'program', value);
     } else {
-      newQuery = this.removeQuery(query, 'program', value);
+      newQuery = QueryUtil.removeQuery(query, 'program', value);
     }
 
     dispatch(replaceState(null, '/search', newQuery));
@@ -26,12 +27,12 @@ class SearchOptions extends Component {
       this.fetchGuests(guestIds);
     }
   }
-  componentWillUpdate(prevProps) {
-    const prevGuests    = prevProps.query.guest;
-    const currentGuests = this.props.query.guest;
+  componentWillUpdate(nextProps) {
+    const nextGuests    = nextProps.query.guest;
+    const prevGuests = this.props.query.guest;
 
-    if (JSON.stringify(prevGuests) !== JSON.stringify(currentGuests)) {
-      let guestIds = currentGuests ? (Array.isArray(currentGuests) ? currentGuests : [currentGuests]) : [];
+    if (JSON.stringify(nextGuests) !== JSON.stringify(prevGuests)) {
+      let guestIds = nextGuests ? (Array.isArray(nextGuests) ? nextGuests : [nextGuests]) : [];
       this.fetchGuests(guestIds);
     }
   }
@@ -49,33 +50,6 @@ class SearchOptions extends Component {
     if (newGuests.length >= 1) {
       dispatch(fetchGuests(newGuests));
     }
-  }
-  addQuery(currentQuery, key, value) {
-    if (!currentQuery) {
-      return { [key]: [value] };
-    }
-    if (!currentQuery[key]) {
-      return Object.assign({}, currentQuery, { [key]: [value] });
-    }
-
-    return Object.assign({}, currentQuery, { [key]: [...currentQuery[key], value] });
-  }
-  removeQuery(currentQuery, key, value) {
-    if (!currentQuery || !currentQuery[key]) {
-      return currentQuery;
-    }
-
-    const queryValues = Array.isArray(currentQuery[key]) ? currentQuery[key] : [currentQuery[key]];
-
-    if (!_.contains(queryValues, value)) {
-      return currentQuery;
-    }
-
-    let newArray = _.reject(queryValues, (q) => {
-      return q === value;
-    });
-
-    return Object.assign({}, currentQuery, { [key]: newArray });
   }
   getProgramDoms() {
     const { programs, query } = this.props;
@@ -100,14 +74,10 @@ class SearchOptions extends Component {
   }
   getGuestDoms() {
     const { guests, query } = this.props;
-    let filterIds = query.guest ? (Array.isArray(query.guest) ? query.guest : [query.guest]) : [];
 
-    filterIds = filterIds.map((id) => {
-      return parseInt(id, 10);
-    });
-
-    let filterGuests = _.filter(guests, (g) => {
-      return _.contains(filterIds, g.id);
+    const filterIds = query.guest ? (Array.isArray(query.guest) ? query.guest : [query.guest]) : [];
+    const filterGuests = _.filter(guests, (g) => {
+      return _.contains(filterIds.map((id) => { return parseInt(id, 10); }), g.id);
     });
 
     return filterGuests.map((g) => {
@@ -124,8 +94,7 @@ class SearchOptions extends Component {
   }
   removeGuestFilter(id) {
     const { dispatch, query } = this.props;
-
-    let newQuery = this.removeQuery(query, 'guest', id);
+    const newQuery = QueryUtil.removeQuery(query, 'guest', id);
     dispatch(replaceState(null, '/search', newQuery));
   }
   render() {
