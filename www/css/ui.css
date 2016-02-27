@@ -274,8 +274,6 @@ a {
               float: left;
               height: 100%;
               background-color: rgba(0, 0, 0, 0.12); }
-              #main .track .bottom .time-line .block-container .block .unfill.hit {
-                background-color: rgba(56, 110, 195, 0.35); }
   #main #program-list .program {
     position: relative;
     float: left;

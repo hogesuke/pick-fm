@@ -63,7 +63,7 @@ class TimeLineBlock extends Component {
         <div className="tags">{tags}</div>
         <div className="pad" style={{ width: `${padLeftPercent}%` }}></div>
         <div className="block" style={{ width: `${trackPercent}%` }}>
-          <div className={isHit ? 'unfill hit' : 'unfill'} style={{ width: `${unfillPercentage}%` }}></div>
+          <div className="unfill" style={{ width: `${unfillPercentage}%` }}></div>
           <div className="fill" style={{ width: `${100 - unfillPercentage}%` }}></div>
         </div>
         <div className="pad" style={{ width: `${padRightPercent}%` }}></div>
