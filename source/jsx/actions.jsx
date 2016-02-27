@@ -78,10 +78,10 @@ export function toggleActiveEpisode(id) {
   };
 }
 
-export const INIT_PLAYING = 'INIT_PLAYING';
-export function initPlaying() {
+export const CLEAR_PLAYING = 'CLEAR_PLAYING';
+export function clearPlaying() {
   return {
-    type: INIT_PLAYING
+    type: CLEAR_PLAYING
   };
 }
 

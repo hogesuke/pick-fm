@@ -13,7 +13,7 @@ import {
   SET_AUDIO_CURRENT_TIME,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
-  INIT_PLAYING,
+  CLEAR_PLAYING,
   FETCH_PROGRAMS,
   FETCH_TRACKS,
   CLEAR_TRACKS,
@@ -105,7 +105,7 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         episodes: toggledEpisodes
       });
-    case INIT_PLAYING:
+    case CLEAR_PLAYING:
       if (state.audioIntervalID) {
         clearInterval(state.audioIntervalID);
       }

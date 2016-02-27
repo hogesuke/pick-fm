@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, initPlaying } from '../actions'
+import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, clearPlaying } from '../actions'
 import PlayToggleButtonForPlayer from './PlayToggleButtonForPlayer';
 import TimeBar from './TimeBar';
 
@@ -26,12 +26,12 @@ class Player extends Component {
     audio.play();
     dispatch(setPlayingAudio(audio));
 
-    let intervalID = setInterval(() => {
+    const intervalID = setInterval(() => {
       let currentTime = audio.currentTime;
 
       if (this.isEnd(currentTime)) {
         audio.pause();
-        dispatch(initPlaying());
+        dispatch(clearPlaying());
         return;
       }
 
@@ -47,11 +47,11 @@ class Player extends Component {
       dispatch(setIsPlaying(false));
     });
     audio.addEventListener('ended', () => {
-      dispatch(initPlaying());
+      dispatch(clearPlaying());
     });
   }
   isEnd(currentTime) {
-    let { playingTrack } = this.props;
+    const { playingTrack } = this.props;
 
     if (playingTrack) {
       // track再生の場合
@@ -61,9 +61,9 @@ class Player extends Component {
     return false;
   }
   render() {
-    let episode     = this.props.playingEpisode;
-    let programName = episode && episode.program.name;
-    let episodeNo   = episode && episode.episode_no;
+    const episode     = this.props.playingEpisode;
+    const programName = episode && episode.program.name;
+    const episodeNo   = episode && episode.episode_no;
 
     return (
       <div id="player">

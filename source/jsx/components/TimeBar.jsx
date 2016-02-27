@@ -8,7 +8,7 @@ class TimeBar extends Component {
     this.state = { fillPercentage: 0 };
   }
   componentWillReceiveProps(nextProps) {
-    let { playingTrack, playingEpisode, playingAudio } = nextProps;
+    const { playingTrack, playingEpisode, playingAudio } = nextProps;
 
     if (!playingAudio || (!playingTrack && !playingEpisode)) {
       this.setState({ fillPercentage: 0 });
@@ -30,14 +30,14 @@ class TimeBar extends Component {
     }
 
     let intervalId = setInterval(() => {
-      let currentTimePosition = (Math.round(playingAudio.currentTime * 10) / 10) - startTime;
+      const currentTimePosition = (Math.round(playingAudio.currentTime * 10) / 10) - startTime;
       this.setState({ fillPercentage: (currentTimePosition / timeLength) * 100 });
     }, 100);
 
     this.setState({ intervalId: intervalId });
   }
   render() {
-    let { fillPercentage } = this.state;
+    const { fillPercentage } = this.state;
     return (
       <div id="time-bar">
         <div className="fill" style={{ width: fillPercentage + '%' }} ></div>
