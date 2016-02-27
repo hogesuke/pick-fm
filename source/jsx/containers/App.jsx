@@ -23,18 +23,17 @@ class App extends Component {
     }
   }
   render() {
-    let { currentLocation } = this.props;
-    let player = /^\/$/.test(currentLocation) ? null : <Player />;
-
     return (
       <div id="main">
-        <div id="tool-bar">
+        <div id="header">
           <SearchBox />
         </div>
         <div id="main-body">
           {this.props.children}
         </div>
-        {player}
+        <div id="footer">
+          <Player />
+        </div>
       </div>
     );
   }

@@ -15,16 +15,10 @@ body {
   position: relative;
   box-sizing: border-box;
   height: 100%;
+  width: 100%;
   color: #333333;
   background-color: #868686; }
-  @media screen and (min-width: 1281px) {
-    #main {
-      width: 1280px;
-      margin: 0 auto; } }
-  @media screen and (max-width: 1280px) {
-    #main {
-      width: 100%; } }
-  #main #tool-bar {
+  #main #header {
     box-sizing: border-box;
     position: absolute;
     top: 0;
@@ -34,32 +28,96 @@ body {
     background-color: #2f2f2f;
     box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
     z-index: 10000; }
-    #main #tool-bar #search-box {
+    #main #header #search-box input {
       box-sizing: border-box;
-      width: 100%;
       padding: 8px 10px;
+      width: 100%;
       border: 1px solid #aaaaaa;
       background-color: transparent;
       font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
       font-size: 20px;
       color: #eeeeee; }
+  #main #footer {
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    background-color: #2f2f2f;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 2px 0; }
+    #main #footer #player {
+      box-sizing: border-box;
+      height: 65px;
+      padding: 15px 20px; }
+      #main #footer #player .track-info {
+        float: left;
+        height: 18px;
+        width: calc(100% - 200px);
+        margin: 1px 0;
+        font-size: 16px;
+        color: #eeeeee; }
+        #main #footer #player .track-info .episode-no {
+          margin-left: 5px; }
+          #main #footer #player .track-info .episode-no:before {
+            content: "Episode"; }
+      #main #footer #player .controllers {
+        float: left;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        height: 100%;
+        width: 200px; }
+        #main #footer #player .controllers .button {
+          height: 30px;
+          width: 30px;
+          border: none;
+          background-color: transparent;
+          font-size: 14px;
+          color: #eeeeee;
+          cursor: pointer; }
+          #main #footer #player .controllers .button:focus {
+            outline: none; }
+          #main #footer #player .controllers .button:disabled {
+            background-color: rgba(255, 255, 255, 0.6); }
+      #main #footer #player #time-bar {
+        float: left;
+        box-sizing: border-box;
+        height: 3px;
+        width: calc(100% - 200px);
+        margin-top: 10px; }
+        #main #footer #player #time-bar .fill {
+          float: left;
+          height: 100%;
+          background-color: #386EC3;
+          transition: width 0.1s linear; }
+        #main #footer #player #time-bar .unfill {
+          float: left;
+          height: 100%;
+          background-color: #dddddd;
+          transition: width 0.1s linear; }
   #main #main-body {
     box-sizing: border-box;
     position: absolute;
     top: 60px;
-    overflow: hidden;
-    height: calc(100% - 60px);
+    overflow: auto;
+    height: calc(100% - 125px);
     width: 100%;
     min-width: 500px; }
     #main #main-body #program-list, #main #main-body #track-list, #main #main-body #episode-list {
-      float: left;
-      overflow-y: auto;
       box-sizing: border-box;
       padding: 10px;
-      height: calc(100% - 65px);
-      width: 100%; }
+      height: 100%; }
     #main #main-body #program-list {
       height: 100%; }
+  @media screen and (min-width: 1281px) {
+    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player {
+      width: 1280px;
+      margin: 0 auto; } }
+  @media screen and (max-width: 1280px) {
+    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player {
+      width: 100%; } }
+  @media screen and (max-width: 500px) {
+    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player {
+      width: 500px; } }
   #main #search-options {
     margin: 5px 10px;
     padding: 10px;
@@ -90,63 +148,6 @@ body {
           color: #2b2b2b; }
           #main #search-options .guests .guest .remove-button:hover {
             cursor: pointer; }
-  #main #player {
-    float: left;
-    overflow: hidden;
-    box-sizing: border-box;
-    position: absolute;
-    bottom: 0;
-    height: 65px;
-    width: 100%;
-    padding: 15px 20px;
-    background-color: #2f2f2f;
-    box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 2px 0; }
-    #main #player .track-info {
-      float: left;
-      height: 18px;
-      width: calc(100% - 200px);
-      margin: 1px 0;
-      font-size: 16px;
-      color: #eeeeee; }
-      #main #player .track-info .episode-no {
-        margin-left: 5px; }
-        #main #player .track-info .episode-no:before {
-          content: "Episode"; }
-    #main #player .controllers {
-      float: left;
-      display: flex;
-      align-items: center;
-      box-sizing: border-box;
-      height: 100%;
-      width: 200px; }
-      #main #player .controllers .button {
-        height: 30px;
-        width: 30px;
-        border: none;
-        background-color: transparent;
-        font-size: 14px;
-        color: #eeeeee;
-        cursor: pointer; }
-        #main #player .controllers .button:focus {
-          outline: none; }
-        #main #player .controllers .button:disabled {
-          background-color: rgba(255, 255, 255, 0.6); }
-    #main #player #time-bar {
-      float: left;
-      box-sizing: border-box;
-      height: 3px;
-      width: calc(100% - 200px);
-      margin-top: 10px; }
-      #main #player #time-bar .fill {
-        float: left;
-        height: 100%;
-        background-color: #386EC3;
-        transition: width 0.1s linear; }
-      #main #player #time-bar .unfill {
-        float: left;
-        height: 100%;
-        background-color: #dddddd;
-        transition: width 0.1s linear; }
   #main .track {
     float: left;
     overflow: hidden;
@@ -155,6 +156,8 @@ body {
     background-color: #ffffff;
     border: solid 1px #dddddd;
     box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px; }
+    #main .track:last-child {
+      margin-bottom: 20px; }
     #main .track .head {
       overflow: hidden;
       position: relative;

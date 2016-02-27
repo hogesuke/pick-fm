@@ -91,9 +91,8 @@ class SearchBox extends Component {
   }
   render() {
     return (
-      <div>
+      <div id="search-box">
         <input type="text"
-               id="search-box"
                value={this.state.searchText}
                onChange={this.handleChange.bind(this)}
                placeholder="&#xf002;"

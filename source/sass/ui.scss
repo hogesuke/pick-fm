@@ -7,7 +7,7 @@ $text-dark-gray: #333333;
 $text-light-gray: #a0a0a0;
 $text-light-on-gray: #eeeeee;
 
-$tool-bar-height: 60px;
+$header-height: 60px;
 $main-bar-width: 80px;
 $player-controllers-width: 200px;
 $player-height: 65px;
@@ -31,22 +31,15 @@ body {
     position: relative;
     box-sizing: border-box;
     height: 100%;
+    width: 100%;
     color: $text-dark-gray;
     background-color: #868686;
 
-    @media screen and (min-width: 1281px) {
-        width: 1280px;
-        margin: 0 auto;
-    }
-    @media screen and (max-width: 1280px) {
-        width: 100%;
-    }
-
-    #tool-bar {
+    #header {
         box-sizing: border-box;
         position: absolute;
         top: 0;
-        height: $tool-bar-height;
+        height: $header-height;
         width: 100%;
         padding: 10px;
         background-color: $dark-gray;
@@ -54,36 +47,133 @@ body {
         z-index: 10000;
 
         #search-box {
+            input {
+                box-sizing: border-box;
+                padding: 8px 10px;
+                width: 100%;
+                border: 1px solid $medium-gray;
+                background-color: transparent;
+                font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
+                font-size: 20px;
+                color: $text-light-on-gray;
+            }
+        }
+    }
+
+    #footer {
+        position: absolute;
+        bottom: 0;
+        overflow: hidden;
+        width: 100%;
+        background-color: $dark-gray;
+        box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 2px 0;
+
+        #player {
             box-sizing: border-box;
-            width: 100%;
-            padding: 8px 10px;
-            border: 1px solid $medium-gray;
-            background-color: transparent;
-            font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-            font-size: 20px;
-            color: $text-light-on-gray;
+            height: $player-height;
+            padding: 15px 20px;
+
+            .track-info {
+                float: left;
+                height: 18px;
+                width: calc(100% - #{$player-controllers-width});
+                margin: 1px 0;
+                font-size: 16px;
+                color: $text-light-on-gray;
+
+                .program-name {
+
+                }
+                .episode-no {
+                    margin-left: 5px;
+
+                    &:before {
+                        content: "Episode";
+                    }
+                }
+            }
+            .controllers {
+                float: left;
+                display: flex;
+                align-items: center;
+                box-sizing: border-box;
+                height: 100%;
+                width: $player-controllers-width;
+
+                .button {
+                    height: 30px;
+                    width: 30px;
+                    border: none;
+                    background-color: transparent;
+                    font-size: 14px;
+                    color: $text-light-on-gray;
+                    cursor: pointer;
+
+                    &:focus {
+                        outline: none;
+                    }
+                    &:disabled {
+                        background-color: rgba(255, 255, 255, 0.6);
+                    }
+
+                    &.play {
+                    }
+                    &.pause {
+                    }
+                }
+            }
+            #time-bar {
+                float: left;
+                box-sizing: border-box;
+                height: 3px;
+                width: calc(100% - #{$player-controllers-width});
+                margin-top: 10px;
+
+                .fill {
+                    float: left;
+                    height: 100%;
+                    background-color: #386EC3;
+                    transition: width 0.1s linear;
+                }
+                .unfill {
+                    float: left;
+                    height: 100%;
+                    background-color: $light-gray;
+                    transition: width 0.1s linear;
+                }
+            }
         }
     }
 
     #main-body {
         box-sizing: border-box;
         position: absolute;
-        top: $tool-bar-height;
-        overflow: hidden;
-        height: calc(100% - #{$tool-bar-height});
+        top: $header-height;
+        overflow: auto;
+        height: calc(100% - #{$header-height + $player-height});
         width: 100%;
         min-width: 500px;
 
         #program-list, #track-list, #episode-list {
-            float: left;
-            overflow-y: auto;
             box-sizing: border-box;
             padding: 10px;
-            height: calc(100% - #{$player-height});
-            width: 100%;
+            height: 100%;
         }
         #program-list {
             height: 100%;
+        }
+    }
+
+    #program-list, #track-list, #episode-list, #search-box, #player {
+        @media screen and (min-width: 1281px) {
+            width: 1280px;
+            margin: 0 auto;
+        }
+        @media screen and (max-width: 1280px) {
+            width: 100%;
+        }
+        @media screen and (max-width: 500px) {
+            width: 500px;
         }
     }
 
@@ -134,89 +224,6 @@ body {
         }
     }
 
-    #player {
-        float: left;
-        overflow: hidden;
-        box-sizing: border-box;
-        position: absolute;
-        bottom: 0;
-        height: $player-height;
-        width: 100%;
-        padding: 15px 20px;
-        background-color: $dark-gray;
-        box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 2px 0;
-
-        .track-info {
-            float: left;
-            height: 18px;
-            width: calc(100% - #{$player-controllers-width});
-            margin: 1px 0;
-            font-size: 16px;
-            color: $text-light-on-gray;
-
-            .program-name {
-
-            }
-            .episode-no {
-                margin-left: 5px;
-
-                &:before {
-                    content: "Episode";
-                }
-            }
-        }
-        .controllers {
-            float: left;
-            display: flex;
-            align-items: center;
-            box-sizing: border-box;
-            height: 100%;
-            width: $player-controllers-width;
-
-            .button {
-                height: 30px;
-                width: 30px;
-                border: none;
-                background-color: transparent;
-                font-size: 14px;
-                color: $text-light-on-gray;
-                cursor: pointer;
-
-                &:focus {
-                    outline: none;
-                }
-                &:disabled {
-                    background-color: rgba(255, 255, 255, 0.6);
-                }
-
-                &.play {
-                }
-                &.pause {
-                }
-            }
-        }
-        #time-bar {
-            float: left;
-            box-sizing: border-box;
-            height: 3px;
-            width: calc(100% - #{$player-controllers-width});
-            margin-top: 10px;
-
-            .fill {
-                float: left;
-                height: 100%;
-                background-color: #386EC3;
-                transition: width 0.1s linear;
-            }
-            .unfill {
-                float: left;
-                height: 100%;
-                background-color: $light-gray;
-                transition: width 0.1s linear;
-            }
-        }
-    }
-
     .track {
         float: left;
         overflow: hidden;
@@ -225,6 +232,10 @@ body {
         background-color: #ffffff;
         border: solid 1px $light-gray;
         box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px;
+
+        &:last-child {
+            margin-bottom: 20px;
+        }
 
         .head {
             overflow: hidden;
