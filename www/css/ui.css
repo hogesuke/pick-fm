@@ -374,7 +374,7 @@ a {
               height: 100%;
               background-color: rgba(0, 0, 0, 0.12); }
     #main .episode .bottom .time-line .block-container:hover {
-      box-shadow: rgba(0, 55, 255, 0.3) 0 0 0 2px;
+      background-color: rgba(0, 11, 255, 0.1);
       cursor: pointer; }
     #main .episode .bottom .time-line .block-container .tags .tag {
       color: #4C4C4C;
