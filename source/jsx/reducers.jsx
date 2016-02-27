@@ -13,7 +13,8 @@ import {
   SET_AUDIO_CURRENT_TIME,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
-  CLEAR_PLAYING,
+  INIT_PLAYING,
+  RESET_PLAYING,
   FETCH_PROGRAMS,
   FETCH_TRACKS,
   CLEAR_TRACKS,
@@ -105,18 +106,10 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         episodes: toggledEpisodes
       });
-    case CLEAR_PLAYING:
+    case INIT_PLAYING:
       if (state.audioIntervalID) {
         clearInterval(state.audioIntervalID);
       }
-      let inactiveTracks = state.searchResultTracks.map((t) => {
-        t.isActive = false;
-        return t;
-      });
-      let inactiveEpisodes = state.episodes.map((e) => {
-        e.isActive = false;
-        return e;
-      });
       return Object.assign({}, state, {
         playingAudio      : null,
         playingTrack      : null,
@@ -124,8 +117,38 @@ function pickApp(state = initialState, action = "") {
         audioIntervalID   : null,
         audioCurrentTime  : null,
         isPlaying         : false,
-        searchResultTracks: inactiveTracks,
-        episodes          : inactiveEpisodes
+        searchResultTracks: state.searchResultTracks.map((t) => {
+          t.isActive = false;
+          return t;
+        }),
+        episodes          : state.episodes.map((e) => {
+          e.isActive = false;
+          return e;
+        })
+      });
+    case RESET_PLAYING:
+      const resetTime = (() => {
+        if (state.playingTrack) {
+          return state.playingTrack.start_time;
+        } else if (state.playingEpisode) {
+          return 0;
+        }
+        return null;
+      })();
+
+      state.playingAudio.currentTime = resetTime;
+
+      return Object.assign({}, state, {
+        audioCurrentTime  : resetTime,
+        isPlaying         : false,
+        searchResultTracks: state.searchResultTracks.map((t) => {
+          t.isActive = false;
+          return t;
+        }),
+        episodes          : state.episodes.map((e) => {
+          e.isActive = false;
+          return e;
+        })
       });
     case FETCH_PROGRAMS:
       return Object.assign({}, state, {

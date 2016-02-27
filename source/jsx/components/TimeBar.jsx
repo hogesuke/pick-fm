@@ -31,7 +31,11 @@ class TimeBar extends Component {
 
     let intervalId = setInterval(() => {
       const currentTimePosition = (Math.round(playingAudio.currentTime * 10) / 10) - startTime;
-      this.setState({ fillPercentage: (currentTimePosition / timeLength) * 100 });
+      let fillPercentage = (currentTimePosition / timeLength) * 100;
+
+      fillPercentage = fillPercentage <= 100 ? fillPercentage : 100;
+
+      this.setState({ fillPercentage: fillPercentage });
     }, 100);
 
     this.setState({ intervalId: intervalId });

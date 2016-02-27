@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, clearPlaying } from '../actions'
+import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, initPlaying, resetPlaying } from '../actions'
 import PlayToggleButtonForPlayer from './PlayToggleButtonForPlayer';
 import TimeBar from './TimeBar';
 
@@ -31,7 +31,7 @@ class Player extends Component {
 
       if (this.isEnd(currentTime)) {
         audio.pause();
-        dispatch(clearPlaying());
+        dispatch(resetPlaying());
         return;
       }
 
@@ -47,7 +47,7 @@ class Player extends Component {
       dispatch(setIsPlaying(false));
     });
     audio.addEventListener('ended', () => {
-      dispatch(clearPlaying());
+      dispatch(initPlaying());
     });
   }
   isEnd(currentTime) {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { replaceState } from 'redux-router';
-import { setPlayingTrack, setPlayingEpisode, clearPlaying } from '../actions'
+import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
 import TimeLineForTrack from '../components/TimeLineForTrack';
 import PlayToggleButtonForTrack from './PlayToggleButtonForTrack';
 import QueryUtil from '../util/QueryUtil'
