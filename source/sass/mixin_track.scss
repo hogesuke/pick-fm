@@ -19,7 +19,7 @@
 
         .track-information {
             overflow: hidden;
-            padding: 13px 13px 13px 60px;
+            padding: 13px 13px 13px 80px;
 
             .title {
                 float: left;
@@ -70,9 +70,9 @@
 
             .button {
                 height: 100%;
-                width: 50px;
+                width: 70px;
                 border: none;
-                background-color: #ffffff;
+                background-color: transparent;
                 color: $text-medium-gray;
                 font-size: 11px;
                 cursor: pointer;
@@ -82,10 +82,10 @@
                 }
                 &:hover {
                     color: #ffffff;
-
-                    &.play {
-                        background-color: #87bbff;
-                    }
+                    background-color: #599eeb;
+                }
+                &:active {
+                    background-color: #5373ba;
                 }
             }
         }

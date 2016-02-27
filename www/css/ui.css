@@ -174,7 +174,7 @@ a {
       border-bottom: solid 1px #dddddd; }
       #main .track .head .track-information {
         overflow: hidden;
-        padding: 13px 13px 13px 60px; }
+        padding: 13px 13px 13px 80px; }
         #main .track .head .track-information .title {
           float: left;
           margin-bottom: 7px;
@@ -209,18 +209,19 @@ a {
         height: 100%; }
         #main .track .head .track-controller .button {
           height: 100%;
-          width: 50px;
+          width: 70px;
           border: none;
-          background-color: #ffffff;
+          background-color: transparent;
           color: #4C4C4C;
           font-size: 11px;
           cursor: pointer; }
           #main .track .head .track-controller .button:focus {
             outline: none; }
           #main .track .head .track-controller .button:hover {
-            color: #ffffff; }
-            #main .track .head .track-controller .button:hover.play {
-              background-color: #87bbff; }
+            color: #ffffff;
+            background-color: #599eeb; }
+          #main .track .head .track-controller .button:active {
+            background-color: #5373ba; }
     #main .track .bottom {
       padding: 13px; }
       #main .track .bottom .time-line {
@@ -282,7 +283,7 @@ a {
       border-bottom: solid 1px #dddddd; }
       #main .episode .head .track-information {
         overflow: hidden;
-        padding: 13px 13px 13px 60px; }
+        padding: 13px 13px 13px 80px; }
         #main .episode .head .track-information .title {
           float: left;
           margin-bottom: 7px;
@@ -317,18 +318,19 @@ a {
         height: 100%; }
         #main .episode .head .track-controller .button {
           height: 100%;
-          width: 50px;
+          width: 70px;
           border: none;
-          background-color: #ffffff;
+          background-color: transparent;
           color: #4C4C4C;
           font-size: 11px;
           cursor: pointer; }
           #main .episode .head .track-controller .button:focus {
             outline: none; }
           #main .episode .head .track-controller .button:hover {
-            color: #ffffff; }
-            #main .episode .head .track-controller .button:hover.play {
-              background-color: #87bbff; }
+            color: #ffffff;
+            background-color: #599eeb; }
+          #main .episode .head .track-controller .button:active {
+            background-color: #5373ba; }
     #main .episode .bottom {
       padding: 13px; }
       #main .episode .bottom .time-line {
