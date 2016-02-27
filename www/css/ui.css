@@ -380,6 +380,8 @@ a {
       color: #4C4C4C;
       margin-right: 0;
       background-color: transparent; }
+      #main .episode .bottom .time-line .block-container .tags .tag.hit {
+        background-color: transparent; }
   #main #program-list .program {
     position: relative;
     float: left;

@@ -259,6 +259,10 @@ a {
                             color: $text-medium-gray;
                             margin-right: 0;
                             background-color: transparent;
+
+                            &.hit {
+                                background-color: transparent;
+                            }
                         }
                     }
                 }
