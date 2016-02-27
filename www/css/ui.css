@@ -390,7 +390,8 @@ a {
     width: 300px;
     margin: 5px 10px;
     cursor: pointer;
-    background-size: 300px; }
+    background-size: 300px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px 2px; }
     #main #program-list .program .overlay {
       position: relative;
       height: 100%;
