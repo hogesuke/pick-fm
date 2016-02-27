@@ -8,7 +8,8 @@ class TimeLineBlock extends Component {
     this.state = { unfillPercentage: 100, intervalID: null };
   }
   handleClick() {
-    this.props.onClick();
+    const { onClick } = this.props;
+    if (onClick) { onClick(); }
   }
   componentWillReceiveProps(nextProps) {
     let { track, isActive, audioCurrentTime } = nextProps;
