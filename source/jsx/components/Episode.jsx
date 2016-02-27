@@ -13,7 +13,11 @@ class Episode extends Component {
   }
   getTitle() {
     const { episode } = this.props;
-    return `${episode.program.name} Episode ${episode.episode_no} `
+    return (
+      <Link to={`/programs/${episode.program.id}/episodes/${episode.episode_no}`}>
+        {`${episode.program.name} Episode ${episode.episode_no}`}
+      </Link>
+    );
   }
   getTimeLength() {
     const { episode } = this.props;

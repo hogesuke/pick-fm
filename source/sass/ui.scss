@@ -27,6 +27,19 @@ body {
     background-color: #efefef;
 }
 
+a {
+    color: #315dca;
+    text-decoration: none;
+
+    &:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    &:active {
+        color: #ca3f41;
+    }
+}
+
 #main {
     position: relative;
     box-sizing: border-box;
@@ -286,17 +299,6 @@ body {
                     .guest-name {
                         margin-right: 10px;
                         font-size: 13px;
-                    }
-                    a.guest-name {
-                        color: #315dca;
-                        text-decoration: none;
-
-                        &:hover {
-                            cursor: pointer;
-                        }
-                        &:active {
-                            color: #ca3f41;
-                        }
                     }
                 }
             }

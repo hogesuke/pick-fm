@@ -5,7 +5,7 @@ import TimeLineBlock from '../components/TimeLineBlock';
 
 class TimeLineForTrack extends Component {
   isActive(track) {
-    let { playingEpisode, playingTrack } = this.props;
+    const { playingEpisode, playingTrack } = this.props;
 
     if (!playingEpisode || !playingTrack) {
       return false;
@@ -22,22 +22,24 @@ class TimeLineForTrack extends Component {
     return true;
   }
   render() {
-    let { episode, track } = this.props;
-    let episodeLength = _.last(episode.tracks).end_time;
+    const { episode, track } = this.props;
+    const episodeLength = _.last(episode.tracks).end_time;
 
-    let blocks = episode.tracks.map((episodeTrack) => {
-      return (
-        <TimeLineBlock
-          key={episodeTrack.id}
-          track={episodeTrack}
-          episodeLength={episodeLength}
-          isActive={this.isActive(episodeTrack)}
-          isHit={track.id === episodeTrack.id}
-        />
-      );
+    const targetTrack = episode.tracks.find((episodeTrack) => {
+      return track.id === episodeTrack.id;
     });
 
-    return <div className="time-line">{blocks}</div>;
+    return (
+      <div className="time-line">
+        <TimeLineBlock
+          key={targetTrack.id}
+          track={targetTrack}
+          episodeLength={episodeLength}
+          isActive={this.isActive(targetTrack)}
+          isHit={track.id === targetTrack.id}
+        />
+      </div>
+    );
   }
 }
 

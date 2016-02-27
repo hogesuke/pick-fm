@@ -11,6 +11,15 @@ body > #content > div {
 body {
   background-color: #efefef; }
 
+a {
+  color: #315dca;
+  text-decoration: none; }
+  a:hover {
+    cursor: pointer;
+    text-decoration: underline; }
+  a:active {
+    color: #ca3f41; }
+
 #main {
   position: relative;
   box-sizing: border-box;
@@ -195,13 +204,6 @@ body {
           #main .track .head .track-information .guests .guest-name {
             margin-right: 10px;
             font-size: 13px; }
-          #main .track .head .track-information .guests a.guest-name {
-            color: #315dca;
-            text-decoration: none; }
-            #main .track .head .track-information .guests a.guest-name:hover {
-              cursor: pointer; }
-            #main .track .head .track-information .guests a.guest-name:active {
-              color: #ca3f41; }
       #main .track .head .track-controller {
         position: absolute;
         height: 100%; }

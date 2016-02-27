@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import { replaceState } from 'redux-router';
 import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
 import TimeLineForTrack from '../components/TimeLineForTrack';
@@ -13,7 +14,11 @@ class Track extends Component {
   }
   getTitle() {
     const { track, episode } = this.props;
-    return `${episode.program.name} Episode ${track.episode_no} `
+    return (
+      <Link to={`/programs/${episode.program.id}/episodes/${episode.episode_no}`}>
+        {`${episode.program.name} Episode ${track.episode_no}`}
+      </Link>
+    );
   }
   getTimeLength() {
     const { track } = this.props;
@@ -54,7 +59,7 @@ class Track extends Component {
   render() {
     const { track, episode, searchText } = this.props;
 
-    let tags = this.getTags(track).map((tag) => {
+    const tags = this.getTags(track).map((tag) => {
       return (
         <span key={tag} className={ searchText && new RegExp(searchText, 'i').test(tag) ? 'tag hit' : 'tag' } >
           {tag}
