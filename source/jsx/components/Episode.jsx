@@ -54,7 +54,7 @@ class Episode extends Component {
     const { episode } = this.props;
 
     return (
-      <div className="track">
+      <div className="episode">
         <div className="head">
           <div className="track-controller">
             <PlayToggleButtonForEpisode episode={episode} />

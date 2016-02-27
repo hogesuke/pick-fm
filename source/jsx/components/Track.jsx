@@ -57,15 +57,7 @@ class Track extends Component {
     });
   }
   render() {
-    const { track, episode, searchText } = this.props;
-
-    const tags = this.getTags(track).map((tag) => {
-      return (
-        <span key={tag} className={ searchText && new RegExp(searchText, 'i').test(tag) ? 'tag hit' : 'tag' } >
-          {tag}
-        </span>
-      );
-    });
+    const { track, episode } = this.props;
 
     return (
       <div className="track">
@@ -86,7 +78,6 @@ class Track extends Component {
           </div>
         </div>
         <div className="bottom">
-          <div className="tag-list">{tags}</div>
           <TimeLineForTrack track={track} episode={episode} />
         </div>
       </div>
@@ -96,8 +87,7 @@ class Track extends Component {
 
 export default connect(state => {
   return {
-    searchText: state.pickApp.searchText,
-    query     : state.router.location.query
+    query: state.router.location.query
   };
 })(Track);
 

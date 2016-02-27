@@ -43,7 +43,7 @@ class TimeLineBlock extends Component {
     return tags;
   }
   render() {
-    let { track, episodeLength, isHit } = this.props;
+    const { track, episodeLength, searchText } = this.props;
     let { unfillPercentage } = this.state;
 
     if (unfillPercentage === void 0) {
@@ -55,7 +55,11 @@ class TimeLineBlock extends Component {
     let padRightPercent = 100 - padLeftPercent - trackPercent;
 
     let tags = this.getTags(track).map((tag) => {
-      return <span key={tag} className="tag">{tag}</span>;
+      return (
+        <span key={tag} className={ searchText && new RegExp(searchText, 'i').test(tag) ? 'tag hit' : 'tag' }>
+          {tag}
+        </span>
+      );
     });
 
     return (
@@ -74,6 +78,7 @@ class TimeLineBlock extends Component {
 
 export default connect(state => {
   return {
-    audioCurrentTime: state.pickApp.audioCurrentTime
+    audioCurrentTime: state.pickApp.audioCurrentTime,
+    searchText    : state.pickApp.searchText
   };
 })(TimeLineBlock);

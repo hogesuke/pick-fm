@@ -36,7 +36,6 @@ class TimeLineForTrack extends Component {
           track={targetTrack}
           episodeLength={episodeLength}
           isActive={this.isActive(targetTrack)}
-          isHit={track.id === targetTrack.id}
         />
       </div>
     );
