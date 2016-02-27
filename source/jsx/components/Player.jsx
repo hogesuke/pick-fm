@@ -72,7 +72,7 @@ class Player extends Component {
         </div>
         <div className="track-info">
           <span className="program-name">{programName}</span>
-          <span className="episode-no" style={{ display: episode ? 'inline' : 'none' }}>{episodeNo}</span>
+          <span className="episode-no" style={{ display: episode ? 'inline' : 'none' }}> {episodeNo}</span>
         </div>
         <TimeBar />
       </div>
