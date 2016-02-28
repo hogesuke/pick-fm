@@ -95,17 +95,6 @@ a {
                 margin: 1px 0;
                 font-size: 16px;
                 color: $text-light-on-gray;
-
-                .program-name {
-
-                }
-                .episode-no {
-                    margin-left: 5px;
-
-                    &:before {
-                        content: "Episode";
-                    }
-                }
             }
             .controllers {
                 float: left;

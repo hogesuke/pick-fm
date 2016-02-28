@@ -61,11 +61,19 @@ class Player extends Component {
     // episode再生の場合
     return false;
   }
-  render() {
-    const episode     = this.props.playingEpisode;
-    const programName = episode && episode.program.name;
-    const episodeNo   = episode && episode.episode_no;
+  getTitle() {
+    const episode = this.props.playingEpisode;
 
+    if (!episode) {
+      return '';
+    }
+
+    let type = episode.episode_type.charAt(0).toUpperCase() + episode.episode_type.slice(1);
+    type = type === 'Regular' ? '' : ' ' + type;
+
+    return `${episode.program.name} Episode ${episode.episode_no + type}`;
+  }
+  render() {
     return (
       <div id="player">
         <div className="controllers">
@@ -73,8 +81,7 @@ class Player extends Component {
           <Volume />
         </div>
         <div className="track-info">
-          <span className="program-name">{programName}</span>
-          <span className="episode-no" style={{ display: episode ? 'inline' : 'none' }}> {episodeNo}</span>
+          <span>{this.getTitle()}</span>
         </div>
         <TimeBar />
       </div>

@@ -64,10 +64,6 @@ a {
         margin: 1px 0;
         font-size: 16px;
         color: #eeeeee; }
-        #main #footer #player .track-info .episode-no {
-          margin-left: 5px; }
-          #main #footer #player .track-info .episode-no:before {
-            content: "Episode"; }
       #main #footer #player .controllers {
         float: left;
         display: flex;
