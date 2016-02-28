@@ -267,11 +267,13 @@ a {
             #main .track .bottom .time-line .block-container .block .fill {
               float: left;
               height: 100%;
-              background-color: rgba(222, 10, 10, 0.35); }
+              background-color: rgba(222, 10, 10, 0.35);
+              transition: width 0.1s linear; }
             #main .track .bottom .time-line .block-container .block .unfill {
               float: left;
               height: 100%;
-              background-color: rgba(0, 0, 0, 0.12); }
+              background-color: rgba(0, 0, 0, 0.12);
+              transition: width 0.1s linear; }
   #main .episode {
     float: left;
     overflow: hidden;
@@ -377,11 +379,13 @@ a {
             #main .episode .bottom .time-line .block-container .block .fill {
               float: left;
               height: 100%;
-              background-color: rgba(222, 10, 10, 0.35); }
+              background-color: rgba(222, 10, 10, 0.35);
+              transition: width 0.1s linear; }
             #main .episode .bottom .time-line .block-container .block .unfill {
               float: left;
               height: 100%;
-              background-color: rgba(0, 0, 0, 0.12); }
+              background-color: rgba(0, 0, 0, 0.12);
+              transition: width 0.1s linear; }
     #main .episode .bottom .time-line .block-container:hover {
       background-color: rgba(0, 11, 255, 0.1);
       cursor: pointer; }
