@@ -7,6 +7,30 @@ class TimeBar extends Component {
     super(props);
     this.state = { fillPercentage: 0 };
   }
+  handleClick(event) {
+    const { playingTrack, playingEpisode, playingAudio } = this.props;
+
+    if (!playingTrack && !playingEpisode) {
+      return;
+    }
+
+    const elementX   = event.nativeEvent.target.clientWidth;
+    const pointX     = event.nativeEvent.offsetX;
+    const percentage = pointX / elementX;
+    let dest = null;
+
+    if (playingTrack) {
+      // track再生の場合
+      const length = playingTrack.end_time - playingTrack.start_time;
+      dest = playingTrack.start_time + (length * percentage);
+    } else {
+      // episode再生の場合
+      const length = playingEpisode.time_length;
+      dest = length * percentage;
+    }
+
+    playingAudio.currentTime = Math.round(dest);
+  }
   componentWillReceiveProps(nextProps) {
     const { playingTrack, playingEpisode, playingAudio } = nextProps;
 
@@ -43,9 +67,10 @@ class TimeBar extends Component {
   render() {
     const { fillPercentage } = this.state;
     return (
-      <div id="time-bar">
+      <div id="time-bar" onClick={this.handleClick.bind(this)}>
         <div className="fill" style={{ width: fillPercentage + '%' }} ></div>
         <div className="unfill" style={{ width: 100 - fillPercentage + '%' }} ></div>
+        <div className="overlay"></div>
       </div>
     );
   }
