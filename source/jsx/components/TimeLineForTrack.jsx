@@ -29,16 +29,21 @@ class TimeLineForTrack extends Component {
       return track.id === episodeTrack.id;
     });
 
-    return (
-      <div className="time-line">
+    const timeLineBlock = (() => {
+      if (!targetTrack) {
+        return null;
+      }
+      return (
         <TimeLineBlock
           key={targetTrack.id}
           track={targetTrack}
           episodeLength={episodeLength}
           isActive={this.isActive(targetTrack)}
         />
-      </div>
-    );
+      );
+    })();
+
+    return <div className="time-line">{timeLineBlock}</div>;
   }
 }
 

@@ -111,8 +111,9 @@ get '/search' do
     unless exist
       # まだ取得していない場合
       episode = Episode.where({
-                                  :program_id => source['program_id'],
-                                  :episode_no => source['episode_no']
+                                  :program_id   => source['program_id'],
+                                  :episode_no   => source['episode_no'],
+                                  :episode_type => source['episode_type']
                               }).first
 
       episode_tracks = client.search(index: 'pickfm',
