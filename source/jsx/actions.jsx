@@ -64,6 +64,20 @@ export function setAudioCurrentTime(currentTime) {
   };
 }
 
+export const SET_VOLUME = 'SET_VOLUME';
+export function setVolume(volume) {
+  return {
+    type: SET_VOLUME, volume
+  };
+}
+
+export const SET_MUTE_STATUS = 'SET_MUTE_STATUS';
+export function setMuteStatus(isMute) {
+  return {
+    type: SET_MUTE_STATUS, isMute
+  };
+}
+
 export const TOGGLE_ACTIVE_TRACK = 'TOGGLE_ACTIVE_TRACK';
 export function toggleActiveTrack(id) {
   return {

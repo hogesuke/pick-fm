@@ -115,9 +115,43 @@ a {
                 height: 100%;
                 width: $player-controllers-width;
 
+                #volume {
+                    box-sizing: border-box;
+
+                    .mute-toggle-button {
+                        float: left;
+                    }
+                    .slider {
+                        float: left;
+                        height: 3px;
+                        width: 70px;
+                        margin-top: 14px;
+                        padding: 5px 0;
+                        cursor: pointer;
+
+                        .fill {
+                            float: left;
+                            height: 100%;
+                            background-color: #3880d5;
+                            transition: width 0.1s linear;
+                        }
+                        .unfill {
+                            float: left;
+                            height: 100%;
+                            background-color: $light-gray;
+                            transition: width 0.1s linear;
+                        }
+                        .overlay {
+                            position: relative;
+                            height: 100%;
+                            width: 100%;
+                        }
+                    }
+                }
+
                 .button {
-                    height: 30px;
-                    width: 30px;
+                    height: 40px;
+                    width: 40px;
                     border: none;
                     background-color: transparent;
                     font-size: 14px;
@@ -132,8 +166,12 @@ a {
                     }
 
                     &.play {
+                        margin-right: 10px;
                     }
-                    &.pause {
+                    &.mute-toggle-button {
+                        box-sizing: border-box;
+                        font-size: 20px;
+                        padding: 10px 0 0 10px;
                     }
                 }
             }
@@ -148,7 +186,7 @@ a {
                 .fill {
                     float: left;
                     height: 100%;
-                    background-color: #386EC3;
+                    background-color: #3880d5;
                     transition: width 0.1s linear;
                 }
                 .unfill {

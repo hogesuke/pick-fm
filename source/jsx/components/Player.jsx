@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, resetPlaying } from '../actions'
 import PlayToggleButtonForPlayer from './PlayToggleButtonForPlayer';
 import TimeBar from './TimeBar';
+import Volume from './Volume';
 
 class Player extends Component {
   componentWillReceiveProps(nextProps) {
@@ -69,6 +70,7 @@ class Player extends Component {
       <div id="player">
         <div className="controllers">
           <PlayToggleButtonForPlayer />
+          <Volume />
         </div>
         <div className="track-info">
           <span className="program-name">{programName}</span>

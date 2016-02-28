@@ -11,6 +11,8 @@ import {
   SET_IS_PLAYING,
   SET_AUDIO_INTERVAL_ID,
   SET_AUDIO_CURRENT_TIME,
+  SET_VOLUME,
+  SET_MUTE_STATUS,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
@@ -39,6 +41,8 @@ let initialState = {
   audioIntervalID     : null,
   audioCurrentTime    : null,
   isPlaying           : false,
+  isMute              : false,
+  volume              : 50,
   searchText          : '',
   filterPrograms      : [],
   filterGuests        : []
@@ -67,6 +71,11 @@ function pickApp(state = initialState, action = "") {
         playingEpisode: action.episode
       });
     case SET_PLAYING_AUDIO:
+      if (state.isMute) {
+        action.audio.volume = 0;
+      } else {
+        action.audio.volume = state.volume / 100;
+      }
       return Object.assign({}, state, {
         playingAudio: action.audio
       });
@@ -81,6 +90,26 @@ function pickApp(state = initialState, action = "") {
     case SET_AUDIO_CURRENT_TIME:
       return Object.assign({}, state, {
         audioCurrentTime: action.currentTime
+      });
+    case SET_VOLUME:
+      localStorage.setItem('pickfm.volume', action.volume);
+      if (state.playingAudio) {
+        state.playingAudio.volume = action.volume / 100;
+      }
+      return Object.assign({}, state, {
+        volume: action.volume
+      });
+    case SET_MUTE_STATUS:
+      localStorage.setItem('pickfm.isMute', action.isMute);
+      if (state.playingAudio) {
+        if (action.isMute) {
+          state.playingAudio.volume = 0;
+        } else {
+          state.playingAudio.volume = state.volume / 100;
+        }
+      }
+      return Object.assign({}, state, {
+        isMute: action.isMute
       });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {

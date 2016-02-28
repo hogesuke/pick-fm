@@ -75,9 +75,34 @@ a {
         box-sizing: border-box;
         height: 100%;
         width: 200px; }
+        #main #footer #player .controllers #volume {
+          box-sizing: border-box; }
+          #main #footer #player .controllers #volume .mute-toggle-button {
+            float: left; }
+          #main #footer #player .controllers #volume .slider {
+            float: left;
+            height: 3px;
+            width: 70px;
+            margin-top: 14px;
+            padding: 5px 0;
+            cursor: pointer; }
+            #main #footer #player .controllers #volume .slider .fill {
+              float: left;
+              height: 100%;
+              background-color: #3880d5;
+              transition: width 0.1s linear; }
+            #main #footer #player .controllers #volume .slider .unfill {
+              float: left;
+              height: 100%;
+              background-color: #dddddd;
+              transition: width 0.1s linear; }
+            #main #footer #player .controllers #volume .slider .overlay {
+              position: relative;
+              height: 100%;
+              width: 100%; }
         #main #footer #player .controllers .button {
-          height: 30px;
-          width: 30px;
+          height: 40px;
+          width: 40px;
           border: none;
           background-color: transparent;
           font-size: 14px;
@@ -87,6 +112,12 @@ a {
             outline: none; }
           #main #footer #player .controllers .button:disabled {
             background-color: rgba(255, 255, 255, 0.6); }
+          #main #footer #player .controllers .button.play {
+            margin-right: 10px; }
+          #main #footer #player .controllers .button.mute-toggle-button {
+            box-sizing: border-box;
+            font-size: 20px;
+            padding: 10px 0 0 10px; }
       #main #footer #player #time-bar {
         float: left;
         height: 3px;
@@ -97,7 +128,7 @@ a {
         #main #footer #player #time-bar .fill {
           float: left;
           height: 100%;
-          background-color: #386EC3;
+          background-color: #3880d5;
           transition: width 0.1s linear; }
         #main #footer #player #time-bar .unfill {
           float: left;
