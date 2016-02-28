@@ -1,28 +1,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
 import { replaceState } from 'redux-router';
 import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
 import TimeLineForTrack from '../components/TimeLineForTrack';
 import PlayToggleButtonForTrack from './PlayToggleButtonForTrack';
+import AudioPiece from './AudioPiece'
 import QueryUtil from '../util/QueryUtil'
 
-class Track extends Component {
+class Track extends AudioPiece {
   handleGuestLinkClick(guestId) {
     const { dispatch, query } = this.props;
     dispatch(replaceState(null, '/search', QueryUtil.addQuery(query, 'guest', guestId)));
-  }
-  getTitle() {
-    const { episode } = this.props;
-    let type = episode.episode_type.charAt(0).toUpperCase() + episode.episode_type.slice(1);
-
-    type = type === 'Regular' ? '' : ' ' + type;
-
-    return (
-      <Link to={`/programs/${episode.program.id}/episodes/${episode.episode_no}`}>
-        {`${episode.program.name} Episode ${episode.episode_no + type}`}
-      </Link>
-    );
   }
   getTimeLength() {
     const { track } = this.props;

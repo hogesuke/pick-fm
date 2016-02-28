@@ -3,25 +3,14 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { setSelectedGuestId } from '../actions';
 import _ from 'underscore';
+import AudioPiece from './AudioPiece'
 import TimeLineForEpisode from './TimeLineForEpisode';
 import PlayToggleButtonForEpisode from './PlayToggleButtonForEpisode';
 
-class Episode extends Component {
+class Episode extends AudioPiece {
   handleGuestLinkClick(guestId) {
     const { dispatch } = this.props;
     dispatch(setSelectedGuestId(guestId));
-  }
-  getTitle() {
-    const { episode } = this.props;
-    let type = episode.episode_type.charAt(0).toUpperCase() + episode.episode_type.slice(1);
-
-    type = type === 'Regular' ? '' : ' ' + type;
-
-    return (
-      <Link to={`/programs/${episode.program.id}/episodes/${episode.episode_no}`}>
-        {`${episode.program.name} Episode ${episode.episode_no + type}`}
-      </Link>
-    );
   }
   getTimeLength() {
     const { episode } = this.props;
