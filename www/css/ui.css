@@ -219,7 +219,8 @@ a {
           background-color: transparent;
           color: #4C4C4C;
           font-size: 11px;
-          cursor: pointer; }
+          cursor: pointer;
+          transition: background-color 0.1s linear, color 0.1s linear; }
           #main .track .head .track-controller .button:focus {
             outline: none; }
           #main .track .head .track-controller .button:hover {
@@ -328,7 +329,8 @@ a {
           background-color: transparent;
           color: #4C4C4C;
           font-size: 11px;
-          cursor: pointer; }
+          cursor: pointer;
+          transition: background-color 0.1s linear, color 0.1s linear; }
           #main .episode .head .track-controller .button:focus {
             outline: none; }
           #main .episode .head .track-controller .button:hover {

@@ -76,6 +76,7 @@
                 color: $text-medium-gray;
                 font-size: 11px;
                 cursor: pointer;
+                transition: background-color 0.1s linear, color 0.1s linear;
 
                 &:focus {
                     outline: none;
