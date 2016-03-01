@@ -45,7 +45,9 @@ a {
       border: 1px solid #aaaaaa;
       background-color: transparent;
       font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
+      font-weight: 200;
       font-size: 20px;
+      letter-spacing: 1px;
       color: #eeeeee; }
   #main #footer {
     position: absolute;
@@ -64,6 +66,7 @@ a {
         width: calc(100% - 200px);
         margin: 1px 0;
         font-size: 16px;
+        letter-spacing: 0.5px;
         color: #eeeeee; }
       #main #footer #player .controllers {
         float: left;
@@ -212,7 +215,8 @@ a {
           float: left;
           margin-bottom: 7px;
           color: #333333;
-          font-size: 20px; }
+          font-size: 20px;
+          letter-spacing: 0.5px; }
         #main .track .head .track-information .time {
           float: left;
           margin: 4px 0 0 15px;
@@ -324,7 +328,8 @@ a {
           float: left;
           margin-bottom: 7px;
           color: #333333;
-          font-size: 20px; }
+          font-size: 20px;
+          letter-spacing: 0.5px; }
         #main .episode .head .track-information .time {
           float: left;
           margin: 4px 0 0 15px;
