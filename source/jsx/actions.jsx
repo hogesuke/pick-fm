@@ -78,6 +78,13 @@ export function setMuteStatus(isMute) {
   };
 }
 
+export const SET_PAGE = 'SET_PAGE';
+export function setPage(page) {
+  return {
+    type: SET_PAGE, page
+  };
+}
+
 export const TOGGLE_ACTIVE_TRACK = 'TOGGLE_ACTIVE_TRACK';
 export function toggleActiveTrack(id) {
   return {
@@ -160,13 +167,15 @@ export function clearTracks() {
 export const FETCH_PROGRAM_EPISODES = 'FETCH_PROGRAM_EPISODES';
 export function fetchProgramEpisodes(programId) {
 
-  return function (dispatch) {
+  return function (dispatch, getState) {
     request
       .get(`/api/programs/${programId}/episodes`)
+      .query({ page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage })
       .end((err, res) => {
           return dispatch({
             type    : FETCH_PROGRAM_EPISODES,
-            episodes: res.body
+            episodes: res.body.episodes,
+            total   : res.body.total
           });
         }
       );

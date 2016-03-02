@@ -276,6 +276,20 @@ a {
         }
     }
 
+    #page-controller {
+        padding: 5px 10px;
+        text-align: right;
+
+        .paging-link {
+            padding: 0 5px;
+            color: #2d2d2d;
+        }
+        .paging-inactive {
+            padding: 0 5px;
+            color: #5e5e5e;
+        }
+    }
+
     .track {
         @include track;
     }

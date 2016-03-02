@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Episode from '../components/Episode';
+import Paging from '../components/Paging';
 
 export default class EpisodeList extends React.Component {
   render() {
@@ -11,7 +12,9 @@ export default class EpisodeList extends React.Component {
 
     return (
       <div id="episode-list">
+        <Paging />
         {episodeDoms}
+        <Paging />
       </div>
     );
   }

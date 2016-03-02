@@ -13,6 +13,7 @@ import {
   SET_AUDIO_CURRENT_TIME,
   SET_VOLUME,
   SET_MUTE_STATUS,
+  SET_PAGE,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
@@ -45,7 +46,10 @@ let initialState = {
   volume              : 50,
   searchText          : '',
   filterPrograms      : [],
-  filterGuests        : []
+  filterGuests        : [],
+  currentPage         : 1,
+  perPage             : 3,
+  total               : 0
 };
 
 function pickApp(state = initialState, action = "") {
@@ -110,6 +114,10 @@ function pickApp(state = initialState, action = "") {
       }
       return Object.assign({}, state, {
         isMute: action.isMute
+      });
+    case SET_PAGE:
+      return Object.assign({}, state, {
+        currentPage: action.page
       });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {
@@ -203,7 +211,8 @@ function pickApp(state = initialState, action = "") {
         e.isActive = false;
       });
       return Object.assign({}, state, {
-        episodes: action.episodes
+        episodes: action.episodes,
+        total   : action.total
       });
     case FETCH_GUEST_EPISODES:
       action.episodes.map((e) => {

@@ -193,6 +193,15 @@ a {
           color: #2b2b2b; }
           #main #search-options .guests .guest .remove-button:hover {
             cursor: pointer; }
+  #main #page-controller {
+    padding: 5px 10px;
+    text-align: right; }
+    #main #page-controller .paging-link {
+      padding: 0 5px;
+      color: #2d2d2d; }
+    #main #page-controller .paging-inactive {
+      padding: 0 5px;
+      color: #5e5e5e; }
   #main .track {
     float: left;
     overflow: hidden;

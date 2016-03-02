@@ -26,4 +26,10 @@ export default class QueryUtil {
 
     return Object.assign({}, currentQuery, { [key]: newArray });
   }
+  static replaceQuery(currentQuery, key, value) {
+    if (!currentQuery) {
+      return { [key]: [value] };
+    }
+    return Object.assign({}, currentQuery, { [key]: [value] });
+  }
 }
