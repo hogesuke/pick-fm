@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPrograms, setSelectedProgramId, setVolume, setMuteStatus } from '../actions';
+import { fetchPrograms, setSelectedProgramId, setVolume, setMuteStatus, setPage } from '../actions';
 import SearchBox from '../components/SearchBox';
 import Player from '../components/Player';
 
 class App extends Component {
   componentWillMount() {
-    const { dispatch, currentLocation } = this.props;
+    const { dispatch, currentLocation, query } = this.props;
 
     dispatch(fetchPrograms());
 
@@ -19,6 +19,10 @@ class App extends Component {
     const isMute = this.getSavedMuteStatus();
     if (isMute === true || isMute === false) {
       dispatch(setMuteStatus(isMute));
+    }
+
+    if (query.page) {
+      dispatch(setPage(query.page));
     }
   }
   componentWillUpdate(nextProps) {
@@ -57,6 +61,7 @@ class App extends Component {
 
 export default connect(state => {
   return {
-    currentLocation: state.router.location.pathname
+    currentLocation: state.router.location.pathname,
+    query          : state.router.location.query
   }
 })(App);
