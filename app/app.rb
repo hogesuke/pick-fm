@@ -298,15 +298,22 @@ get '/guests' do
 end
 
 get '/guests/:id/episodes' do
-  id = params[:id]
+  id       = params[:id]
+  page     = params[:page]
+  per_page = params[:perpage]
 
-  unless valid_number?(id)
+  unless valid_number?(id) and valid_number?(page) and valid_number?(per_page)
     status(400)
     return { err_msg: 'パラメータが不正です' }.to_json
   end
 
+  page     = page.to_i
+  per_page = per_page.to_i
+  offset   = per_page * (page - 1)
+
   person   = Person.find(id)
-  episodes = person.episodes
+  episodes = person.episodes.offset(offset).limit(per_page).order('episode_no DESC, episode_type ASC')
+  total    = person.episodes.count(:id)
 
   client = Elasticsearch::Client.new(log: false)
   client.transport.reload_connections!
@@ -342,7 +349,7 @@ get '/guests/:id/episodes' do
     e.tracks = results['hits']['hits'].collect { |h| h['_source'] }
   end
 
-  episodes.to_json
+  { episodes: episodes, total: total }.to_json
 end
 
 def generate_guest_conditions(guest_ids)

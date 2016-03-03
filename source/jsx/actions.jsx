@@ -186,13 +186,15 @@ export function fetchProgramEpisodes(programId) {
 export const FETCH_GUEST_EPISODES = 'FETCH_GUEST_EPISODES';
 export function fetchGuestEpisodes(guestId) {
 
-  return function (dispatch) {
+  return function (dispatch, getState) {
     request
       .get(`/api/guests/${guestId}/episodes`)
+      .query({ page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage })
       .end((err, res) => {
           return dispatch({
             type    : FETCH_GUEST_EPISODES,
-            episodes: res.body
+            episodes: res.body.episodes,
+            total   : res.body.total
           });
         }
       );

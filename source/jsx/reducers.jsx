@@ -48,7 +48,7 @@ let initialState = {
   filterPrograms      : [],
   filterGuests        : [],
   currentPage         : 1,
-  perPage             : 3,
+  perPage             : 2,
   total               : 0
 };
 
@@ -205,7 +205,8 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         searchResultTracks  : [],
         searchResultEpisodes: [],
-        searchText: ''
+        searchText: '',
+        total     : 0
       });
     case FETCH_PROGRAM_EPISODES:
       action.episodes.map((e) => {
@@ -220,7 +221,8 @@ function pickApp(state = initialState, action = "") {
         e.isActive = false;
       });
       return Object.assign({}, state, {
-        episodes: action.episodes
+        episodes: action.episodes,
+        total   : action.total
       });
     case FETCH_EPISODE:
       return Object.assign({}, state, {
