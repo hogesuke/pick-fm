@@ -198,6 +198,7 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         searchResultTracks  : action.tracks,
         searchResultEpisodes: action.episodes,
+        total     : action.total,
         searchText: action.searchText
       });
     case CLEAR_TRACKS:

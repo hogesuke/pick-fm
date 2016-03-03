@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import _ from 'underscore';
 import { connect } from 'react-redux';
 import { pushState, replaceState } from 'redux-router';
-import { fetchTracks, clearTracks } from '../actions';
+import { fetchTracks, clearTracks, setPage } from '../actions';
+import QueryUtil from '../util/QueryUtil'
 
 class SearchBox extends Component {
   constructor(props) {
@@ -15,7 +16,12 @@ class SearchBox extends Component {
     this.setState({ searchText: event.target.value });
 
     if (this.isSearchPage(currentLocation)) {
-      dispatch(replaceState(null, '/search', Object.assign({}, query, { word: event.target.value })));
+      let newQuery;
+      newQuery = QueryUtil.removeQuery(query, 'page');
+      newQuery = QueryUtil.replaceQuery(newQuery, 'word', event.target.value);
+
+      dispatch(setPage(1));
+      dispatch(replaceState(null, '/search', newQuery));
       return;
     }
 

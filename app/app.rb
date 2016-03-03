@@ -38,10 +38,19 @@ after do
 end
 
 get '/search' do
-  pp params
   words           = params[:word]
   filter_programs = params[:program]
   filter_guests   = params[:guest]
+  page            = params[:page]
+  per_page        = params[:perpage]
+
+  unless valid_number?(page) and valid_number?(per_page)
+    status(400)
+    return { err_msg: 'パラメータが不正です' }.to_json
+  end
+
+  page     = page.to_i
+  per_page = per_page.to_i
 
   if words.nil?
     status(400)
@@ -75,7 +84,9 @@ get '/search' do
   end
 
   condition = {
-      sort: 'episode_no' # todo ソート条件もパラメータで設定できるようにする
+      sort: [{ episode_no: { order: 'desc' } }, { episode_type: { order: 'asc' } }], # todo ソート条件もパラメータで設定できるようにする
+      from: per_page * (page - 1),
+      size: per_page
   }
 
   unless words.nil?
@@ -143,7 +154,8 @@ get '/search' do
 
   {
       :hits     => results['hits']['hits'].collect { |h| h['_source'] },
-      :episodes => episodes
+      :episodes => episodes,
+      :total    => results['hits']['total']
   }.to_json
 end
 
@@ -177,7 +189,7 @@ get '/programs/:id/episodes' do
   offset   = per_page * (page - 1)
 
   program  = Program.find(id)
-  episodes = program.episodes.offset(offset).limit(per_page).order('episode_no DESC, episode_type DESC')
+  episodes = program.episodes.offset(offset).limit(per_page).order('episode_no DESC, episode_type ASC')
   total    = program.episodes.count(:id)
 
   client = Elasticsearch::Client.new(log: false)

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import Episode from '../components/Episode';
-import Paging from '../components/Paging';
+import Episode from './Episode';
+import Paging from './Paging';
 
 export default class EpisodeList extends React.Component {
   render() {

@@ -33,17 +33,17 @@ class Paging extends Component {
     return Math.floor(total / perPage) + (total % perPage === 0 ? 0 : 1);
   }
   hasNextPage() {
-    const { currentPage } = this.props;
-    return currentPage < this.getLastPage();
+    const { currentPage, total } = this.props;
+    return total !== 0 && currentPage < this.getLastPage();
   }
   hasPrevPage() {
-    const { currentPage } = this.props;
-    return 1 < currentPage;
+    const { currentPage, total } = this.props;
+    return total !== 0 && 1 < currentPage;
   }
   render() {
-    const { currentPage } = this.props;
+    const { currentPage, total } = this.props;
     const firstLink = (() => {
-      if (currentPage !== 1) {
+      if (total !== 0 && currentPage !== 1) {
         return <a className="paging-link" onClick={ this.handleFirstClick.bind(this) }><i className="fa fa-angle-double-left"></i> First</a>
       } else {
         return <span className="paging-inactive"><i className="fa fa-angle-double-left"></i> First</span>
@@ -64,7 +64,7 @@ class Paging extends Component {
       }
     })();
     const lastLink = (() => {
-      if (currentPage !== this.getLastPage()) {
+      if (total !== 0 && currentPage !== this.getLastPage()) {
         return <a className="paging-link" onClick={ this.handleLastClick.bind(this) }>Last <i className="fa fa-angle-double-right"></i></a>
       } else {
         return <span className="paging-inactive">Last <i className="fa fa-angle-double-right"></i></span>

@@ -9,7 +9,7 @@ export default class QueryUtil {
 
     return Object.assign({}, currentQuery, { [key]: [...currentQuery[key], value] });
   }
-  static removeQuery(currentQuery, key, value) {
+  static removeQueryByValue(currentQuery, key, value) {
     if (!currentQuery || !currentQuery[key]) {
       return currentQuery;
     }
@@ -25,6 +25,20 @@ export default class QueryUtil {
     });
 
     return Object.assign({}, currentQuery, { [key]: newArray });
+  }
+  static removeQuery(currentQuery, key) {
+    if (!currentQuery || !currentQuery[key]) {
+      return currentQuery;
+    }
+
+    let newQuery = {};
+
+    _.each(currentQuery, (v, k) => {
+      if (k === key) { return; }
+      newQuery[k] = v;
+    });
+
+    return newQuery;
   }
   static replaceQuery(currentQuery, key, value) {
     if (!currentQuery) {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchOptions from './SearchOptions';
 import Track from './Track';
+import Paging from './Paging';
 
 class TrackList extends Component {
   getEpisode(track) {
@@ -24,7 +25,9 @@ class TrackList extends Component {
     return (
       <div id="track-list">
         <SearchOptions />
+        <Paging />
         {tracks}
+        <Paging />
       </div>
     );
   }

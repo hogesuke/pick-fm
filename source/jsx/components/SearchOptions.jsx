@@ -14,7 +14,7 @@ class SearchOptions extends Component {
     if (checked) {
       newQuery = QueryUtil.addQuery(query, 'program', value);
     } else {
-      newQuery = QueryUtil.removeQuery(query, 'program', value);
+      newQuery = QueryUtil.removeQueryByValue(query, 'program', value);
     }
 
     dispatch(replaceState(null, '/search', newQuery));
@@ -96,7 +96,7 @@ class SearchOptions extends Component {
   }
   removeGuestFilter(id) {
     const { dispatch, query } = this.props;
-    const newQuery = QueryUtil.removeQuery(query, 'guest', id);
+    const newQuery = QueryUtil.removeQueryByValue(query, 'guest', id);
     dispatch(replaceState(null, '/search', newQuery));
   }
   render() {

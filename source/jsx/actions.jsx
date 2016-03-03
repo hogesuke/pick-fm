@@ -144,12 +144,13 @@ export function fetchTracks(searchText) {
 
     request
       .get('/api/search')
-      .query(query)
+      .query({ ...query, page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage })
       .end((err, res) => {
           return dispatch({
             type    : FETCH_TRACKS,
             tracks  : res.body.hits,
             episodes: res.body.episodes,
+            total   : res.body.total,
             searchText
           });
         }
