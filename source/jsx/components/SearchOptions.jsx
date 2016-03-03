@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { replaceState } from 'redux-router';
-import { fetchGuests } from '../actions';
+import { fetchGuests, setPage } from '../actions';
 import QueryUtil from '../util/QueryUtil'
 import _ from 'underscore';
 
@@ -17,6 +17,18 @@ class SearchOptions extends Component {
       newQuery = QueryUtil.removeQueryByValue(query, 'program', value);
     }
 
+    newQuery = QueryUtil.removeQuery(newQuery, 'page');
+
+    dispatch(setPage(1));
+    dispatch(replaceState(null, '/search', newQuery));
+  }
+  handleRemoveGuestFilter(id) {
+    const { dispatch, query } = this.props;
+    let newQuery ;
+    newQuery = QueryUtil.removeQueryByValue(query, 'guest', id);
+    newQuery = QueryUtil.removeQuery(newQuery, 'page');
+
+    dispatch(setPage(1));
     dispatch(replaceState(null, '/search', newQuery));
   }
   componentWillMount() {
@@ -28,12 +40,17 @@ class SearchOptions extends Component {
     }
   }
   componentWillUpdate(nextProps) {
-    const nextGuests    = nextProps.query.guest;
+    const { dispatch, query } = nextProps;
+    const nextGuests = query.guest;
     const prevGuests = this.props.query.guest;
 
     if (JSON.stringify(nextGuests) !== JSON.stringify(prevGuests)) {
       let guestIds = nextGuests ? (Array.isArray(nextGuests) ? nextGuests : [nextGuests]) : [];
+
       this.fetchGuests(guestIds);
+
+      dispatch(setPage(1));
+      dispatch(replaceState(null, '/search', QueryUtil.removeQuery(query, 'page')));
     }
   }
   fetchGuests(ids) {
@@ -86,18 +103,13 @@ class SearchOptions extends Component {
       let name = g.name_ja ? g.name_ja : (g.name_en ? g.name_en : g.nickname);
       return (
         <div key={g.id} className="guest">
-          <button className="remove-button" onClick={() => { this.removeGuestFilter(g.id.toString(10))}}>
+          <button className="remove-button" onClick={() => { this.handleRemoveGuestFilter(g.id.toString(10))}}>
             <i className="fa fa-times"></i>
           </button>
           <span>{name}</span>
         </div>
       );
     });
-  }
-  removeGuestFilter(id) {
-    const { dispatch, query } = this.props;
-    const newQuery = QueryUtil.removeQueryByValue(query, 'guest', id);
-    dispatch(replaceState(null, '/search', newQuery));
   }
   render() {
     return (
