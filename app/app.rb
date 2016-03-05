@@ -69,7 +69,7 @@ get '/search' do
     p_cond = generate_program_conditions(filter_programs)
 
     if p_cond.nil?
-      return { hits: [], episodes: [] }.to_json
+      return { hits: [], episodes: [], total: 0 }.to_json
     end
 
     filter_conditions.push(p_cond)
@@ -79,7 +79,7 @@ get '/search' do
     g_cond = generate_guest_conditions(filter_guests)
 
     if g_cond.nil?
-      return { hits: [], episodes: [] }.to_json
+      return { hits: [], episodes: [], total: 0 }.to_json
     end
 
     filter_conditions.push(g_cond)

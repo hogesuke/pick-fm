@@ -52,17 +52,30 @@ class SearchBox extends Component {
     }
   }
   componentWillReceiveProps(nextProps) {
-    const { currentLocation } = nextProps;
+    const { currentLocation, query } = nextProps;
+    const { searchText } = this.state;
 
-    if (!LocationUtil.isSearchPage(currentLocation)) {
+    if (LocationUtil.isSearchPage(currentLocation)) {
+      if (query.word !== searchText) {
+        // ブラウザバックで検索ページに戻ってきたような場合
+        this.setState({ searchText: query.word });
+      }
+    } else {
       this.setState({ searchText: '' });
     }
   }
   componentDidUpdate(prevProps) {
-    const { dispatch, currentLocation } = this.props;
+    const { dispatch } = this.props;
     const { searchText, isSuspension } = this.state;
-    const prevQuery   = JSON.stringify(prevProps.query);
-    const currentQury = JSON.stringify(this.props.query);
+    const prevLocation    = prevProps.currentLocation;
+    const currentLocation = this.props.currentLocation;
+    const prevQuery       = JSON.stringify(prevProps.query);
+    const currentQury     = JSON.stringify(this.props.query);
+
+    if (!LocationUtil.isSearchPage(prevLocation) && LocationUtil.isSearchPage(currentLocation)) {
+      // 別のページから検索ページに移動してきた場合
+      dispatch(setPage(1));
+    }
 
     if (LocationUtil.isSearchPage(currentLocation) && !isSuspension) {
       if (searchText.length < 2) {
@@ -70,6 +83,7 @@ class SearchBox extends Component {
         return;
       }
       if (prevQuery !== currentQury) {
+        console.debug('coco', searchText);
         dispatch(fetchTracks(searchText));
         this.setState({ isSuspension: true });
 

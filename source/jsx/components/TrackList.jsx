@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import SearchOptions from './SearchOptions';
 import Track from './Track';
 import Paging from './Paging';
+import Sorter from './Sorter';
 
 class TrackList extends Component {
   getEpisode(track) {
@@ -11,8 +12,9 @@ class TrackList extends Component {
     });
   }
   render() {
-    let tracks = this.props.tracks.map((track) => {
-      let episode = this.getEpisode(track);
+    const { total } = this.props;
+    const tracks = this.props.tracks.map((track) => {
+      const episode = this.getEpisode(track);
       return (
         <Track
           key={track.id}
@@ -21,13 +23,16 @@ class TrackList extends Component {
         />
       );
     });
+    const pagingDom = total > 0 ?  <Paging /> : null;
+    const sorterDom = total > 0 ?  <Sorter /> : null;
 
     return (
       <div id="track-list">
         <SearchOptions />
-        <Paging />
+        {sorterDom}
+        {pagingDom}
         {tracks}
-        <Paging />
+        {pagingDom}
       </div>
     );
   }
@@ -37,7 +42,8 @@ export default connect(state => {
   return {
     tracks    : state.pickApp.searchResultTracks,
     episodes  : state.pickApp.searchResultEpisodes,
-    searchText: state.pickApp.searchText
+    searchText: state.pickApp.searchText,
+    total     : state.pickApp.total
   };
 })(TrackList);
 
