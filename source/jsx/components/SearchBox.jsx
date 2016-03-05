@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { pushState, replaceState } from 'redux-router';
 import { fetchTracks, clearTracks, setPage } from '../actions';
 import QueryUtil from '../util/QueryUtil'
+import LocationUtil from '../util/LocationUtil'
 
 class SearchBox extends Component {
   constructor(props) {
@@ -15,7 +16,7 @@ class SearchBox extends Component {
 
     this.setState({ searchText: event.target.value });
 
-    if (this.isSearchPage(currentLocation)) {
+    if (LocationUtil.isSearchPage(currentLocation)) {
       let newQuery;
       newQuery = QueryUtil.removeQuery(query, 'page');
       newQuery = QueryUtil.replaceQuery(newQuery, 'word', event.target.value);
@@ -29,15 +30,15 @@ class SearchBox extends Component {
       return;
     }
 
-    if (this.isProgramPage(currentLocation)) {
+    if (LocationUtil.isProgramPage(currentLocation)) {
       dispatch(pushState(null, '/search', { word: event.target.value }));
       return;
     }
-    if (this.isProgramEpisodePage(currentLocation)) {
+    if (LocationUtil.isProgramEpisodePage(currentLocation) || LocationUtil.isProgramEpisodesPage(currentLocation)) {
       dispatch(pushState(null, '/search', { program: selectedProgramId, word: event.target.value }));
       return;
     }
-    if (this.isGuestEpisodePage(currentLocation)) {
+    if (LocationUtil.isGuestEpisodePage(currentLocation)) {
       dispatch(pushState(null, '/search', { guest: selectedGuestId, word: event.target.value }));
       return;
     }
@@ -45,7 +46,7 @@ class SearchBox extends Component {
   componentWillMount() {
     const { dispatch, query, currentLocation } = this.props;
 
-    if (this.isSearchPage(currentLocation) && query.word) {
+    if (LocationUtil.isSearchPage(currentLocation) && query.word) {
       this.setState({ searchText: query.word });
       dispatch(fetchTracks(query.word));
     }
@@ -53,7 +54,7 @@ class SearchBox extends Component {
   componentWillReceiveProps(nextProps) {
     const { currentLocation } = nextProps;
 
-    if (!this.isSearchPage(currentLocation)) {
+    if (!LocationUtil.isSearchPage(currentLocation)) {
       this.setState({ searchText: '' });
     }
   }
@@ -63,7 +64,7 @@ class SearchBox extends Component {
     const prevQuery   = JSON.stringify(prevProps.query);
     const currentQury = JSON.stringify(this.props.query);
 
-    if (this.isSearchPage(currentLocation) && !isSuspension) {
+    if (LocationUtil.isSearchPage(currentLocation) && !isSuspension) {
       if (searchText.length < 2) {
         dispatch(clearTracks());
         return;
@@ -82,18 +83,6 @@ class SearchBox extends Component {
         }, 1000);
       }
     }
-  }
-  isProgramPage(location) {
-    return /(^\/programs\/?$|^\/$|^$)/.test(location);
-  }
-  isProgramEpisodePage(location) {
-    return /^\/programs\/[0-9]+\/episodes/.test(location);
-  }
-  isGuestEpisodePage(location) {
-    return /^\/guests\/[0-9]+\/episodes/.test(location);
-  }
-  isSearchPage(location) {
-    return /^\/search/.test(location);
   }
   render() {
     return (
