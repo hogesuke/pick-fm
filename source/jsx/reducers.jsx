@@ -14,6 +14,7 @@ import {
   SET_VOLUME,
   SET_MUTE_STATUS,
   SET_PAGE,
+  SET_SORT,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
@@ -49,7 +50,8 @@ let initialState = {
   filterGuests        : [],
   currentPage         : 1,
   perPage             : 2,
-  total               : 0
+  total               : 0,
+  sort                : 'desc'
 };
 
 function pickApp(state = initialState, action = "") {
@@ -118,6 +120,10 @@ function pickApp(state = initialState, action = "") {
     case SET_PAGE:
       return Object.assign({}, state, {
         currentPage: action.page
+      });
+    case SET_SORT:
+      return Object.assign({}, state, {
+        sort: action.sort
       });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {

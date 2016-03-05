@@ -43,19 +43,21 @@ get '/search' do
   filter_guests   = params[:guest]
   page            = params[:page]
   per_page        = params[:perpage]
+  sort            = params[:sort]
 
-  unless valid_number?(page) and valid_number?(per_page)
+  unless valid_number?(page) and valid_number?(per_page) and ['asc', 'desc', 'ASC', 'DESC'].include?(sort)
     status(400)
     return { err_msg: 'パラメータが不正です' }.to_json
   end
-
-  page     = page.to_i
-  per_page = per_page.to_i
 
   if words.nil?
     status(400)
     return { msg: '検索文字列を指定してください' }.to_json
   end
+
+  page     = page.to_i
+  per_page = per_page.to_i
+  sort     = sort.downcase
 
   words           = words.strip.split(/\s+/)
   filter_programs = filter_programs.split(',') unless filter_programs.nil?
@@ -84,7 +86,7 @@ get '/search' do
   end
 
   condition = {
-      sort: [{ episode_no: { order: 'desc' } }, { episode_type: { order: 'asc' } }], # todo ソート条件もパラメータで設定できるようにする
+      sort: [{ episode_no: { order: sort } }, { episode_type: { order: sort == 'asc' ? 'desc' : 'asc' } }],
       from: per_page * (page - 1),
       size: per_page
   }
@@ -178,8 +180,9 @@ get '/programs/:id/episodes' do
   id       = params[:id]
   page     = params[:page]
   per_page = params[:perpage]
+  sort     = params[:sort]
 
-  unless valid_number?(id) and valid_number?(page) and valid_number?(per_page)
+  unless valid_number?(page) and valid_number?(per_page) and ['asc', 'desc', 'ASC', 'DESC'].include?(sort)
     status(400)
     return { err_msg: 'パラメータが不正です' }.to_json
   end
@@ -187,9 +190,10 @@ get '/programs/:id/episodes' do
   page     = page.to_i
   per_page = per_page.to_i
   offset   = per_page * (page - 1)
+  sort     = sort.downcase
 
   program  = Program.find(id)
-  episodes = program.episodes.offset(offset).limit(per_page).order('episode_no DESC, episode_type ASC')
+  episodes = program.episodes.offset(offset).limit(per_page).order("episode_no #{sort}, episode_type #{sort == 'asc' ? 'desc' : 'asc'}")
   total    = program.episodes.count(:id)
 
   client = Elasticsearch::Client.new(log: false)
@@ -301,8 +305,9 @@ get '/guests/:id/episodes' do
   id       = params[:id]
   page     = params[:page]
   per_page = params[:perpage]
+  sort     = params[:sort]
 
-  unless valid_number?(id) and valid_number?(page) and valid_number?(per_page)
+  unless valid_number?(page) and valid_number?(per_page) and ['asc', 'desc', 'ASC', 'DESC'].include?(sort)
     status(400)
     return { err_msg: 'パラメータが不正です' }.to_json
   end
@@ -312,7 +317,7 @@ get '/guests/:id/episodes' do
   offset   = per_page * (page - 1)
 
   person   = Person.find(id)
-  episodes = person.episodes.offset(offset).limit(per_page).order('episode_no DESC, episode_type ASC')
+  episodes = person.episodes.offset(offset).limit(per_page).order("episode_no #{sort}, episode_type #{sort == 'asc' ? 'desc' : 'asc'}")
   total    = person.episodes.count(:id)
 
   client = Elasticsearch::Client.new(log: false)

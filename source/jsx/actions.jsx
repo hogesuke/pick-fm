@@ -88,6 +88,16 @@ export function setPage(page) {
   };
 }
 
+export const SET_SORT = 'SET_SORT';
+export function setSort(sort) {
+  if (!_.contains(['asc', 'desc', 'ASC', 'DESC'], sort)) {
+    return;
+  }
+  return {
+    type: SET_SORT, sort
+  };
+}
+
 export const TOGGLE_ACTIVE_TRACK = 'TOGGLE_ACTIVE_TRACK';
 export function toggleActiveTrack(id) {
   return {
@@ -147,7 +157,7 @@ export function fetchTracks(searchText) {
 
     request
       .get('/api/search')
-      .query({ ...query, page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage })
+      .query({ ...query, page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage, sort: getState().pickApp.sort })
       .end((err, res) => {
           return dispatch({
             type    : FETCH_TRACKS,
@@ -174,7 +184,7 @@ export function fetchProgramEpisodes(programId) {
   return function (dispatch, getState) {
     request
       .get(`/api/programs/${programId}/episodes`)
-      .query({ page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage })
+      .query({ page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage, sort: getState().pickApp.sort })
       .end((err, res) => {
           return dispatch({
             type    : FETCH_PROGRAM_EPISODES,
@@ -192,7 +202,7 @@ export function fetchGuestEpisodes(guestId) {
   return function (dispatch, getState) {
     request
       .get(`/api/guests/${guestId}/episodes`)
-      .query({ page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage })
+      .query({ page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage, sort: getState().pickApp.sort })
       .end((err, res) => {
           return dispatch({
             type    : FETCH_GUEST_EPISODES,

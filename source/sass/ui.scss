@@ -277,8 +277,8 @@ a {
     }
 
     #page-controller {
-        padding: 5px 10px;
-        text-align: right;
+        float: right;
+        padding: 10px 10px;
 
         .paging-link {
             padding: 0 5px;
@@ -287,6 +287,27 @@ a {
         .paging-inactive {
             padding: 0 5px;
             color: #5e5e5e;
+        }
+    }
+
+    #sort-controller {
+        float: left;
+        padding: 5px 10px;
+
+        button {
+            border: none;
+            padding: 5px 8px;
+            background-color: transparent;
+            font-size: 14px;
+            font-weight: 200;
+            color: #2d2d2d;
+            outline: none;
+            cursor: pointer;
+
+            &.active {
+                background-color: #3880d5;
+                color: #ffffff;
+            }
         }
     }
 

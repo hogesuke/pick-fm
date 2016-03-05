@@ -6,9 +6,6 @@ import { setPage } from '../actions';
 import QueryUtil from '../util/QueryUtil'
 
 class Paging extends Component {
-  constructor(props) {
-    super(props);
-  }
   componentWillUpdate(nextProps) {
     const { dispatch } = this.props;
     const prevQuery    = this.props.query;

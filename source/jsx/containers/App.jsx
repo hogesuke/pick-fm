@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchPrograms, setSelectedProgramId, setVolume, setMuteStatus, setPage } from '../actions';
+import { fetchPrograms, setSelectedProgramId, setVolume, setMuteStatus, setPage, setSort } from '../actions';
 import SearchBox from '../components/SearchBox';
 import Player from '../components/Player';
 
@@ -22,7 +22,10 @@ class App extends Component {
     }
 
     if (query.page) {
-      dispatch(setPage(query.page));
+      dispatch(setPage(parseInt(query.page, 10)));
+    }
+    if (query.sort) {
+      dispatch(setSort(query.sort));
     }
   }
   componentWillUpdate(nextProps) {
