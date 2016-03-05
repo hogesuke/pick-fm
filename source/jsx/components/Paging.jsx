@@ -9,6 +9,16 @@ class Paging extends Component {
   constructor(props) {
     super(props);
   }
+  componentWillUpdate(nextProps) {
+    const { dispatch } = this.props;
+    const prevQuery    = this.props.query;
+    const nextQuery    = nextProps.query;
+
+    if (prevQuery.page !== nextQuery.page && nextQuery.page !== nextProps.currentPage) {
+      const newPage = nextQuery.page ? nextQuery.page : 1;
+      dispatch(setPage(parseInt(newPage, 10)));
+    }
+  }
   handleNextClick() {
     const { currentPage } = this.props;
     this.setPage(currentPage + 1);
@@ -25,7 +35,7 @@ class Paging extends Component {
   }
   setPage(page) {
     const { dispatch, query, currentLocation } = this.props;
-    dispatch(setPage(page));
+    dispatch(setPage(parseInt(page, 10)));
     dispatch(pushState(null, currentLocation, QueryUtil.replaceQuery(query, 'page', page)));
   }
   getLastPage() {

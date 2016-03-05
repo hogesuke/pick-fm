@@ -80,6 +80,9 @@ export function setMuteStatus(isMute) {
 
 export const SET_PAGE = 'SET_PAGE';
 export function setPage(page) {
+  if (page <= 0) {
+    return;
+  }
   return {
     type: SET_PAGE, page
   };
@@ -133,7 +136,7 @@ export const FETCH_TRACKS = 'FETCH_TRACKS';
 export function fetchTracks(searchText) {
 
   if (searchText === '') {
-    return { type: FETCH_TRACKS, tracks: [] };
+    return { type: FETCH_TRACKS, tracks: [], episodes: [], total: 0, searchText };
   }
 
   return function (dispatch, getState) {
