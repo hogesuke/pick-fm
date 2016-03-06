@@ -153,11 +153,15 @@ export function fetchTracks(searchText) {
     let query = getState().router.location.query;
 
     if (!query) { query = {}; }
+    if (!query.page) { query.page = getState().pickApp.currentPage; }
+    if (!query.perpage) { query.perpage = getState().pickApp.perPage; }
+    if (!query.sort) { query.sort = getState().pickApp.sort; }
+
     query.word = searchText;
 
     request
       .get('/api/search')
-      .query({ ...query, page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage, sort: getState().pickApp.sort })
+      .query(query)
       .end((err, res) => {
           return dispatch({
             type    : FETCH_TRACKS,
