@@ -5,7 +5,6 @@ import { setPage } from '../actions';
 
 class SearchPage extends Component {
   componentWillMount() {
-    debugger;
     const { dispatch, query } = this.props;
     const page = query.page ? parseInt(query.page, 10) : 1;
 
