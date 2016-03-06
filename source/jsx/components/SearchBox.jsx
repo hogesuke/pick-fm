@@ -72,11 +72,6 @@ class SearchBox extends Component {
     const prevQuery       = JSON.stringify(prevProps.query);
     const currentQury     = JSON.stringify(this.props.query);
 
-    if (!LocationUtil.isSearchPage(prevLocation) && LocationUtil.isSearchPage(currentLocation)) {
-      // 別のページから検索ページに移動してきた場合
-      dispatch(setPage(1));
-    }
-
     if (LocationUtil.isSearchPage(currentLocation) && !isSuspension) {
       if (searchText.length < 2) {
         dispatch(clearTracks());

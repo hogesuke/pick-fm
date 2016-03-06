@@ -152,10 +152,14 @@ export function fetchTracks(searchText) {
   return function (dispatch, getState) {
     let query = getState().router.location.query;
 
-    if (!query) { query = {}; }
-    if (!query.page) { query.page = getState().pickApp.currentPage; }
+    if (query) {
+      query = Object.assign({}, query);
+    } else {
+      query = {};
+    }
+    if (!query.page)    { query.page = 1; }
     if (!query.perpage) { query.perpage = getState().pickApp.perPage; }
-    if (!query.sort) { query.sort = getState().pickApp.sort; }
+    if (!query.sort)    { query.sort = getState().pickApp.sort; }
 
     query.word = searchText;
 
