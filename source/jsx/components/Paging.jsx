@@ -82,6 +82,7 @@ class Paging extends Component {
       <div id="page-controller">
         {firstLink}
         {prevLink}
+        <span className="current-page">{currentPage}</span>
         {nextLink}
         {lastLink}
       </div>

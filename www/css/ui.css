@@ -202,6 +202,11 @@ a {
     #main #page-controller .paging-inactive {
       padding: 0 5px;
       color: #5e5e5e; }
+    #main #page-controller .current-page {
+      margin: 0 5px;
+      padding: 0 5px;
+      background-color: #3880d5;
+      color: #ffffff; }
   #main #sort-controller {
     float: left;
     padding: 5px 10px; }
