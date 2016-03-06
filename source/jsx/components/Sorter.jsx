@@ -9,12 +9,9 @@ class Sorter extends Component {
   componentWillUpdate(nextProps) {
     const { dispatch } = this.props;
     const nextQuery = nextProps.query;
-    const prevQuery = this.props.query;
 
-    if (nextQuery.sort !== prevQuery.sort) {
-      const newSort = nextQuery.sort ? nextQuery.sort : 'desc';
-      dispatch(setSort(newSort));
-    }
+    const newSort = nextQuery.sort ? nextQuery.sort : 'desc';
+    dispatch(setSort(newSort));
   }
   handleDescClick() {
     this.setSort('desc');
