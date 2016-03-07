@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import _ from 'underscore';
 import { connect } from 'react-redux';
 import { pushState, replaceState } from 'redux-router';
-import { fetchTracks, clearTracks, setPage } from '../actions';
+import { fetchTracks, clearTracks, setPage, setBackToLocation } from '../actions';
 import QueryUtil from '../util/QueryUtil'
 import LocationUtil from '../util/LocationUtil'
 
@@ -29,6 +29,8 @@ class SearchBox extends Component {
     if (event.target.value.length < 2) {
       return;
     }
+
+    dispatch(setBackToLocation(currentLocation, query));
 
     if (LocationUtil.isProgramPage(currentLocation)) {
       dispatch(pushState(null, '/search', { word: event.target.value }));

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import SearchOptions from './SearchOptions';
 import Track from './Track';
+import PageTitle from './PageTitle';
 import Paging from './Paging';
 import Sorter from './Sorter';
 
@@ -29,8 +30,9 @@ class TrackList extends Component {
     return (
       <div id="track-list">
         <SearchOptions />
-        {sorterDom}
+        <PageTitle />
         {pagingDom}
+        {sorterDom}
         {tracks}
         {pagingDom}
       </div>

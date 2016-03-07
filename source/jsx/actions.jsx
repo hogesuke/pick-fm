@@ -98,6 +98,13 @@ export function setSort(sort) {
   };
 }
 
+export const SET_BACK_TO_LOCATION = 'SET_BACK_TO_LOCATION';
+export function setBackToLocation(location, query) {
+  return {
+    type: SET_BACK_TO_LOCATION, location, query
+  };
+}
+
 export const TOGGLE_ACTIVE_TRACK = 'TOGGLE_ACTIVE_TRACK';
 export function toggleActiveTrack(id) {
   return {

@@ -14,4 +14,21 @@ export default class LocationUtil {
   static isSearchPage(location) {
     return /^\/search/.test(location);
   }
+  static getPageTitle(location) {
+    if (this.isProgramPage(location)) {
+      return 'Programs';
+    }
+    if (this.isProgramEpisodePage(location)) {
+      return 'Episode';
+    }
+    if (this.isProgramEpisodesPage(location)) {
+      return 'Episodes';
+    }
+    if (this.isGuestEpisodePage(location)) {
+      return 'Guest episodes';
+    }
+    if (this.isSearchPage(location)) {
+      return 'Search';
+    }
+  }
 }

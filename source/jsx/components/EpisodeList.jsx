@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Episode from './Episode';
+import PageTitle from './PageTitle';
 import Paging from './Paging';
 import Sorter from './Sorter';
 import LocationUtil from '../util/LocationUtil'
@@ -20,8 +21,9 @@ export default class EpisodeList extends React.Component {
 
     return (
       <div id="episode-list">
-        {sorterDom}
+        <PageTitle />
         {pagingDom}
+        {sorterDom}
         {episodeDoms}
         {pagingDom}
       </div>

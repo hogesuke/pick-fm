@@ -15,6 +15,7 @@ import {
   SET_MUTE_STATUS,
   SET_PAGE,
   SET_SORT,
+  SET_BACK_TO_LOCATION,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
@@ -51,7 +52,9 @@ let initialState = {
   currentPage         : 1,
   perPage             : 1,
   total               : 0,
-  sort                : 'desc'
+  sort                : 'desc',
+  backToLocation      : '',
+  backToQuery         : null
 };
 
 function pickApp(state = initialState, action = "") {
@@ -124,6 +127,11 @@ function pickApp(state = initialState, action = "") {
     case SET_SORT:
       return Object.assign({}, state, {
         sort: action.sort
+      });
+    case SET_BACK_TO_LOCATION:
+      return Object.assign({}, state, {
+        backToLocation: action.location,
+        backToQuery   : action.query
       });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {
