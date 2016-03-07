@@ -29,6 +29,13 @@ class App extends Component {
     }
   }
   componentWillUpdate(nextProps) {
+    const prevPage = this.props.currentPage;
+    const nextPage = nextProps.currentPage;
+
+    if (prevPage !== nextPage) {
+      console.debug('coco');
+      this.refs.mainBody.scrollTop = 0;
+    }
     this.handleLocationChange(nextProps.currentLocation);
   }
   handleLocationChange(location) {
@@ -51,7 +58,7 @@ class App extends Component {
         <div id="header">
           <SearchBox />
         </div>
-        <div id="main-body">
+        <div id="main-body" ref="mainBody">
           {this.props.children}
         </div>
         <div id="footer">
@@ -65,6 +72,7 @@ class App extends Component {
 export default connect(state => {
   return {
     currentLocation: state.router.location.pathname,
-    query          : state.router.location.query
+    query: state.router.location.query,
+    currentPage : state.pickApp.currentPage
   }
 })(App);

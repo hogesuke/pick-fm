@@ -49,7 +49,7 @@ let initialState = {
   filterPrograms      : [],
   filterGuests        : [],
   currentPage         : 1,
-  perPage             : 1,
+  perPage             : 5,
   total               : 0,
   sort                : 'desc'
 };

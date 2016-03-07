@@ -78,7 +78,6 @@ class SearchBox extends Component {
         return;
       }
       if (prevQuery !== currentQury) {
-        console.debug('coco', searchText);
         dispatch(fetchTracks(searchText));
         this.setState({ isSuspension: true });
 
