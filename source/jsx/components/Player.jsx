@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, resetPlaying } from '../actions'
+import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, setLoadedPercentage, resetPlaying } from '../actions'
 import PlayToggleButtonForPlayer from './PlayToggleButtonForPlayer';
 import TimeBar from './TimeBar';
 import Volume from './Volume';
@@ -49,6 +49,12 @@ class Player extends Component {
     });
     audio.addEventListener('ended', () => {
       dispatch(resetPlaying());
+    });
+    audio.addEventListener('loadstart', () => {
+      dispatch(setLoadedPercentage(20));
+    });
+    audio.addEventListener('loadeddata', () => {
+      dispatch(setLoadedPercentage(100));
     });
   }
   isEnd(currentTime) {

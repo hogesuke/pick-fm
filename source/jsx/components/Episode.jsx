@@ -6,6 +6,7 @@ import _ from 'underscore';
 import AudioPiece from './AudioPiece'
 import TimeLineForEpisode from './TimeLineForEpisode';
 import PlayToggleButtonForEpisode from './PlayToggleButtonForEpisode';
+import LoadingBar from './LoadingBar';
 
 class Episode extends AudioPiece {
   handleGuestLinkClick(guestId) {
@@ -67,6 +68,7 @@ class Episode extends AudioPiece {
           </div>
         </div>
         <div className="bottom">
+          <LoadingBar episode={episode} />
           <TimeLineForEpisode episode={episode} />
         </div>
       </div>

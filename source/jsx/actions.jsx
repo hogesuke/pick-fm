@@ -98,6 +98,13 @@ export function setSort(sort) {
   };
 }
 
+export const SET_LOADED_PERCENTAGE = 'SET_LOADED_PERCENTAGE';
+export function setLoadedPercentage(percentage) {
+  return {
+    type: SET_LOADED_PERCENTAGE, percentage
+  };
+}
+
 export const TOGGLE_ACTIVE_TRACK = 'TOGGLE_ACTIVE_TRACK';
 export function toggleActiveTrack(id) {
   return {

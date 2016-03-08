@@ -15,6 +15,7 @@ import {
   SET_MUTE_STATUS,
   SET_PAGE,
   SET_SORT,
+  SET_LOADED_PERCENTAGE,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
@@ -45,6 +46,7 @@ let initialState = {
   isPlaying           : false,
   isMute              : false,
   volume              : 50,
+  loadedPercentage    : 0,
   searchText          : '',
   filterPrograms      : [],
   filterGuests        : [],
@@ -124,6 +126,10 @@ function pickApp(state = initialState, action = "") {
     case SET_SORT:
       return Object.assign({}, state, {
         sort: action.sort
+      });
+    case SET_LOADED_PERCENTAGE:
+      return Object.assign({}, state, {
+        loadedPercentage: action.percentage
       });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {

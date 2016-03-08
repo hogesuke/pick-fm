@@ -33,7 +33,6 @@ class App extends Component {
     const nextPage = nextProps.currentPage;
 
     if (prevPage !== nextPage) {
-      console.debug('coco');
       this.refs.mainBody.scrollTop = 0;
     }
     this.handleLocationChange(nextProps.currentLocation);

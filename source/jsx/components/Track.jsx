@@ -4,8 +4,9 @@ import { replaceState } from 'redux-router';
 import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
 import TimeLineForTrack from '../components/TimeLineForTrack';
 import PlayToggleButtonForTrack from './PlayToggleButtonForTrack';
-import AudioPiece from './AudioPiece'
-import QueryUtil from '../util/QueryUtil'
+import LoadingBar from './LoadingBar';
+import AudioPiece from './AudioPiece';
+import QueryUtil from '../util/QueryUtil';
 
 class Track extends AudioPiece {
   handleGuestLinkClick(guestId) {
@@ -70,6 +71,7 @@ class Track extends AudioPiece {
           </div>
         </div>
         <div className="bottom">
+          <LoadingBar episode={episode} track={track} />
           <TimeLineForTrack track={track} episode={episode} />
         </div>
       </div>

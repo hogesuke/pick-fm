@@ -15,7 +15,6 @@
         overflow: hidden;
         position: relative;
         height: auto;
-        border-bottom: solid 1px $light-gray;
 
         .track-information {
             overflow: hidden;
@@ -94,9 +93,25 @@
     }
 
     .bottom {
-        padding: 13px;
+        .loading-bar {
+            height: 2px;
+            width: 100%;
 
+            .fill {
+                float: left;
+                height: 100%;
+                background-color: #3880d5;
+                transition: width 0.1s linear;
+            }
+            .unfill {
+                float: left;
+                height: 100%;
+                background-color: $light-gray;
+                transition: width 0.1s linear;
+            }
+        }
         .time-line {
+            padding: 13px;
             box-sizing: border-box;
             width: 100%;
             background-color: #ffffff;
@@ -142,7 +157,7 @@
                     .fill {
                         float: left;
                         height: 100%;
-                        background-color: rgba(222, 10, 10, 0.35);
+                        background-color: #a3c7e9;
                         transition: width 0.1s linear;
                     }
                     .unfill {
