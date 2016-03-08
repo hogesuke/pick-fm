@@ -86,7 +86,11 @@ get '/search' do
   end
 
   condition = {
-      sort: [{ episode_no: { order: sort } }, { episode_type: { order: sort == 'asc' ? 'desc' : 'asc' } }],
+      sort: [
+          {episode_no:   {order: sort}},
+          {episode_type: {order: sort == 'asc' ? 'desc' : 'asc'}},
+          {start_time:   {order: 'asc'}}
+      ],
       from: per_page * (page - 1),
       size: per_page
   }
