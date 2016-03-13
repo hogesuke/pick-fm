@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import _ from 'underscore';
 import { connect } from 'react-redux';
-import { setPlayingTrack, setPlayingEpisode, initPlaying, toggleActiveTrack } from '../actions'
+import { generateAudio, initPlaying, toggleActiveTrack } from '../actions'
 
 class PlayToggleButtonForTrack extends Component {
   handleClick() {
@@ -20,8 +20,7 @@ class PlayToggleButtonForTrack extends Component {
 
     dispatch(initPlaying());
     setTimeout(() => {
-      dispatch(setPlayingTrack(track));
-      dispatch(setPlayingEpisode(episode));
+      dispatch(generateAudio(episode, track));
       dispatch(toggleActiveTrack(track.id));
     }, 100);
   }

@@ -1,37 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setPlayingAudio, setAudioIntervalID, setAudioCurrentTime, setIsPlaying, setLoadedPercentage, resetPlaying } from '../actions'
+import { setAudioIntervalID, setAudioCurrentTime, setIsPlaying, setLoadedPercentage, resetPlaying } from '../actions'
 import PlayToggleButtonForPlayer from './PlayToggleButtonForPlayer';
 import TimeBar from './TimeBar';
 import Volume from './Volume';
 
 class Player extends Component {
   componentWillReceiveProps(nextProps) {
-    let { dispatch } = this.props;
-    let { playingTrack, playingEpisode } = nextProps;
+    let { dispatch }  = this.props;
+    const prevAudio   = this.props.playingAudio;
+    const nextAudio   = nextProps.playingAudio;
 
-    if (!playingEpisode) { return; }
-
-    if (this.audio) {
-      this.audio.pause();
+    if (!nextAudio) {
+      return;
     }
 
-    let audio = this.audio = new Audio();
-    audio.src = playingEpisode.url;
-
-    if (playingTrack) {
-      // track再生の場合
-      audio.currentTime = playingTrack.start_time;
+    if (prevAudio === nextAudio) {
+      return;
     }
-
-    audio.play();
-    dispatch(setPlayingAudio(audio));
 
     const intervalID = setInterval(() => {
-      let currentTime = audio.currentTime;
+      let currentTime = nextAudio.currentTime;
 
       if (this.isEnd(currentTime)) {
-        audio.pause();
+        nextAudio.pause();
         dispatch(resetPlaying());
         return;
       }
@@ -41,19 +33,19 @@ class Player extends Component {
 
     dispatch(setAudioIntervalID(intervalID));
 
-    audio.addEventListener('playing', () => {
+    nextAudio.addEventListener('playing', () => {
       dispatch(setIsPlaying(true));
     });
-    audio.addEventListener('pause', () => {
+    nextAudio.addEventListener('pause', () => {
       dispatch(setIsPlaying(false));
     });
-    audio.addEventListener('ended', () => {
+    nextAudio.addEventListener('ended', () => {
       dispatch(resetPlaying());
     });
-    audio.addEventListener('loadstart', () => {
+    nextAudio.addEventListener('loadstart', () => {
       dispatch(setLoadedPercentage(20));
     });
-    audio.addEventListener('loadeddata', () => {
+    nextAudio.addEventListener('loadeddata', () => {
       dispatch(setLoadedPercentage(100));
     });
   }
@@ -97,6 +89,7 @@ class Player extends Component {
 
 export default connect(state => {
   return {
+    playingAudio  : state.pickApp.playingAudio,
     playingTrack  : state.pickApp.playingTrack,
     playingEpisode: state.pickApp.playingEpisode
   }

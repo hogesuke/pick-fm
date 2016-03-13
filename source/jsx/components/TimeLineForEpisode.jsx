@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setPlayingTrack, setPlayingEpisode, initPlaying, toggleActiveEpisode } from '../actions'
+import { generateAudio, initPlaying, toggleActiveEpisode } from '../actions'
 import _ from 'underscore';
 import TimeLineBlock from './TimeLineBlock';
 
@@ -25,13 +25,12 @@ class TimeLineForEpisode extends Component {
     }
     return true;
   }
-  onClickTimeLineBlock(track, episode) {
+  onClickTimeLineBlock(episode, track) {
     let { dispatch } = this.props;
 
     dispatch(initPlaying());
     setTimeout(() => {
-      dispatch(setPlayingTrack(track));
-      dispatch(setPlayingEpisode(episode));
+      dispatch(generateAudio(episode, null, track.start_time));
       dispatch(toggleActiveEpisode(episode.id));
     }, 100);
   }
@@ -46,7 +45,7 @@ class TimeLineForEpisode extends Component {
           track={track}
           episodeLength={episodeLength}
           isActive={this.isActive(track)}
-          onClick={() => { this.onClickTimeLineBlock(track, episode); }}
+          onClick={() => { this.onClickTimeLineBlock(episode, track); }}
         />
       );
     });

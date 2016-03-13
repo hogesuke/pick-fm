@@ -23,26 +23,6 @@ export function setSelectedGuestId(id) {
   };
 }
 
-export const SET_PLAYING_TRACK = 'SET_PLAYING_TRACK';
-export function setPlayingTrack(track) {
-  return {
-    type: SET_PLAYING_TRACK, track
-  };
-}
-export const SET_PLAYING_EPISODE = 'SET_PLAYING_EPISODE';
-export function setPlayingEpisode(episode) {
-  return {
-    type: SET_PLAYING_EPISODE, episode
-  };
-}
-
-export const SET_PLAYING_AUDIO = 'SET_PLAYING_AUDIO';
-export function setPlayingAudio(audio) {
-  return {
-    type: SET_PLAYING_AUDIO, audio
-  };
-}
-
 export const SET_IS_PLAYING = 'SET_IS_PLAYING';
 export function setIsPlaying(isPlaying) {
   return {
@@ -102,6 +82,33 @@ export const SET_LOADED_PERCENTAGE = 'SET_LOADED_PERCENTAGE';
 export function setLoadedPercentage(percentage) {
   return {
     type: SET_LOADED_PERCENTAGE, percentage
+  };
+}
+
+export const GENERATE_AUDIO = 'GENERATE_AUDIO';
+export function generateAudio(episode, track, startTime) {
+  return (dispatch, getState) => {
+    const prevEpisode = getState().pickApp.playingEpisode;
+    let audio = getState().pickApp.playingAudio;
+
+    if (prevEpisode !== episode) {
+      audio = new Audio();
+      audio.src = episode.url;
+    }
+
+    if (track) {
+      // track再生の場合
+      audio.currentTime = track.start_time;
+    } else if (startTime) {
+      // episode再生で開始時間を指定されている場合
+      audio.currentTime = startTime;
+    }
+
+    audio.play();
+
+    return dispatch({
+      type: GENERATE_AUDIO, audio, episode, track
+    });
   };
 }
 

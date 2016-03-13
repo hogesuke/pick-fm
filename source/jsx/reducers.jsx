@@ -16,6 +16,7 @@ import {
   SET_PAGE,
   SET_SORT,
   SET_LOADED_PERCENTAGE,
+  GENERATE_AUDIO,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
   INIT_PLAYING,
@@ -131,6 +132,12 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         loadedPercentage: action.percentage
       });
+    case GENERATE_AUDIO:
+      return Object.assign({}, state, {
+        playingAudio  : action.audio,
+        playingEpisode: action.episode,
+        playingTrack  : action.track
+      });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {
         if (t.id === action.id) {
@@ -158,6 +165,9 @@ function pickApp(state = initialState, action = "") {
     case INIT_PLAYING:
       if (state.audioIntervalID) {
         clearInterval(state.audioIntervalID);
+      }
+      if (state.playingAudio) {
+        state.playingAudio.pause();
       }
       return Object.assign({}, state, {
         playingAudio      : null,

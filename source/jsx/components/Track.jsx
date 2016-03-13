@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { replaceState } from 'redux-router';
-import { setPlayingTrack, setPlayingEpisode, initPlaying } from '../actions'
+import { initPlaying } from '../actions'
 import TimeLineForTrack from '../components/TimeLineForTrack';
 import PlayToggleButtonForTrack from './PlayToggleButtonForTrack';
 import LoadingBar from './LoadingBar';
