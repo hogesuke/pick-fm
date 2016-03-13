@@ -107,7 +107,7 @@ export function generateAudio(episode, track, startTime) {
     audio.play();
 
     return dispatch({
-      type: GENERATE_AUDIO, audio, episode, track
+      type: GENERATE_AUDIO, audio, episode, track, startTime
     });
   };
 }

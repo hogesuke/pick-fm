@@ -134,9 +134,10 @@ function pickApp(state = initialState, action = "") {
       });
     case GENERATE_AUDIO:
       return Object.assign({}, state, {
-        playingAudio  : action.audio,
-        playingEpisode: action.episode,
-        playingTrack  : action.track
+        playingAudio    : action.audio,
+        playingEpisode  : action.episode,
+        playingTrack    : action.track,
+        audioCurrentTime: action.startTime
       });
     case TOGGLE_ACTIVE_TRACK:
       let toggledTracks = state.searchResultTracks.map((t) => {
