@@ -28,7 +28,7 @@ class TimeLineBlock extends Component {
     }
 
     let timeLength = track.end_time - track.start_time;
-    let currentTimePosition = (Math.round(audioCurrentTime * 10) / 10) - track.start_time;
+    let currentTimePosition = (Math.round(audioCurrentTime * 100) / 100) - track.start_time;
 
     this.setState({ unfillPercentage: (currentTimePosition / timeLength) * 100 });
   }
