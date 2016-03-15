@@ -1,5 +1,6 @@
 class Episode < ActiveRecord::Base
   has_and_belongs_to_many :persons
+  has_and_belongs_to_many :comments
   belongs_to :program
 
   attr_accessor :tracks

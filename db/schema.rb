@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 20160315122352) do
 
   create_table "comments", force: :cascade do |t|
-    t.integer  "program_id", limit: 4
     t.integer  "episode_id", limit: 4
     t.string   "comment",    limit: 32
     t.integer  "seconds",    limit: 4
