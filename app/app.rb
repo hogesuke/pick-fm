@@ -9,6 +9,7 @@ require 'pp'
 require_relative 'models/program'
 require_relative 'models/person'
 require_relative 'models/episode'
+require_relative 'models/track'
 
 ActiveRecord::Base.configurations = YAML.load_file(File.join(__dir__, '../config/database.yml'))
 ActiveRecord::Base.establish_connection(settings.environment)
@@ -111,11 +112,7 @@ get '/search' do
     }
   end
 
-  # todo clientって使いまわせないかね？
-  client = Elasticsearch::Client.new(log: false)
-  client.transport.reload_connections!
-  client.cluster.health
-  results = client.search(index: 'pickfm', body: condition)
+  results = Track.search(condition)
 
   episodes = []
 
@@ -133,26 +130,7 @@ get '/search' do
                                   :episode_type => source['episode_type']
                               }).first
 
-      episode_tracks = client.search(index: 'pickfm',
-                                     body: {
-                                         filter: {
-                                             and: [
-                                                 {
-                                                     term: {
-                                                         episode_no: source['episode_no'],
-                                                     }
-                                                 },
-                                                 {
-                                                     term: {
-                                                         episode_type: source['episode_type']
-                                                     }
-                                                 }
-                                             ]
-                                         },
-                                         sort: 'start_time',
-                                         size: 100
-                                     })
-
+      episode_tracks = Track.search_in_episode(source['program_id'], source['episode_no'], source['episode_type'])
       episode.tracks = episode_tracks['hits']['hits'].collect { |h| h['_source'] }
       episodes.push(episode)
     end
@@ -200,32 +178,8 @@ get '/programs/:id/episodes' do
   episodes = program.episodes.offset(offset).limit(per_page).order("episode_no #{sort}, episode_type #{sort == 'asc' ? 'desc' : 'asc'}")
   total    = program.episodes.count(:id)
 
-  client = Elasticsearch::Client.new(log: false)
-  client.transport.reload_connections!
-  client.cluster.health
-
-  # todo 【！！！】programで絞込みできてない
   episodes.each do |e|
-    results = client.search(index: 'pickfm',
-                            body: {
-                                filter: {
-                                    and: [
-                                        {
-                                            term: {
-                                                episode_no: e.episode_no,
-                                            }
-                                        },
-                                        {
-                                            term: {
-                                                episode_type: e.episode_type
-                                            }
-                                        }
-                                    ]
-                                },
-                                sort: 'start_time',
-                                size: 100
-                            })
-
+    results  = Track.search_in_episode(e.program_id, e.episode_no, e.episode_type)
     e.tracks = results['hits']['hits'].collect { |h| h['_source'] }
   end
 
@@ -243,32 +197,7 @@ get '/programs/:program_id/episodes/:episode_no/:episode_type' do
   end
 
   episode = Episode.where({ :program_id => program_id, :episode_no => episode_no, :episode_type => episode_type }).first
-
-  client = Elasticsearch::Client.new(log: false)
-  client.transport.reload_connections!
-  client.cluster.health
-
-  # todo 【！！！】programで絞込みできてない
-  results = client.search(index: 'pickfm',
-                          body: {
-                              filter: {
-                                  and: [
-                                      {
-                                          term: {
-                                              episode_no: episode.episode_no,
-                                          }
-                                      },
-                                      {
-                                          term: {
-                                              episode_type: episode.episode_type
-                                          }
-                                      }
-                                  ]
-                              },
-                              sort: 'start_time',
-                              size: 100
-                          })
-
+  results = Track.search_in_episode(episode.program_id, episode.episode_no, episode.episode_type)
   episode.tracks = results['hits']['hits'].collect { |h| h['_source'] }
 
   episode.to_json
@@ -324,36 +253,9 @@ get '/guests/:id/episodes' do
   episodes = person.episodes.offset(offset).limit(per_page).order("episode_no #{sort}, episode_type #{sort == 'asc' ? 'desc' : 'asc'}")
   total    = person.episodes.count(:id)
 
-  client = Elasticsearch::Client.new(log: false)
-  client.transport.reload_connections!
-  client.cluster.health
-
   # todo いい加減、共通化すること
   episodes.each do |e|
-    results = client.search(index: 'pickfm',
-                            body: {
-                                filter: {
-                                    and: [
-                                        {
-                                            term: {
-                                                program_id: e.program_id,
-                                            }
-                                        },
-                                        {
-                                            term: {
-                                                episode_no: e.episode_no,
-                                            }
-                                        },
-                                        {
-                                            term: {
-                                                episode_type: e.episode_type
-                                            }
-                                        }
-                                    ]
-                                },
-                                sort: 'start_time',
-                                size: 100
-                            })
+    results = Track.search_in_episode(e.program_id, e.episode_no, e.episode_type)
 
     e.tracks = results['hits']['hits'].collect { |h| h['_source'] }
   end
