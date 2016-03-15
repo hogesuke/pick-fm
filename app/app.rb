@@ -271,21 +271,9 @@ def generate_guest_conditions(guest_ids)
     episodes.each do |e|
       conditions.push({
                           and: [
-                              {
-                                  term: {
-                                      program_id: e.program_id
-                                  }
-                              },
-                              {
-                                  term: {
-                                      episode_no: e.episode_no,
-                                  }
-                              },
-                              {
-                                  term: {
-                                      episode_type: e.episode_type,
-                                  }
-                              }
+                              { term: { program_id: e.program_id } },
+                              { term: { episode_no: e.episode_no } },
+                              { term: { episode_type: e.episode_type } }
                           ]
                       })
     end
@@ -303,11 +291,7 @@ def generate_program_conditions(program_ids)
 
   program_ids.each do |program_id|
     program = Program.find(program_id)
-    conditions.push({
-                        term: {
-                            program_id: program.id
-                        }
-                    })
+    conditions.push({ term: { program_id: program.id } })
   end
 
   if conditions.size == 0
