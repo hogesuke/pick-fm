@@ -253,7 +253,6 @@ get '/guests/:id/episodes' do
   episodes = person.episodes.offset(offset).limit(per_page).order("episode_no #{sort}, episode_type #{sort == 'asc' ? 'desc' : 'asc'}")
   total    = person.episodes.count(:id)
 
-  # todo いい加減、共通化すること
   episodes.each do |e|
     results = Track.search_in_episode(e.program_id, e.episode_no, e.episode_type)
 

@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117084949) do
+ActiveRecord::Schema.define(version: 20160315122352) do
+
+  create_table "comments", force: :cascade do |t|
+    t.integer  "program_id", limit: 4
+    t.integer  "episode_id", limit: 4
+    t.string   "comment",    limit: 32
+    t.integer  "seconds",    limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "episodes", force: :cascade do |t|
     t.integer  "program_id",   limit: 4
