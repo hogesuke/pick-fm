@@ -1,6 +1,6 @@
 class Episode < ActiveRecord::Base
   has_and_belongs_to_many :persons
-  has_and_belongs_to_many :comments
+  has_many :comments
   belongs_to :program
 
   attr_accessor :tracks
@@ -11,9 +11,10 @@ class Episode < ActiveRecord::Base
 
   def as_json(options={})
     super.as_json(options).merge({
-                                     :program => self.program,
-                                     :guests  => self.persons,
-                                     :tracks  => get_tracks
+                                     program:  self.program,
+                                     guests:   self.persons,
+                                     comments: self.comments,
+                                     tracks:   get_tracks
                                  })
   end
 

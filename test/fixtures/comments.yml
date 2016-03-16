@@ -1,0 +1,80 @@
+one:
+    id: 1
+    episode_id: 11
+    comment: ほげほげコメントだよ
+    seconds: 48
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+two:
+    id: 2
+    episode_id: 11
+    comment: ふがふがコメントだよ
+    seconds: 100
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+three:
+    id: 3
+    episode_id: 11
+    comment: ほげほげコメントだよ
+    seconds: 620
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+four:
+    id: 4
+    episode_id: 11
+    comment: hogehogehoge
+    seconds: 621
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+five:
+    id: 5
+    episode_id: 11
+    comment: fugafugafuga
+    seconds: 622
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+six:
+    id: 6
+    episode_id: 11
+    comment: foofoofoo
+    seconds: 1000
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+seven:
+    id: 7
+    episode_id: 11
+    comment: barbarbar
+    seconds: 1200
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+eight:
+    id: 8
+    episode_id: 12
+    comment: 開始秒のコメント
+    seconds: 1
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+nine:
+    id: 9
+    episode_id: 12
+    comment: 終了秒のコメント
+    seconds: 3366
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
+ten:
+    id: 10
+    episode_id: 12
+    comment: 途中秒のコメント
+    seconds: 2000
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+

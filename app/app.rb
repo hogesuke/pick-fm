@@ -9,11 +9,12 @@ require 'pp'
 require_relative 'models/program'
 require_relative 'models/person'
 require_relative 'models/episode'
+require_relative 'models/comment'
 require_relative 'models/track'
 
 ActiveRecord::Base.configurations = YAML.load_file(File.join(__dir__, '../config/database.yml'))
 ActiveRecord::Base.establish_connection(settings.environment)
-# ActiveRecord::Base.logger = Logger.new(STDOUT) # todo あとで消す
+ActiveRecord::Base.logger = Logger.new(STDOUT) # todo あとで消す
 
 configure :production, :development do
 
@@ -260,6 +261,10 @@ get '/guests/:id/episodes' do
   end
 
   { episodes: episodes, total: total }.to_json
+end
+
+post '/programs/:program_id/episodes/:episode_no/:episode_type/comments' do
+  # todo
 end
 
 def generate_guest_conditions(guest_ids)
