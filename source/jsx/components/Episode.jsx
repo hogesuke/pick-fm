@@ -5,6 +5,7 @@ import { setSelectedGuestId } from '../actions';
 import _ from 'underscore';
 import AudioPiece from './AudioPiece'
 import TimeLineForEpisode from './TimeLineForEpisode';
+import CommentLine from './CommentLine';
 import PlayToggleButtonForEpisode from './PlayToggleButtonForEpisode';
 import LoadingBar from './LoadingBar';
 
@@ -70,6 +71,7 @@ class Episode extends AudioPiece {
         <div className="bottom">
           <LoadingBar episode={episode} />
           <TimeLineForEpisode episode={episode} />
+          <CommentLine episode={episode} />
         </div>
       </div>
     );
