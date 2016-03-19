@@ -19,7 +19,7 @@ class Track extends AudioPiece {
     const min       = ('0' + Math.floor(length / 60)).slice(-2);
     const sec       = ('0' + length % 60).slice(-2);
 
-    return `${min}:${sec}`
+    return `${min}:${sec}`;
   }
   getTimeRange() {
     const { track } = this.props;
