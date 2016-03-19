@@ -1,0 +1,14 @@
+#search-box {
+    input {
+        box-sizing: border-box;
+        padding: 8px 10px;
+        width: 100%;
+        border: 1px solid $medium-gray;
+        background-color: transparent;
+        font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+        letter-spacing: 1px;
+        color: $text-light-on-gray;
+    }
+}

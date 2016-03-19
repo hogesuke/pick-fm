@@ -16,6 +16,8 @@ import {
   SET_PAGE,
   SET_SORT,
   SET_LOADED_PERCENTAGE,
+  SET_COMMENTS,
+  CLEAR_COMMENTS,
   GENERATE_AUDIO,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
@@ -36,6 +38,7 @@ let initialState = {
   programs            : [],
   episodes            : [],
   guests              : [],
+  comments            : [],
   selectedProgramId   : null,
   selectedEpisodeId   : null,
   selectedGuestId     : null,
@@ -131,6 +134,14 @@ function pickApp(state = initialState, action = "") {
     case SET_LOADED_PERCENTAGE:
       return Object.assign({}, state, {
         loadedPercentage: action.percentage
+      });
+    case SET_COMMENTS:
+      return Object.assign({}, state, {
+        comments: action.comments
+      });
+    case CLEAR_COMMENTS:
+      return Object.assign({}, state, {
+        comments: []
       });
     case GENERATE_AUDIO:
       return Object.assign({}, state, {

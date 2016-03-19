@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPrograms, setSelectedProgramId, setVolume, setMuteStatus, setPage, setSort } from '../actions';
 import SearchBox from '../components/SearchBox';
+import CommentList from '../components/CommentList';
 import Player from '../components/Player';
 
 class App extends Component {
@@ -61,6 +62,7 @@ class App extends Component {
           {this.props.children}
         </div>
         <div id="footer">
+          <CommentList />
           <Player />
         </div>
       </div>

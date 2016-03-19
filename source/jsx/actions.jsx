@@ -85,6 +85,20 @@ export function setLoadedPercentage(percentage) {
   };
 }
 
+export const SET_COMMENTS = 'SET_COMMENTS';
+export function setComments(comments) {
+  return {
+    type: SET_COMMENTS, comments
+  };
+}
+
+export const CLEAR_COMMENTS = 'CLEAR_COMMENTS';
+export function clearComments() {
+  return {
+    type: CLEAR_COMMENTS
+  };
+}
+
 export const GENERATE_AUDIO = 'GENERATE_AUDIO';
 export function generateAudio(episode, track, startTime) {
   return (dispatch, getState) => {
