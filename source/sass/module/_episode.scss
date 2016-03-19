@@ -1,0 +1,27 @@
+.episode {
+    @include track;
+
+    .bottom {
+        .time-line {
+            .block-container {
+                &:hover {
+                    background-color: rgba(55, 141, 255, 0.1);
+                    cursor: pointer;
+                }
+
+                .tags {
+                    .tag {
+                        color: $text-medium-gray;
+                        margin-right: 0;
+                        background-color: transparent;
+
+                        &.hit {
+                            background-color: transparent;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

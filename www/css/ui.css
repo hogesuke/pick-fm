@@ -49,6 +49,20 @@ a {
       font-size: 20px;
       letter-spacing: 1px;
       color: #eeeeee; }
+  #main #main-body {
+    box-sizing: border-box;
+    position: absolute;
+    top: 60px;
+    overflow: auto;
+    height: calc(100% - 125px);
+    width: 100%;
+    min-width: 500px; }
+    #main #main-body #program-list, #main #main-body #track-list, #main #main-body #episode-list {
+      box-sizing: border-box;
+      padding: 10px;
+      height: 100%; }
+    #main #main-body #program-list {
+      height: 100%; }
   #main #footer {
     position: absolute;
     bottom: 0;
@@ -139,20 +153,6 @@ a {
           position: relative;
           height: 100%;
           width: 100%; }
-  #main #main-body {
-    box-sizing: border-box;
-    position: absolute;
-    top: 60px;
-    overflow: auto;
-    height: calc(100% - 125px);
-    width: 100%;
-    min-width: 500px; }
-    #main #main-body #program-list, #main #main-body #track-list, #main #main-body #episode-list {
-      box-sizing: border-box;
-      padding: 10px;
-      height: 100%; }
-    #main #main-body #program-list {
-      height: 100%; }
   @media screen and (min-width: 1281px) {
     #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player {
       width: 1280px;
@@ -163,65 +163,6 @@ a {
   @media screen and (max-width: 500px) {
     #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player {
       width: 500px; } }
-  #main #search-options {
-    margin: 5px 10px;
-    padding: 10px;
-    background-color: #626262;
-    color: #eeeeee;
-    border: solid 1px #5c5c5c;
-    box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px; }
-    #main #search-options .programs {
-      overflow: hidden;
-      font-size: 16px; }
-      #main #search-options .programs .program {
-        float: left;
-        margin-right: 10px; }
-        #main #search-options .programs .program input {
-          font-size: 16px; }
-    #main #search-options .guests {
-      overflow: hidden;
-      font-size: 16px; }
-      #main #search-options .guests .guest {
-        float: left;
-        margin-right: 10px; }
-        #main #search-options .guests .guest:hover {
-          text-decoration: underline; }
-        #main #search-options .guests .guest .remove-button {
-          background-color: transparent;
-          border: none;
-          font-size: 16px;
-          color: #2b2b2b; }
-          #main #search-options .guests .guest .remove-button:hover {
-            cursor: pointer; }
-  #main #page-controller {
-    float: right;
-    padding: 10px 10px; }
-    #main #page-controller .paging-link {
-      padding: 0 5px;
-      color: #2d2d2d; }
-    #main #page-controller .paging-inactive {
-      padding: 0 5px;
-      color: #5e5e5e; }
-    #main #page-controller .current-page {
-      margin: 0 5px;
-      padding: 0 5px;
-      background-color: #3880d5;
-      color: #ffffff; }
-  #main #sort-controller {
-    float: left;
-    padding: 5px 10px; }
-    #main #sort-controller button {
-      border: none;
-      padding: 5px 8px;
-      background-color: transparent;
-      font-size: 14px;
-      font-weight: 200;
-      color: #2d2d2d;
-      outline: none;
-      cursor: pointer; }
-      #main #sort-controller button.active {
-        background-color: #3880d5;
-        color: #ffffff; }
   #main .track {
     float: left;
     overflow: hidden;
@@ -531,6 +472,65 @@ a {
       background-color: transparent; }
       #main .episode .bottom .time-line .block-container .tags .tag.hit {
         background-color: transparent; }
+  #main #search-options {
+    margin: 5px 10px;
+    padding: 10px;
+    background-color: #626262;
+    color: #eeeeee;
+    border: solid 1px #5c5c5c;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px; }
+    #main #search-options .programs {
+      overflow: hidden;
+      font-size: 16px; }
+      #main #search-options .programs .program {
+        float: left;
+        margin-right: 10px; }
+        #main #search-options .programs .program input {
+          font-size: 16px; }
+    #main #search-options .guests {
+      overflow: hidden;
+      font-size: 16px; }
+      #main #search-options .guests .guest {
+        float: left;
+        margin-right: 10px; }
+        #main #search-options .guests .guest:hover {
+          text-decoration: underline; }
+        #main #search-options .guests .guest .remove-button {
+          background-color: transparent;
+          border: none;
+          font-size: 16px;
+          color: #2b2b2b; }
+          #main #search-options .guests .guest .remove-button:hover {
+            cursor: pointer; }
+  #main #page-controller {
+    float: right;
+    padding: 10px 10px; }
+    #main #page-controller .paging-link {
+      padding: 0 5px;
+      color: #2d2d2d; }
+    #main #page-controller .paging-inactive {
+      padding: 0 5px;
+      color: #5e5e5e; }
+    #main #page-controller .current-page {
+      margin: 0 5px;
+      padding: 0 5px;
+      background-color: #3880d5;
+      color: #ffffff; }
+  #main #sort-controller {
+    float: left;
+    padding: 5px 10px; }
+    #main #sort-controller button {
+      border: none;
+      padding: 5px 8px;
+      background-color: transparent;
+      font-size: 14px;
+      font-weight: 200;
+      color: #2d2d2d;
+      outline: none;
+      cursor: pointer; }
+      #main #sort-controller button.active {
+        background-color: #3880d5;
+        color: #ffffff; }
   #main #program-list .program {
     position: relative;
     float: left;

@@ -1,0 +1,46 @@
+#search-options {
+    margin: 5px 10px;
+    padding: 10px;
+    background-color: #626262;
+    color: $text-light-on-gray;
+    border: solid 1px #5c5c5c;
+    box-shadow: rgba(0, 0, 0, 0.2) 0 0 2px 1px;
+
+    .programs {
+        overflow: hidden;
+        font-size: 16px;
+
+        .program {
+            float: left;
+            margin-right: 10px;
+
+            input {
+                font-size: 16px;
+            }
+        }
+    }
+    .guests {
+        overflow: hidden;
+        font-size: 16px;
+
+        .guest {
+            float: left;
+            margin-right: 10px;
+
+            &:hover {
+                text-decoration: underline;
+            }
+
+            .remove-button {
+                background-color: transparent;
+                border: none;
+                font-size: 16px;
+                color: #2b2b2b;
+
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+#program-list {
+    .program {
+        position: relative;
+        float: left;
+        overflow: hidden;
+        height: 300px;
+        width: 300px;
+        margin: 5px 10px;
+        cursor: pointer;
+        background-size: 300px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 0 5px 2px;
+
+        .overlay {
+            position: relative;
+            height: 100%;
+            width: 100%;
+
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+        }
+
+        .description {
+            position: absolute;
+            bottom: 0;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 15px;
+            color: $text-light-on-gray;
+            background-color: rgba(0, 0, 0, 0.7);
+
+            .title {
+                margin: 5px 0;
+                font-size: 22px;
+                letter-spacing: 1px;
+            }
+            .personality {
+                font-size: 13px;
+            }
+        }
+    }
+}

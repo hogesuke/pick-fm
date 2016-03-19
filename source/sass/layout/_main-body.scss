@@ -1,0 +1,18 @@
+#main-body {
+    box-sizing: border-box;
+    position: absolute;
+    top: $header-height;
+    overflow: auto;
+    height: calc(100% - #{$header-height + $player-height});
+    width: 100%;
+    min-width: 500px;
+
+    #program-list, #track-list, #episode-list {
+        box-sizing: border-box;
+        padding: 10px;
+        height: 100%;
+    }
+    #program-list {
+        height: 100%;
+    }
+}
