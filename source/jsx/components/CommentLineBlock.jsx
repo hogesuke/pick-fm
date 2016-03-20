@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
-import { setComments, clearComments } from '../actions'
+import { addComments, removeComment } from '../actions'
 
 class CommentLineBlock extends Component {
   handleMounseOver() {
     const { dispatch, comments } = this.props;
-    dispatch(setComments(comments));
+    dispatch(addComments(comments));
   }
   handleMounseOut() {
-    const { dispatch } = this.props;
-    dispatch(clearComments());
+    const { dispatch, comments } = this.props;
+    _.each(comments, (c) => {
+      dispatch(removeComment(c.id));
+    });
   }
   render() {
     const { index, alpha } = this.props;

@@ -55,7 +55,7 @@ a {
     @import 'layout/main-body';
     @import 'layout/footer';
 
-    #program-list, #track-list, #episode-list, #search-box, #player {
+    #program-list, #track-list, #episode-list, #search-box, #player, #comment-list {
         @media screen and (min-width: 1281px) {
             width: 1280px;
             margin: 0 auto;

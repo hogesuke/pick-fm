@@ -16,8 +16,9 @@ import {
   SET_PAGE,
   SET_SORT,
   SET_LOADED_PERCENTAGE,
-  SET_COMMENTS,
+  ADD_COMMENTS,
   CLEAR_COMMENTS,
+  REMOVE_COMMENT,
   GENERATE_AUDIO,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
@@ -135,13 +136,19 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         loadedPercentage: action.percentage
       });
-    case SET_COMMENTS:
+    case ADD_COMMENTS:
       return Object.assign({}, state, {
-        comments: action.comments
+        comments: [...state.comments, ...action.comments]
       });
     case CLEAR_COMMENTS:
       return Object.assign({}, state, {
         comments: []
+      });
+    case REMOVE_COMMENT:
+      return Object.assign({}, state, {
+        comments: _.reject(state.comments, (c) => {
+          return c.id === action.id
+        })
       });
     case GENERATE_AUDIO:
       return Object.assign({}, state, {

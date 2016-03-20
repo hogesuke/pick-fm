@@ -1,7 +1,7 @@
 #player {
     box-sizing: border-box;
     height: $player-height;
-    padding: 15px 20px;
+    padding: 0 20px;
     background-color: $dark-gray;
     box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 2px 0;
 
@@ -9,10 +9,28 @@
         float: left;
         height: 18px;
         width: calc(100% - #{$player-controllers-width});
-        margin: 1px 0;
+        margin-top: 10px;
         font-size: 16px;
         letter-spacing: 0.5px;
         color: $text-light-on-gray;
+    }
+    .time-info {
+        float: left;
+        width: calc(100% - #{$player-controllers-width});
+        margin-top: 2px;
+        font-size: 12px;
+        letter-spacing: 0.5px;
+        color: $text-light-on-gray;
+
+        .separator {
+            padding: 0 1px;
+        }
+        .current {
+            float: left;
+        }
+        .end {
+            float: right;
+        }
     }
     .controllers {
         float: left;

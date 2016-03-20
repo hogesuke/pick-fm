@@ -198,6 +198,14 @@ six10:
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 
+six11:
+    id: 60011
+    episode_id: 11
+    comment: 32文字ってどんなもんかな？こんな感じかな？どうだろうねあああ
+    seconds: 2782
+    created_at: <%= Time.now %>
+    updated_at: <%= Time.now %>
+
 seven:
     id: 7
     episode_id: 11

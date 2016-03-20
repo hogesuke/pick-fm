@@ -7,8 +7,6 @@ import _ from 'underscore';
 class CommentLine extends Component {
   calcAlpha(count, max, min) {
     if (!max || !min) {
-      console.debug('max', max);
-      console.debug('min', min);
       return 0;
     }
 

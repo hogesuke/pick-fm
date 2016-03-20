@@ -1,15 +1,23 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setAudioIntervalID, setAudioCurrentTime, setIsPlaying, setLoadedPercentage, resetPlaying } from '../actions'
+import {
+  setAudioIntervalID,
+  setAudioCurrentTime,
+  setIsPlaying,
+  setLoadedPercentage,
+  resetPlaying,
+  addComments
+} from '../actions'
 import PlayToggleButtonForPlayer from './PlayToggleButtonForPlayer';
 import TimeBar from './TimeBar';
 import Volume from './Volume';
 
 class Player extends Component {
   componentWillReceiveProps(nextProps) {
-    let { dispatch }  = this.props;
+    const { dispatch }  = this.props;
     const prevAudio   = this.props.playingAudio;
     const nextAudio   = nextProps.playingAudio;
+    const episode     = nextProps.playingEpisode;
 
     if (!nextAudio) {
       return;
@@ -19,8 +27,14 @@ class Player extends Component {
       return;
     }
 
+    const intervalSec = 1000;
     const intervalID = setInterval(() => {
-      let currentTime = nextAudio.currentTime;
+      const currentTime = nextAudio.currentTime;
+
+      const comments = episode.comments.filter((c) => {
+        return currentTime - (intervalSec / 1000) < c.seconds && c.seconds <= currentTime;
+      });
+      dispatch(addComments(comments));
 
       if (this.isEnd(currentTime)) {
         nextAudio.pause();
@@ -29,7 +43,7 @@ class Player extends Component {
       }
 
       dispatch(setAudioCurrentTime(currentTime));
-    }, 1000);
+    }, intervalSec);
 
     dispatch(setAudioIntervalID(intervalID));
 
@@ -71,6 +85,34 @@ class Player extends Component {
 
     return `${episode.program.name} Episode ${episode.episode_no + type}`;
   }
+  formatTime(length) {
+    if (Number.isNaN(length)) {
+      length = 0;
+    }
+    const min = ('0' + Math.floor(length / 60)).slice(-2);
+    const sec = ('0' + length % 60).slice(-2);
+    return <span>{min}<span className="separator">:</span>{sec}</span>;
+  }
+  getEndTimeText() {
+    const { playingEpisode, playingTrack } = this.props;
+    let length = 0;
+
+    if (playingTrack) {
+      length = playingTrack.end_time - playingTrack.start_time;
+    } else if (playingEpisode) {
+      length = playingEpisode.time_length;
+    }
+    return this.formatTime(length);
+  }
+  getCurrentTimeText() {
+    const { playingTrack, audioCurrentTime } = this.props;
+    let length = audioCurrentTime;
+
+    if (playingTrack) {
+      length = audioCurrentTime - playingTrack.start_time;
+    }
+    return this.formatTime(Math.round(length));
+  }
   render() {
     return (
       <div id="player">
@@ -82,6 +124,10 @@ class Player extends Component {
           <span>{this.getTitle()}</span>
         </div>
         <TimeBar />
+        <div className="time-info">
+          <div className="current">{this.getCurrentTimeText()}</div>
+          <div className="end">{this.getEndTimeText()}</div>
+        </div>
       </div>
     );
   }
@@ -89,8 +135,9 @@ class Player extends Component {
 
 export default connect(state => {
   return {
-    playingAudio  : state.pickApp.playingAudio,
-    playingTrack  : state.pickApp.playingTrack,
-    playingEpisode: state.pickApp.playingEpisode
+    playingAudio    : state.pickApp.playingAudio,
+    playingTrack    : state.pickApp.playingTrack,
+    playingEpisode  : state.pickApp.playingEpisode,
+    audioCurrentTime: state.pickApp.audioCurrentTime
   }
 })(Player);

@@ -8,7 +8,7 @@ class CommentList extends Component {
     const { comments } = this.props;
 
     const balloons = comments.map((c) => {
-      return <CommentBalloon key={c.id} comment={c.comment} />;
+      return <CommentBalloon key={c.id} comment={c} timeLeft={5000} />;
     });
 
     return (
