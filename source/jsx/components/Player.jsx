@@ -29,8 +29,9 @@ class Player extends Component {
 
     const intervalSec = 1000;
     const intervalID = setInterval(() => {
-      const currentTime = nextAudio.currentTime;
+      if (nextAudio.paused) { return; }
 
+      const currentTime = nextAudio.currentTime;
       const comments = episode.comments.filter((c) => {
         return currentTime - (intervalSec / 1000) < c.seconds && c.seconds <= currentTime;
       });
