@@ -88,6 +88,7 @@ a {
       font-size: 12px;
       text-align: center; }
       #main #footer #comment-list .balloon {
+        position: relative;
         display: inline-block;
         margin: 5px;
         padding: 0 10px;
@@ -97,7 +98,7 @@ a {
         color: #F6F6F6;
         line-height: 30px;
         text-align: center;
-        background-color: #2f2f2f;
+        background-color: #4c4c4c;
         animation: pop ease 0.3s; }
         #main #footer #comment-list .balloon:after {
           content: "";
@@ -110,8 +111,7 @@ a {
           height: 0;
           border-style: solid;
           border-width: 6px 6px 0 6px;
-          border-color: #2f2f2f transparent transparent transparent;
-          animation: pop ease 0.3s; }
+          border-color: #4c4c4c transparent transparent transparent; }
         #main #footer #comment-list .balloon.hiding, #main #footer #comment-list .balloon.hiding:after {
           animation: hide ease 0.3s forwards; }
     #main #footer #player {

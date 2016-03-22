@@ -15,6 +15,7 @@
   text-align: center;
 
   .balloon {
+    position: relative;
     display: inline-block;
     margin: 5px;
     padding: 0 10px;
@@ -24,7 +25,7 @@
     color: #F6F6F6;
     line-height: 30px;
     text-align: center;
-    background-color: $dark-gray;
+    background-color: #4c4c4c;
     animation: pop ease 0.3s;
 
     &:after {
@@ -37,8 +38,7 @@
       height: 0;
       border-style: solid;
       border-width: 6px 6px 0 6px;
-      border-color: $dark-gray transparent transparent transparent;
-      animation: pop ease 0.3s;
+      border-color: #4c4c4c transparent transparent transparent;
     }
 
     &.hiding, &.hiding:after {
