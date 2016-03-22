@@ -6,7 +6,7 @@ import { addComments, removeComment } from '../actions'
 class CommentLineBlock extends Component {
   handleMounseOver() {
     const { dispatch, comments } = this.props;
-    dispatch(addComments(comments));
+    dispatch(addComments(comments, false));
   }
   handleMounseOut() {
     const { dispatch, comments } = this.props;

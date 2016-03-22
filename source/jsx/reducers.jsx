@@ -17,8 +17,10 @@ import {
   SET_SORT,
   SET_LOADED_PERCENTAGE,
   ADD_COMMENTS,
-  CLEAR_COMMENTS,
+  HIDE_COMMENT,
   REMOVE_COMMENT,
+  MARK_REMOVE_COMMENT,
+  CLEAR_GARBAGE_COMMENTS,
   GENERATE_AUDIO,
   TOGGLE_ACTIVE_TRACK,
   TOGGLE_ACTIVE_EPISODE,
@@ -137,17 +139,59 @@ function pickApp(state = initialState, action = "") {
         loadedPercentage: action.percentage
       });
     case ADD_COMMENTS:
-      return Object.assign({}, state, {
-        comments: [...state.comments, ...action.comments]
+      const newCommentIds = action.comments.map((a) => { return a.id });
+      const commentsWithoutDuplicate = _.reject(state.comments, (c) => {
+        return _.contains(newCommentIds, c.id);
       });
-    case CLEAR_COMMENTS:
+
       return Object.assign({}, state, {
-        comments: []
+        comments: [
+          ...commentsWithoutDuplicate,
+          ...action.comments.map((c) => {
+            c = Object.assign({}, c);
+            c.hiding = c.removig = false;
+            c.autoHiding = action.autoHiding;
+            return c;
+          })
+        ]
+      });
+    case HIDE_COMMENT:
+      return Object.assign({}, state, {
+        comments: state.comments.map((c) => {
+          c = Object.assign({}, c);
+          if (c.id === action.id) {
+            c.hiding = true;
+          }
+          return c;
+        })
       });
     case REMOVE_COMMENT:
       return Object.assign({}, state, {
         comments: _.reject(state.comments, (c) => {
-          return c.id === action.id
+          return c.id === action.id;
+        })
+      });
+    case MARK_REMOVE_COMMENT:
+      return Object.assign({}, state, {
+        comments: state.comments.map((c) => {
+          c = Object.assign({}, c);
+          if (c.id === action.id && c.hiding) {
+            c.removing = true;
+          }
+          return c;
+        })
+      });
+    case CLEAR_GARBAGE_COMMENTS:
+      const garbageComments = state.comments.filter((c) => {
+        return c.removing;
+      });
+      if (garbageComments.length <= 0) {
+        return state;
+      }
+
+      return Object.assign({}, state, {
+        comments: _.reject(state.comments, (c) => {
+          return c.removing;
         })
       });
     case GENERATE_AUDIO:

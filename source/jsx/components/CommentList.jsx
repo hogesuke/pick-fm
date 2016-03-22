@@ -1,14 +1,26 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'underscore';
+import { clearGarbageComments } from '../actions'
 import CommentBalloon from './CommentBalloon';
 
 class CommentList extends Component {
+  componentWillMount() {
+    const { dispatch } = this.props;
+
+    const intervalID = setInterval(() => {
+      dispatch(clearGarbageComments());
+    }, 100);
+    this.setState({ intervalID });
+  }
+  componentWillUnmount() {
+    clearInterval(this.state.intervalID);
+  }
   render() {
     const { comments } = this.props;
 
     const balloons = comments.map((c) => {
-      return <CommentBalloon key={c.id} comment={c} timeLeft={5000} />;
+      return <CommentBalloon key={c.id} comment={c} timeLeft={c.autoHiding ? 5000 : 0} />;
     });
 
     return (

@@ -86,16 +86,23 @@ export function setLoadedPercentage(percentage) {
 }
 
 export const ADD_COMMENTS = 'ADD_COMMENTS';
-export function addComments(comments) {
+export function addComments(comments, autoHiding) {
   return {
-    type: ADD_COMMENTS, comments
+    type: ADD_COMMENTS, comments, autoHiding
   };
 }
 
-export const CLEAR_COMMENTS = 'CLEAR_COMMENTS';
-export function clearComments() {
+export const CLEAR_GARBAGE_COMMENTS = 'CLEAR_GARBAGE_COMMENTS';
+export function clearGarbageComments() {
   return {
-    type: CLEAR_COMMENTS
+    type: CLEAR_GARBAGE_COMMENTS
+  };
+}
+
+export const HIDE_COMMENT = 'HIDE_COMMENT';
+export function hideComment(id) {
+  return {
+    type: HIDE_COMMENT, id
   };
 }
 
@@ -103,6 +110,13 @@ export const REMOVE_COMMENT = 'REMOVE_COMMENT';
 export function removeComment(id) {
   return {
     type: REMOVE_COMMENT, id
+  };
+}
+
+export const MARK_REMOVE_COMMENT = 'MARK_REMOVE_COMMENT';
+export function markRemoveComment(id) {
+  return {
+    type: MARK_REMOVE_COMMENT, id
   };
 }
 

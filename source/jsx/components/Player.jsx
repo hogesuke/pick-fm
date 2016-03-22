@@ -35,7 +35,7 @@ class Player extends Component {
       const comments = episode.comments.filter((c) => {
         return currentTime - (intervalSec / 1000) < c.seconds && c.seconds <= currentTime;
       });
-      dispatch(addComments(comments));
+      dispatch(addComments(comments, true));
 
       if (this.isEnd(currentTime)) {
         nextAudio.pause();

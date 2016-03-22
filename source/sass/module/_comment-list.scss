@@ -1,3 +1,12 @@
+@keyframes pop {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hide {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 #comment-list {
   padding: 15px;
   background-color: transparent;
@@ -6,7 +15,6 @@
   text-align: center;
 
   .balloon {
-    position: relative;
     display: inline-block;
     margin: 5px;
     padding: 0 10px;
@@ -17,7 +25,7 @@
     line-height: 30px;
     text-align: center;
     background-color: $dark-gray;
-    z-index: 10000;
+    animation: pop ease 0.3s;
 
     &:after {
       content: "";
@@ -30,6 +38,11 @@
       border-style: solid;
       border-width: 6px 6px 0 6px;
       border-color: $dark-gray transparent transparent transparent;
+      animation: pop ease 0.3s;
+    }
+
+    &.hiding, &.hiding:after {
+      animation: hide ease 0.3s forwards;
     }
   }
 }
