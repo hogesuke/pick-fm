@@ -192,12 +192,11 @@ $loading-bar-height: 2px;
                     padding-top: 1%;
                     background-color: #ffacb3;
                     border-radius: 50%;
-                    border: solid 2px #ffffff;
-                    transition: background-color 0.1s linear, border 0.1s linear;
+                    transition: background-color 0.1s linear;
 
                     &:hover {
                         cursor: pointer;
-                        border: solid 2px #ff828d;
+                        background-color: #ff3a41;
                     }
                 }
             }

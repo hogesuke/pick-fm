@@ -298,7 +298,7 @@ nine:
     id: 9
     episode_id: 12
     comment: 終了秒のコメント
-    seconds: 3366
+    seconds: 2972
     created_at: <%= Time.now %>
     updated_at: <%= Time.now %>
 

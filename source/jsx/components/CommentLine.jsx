@@ -47,7 +47,7 @@ class CommentLine extends Component {
     });
 
     return(
-      <div className="comment-line">
+      <div className="comment-line" style={{ display: blocks.length <= 0 ? 'none' : 'block' }}>
         <div className="block-container">
           {blocks}
         </div>

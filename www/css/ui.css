@@ -98,7 +98,7 @@ a {
         color: #F6F6F6;
         line-height: 30px;
         text-align: center;
-        background-color: #4c4c4c;
+        background-color: #567abb;
         animation: pop ease 0.3s; }
         #main #footer #comment-list .balloon:after {
           content: "";
@@ -111,7 +111,7 @@ a {
           height: 0;
           border-style: solid;
           border-width: 6px 6px 0 6px;
-          border-color: #4c4c4c transparent transparent transparent; }
+          border-color: #567abb transparent transparent transparent; }
         #main #footer #comment-list .balloon.hiding, #main #footer #comment-list .balloon.hiding:after {
           animation: hide ease 0.3s forwards; }
     #main #footer #player {
@@ -365,11 +365,10 @@ a {
             padding-top: 1%;
             background-color: #ffacb3;
             border-radius: 50%;
-            border: solid 2px #ffffff;
-            transition: background-color 0.1s linear, border 0.1s linear; }
+            transition: background-color 0.1s linear; }
             #main .track .bottom .comment-line .block-container .block:hover {
               cursor: pointer;
-              border: solid 2px #ff828d; }
+              background-color: #ff3a41; }
   #main .episode {
     float: left;
     overflow: hidden;
@@ -513,11 +512,10 @@ a {
             padding-top: 1%;
             background-color: #ffacb3;
             border-radius: 50%;
-            border: solid 2px #ffffff;
-            transition: background-color 0.1s linear, border 0.1s linear; }
+            transition: background-color 0.1s linear; }
             #main .episode .bottom .comment-line .block-container .block:hover {
               cursor: pointer;
-              border: solid 2px #ff828d; }
+              background-color: #ff3a41; }
     #main .episode .bottom .time-line .block-container:hover {
       background-color: rgba(55, 141, 255, 0.1);
       cursor: pointer; }
