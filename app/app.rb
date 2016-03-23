@@ -197,6 +197,7 @@ get '/programs/:program_id/episodes/:episode_no/:episode_type' do
     return { err_msg: 'パラメータが不正です' }.to_json
   end
 
+  # todo これ取得できなかった場合を考慮できてない
   episode = Episode.where({ :program_id => program_id, :episode_no => episode_no, :episode_type => episode_type }).first
   results = Track.search_in_episode(episode.program_id, episode.episode_no, episode.episode_type)
   episode.tracks = results['hits']['hits'].collect { |h| h['_source'] }
@@ -264,7 +265,27 @@ get '/guests/:id/episodes' do
 end
 
 post '/programs/:program_id/episodes/:episode_no/:episode_type/comments' do
-  # todo
+  program_id   = params[:program_id]
+  episode_no   = params[:episode_no]
+  episode_type = params[:episode_type]
+  comment      = params[:comment]
+  seconds      = params[:seconds]
+
+  episode = Episode.where({ program_id: program_id, episode_no: episode_no, episode_type: episode_type }).first
+
+  if episode.nil?
+    status(400)
+    return { err_msg: 'パラメータが不正です' }.to_json
+  end
+
+  success = episode.save_comment(comment, seconds)
+
+  unless success
+    status(400)
+    return { err_msg: 'コメントの登録に失敗しました' }.to_json
+  end
+
+  episode.to_json
 end
 
 def generate_guest_conditions(guest_ids)
