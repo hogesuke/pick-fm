@@ -264,14 +264,12 @@ get '/guests/:id/episodes' do
   { episodes: episodes, total: total }.to_json
 end
 
-post '/programs/:program_id/episodes/:episode_no/:episode_type/comments' do
-  program_id   = params[:program_id]
-  episode_no   = params[:episode_no]
-  episode_type = params[:episode_type]
-  comment      = params[:comment]
-  seconds      = params[:seconds]
+post '/comment' do
+  episode_id = params[:episode_id]
+  comment    = params[:comment]
+  seconds    = params[:seconds]
 
-  episode = Episode.where({ program_id: program_id, episode_no: episode_no, episode_type: episode_type }).first
+  episode = Episode.find_by_id(episode_id)
 
   if episode.nil?
     status(400)
