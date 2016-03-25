@@ -8,6 +8,8 @@
 }
 
 #comment-list {
+  position: fixed;
+  bottom: $player-height;
   padding: 15px;
   background-color: transparent;
   color: #2d2d2d;

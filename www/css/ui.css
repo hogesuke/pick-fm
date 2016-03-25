@@ -63,12 +63,6 @@ a {
       height: 100%; }
     #main #main-body #program-list {
       height: 100%; }
-  #main #footer {
-    position: absolute;
-    bottom: 0;
-    overflow: hidden;
-    width: 100%;
-    padding-top: 5px; }
 
 @keyframes pop {
   0% {
@@ -81,13 +75,15 @@ a {
     opacity: 1; }
   100% {
     opacity: 0; } }
-    #main #footer #comment-list {
+    #main #main-body #comment-list {
+      position: fixed;
+      bottom: 65px;
       padding: 15px;
       background-color: transparent;
       color: #2d2d2d;
       font-size: 12px;
       text-align: center; }
-      #main #footer #comment-list .balloon {
+      #main #main-body #comment-list .balloon {
         position: relative;
         display: inline-block;
         margin: 5px;
@@ -100,7 +96,7 @@ a {
         text-align: center;
         background-color: #567abb;
         animation: pop ease 0.3s; }
-        #main #footer #comment-list .balloon:after {
+        #main #main-body #comment-list .balloon:after {
           content: "";
           position: absolute;
           bottom: -6px;
@@ -112,8 +108,14 @@ a {
           border-style: solid;
           border-width: 6px 6px 0 6px;
           border-color: #567abb transparent transparent transparent; }
-        #main #footer #comment-list .balloon.hiding, #main #footer #comment-list .balloon.hiding:after {
+        #main #main-body #comment-list .balloon.hiding, #main #main-body #comment-list .balloon.hiding:after {
           animation: hide ease 0.3s forwards; }
+  #main #footer {
+    position: absolute;
+    bottom: 0;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 5px; }
     #main #footer #player {
       box-sizing: border-box;
       height: 65px;

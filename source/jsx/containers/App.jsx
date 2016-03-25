@@ -60,9 +60,9 @@ class App extends Component {
         </div>
         <div id="main-body" ref="mainBody">
           {this.props.children}
+          <CommentList />
         </div>
         <div id="footer">
-          <CommentList />
           <Player />
         </div>
       </div>
