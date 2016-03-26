@@ -76,7 +76,7 @@ a {
   100% {
     width: 0; } }
     #main #main-body #comment-button-container {
-      overflow: hidden;
+      float: left;
       position: absolute;
       bottom: 0;
       padding: 5px;
@@ -175,11 +175,9 @@ a {
   #main #over-footer {
     position: fixed;
     bottom: 75px;
-    overflow: hidden;
     width: 100%; }
     #main #over-footer #over-footer-container {
-      position: relative;
-      min-height: 72px; }
+      position: relative; }
 
 @keyframes comment-form-show {
   0% {
@@ -193,7 +191,7 @@ a {
   100% {
     width: 0; } }
       #main #over-footer #over-footer-container #comment-button-container {
-        overflow: hidden;
+        float: left;
         position: absolute;
         bottom: 0;
         padding: 5px;
