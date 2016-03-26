@@ -8,13 +8,12 @@
 }
 
 #comment-list {
-  position: fixed;
-  bottom: $player-height;
   padding: 15px;
   background-color: transparent;
   color: #2d2d2d;
   font-size: 12px;
   text-align: center;
+  z-index: 1;
 
   .balloon {
     position: relative;

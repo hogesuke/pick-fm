@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPrograms, setSelectedProgramId, setVolume, setMuteStatus, setPage, setSort } from '../actions';
 import SearchBox from '../components/SearchBox';
+import CommentButton from '../components/CommentButton';
 import CommentList from '../components/CommentList';
 import Player from '../components/Player';
 
@@ -60,7 +61,12 @@ class App extends Component {
         </div>
         <div id="main-body" ref="mainBody">
           {this.props.children}
-          <CommentList />
+        </div>
+        <div id="over-footer">
+          <div id="over-footer-container">
+            <CommentButton />
+            <CommentList />
+          </div>
         </div>
         <div id="footer">
           <Player />

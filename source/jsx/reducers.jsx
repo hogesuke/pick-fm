@@ -32,7 +32,8 @@ import {
   FETCH_PROGRAM_EPISODES,
   FETCH_GUEST_EPISODES,
   FETCH_EPISODE,
-  FETCH_GUESTS
+  FETCH_GUESTS,
+  POST_COMMENT
 } from './actions';
 
 let initialState = {
@@ -317,6 +318,8 @@ function pickApp(state = initialState, action = "") {
       return Object.assign({}, state, {
         guests: action.guests
       });
+    case POST_COMMENT:
+      return state;// todo とりあえず
     default:
       return state;
   }

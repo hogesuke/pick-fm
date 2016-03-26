@@ -1,0 +1,84 @@
+@keyframes comment-form-show {
+  0%   { width: 0; }
+  100% { width: 320px; }
+}
+@keyframes comment-form-hide {
+  0%   { width: 320px; }
+  100% { width: 0; }
+}
+
+// todo このcontainerいらなければ消す
+#comment-button-container {
+  overflow: hidden;
+  position: absolute;
+  bottom: 0;
+  padding: 5px;
+  z-index: 2;
+
+  #comment-button {
+    overflow: hidden;
+    float: left;
+    margin-left: 15px;
+    background-color: $dark-gray;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.5) 0 0 2px 0;
+
+    &:hover {
+      .fav {
+        color: #e14662;
+      }
+    }
+
+    .fav {
+      float: left;
+      box-sizing: content-box;
+      height: 23px;
+      width: 23px;
+      padding: 12px;
+      border: none;
+      background-color: transparent;
+      color: $text-light-on-gray;
+      font-size: 20px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .comment-form {
+      float: left;
+      padding: 10px 0;
+      display: none;
+
+      &.hide {
+        display: block;
+        animation: comment-form-hide ease 0.3s forwards;
+      }
+
+      &.show {
+        display: block;
+        animation: comment-form-show ease 0.3s forwards;
+      }
+
+      input {
+        box-sizing: border-box;
+        width: 300px;
+        padding: 6px;
+        border: 1px solid $medium-gray;
+        background-color: transparent;
+        font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
+        font-weight: 200;
+        font-size: 14px;
+        color: $text-light-on-gray;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+}

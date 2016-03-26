@@ -305,3 +305,22 @@ export function fetchGuests(guestIds) {
       );
   };
 }
+
+export const POST_COMMENT = 'POST_COMMENT';
+export function postComment(episodeId, comment, seconds) {
+
+  seconds = Math.round(seconds);
+
+  return function (dispatch) {
+    request
+      .post(`/api/comment`)
+      .query({ episode_id: episodeId, comment, seconds })
+      .end((err, res) => {
+          return dispatch({
+            type  : POST_COMMENT
+            // todo とりあえず
+          });
+        }
+      );
+  };
+}

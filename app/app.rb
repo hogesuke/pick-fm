@@ -276,6 +276,8 @@ post '/comment' do
     return { err_msg: 'パラメータが不正です' }.to_json
   end
 
+  pp comment
+  pp seconds
   success = episode.save_comment(comment, seconds)
 
   unless success

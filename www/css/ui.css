@@ -64,6 +64,69 @@ a {
     #main #main-body #program-list {
       height: 100%; }
 
+@keyframes comment-form-show {
+  0% {
+    width: 0; }
+  100% {
+    width: 320px; } }
+
+@keyframes comment-form-hide {
+  0% {
+    width: 320px; }
+  100% {
+    width: 0; } }
+    #main #main-body #comment-button-container {
+      overflow: hidden;
+      position: absolute;
+      bottom: 0;
+      padding: 5px;
+      z-index: 2; }
+      #main #main-body #comment-button-container #comment-button {
+        overflow: hidden;
+        float: left;
+        margin-left: 15px;
+        background-color: #2f2f2f;
+        border-radius: 30px;
+        box-shadow: rgba(0, 0, 0, 0.5) 0 0 2px 0; }
+        #main #main-body #comment-button-container #comment-button:hover .fav {
+          color: #e14662; }
+        #main #main-body #comment-button-container #comment-button .fav {
+          float: left;
+          box-sizing: content-box;
+          height: 23px;
+          width: 23px;
+          padding: 12px;
+          border: none;
+          background-color: transparent;
+          color: #eeeeee;
+          font-size: 20px; }
+          #main #main-body #comment-button-container #comment-button .fav:focus {
+            outline: none; }
+          #main #main-body #comment-button-container #comment-button .fav:hover {
+            cursor: pointer; }
+        #main #main-body #comment-button-container #comment-button .comment-form {
+          float: left;
+          padding: 10px 0;
+          display: none; }
+          #main #main-body #comment-button-container #comment-button .comment-form.hide {
+            display: block;
+            animation: comment-form-hide ease 0.3s forwards; }
+          #main #main-body #comment-button-container #comment-button .comment-form.show {
+            display: block;
+            animation: comment-form-show ease 0.3s forwards; }
+          #main #main-body #comment-button-container #comment-button .comment-form input {
+            box-sizing: border-box;
+            width: 300px;
+            padding: 6px;
+            border: 1px solid #aaaaaa;
+            background-color: transparent;
+            font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
+            font-weight: 200;
+            font-size: 14px;
+            color: #eeeeee; }
+            #main #main-body #comment-button-container #comment-button .comment-form input:focus {
+              outline: none; }
+
 @keyframes pop {
   0% {
     opacity: 0; }
@@ -76,13 +139,12 @@ a {
   100% {
     opacity: 0; } }
     #main #main-body #comment-list {
-      position: fixed;
-      bottom: 65px;
       padding: 15px;
       background-color: transparent;
       color: #2d2d2d;
       font-size: 12px;
-      text-align: center; }
+      text-align: center;
+      z-index: 1; }
       #main #main-body #comment-list .balloon {
         position: relative;
         display: inline-block;
@@ -110,18 +172,135 @@ a {
           border-color: #567abb transparent transparent transparent; }
         #main #main-body #comment-list .balloon.hiding, #main #main-body #comment-list .balloon.hiding:after {
           animation: hide ease 0.3s forwards; }
+  #main #over-footer {
+    position: fixed;
+    bottom: 75px;
+    overflow: hidden;
+    width: 100%; }
+    #main #over-footer #over-footer-container {
+      position: relative;
+      min-height: 72px; }
+
+@keyframes comment-form-show {
+  0% {
+    width: 0; }
+  100% {
+    width: 320px; } }
+
+@keyframes comment-form-hide {
+  0% {
+    width: 320px; }
+  100% {
+    width: 0; } }
+      #main #over-footer #over-footer-container #comment-button-container {
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        padding: 5px;
+        z-index: 2; }
+        #main #over-footer #over-footer-container #comment-button-container #comment-button {
+          overflow: hidden;
+          float: left;
+          margin-left: 15px;
+          background-color: #2f2f2f;
+          border-radius: 30px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0 0 2px 0; }
+          #main #over-footer #over-footer-container #comment-button-container #comment-button:hover .fav {
+            color: #e14662; }
+          #main #over-footer #over-footer-container #comment-button-container #comment-button .fav {
+            float: left;
+            box-sizing: content-box;
+            height: 23px;
+            width: 23px;
+            padding: 12px;
+            border: none;
+            background-color: transparent;
+            color: #eeeeee;
+            font-size: 20px; }
+            #main #over-footer #over-footer-container #comment-button-container #comment-button .fav:focus {
+              outline: none; }
+            #main #over-footer #over-footer-container #comment-button-container #comment-button .fav:hover {
+              cursor: pointer; }
+          #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form {
+            float: left;
+            padding: 10px 0;
+            display: none; }
+            #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form.hide {
+              display: block;
+              animation: comment-form-hide ease 0.3s forwards; }
+            #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form.show {
+              display: block;
+              animation: comment-form-show ease 0.3s forwards; }
+            #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form input {
+              box-sizing: border-box;
+              width: 300px;
+              padding: 6px;
+              border: 1px solid #aaaaaa;
+              background-color: transparent;
+              font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
+              font-weight: 200;
+              font-size: 14px;
+              color: #eeeeee; }
+              #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form input:focus {
+                outline: none; }
+
+@keyframes pop {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes hide {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+      #main #over-footer #over-footer-container #comment-list {
+        padding: 15px;
+        background-color: transparent;
+        color: #2d2d2d;
+        font-size: 12px;
+        text-align: center;
+        z-index: 1; }
+        #main #over-footer #over-footer-container #comment-list .balloon {
+          position: relative;
+          display: inline-block;
+          margin: 5px;
+          padding: 0 10px;
+          width: auto;
+          min-width: 65px;
+          height: 30px;
+          color: #F6F6F6;
+          line-height: 30px;
+          text-align: center;
+          background-color: #567abb;
+          animation: pop ease 0.3s; }
+          #main #over-footer #over-footer-container #comment-list .balloon:after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 50%;
+            margin-left: -6px;
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 6px 6px 0 6px;
+            border-color: #567abb transparent transparent transparent; }
+          #main #over-footer #over-footer-container #comment-list .balloon.hiding, #main #over-footer #over-footer-container #comment-list .balloon.hiding:after {
+            animation: hide ease 0.3s forwards; }
   #main #footer {
     position: absolute;
     bottom: 0;
     overflow: hidden;
     width: 100%;
-    padding-top: 5px; }
+    padding-top: 5px;
+    background-color: #2f2f2f;
+    box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 2px 0; }
     #main #footer #player {
       box-sizing: border-box;
       height: 65px;
-      padding: 0 20px;
-      background-color: #2f2f2f;
-      box-shadow: rgba(0, 0, 0, 0.3) 0 -1px 2px 0; }
+      padding: 0 20px; }
       #main #footer #player .track-info {
         float: left;
         height: 18px;
@@ -215,14 +394,14 @@ a {
           height: 100%;
           width: 100%; }
   @media screen and (min-width: 1281px) {
-    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player, #main #comment-list {
+    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player, #main #over-footer-container {
       width: 1280px;
       margin: 0 auto; } }
   @media screen and (max-width: 1280px) {
-    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player, #main #comment-list {
+    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player, #main #over-footer-container {
       width: 100%; } }
   @media screen and (max-width: 500px) {
-    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player, #main #comment-list {
+    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player, #main #over-footer-container {
       width: 500px; } }
   #main .track {
     float: left;

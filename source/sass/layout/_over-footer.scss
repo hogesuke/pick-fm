@@ -1,0 +1,14 @@
+#over-footer {
+    position: fixed;
+    bottom: $player-height + 10px;
+    overflow: hidden;
+    width: 100%;
+
+    #over-footer-container {
+        position: relative;
+        min-height: 72px;
+
+        @import '../module/comment-button';
+        @import '../module/comment-list';
+    }
+}
