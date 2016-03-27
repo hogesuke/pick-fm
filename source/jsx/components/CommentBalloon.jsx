@@ -38,6 +38,10 @@ class CommentBalloon extends Component {
   getClassComment(comment) {
     const commentText = comment.comment;
 
+    if (/^heart::count::[0-9]+$/.test(commentText)) {
+      const count = commentText.split('::')[2];
+      return <span><i className="fa fa-heart"></i> × {count}</span>;
+    }
     if (commentText) {
       return <span>{commentText}</span>;
     }

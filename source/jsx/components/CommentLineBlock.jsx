@@ -6,7 +6,15 @@ import { addComments, removeComment } from '../actions'
 class CommentLineBlock extends Component {
   handleMounseOver() {
     const { dispatch, comments } = this.props;
-    dispatch(addComments(comments, false));
+    const copiedComments = comments.map((c) => { return Object.assign({}, c); });
+    const heartComments = copiedComments.filter((c) => { return c.comment === ''; });
+    const withoutHeartComments = _.reject(copiedComments, (c) => { return c.comment === ''; });
+
+    if (heartComments.length > 0) {
+      heartComments[0].comment = 'heart::count::' + heartComments.length;
+    }
+
+    dispatch(addComments([...withoutHeartComments, heartComments[0]], false));
   }
   handleMounseOut() {
     const { dispatch, comments } = this.props;
