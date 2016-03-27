@@ -45,5 +45,13 @@
     &.hiding, &.hiding:after {
       animation: hide ease 0.3s forwards;
     }
+
+    &.self {
+      background-color: #e14662;
+
+      &:after {
+        border-color: #e14662 transparent transparent transparent;
+      }
+    }
   }
 }

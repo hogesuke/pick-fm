@@ -27,10 +27,11 @@ class CommentButton extends Component {
 
     if (!playingEpisode) { return; }
     dispatch(postComment(playingEpisode.id, comment, audioCurrentTime));
+
+    this.refs.commentInput.value = '';
   }
   handleKeyDown(e) {
     if (e.keyCode ===   13) {
-      this.refs.commentInput.value = '';
       this.handlePostClick();
     }
   }

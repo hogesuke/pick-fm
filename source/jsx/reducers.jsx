@@ -319,7 +319,17 @@ function pickApp(state = initialState, action = "") {
         guests: action.guests
       });
     case POST_COMMENT:
-      return state;// todo とりあえず
+      return Object.assign({}, state, {
+        comments: [
+          ...state.comments,
+          Object.assign(action.comment, {
+            hiding    : false,
+            removig   : false,
+            autoHiding: true,
+            self      : true
+          })
+        ]
+      });
     default:
       return state;
   }

@@ -20,7 +20,7 @@ class CommentList extends Component {
     const { comments } = this.props;
 
     const balloons = comments.map((c) => {
-      return <CommentBalloon key={c.id} comment={c} timeLeft={c.autoHiding ? 5000 : 0} />;
+      return <CommentBalloon key={c.id} comment={c} timeLeft={c.autoHiding ? 5000 : 0} self={c.self} />;
     });
 
     return (

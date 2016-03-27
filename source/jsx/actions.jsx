@@ -313,12 +313,12 @@ export function postComment(episodeId, comment, seconds) {
 
   return function (dispatch) {
     request
-      .post(`/api/comment`)
-      .query({ episode_id: episodeId, comment, seconds })
+      .post(`/api/comments`)
+      .send({ episode_id: episodeId, comment, seconds })
       .end((err, res) => {
           return dispatch({
-            type  : POST_COMMENT
-            // todo とりあえず
+            type   : POST_COMMENT,
+            comment: res.body.comment
           });
         }
       );

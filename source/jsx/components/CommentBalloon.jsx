@@ -24,10 +24,21 @@ class CommentBalloon extends Component {
       }, 300);
     }
   }
+  getClassName(comment) {
+    const classes = ['balloon'];
+
+    if (comment.hiding) {
+      classes.push('hiding');
+    }
+    if (comment.self) {
+      classes.push('self');
+    }
+    return classes.join(' ');
+  }
   render() {
     const { comment } = this.props;
     return (
-      <div className={ comment.hiding ? 'balloon hiding' : 'balloon'}>
+      <div className={ this.getClassName(comment) }>
         {comment.comment}
       </div>
     );
