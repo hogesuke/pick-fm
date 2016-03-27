@@ -5,6 +5,7 @@ import SearchBox from '../components/SearchBox';
 import CommentButton from '../components/CommentButton';
 import CommentList from '../components/CommentList';
 import Player from '../components/Player';
+import LocationUtil from '../util/LocationUtil'
 
 class App extends Component {
   componentWillMount() {
@@ -54,6 +55,8 @@ class App extends Component {
     return JSON.parse(localStorage.getItem('pickfm.isMute'));
   }
   render() {
+    const { currentLocation } = this.props;
+    const commentButton = LocationUtil.isProgramPage(currentLocation) ? null : <CommentButton />;
     return (
       <div id="main">
         <div id="header">
@@ -64,7 +67,7 @@ class App extends Component {
         </div>
         <div id="over-footer">
           <div id="over-footer-container">
-            <CommentButton />
+            { commentButton }
             <CommentList />
           </div>
         </div>
