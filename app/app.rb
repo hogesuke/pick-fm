@@ -264,7 +264,7 @@ get '/guests/:id/episodes' do
   { episodes: episodes, total: total }.to_json
 end
 
-post '/comment' do
+post '/comments' do
   episode_id = params[:episode_id]
   comment    = params[:comment]
   seconds    = params[:seconds]
@@ -276,16 +276,9 @@ post '/comment' do
     return { err_msg: 'パラメータが不正です' }.to_json
   end
 
-  pp comment
-  pp seconds
-  success = episode.save_comment(comment, seconds)
+  comment = episode.save_comment(comment, seconds)
 
-  unless success
-    status(400)
-    return { err_msg: 'コメントの登録に失敗しました' }.to_json
-  end
-
-  episode.to_json
+  { comment: comment }.to_json
 end
 
 def generate_guest_conditions(guest_ids)

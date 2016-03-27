@@ -14,7 +14,9 @@ class Episode < ActiveRecord::Base
     comment.episode_id = self.id
     comment.comment    = text
     comment.seconds    = seconds
-    comment.save
+    comment.save!
+
+    comment
   end
 
   def as_json(options={})
