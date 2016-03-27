@@ -124,8 +124,6 @@ a {
             font-weight: 200;
             font-size: 14px;
             color: #eeeeee; }
-            #main #main-body #comment-button-container #comment-button .comment-form input:focus {
-              outline: none; }
 
 @keyframes pop {
   0% {
@@ -243,8 +241,6 @@ a {
               font-weight: 200;
               font-size: 14px;
               color: #eeeeee; }
-              #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form input:focus {
-                outline: none; }
 
 @keyframes pop {
   0% {
