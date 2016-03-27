@@ -26,7 +26,7 @@
     color: #F6F6F6;
     line-height: 30px;
     text-align: center;
-    background-color: #567abb;
+    background-color: #3880d5;
     animation: pop ease 0.3s;
 
     &:after {
@@ -39,7 +39,7 @@
       height: 0;
       border-style: solid;
       border-width: 6px 6px 0 6px;
-      border-color: #567abb transparent transparent transparent;
+      border-color: #3880d5 transparent transparent transparent;
     }
 
     &.hiding, &.hiding:after {

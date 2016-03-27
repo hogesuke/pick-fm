@@ -156,7 +156,7 @@ a {
         color: #F6F6F6;
         line-height: 30px;
         text-align: center;
-        background-color: #567abb;
+        background-color: #3880d5;
         animation: pop ease 0.3s; }
         #main #main-body #comment-list .balloon:after {
           content: "";
@@ -169,7 +169,7 @@ a {
           height: 0;
           border-style: solid;
           border-width: 6px 6px 0 6px;
-          border-color: #567abb transparent transparent transparent; }
+          border-color: #3880d5 transparent transparent transparent; }
         #main #main-body #comment-list .balloon.hiding, #main #main-body #comment-list .balloon.hiding:after {
           animation: hide ease 0.3s forwards; }
         #main #main-body #comment-list .balloon.self {
@@ -275,7 +275,7 @@ a {
           color: #F6F6F6;
           line-height: 30px;
           text-align: center;
-          background-color: #567abb;
+          background-color: #3880d5;
           animation: pop ease 0.3s; }
           #main #over-footer #over-footer-container #comment-list .balloon:after {
             content: "";
@@ -288,7 +288,7 @@ a {
             height: 0;
             border-style: solid;
             border-width: 6px 6px 0 6px;
-            border-color: #567abb transparent transparent transparent; }
+            border-color: #3880d5 transparent transparent transparent; }
           #main #over-footer #over-footer-container #comment-list .balloon.hiding, #main #over-footer #over-footer-container #comment-list .balloon.hiding:after {
             animation: hide ease 0.3s forwards; }
           #main #over-footer #over-footer-container #comment-list .balloon.self {
