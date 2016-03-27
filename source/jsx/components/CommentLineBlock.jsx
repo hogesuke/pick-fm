@@ -12,9 +12,10 @@ class CommentLineBlock extends Component {
 
     if (heartComments.length > 0) {
       heartComments[0].comment = 'heart::count::' + heartComments.length;
+      dispatch(addComments([...withoutHeartComments, heartComments[0]], false));
+    } else {
+      dispatch(addComments(copiedComments, false));
     }
-
-    dispatch(addComments([...withoutHeartComments, heartComments[0]], false));
   }
   handleMounseOut() {
     const { dispatch, comments } = this.props;
