@@ -1,4 +1,4 @@
-#page-controller {
+.page-controller {
     float: right;
     padding: 10px 10px;
 
@@ -15,5 +15,9 @@
         padding: 0 5px;
         background-color: #3880d5;
         color: #ffffff;
+    }
+    &:last-child {
+        margin-top: 5px;
+        margin-bottom: 20px;
     }
 }

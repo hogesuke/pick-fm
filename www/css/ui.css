@@ -742,20 +742,23 @@ a {
           color: #2b2b2b; }
           #main #search-options .guests .guest .remove-button:hover {
             cursor: pointer; }
-  #main #page-controller {
+  #main .page-controller {
     float: right;
     padding: 10px 10px; }
-    #main #page-controller .paging-link {
+    #main .page-controller .paging-link {
       padding: 0 5px;
       color: #2d2d2d; }
-    #main #page-controller .paging-inactive {
+    #main .page-controller .paging-inactive {
       padding: 0 5px;
       color: #5e5e5e; }
-    #main #page-controller .current-page {
+    #main .page-controller .current-page {
       margin: 0 5px;
       padding: 0 5px;
       background-color: #3880d5;
       color: #ffffff; }
+    #main .page-controller:last-child {
+      margin-top: 5px;
+      margin-bottom: 20px; }
   #main #sort-controller {
     float: left;
     padding: 5px 10px; }
