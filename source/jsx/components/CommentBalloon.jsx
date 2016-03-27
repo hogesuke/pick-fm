@@ -35,11 +35,19 @@ class CommentBalloon extends Component {
     }
     return classes.join(' ');
   }
+  getClassComment(comment) {
+    const commentText = comment.comment;
+
+    if (commentText) {
+      return <span>{commentText}</span>;
+    }
+    return <span className="fav-heart"><i className="fa fa-heart"></i></span>;
+  }
   render() {
     const { comment } = this.props;
     return (
       <div className={ this.getClassName(comment) }>
-        {comment.comment}
+        { this.getClassComment(comment) }
       </div>
     );
   }
