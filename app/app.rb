@@ -36,7 +36,7 @@ before do
 end
 
 after do
-  # todo
+  ActiveRecord::Base.connection.close
 end
 
 get '/search' do
@@ -265,9 +265,10 @@ get '/guests/:id/episodes' do
 end
 
 post '/comments' do
-  episode_id = params[:episode_id]
-  comment    = params[:comment]
-  seconds    = params[:seconds]
+  params     = JSON.parse(request.body.read)
+  episode_id = params['episode_id']
+  comment    = params['comment']
+  seconds    = params['seconds']
 
   episode = Episode.find_by_id(episode_id)
 
