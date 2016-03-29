@@ -316,6 +316,9 @@ export function postComment(episodeId, comment, seconds) {
       .post(`/api/comments`)
       .send({ episode_id: episodeId, comment, seconds })
       .end((err, res) => {
+          if (err) {
+            return;
+          }
           return dispatch({
             type   : POST_COMMENT,
             comment: res.body.comment
