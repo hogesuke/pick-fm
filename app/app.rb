@@ -277,6 +277,11 @@ post '/comments' do
     return { err_msg: 'パラメータが不正です' }.to_json
   end
 
+  if comment =~ /^heart::count::.*$/
+    status(400)
+    return { err_msg: 'このコメントは登録できません' }.to_json
+  end
+
   comment = episode.save_comment(comment, seconds)
 
   { comment: comment }.to_json
