@@ -124,11 +124,13 @@ export const GENERATE_AUDIO = 'GENERATE_AUDIO';
 export function generateAudio(episode, track, startTime) {
   return (dispatch, getState) => {
     const prevEpisode = getState().pickApp.playingEpisode;
+    const volume      = getState().pickApp.volume;
     let audio = getState().pickApp.playingAudio;
 
     if (prevEpisode !== episode) {
       audio = new Audio();
       audio.src = episode.url;
+      audio.volume = volume / 100;
     }
 
     if (track) {
