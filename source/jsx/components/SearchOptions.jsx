@@ -79,13 +79,15 @@ class SearchOptions extends Component {
     return programs.map((p) => {
       return (
         <div key={p.id} className="program">
-          <label>
-            <input
-              type="checkbox"
-              value={p.id}
-              checked={_.contains(filterIds, p.id)}
-              onChange={this.handleFilterProgramChange.bind(this)}
-            />{p.name}
+          <input
+            type="checkbox"
+            id={`program-${p.id}`}
+            value={p.id}
+            checked={_.contains(filterIds, p.id)}
+            onChange={this.handleFilterProgramChange.bind(this)}
+          />
+          <label htmlFor={`program-${p.id}`} className="checkbox">
+            <span className="name">{p.name}</span>
           </label>
         </div>
       );
@@ -106,16 +108,18 @@ class SearchOptions extends Component {
           <button className="remove-button" onClick={() => { this.handleRemoveGuestFilter(g.id.toString(10))}}>
             <i className="fa fa-times"></i>
           </button>
-          <span>{name}</span>
+          <span className="name">{name}</span>
         </div>
       );
     });
   }
   render() {
+    const guestDoms = this.getGuestDoms();
+    const guestsFilter = guestDoms.length > 0 ? <div className="guests">{guestDoms}</div> : null;
     return (
       <div id="search-options">
         <div className="programs">{this.getProgramDoms()}</div>
-        <div className="guests">{this.getGuestDoms()}</div>
+        { guestsFilter }
       </div>
     );
   }
