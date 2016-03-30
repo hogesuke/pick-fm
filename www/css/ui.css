@@ -61,6 +61,11 @@ a {
       box-sizing: border-box;
       padding: 10px;
       height: 100%; }
+      #main #main-body #program-list #not-found, #main #main-body #track-list #not-found, #main #main-body #episode-list #not-found {
+        padding: 20px 10px;
+        text-align: center;
+        font-size: 16px;
+        color: #333333; }
     #main #main-body #program-list {
       height: 100%; }
 

@@ -11,6 +11,8 @@
         box-sizing: border-box;
         padding: 10px;
         height: 100%;
+
+        @import '../module/not-found';
     }
     #program-list {
         height: 100%;

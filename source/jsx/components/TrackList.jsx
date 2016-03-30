@@ -4,6 +4,7 @@ import SearchOptions from './SearchOptions';
 import Track from './Track';
 import Paging from './Paging';
 import Sorter from './Sorter';
+import NotFound from './NotFound';
 
 class TrackList extends Component {
   getEpisode(track) {
@@ -12,7 +13,7 @@ class TrackList extends Component {
     });
   }
   render() {
-    const { total } = this.props;
+    const { total, searchText } = this.props;
     const tracks = this.props.tracks.map((track) => {
       const episode = this.getEpisode(track);
       return (
@@ -25,14 +26,15 @@ class TrackList extends Component {
     });
     const pagingDom = total > 0 ?  <Paging /> : null;
     const sorterDom = total > 0 ?  <Sorter /> : null;
+    const notfound  = <NotFound searchText={searchText} />;
 
     return (
       <div id="track-list">
         <SearchOptions />
-        {sorterDom}
-        {pagingDom}
-        {tracks}
-        {pagingDom}
+        { sorterDom }
+        { pagingDom }
+        { tracks.length > 0 ? tracks : notfound }
+        { pagingDom }
       </div>
     );
   }

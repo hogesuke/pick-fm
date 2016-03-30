@@ -81,14 +81,14 @@ class SearchBox extends Component {
         dispatch(fetchTracks(searchText));
         this.setState({ isSuspension: true });
 
-        // 1sec以内は次の検索リクエストを飛ばさないようにする
+        // 500msec以内は次の検索リクエストを飛ばさないようにする
         setTimeout(() => {
           this.setState({ isSuspension: false });
 
           if (searchText !== this.state.searchText || currentQury !== JSON.stringify(this.props.query)) {
             dispatch(fetchTracks(this.state.searchText));
           }
-        }, 1000);
+        }, 500);
       }
     }
   }
