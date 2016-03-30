@@ -13,12 +13,14 @@ class GuestEpisodeListPage extends Component {
   }
   componentWillUpdate(nextProps) {
     const { dispatch, params } = nextProps;
+    const nextLocation = nextProps.currentLocation;
+    const prevLocation = this.props.currentLocation;
     const nextPage = nextProps.currentPage;
     const prevPage = this.props.currentPage;
     const nextSort = nextProps.sort;
     const prevSort = this.props.sort;
 
-    if (nextPage !== prevPage || nextSort !== prevSort) {
+    if (nextLocation !== prevLocation || nextPage !== prevPage || nextSort !== prevSort) {
       dispatch(fetchGuestEpisodes(params.guestId));
     }
   }
@@ -30,7 +32,8 @@ class GuestEpisodeListPage extends Component {
 export default connect(state => {
   return {
     query: state.router.location.query,
-    currentPage: state.pickApp.currentPage,
-    sort       : state.pickApp.sort
+    currentLocation: state.router.location.pathname,
+    currentPage    : state.pickApp.currentPage,
+    sort           : state.pickApp.sort
   }
 })(GuestEpisodeListPage);
