@@ -52,6 +52,7 @@ class CommentButton extends Component {
               ref="commentInput"
               type="text"
               placeholder="コメント（任意）"
+              spellCheck="false"
               onKeyDown={this.handleKeyDown.bind(this)}
             />
           </div>

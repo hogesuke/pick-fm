@@ -99,6 +99,7 @@ class SearchBox extends Component {
                value={this.state.searchText}
                onChange={this.handleChange.bind(this)}
                placeholder="&#xf002;"
+               spellCheck="false"
         />
       </div>
     );
