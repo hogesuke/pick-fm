@@ -73,11 +73,11 @@ a {
   0% {
     width: 0; }
   100% {
-    width: 320px; } }
+    width: 330px; } }
 
 @keyframes comment-form-hide {
   0% {
-    width: 320px; }
+    width: 330px; }
   100% {
     width: 0; } }
     #main #main-body #comment-button-container {
@@ -110,6 +110,7 @@ a {
           #main #main-body #comment-button-container #comment-button .fav:hover {
             cursor: pointer; }
         #main #main-body #comment-button-container #comment-button .comment-form {
+          position: relative;
           float: left;
           padding: 10px 0;
           display: none; }
@@ -131,6 +132,17 @@ a {
             font-size: 13px;
             line-height: 13px;
             color: #eeeeee; }
+            #main #main-body #comment-button-container #comment-button .comment-form input.error {
+              border-color: #e63430;
+              outline: none; }
+          #main #main-body #comment-button-container #comment-button .comment-form .count {
+            position: absolute;
+            top: 18px;
+            left: 308px;
+            font-size: 12px;
+            color: #eeeeee; }
+            #main #main-body #comment-button-container #comment-button .comment-form .count.error {
+              color: #e63430; }
 
 @keyframes pop {
   0% {
@@ -194,11 +206,11 @@ a {
   0% {
     width: 0; }
   100% {
-    width: 320px; } }
+    width: 330px; } }
 
 @keyframes comment-form-hide {
   0% {
-    width: 320px; }
+    width: 330px; }
   100% {
     width: 0; } }
       #main #over-footer #over-footer-container #comment-button-container {
@@ -231,6 +243,7 @@ a {
             #main #over-footer #over-footer-container #comment-button-container #comment-button .fav:hover {
               cursor: pointer; }
           #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form {
+            position: relative;
             float: left;
             padding: 10px 0;
             display: none; }
@@ -252,6 +265,17 @@ a {
               font-size: 13px;
               line-height: 13px;
               color: #eeeeee; }
+              #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form input.error {
+                border-color: #e63430;
+                outline: none; }
+            #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form .count {
+              position: absolute;
+              top: 18px;
+              left: 308px;
+              font-size: 12px;
+              color: #eeeeee; }
+              #main #over-footer #over-footer-container #comment-button-container #comment-button .comment-form .count.error {
+                color: #e63430; }
 
 @keyframes pop {
   0% {

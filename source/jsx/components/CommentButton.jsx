@@ -6,7 +6,7 @@ import _ from 'underscore';
 class CommentButton extends Component {
   constructor(props) {
     super(props);
-    this.state = { active: null };
+    this.state = { commentText: '', active: null, hasError: false };
   }
   handleMounseOver() {
     this.setState({ active: true });
@@ -25,18 +25,39 @@ class CommentButton extends Component {
     const { dispatch, playingEpisode, audioCurrentTime } = this.props;
     const comment = this.refs.commentInput.value;
 
+    if (comment && comment.length > 32) {
+      this.setState({ hasError: true });
+      return;
+    }
     if (!playingEpisode) { return; }
     dispatch(postComment(playingEpisode.id, comment, audioCurrentTime));
 
     this.refs.commentInput.value = '';
   }
+  handleChange(e) {
+    const { hasError } = this.state;
+    const comment = e.target.value;
+
+    this.setState({ commentText: comment });
+
+    if (comment.length > 32) {
+      this.setState({ hasError: true });
+      return;
+    }
+    if (hasError && comment.length <= 32) {
+      this.setState({ hasError: false });
+    }
+  }
   handleKeyDown(e) {
-    if (e.keyCode ===   13) {
+    const { hasError } = this.state;
+    if (!hasError && e.keyCode ===   13) {
       this.handlePostClick();
+      this.setState({ commentText: '' });
     }
   }
   render() {
-    const { active } = this.state;
+    const { commentText, active, hasError } = this.state;
+
     return (
       <div id="comment-button-container">
         <div
@@ -51,10 +72,14 @@ class CommentButton extends Component {
             <input
               ref="commentInput"
               type="text"
+              value={commentText}
+              className={ hasError ? 'error' : '' }
               placeholder="コメント（任意）"
               spellCheck="false"
+              onChange={this.handleChange.bind(this)}
               onKeyDown={this.handleKeyDown.bind(this)}
             />
+            <span className={ hasError ? 'count error' : 'count' }>{ 32 - commentText.length }</span>
           </div>
         </div>
       </div>
