@@ -56,7 +56,7 @@ a {
     @import 'layout/over-footer';
     @import 'layout/footer';
 
-    #program-list, #track-list, #episode-list, #search-box, #player, #over-footer-container {
+    #program-list, #track-list, #episode-list, #header-container, #player, #over-footer-container {
         @media screen and (min-width: 1281px) {
             width: 1280px;
             margin: 0 auto;

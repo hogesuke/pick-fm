@@ -9,5 +9,8 @@
     box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
     z-index: 10000;
 
-    @import '../module/search-box';
+    #header-container {
+        @import '../module/search-box';
+        @import '../module/github-link';
+    }
 }

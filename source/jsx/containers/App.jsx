@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPrograms, setSelectedProgramId, setVolume, setMuteStatus, setPage, setSort } from '../actions';
 import SearchBox from '../components/SearchBox';
+import GitHubLink from '../components/GitHubLink';
 import CommentButton from '../components/CommentButton';
 import CommentList from '../components/CommentList';
 import Player from '../components/Player';
@@ -60,7 +61,10 @@ class App extends Component {
     return (
       <div id="main">
         <div id="header">
-          <SearchBox />
+          <div id="header-container">
+            <SearchBox />
+            <GitHubLink />
+          </div>
         </div>
         <div id="main-body" ref="mainBody">
           {this.props.children}

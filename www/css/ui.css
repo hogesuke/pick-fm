@@ -38,17 +38,37 @@ a {
     background-color: #2f2f2f;
     box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
     z-index: 10000; }
-    #main #header #search-box input {
+    #main #header #header-container #search-box {
+      float: left;
+      width: calc(100% - 50px); }
+      #main #header #header-container #search-box input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #aaaaaa;
+        background-color: transparent;
+        font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
+        font-weight: 200;
+        font-size: 20px;
+        letter-spacing: 1px;
+        color: #eeeeee; }
+    #main #header #header-container #github-link {
+      float: left;
       box-sizing: border-box;
-      padding: 8px 10px;
-      width: 100%;
-      border: 1px solid #aaaaaa;
+      height: 38px;
+      width: 50px;
+      padding-top: 5px;
       background-color: transparent;
-      font-family: FontAwesome, 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, 'ＭＳ Ｐゴシック', arial, sans-serif;
-      font-weight: 200;
-      font-size: 20px;
-      letter-spacing: 1px;
-      color: #eeeeee; }
+      border: none;
+      text-align: center;
+      font-size: 30px;
+      color: #ffffff;
+      transition: color 0.1s linear; }
+      #main #header #header-container #github-link:focus {
+        outline: none; }
+      #main #header #header-container #github-link:hover {
+        cursor: pointer;
+        color: #e14662; }
   #main #main-body {
     box-sizing: border-box;
     position: absolute;
@@ -433,14 +453,14 @@ a {
           height: 100%;
           width: 100%; }
   @media screen and (min-width: 1281px) {
-    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player, #main #over-footer-container {
+    #main #program-list, #main #track-list, #main #episode-list, #main #header-container, #main #player, #main #over-footer-container {
       width: 1280px;
       margin: 0 auto; } }
   @media screen and (max-width: 1280px) {
-    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player, #main #over-footer-container {
+    #main #program-list, #main #track-list, #main #episode-list, #main #header-container, #main #player, #main #over-footer-container {
       width: 100%; } }
   @media screen and (max-width: 500px) {
-    #main #program-list, #main #track-list, #main #episode-list, #main #search-box, #main #player, #main #over-footer-container {
+    #main #program-list, #main #track-list, #main #episode-list, #main #header-container, #main #player, #main #over-footer-container {
       width: 500px; } }
   #main .track {
     float: left;
