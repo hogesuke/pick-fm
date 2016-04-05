@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchPrograms, setSelectedProgramId, setVolume, setMuteStatus, setPage, setSort } from '../actions';
+import { Link } from 'react-router';
 import SearchBox from '../components/SearchBox';
 import GitHubLink from '../components/GitHubLink';
 import CommentButton from '../components/CommentButton';
@@ -62,8 +63,9 @@ class App extends Component {
       <div id="main">
         <div id="header">
           <div id="header-container">
-            <SearchBox />
+            <div id="logo"><Link to="/">{ 'pickfm' }</Link></div>
             <GitHubLink />
+            <SearchBox />
           </div>
         </div>
         <div id="main-body" ref="mainBody">

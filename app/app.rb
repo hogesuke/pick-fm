@@ -32,7 +32,15 @@ configure :development do
 end
 
 before do
+  # headerのセット
   headers({'Content-Type' => 'application/json'})
+
+  # headerのバリデーション
+  # pp request
+  # requested_with = request.env['HTTP_X_REQUESTED_WITH']
+  # if requested_with.nil? or requested_with != 'XMLHttpRequest'
+  #   halt 400, { msg: '正常なリクエストではありません' }.to_json
+  # end
 end
 
 after do

@@ -38,9 +38,25 @@ a {
     background-color: #2f2f2f;
     box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
     z-index: 10000; }
+    #main #header #header-container #logo {
+      float: left;
+      box-sizing: border-box;
+      height: 40px;
+      width: 132px;
+      padding-left: 12px;
+      background-color: transparent;
+      letter-spacing: 0.08em;
+      font-size: 34px;
+      font-family: 'Raleway', sans-serif; }
+      #main #header #header-container #logo a {
+        text-decoration: none;
+        color: #ffffff;
+        transition: color 0.1s linear; }
+        #main #header #header-container #logo a:hover {
+          color: #e14662; }
     #main #header #header-container #search-box {
       float: left;
-      width: calc(100% - 50px); }
+      width: calc(100% - 205px); }
       #main #header #header-container #search-box input {
         box-sizing: border-box;
         width: 100%;
@@ -57,7 +73,7 @@ a {
       box-sizing: border-box;
       height: 38px;
       width: 50px;
-      padding-top: 5px;
+      padding: 5px 3px 0 0;
       background-color: transparent;
       border: none;
       text-align: center;
@@ -879,7 +895,8 @@ a {
     #main #program-list .program .overlay {
       position: relative;
       height: 100%;
-      width: 100%; }
+      width: 100%;
+      transition: background-color 0.1s linear; }
       #main #program-list .program .overlay:hover {
         background-color: rgba(255, 255, 255, 0.15); }
     #main #program-list .program .description {
@@ -891,8 +908,9 @@ a {
       color: #eeeeee;
       background-color: rgba(0, 0, 0, 0.7); }
       #main #program-list .program .description .title {
-        margin: 5px 0;
-        font-size: 22px;
-        letter-spacing: 1px; }
+        margin-bottom: 10px;
+        font-size: 26px;
+        font-weight: 100;
+        letter-spacing: 2px; }
       #main #program-list .program .description .personality {
         font-size: 13px; }

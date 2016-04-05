@@ -10,6 +10,7 @@
     z-index: 10000;
 
     #header-container {
+        @import '../module/logo';
         @import '../module/search-box';
         @import '../module/github-link';
     }

@@ -1,0 +1,21 @@
+#logo {
+    float: left;
+    box-sizing: border-box;
+    height: 40px;
+    width: 132px;
+    padding-left: 12px;
+    background-color: transparent;
+    letter-spacing: 0.08em;
+    font-size: 34px;
+    font-family: 'Raleway', sans-serif;
+
+    a {
+        text-decoration: none;
+        color: #ffffff;
+        transition: color 0.1s linear;
+
+        &:hover {
+            color: #e14662;
+        }
+    }
+}
