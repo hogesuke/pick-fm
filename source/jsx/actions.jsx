@@ -141,7 +141,9 @@ export function generateAudio(episode, track, startTime) {
         // episode再生で開始時間を指定されている場合
         audio.currentTime = startTime;
       }
+    });
 
+    audio.addEventListener('loadeddata', () => {
       audio.play();
     });
 
