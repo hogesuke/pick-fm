@@ -133,15 +133,17 @@ export function generateAudio(episode, track, startTime) {
       audio.volume = volume / 100;
     }
 
-    if (track) {
-      // track再生の場合
-      audio.currentTime = track.start_time;
-    } else if (startTime) {
-      // episode再生で開始時間を指定されている場合
-      audio.currentTime = startTime;
-    }
+    audio.addEventListener('loadedmetadata', () => {
+      if (track) {
+        // track再生の場合
+        audio.currentTime = track.start_time;
+      } else if (startTime) {
+        // episode再生で開始時間を指定されている場合
+        audio.currentTime = startTime;
+      }
 
-    audio.play();
+      audio.play();
+    });
 
     return dispatch({
       type: GENERATE_AUDIO, audio, episode, track, startTime
