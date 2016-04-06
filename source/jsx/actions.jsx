@@ -129,6 +129,8 @@ export function generateAudio(episode, track, startTime) {
     audio.src = episode.url;
     audio.volume = volume / 100;
 
+    audio.load();
+
     audio.addEventListener('loadedmetadata', () => {
       if (track) {
         // track再生の場合
@@ -142,8 +144,6 @@ export function generateAudio(episode, track, startTime) {
     audio.addEventListener('loadeddata', () => {
       audio.play();
     });
-
-    audio.load();
 
     return dispatch({
       type: GENERATE_AUDIO, audio, episode, track, startTime
