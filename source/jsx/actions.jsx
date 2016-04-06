@@ -123,15 +123,11 @@ export function markRemoveComment(id) {
 export const GENERATE_AUDIO = 'GENERATE_AUDIO';
 export function generateAudio(episode, track, startTime) {
   return (dispatch, getState) => {
-    const prevEpisode = getState().pickApp.playingEpisode;
-    const volume      = getState().pickApp.volume;
-    let audio = getState().pickApp.playingAudio;
+    const volume = getState().pickApp.volume;
+    const audio  = new Audio();
 
-    if (prevEpisode !== episode) {
-      audio = new Audio();
-      audio.src = episode.url;
-      audio.volume = volume / 100;
-    }
+    audio.src = episode.url;
+    audio.volume = volume / 100;
 
     audio.addEventListener('loadedmetadata', () => {
       if (track) {
