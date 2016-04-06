@@ -48,7 +48,7 @@ class Player extends Component {
 
     dispatch(setAudioIntervalID(intervalID));
 
-    nextAudio.addEventListener('playing', () => {
+    nextAudio.addEventListener('play', () => {
       dispatch(setIsPlaying(true));
     });
     nextAudio.addEventListener('pause', () => {
