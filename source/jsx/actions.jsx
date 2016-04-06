@@ -185,6 +185,7 @@ export function fetchPrograms() {
   return function (dispatch) {
     request
       .get(`/api/programs`)
+      .set('X-Requested-With', 'XMLHttpRequest')
       .end((err, res) => {
           return dispatch({
             type    : FETCH_PROGRAMS,
@@ -218,6 +219,7 @@ export function fetchTracks(searchText) {
 
     request
       .get('/api/search')
+      .set('X-Requested-With', 'XMLHttpRequest')
       .query(query)
       .end((err, res) => {
           return dispatch({
@@ -245,6 +247,7 @@ export function fetchProgramEpisodes(programId) {
   return function (dispatch, getState) {
     request
       .get(`/api/programs/${programId}/episodes`)
+      .set('X-Requested-With', 'XMLHttpRequest')
       .query({ page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage, sort: getState().pickApp.sort })
       .end((err, res) => {
           return dispatch({
@@ -263,6 +266,7 @@ export function fetchGuestEpisodes(guestId) {
   return function (dispatch, getState) {
     request
       .get(`/api/guests/${guestId}/episodes`)
+      .set('X-Requested-With', 'XMLHttpRequest')
       .query({ page: getState().pickApp.currentPage, perpage: getState().pickApp.perPage, sort: getState().pickApp.sort })
       .end((err, res) => {
           return dispatch({
@@ -283,6 +287,7 @@ export function fetchEpisode(programId, episodeNo, episodeType) {
   return function (dispatch) {
     request
       .get(`/api/programs/${programId}/episodes/${episodeNo}/${episodeType}`)
+      .set('X-Requested-With', 'XMLHttpRequest')
       .end((err, res) => {
           return dispatch({
             type   : FETCH_EPISODE,
@@ -299,6 +304,7 @@ export function fetchGuests(guestIds) {
   return function (dispatch) {
     request
       .get(`/api/guests`)
+      .set('X-Requested-With', 'XMLHttpRequest')
       .query({ ids: guestIds })
       .end((err, res) => {
           return dispatch({
@@ -318,6 +324,7 @@ export function postComment(episodeId, comment, seconds) {
   return function (dispatch) {
     request
       .post(`/api/comments`)
+      .set('X-Requested-With', 'XMLHttpRequest')
       .send({ episode_id: episodeId, comment, seconds })
       .end((err, res) => {
           if (err) {
