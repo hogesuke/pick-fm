@@ -1,4 +1,14 @@
+@keyframes pop {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+@keyframes hide {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+
 #github-link {
+    position: relative;
     float: left;
     box-sizing: border-box;
     height: 38px;
@@ -17,5 +27,39 @@
     &:hover {
         cursor: pointer;
         color: #e14662;
+    }
+
+    .balloon {
+        position: absolute;
+        top: 42px;
+        left: -13px;
+        display: inline-block;
+        margin: 2px;
+        padding: 0 7px;
+        width: auto;
+        height: 30px;
+        font-size: 13px;
+        color: #F6F6F6;
+        line-height: 30px;
+        text-align: center;
+        background-color: #e14662;
+        animation: pop ease 0.3s;
+
+        &:after {
+            content: "";
+            position: absolute;
+            top: -8px; left: 50%;
+            margin-left: -8px;
+            display: block;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 8px 8px 8px;
+            border-color: transparent transparent #e14662 transparent;
+        }
+
+        &.hiding, &.hiding:after {
+            animation: hide ease 0.3s forwards;
+        }
     }
 }
