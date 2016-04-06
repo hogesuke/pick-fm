@@ -143,6 +143,8 @@ export function generateAudio(episode, track, startTime) {
       audio.play();
     });
 
+    audio.load();
+
     return dispatch({
       type: GENERATE_AUDIO, audio, episode, track, startTime
     });
