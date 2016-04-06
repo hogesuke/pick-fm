@@ -56,7 +56,7 @@ a {
           color: #e14662; }
     #main #header #header-container #search-box {
       float: left;
-      width: calc(100% - 205px); }
+      width: calc(100% - 190px); }
       #main #header #header-container #search-box input {
         box-sizing: border-box;
         width: 100%;
