@@ -14,7 +14,7 @@ require_relative 'models/track'
 
 ActiveRecord::Base.configurations = YAML.load_file(File.join(__dir__, '../config/database.yml'))
 ActiveRecord::Base.establish_connection(settings.environment)
-ActiveRecord::Base.logger = Logger.new(STDOUT) # todo あとで消す
+# ActiveRecord::Base.logger = Logger.new(STDOUT)
 
 configure :production, :development do
 
@@ -23,8 +23,6 @@ configure :production, :development do
     inflect.plural 'person', 'persons'
     inflect.singular 'persons', 'person'
   end
-
-  # todo 他必要なのないか要確認
 end
 
 configure :development do
@@ -54,7 +52,7 @@ get '/search' do
   per_page        = params[:perpage]
   sort            = params[:sort]
 
-  unless valid_number?(page) and valid_number?(per_page) and ['asc', 'desc', 'ASC', 'DESC'].include?(sort)
+  unless valid_number?(page) and valid_number?(per_page) and %w(asc desc ASC DESC).include?(sort)
     status(400)
     return { err_msg: 'パラメータが不正です' }.to_json
   end
@@ -172,7 +170,7 @@ get '/programs/:id/episodes' do
   per_page = params[:perpage]
   sort     = params[:sort]
 
-  unless valid_number?(page) and valid_number?(per_page) and ['asc', 'desc', 'ASC', 'DESC'].include?(sort)
+  unless valid_number?(page) and valid_number?(per_page) and %w(asc desc ASC DESC).include?(sort)
     status(400)
     return { err_msg: 'パラメータが不正です' }.to_json
   end
@@ -204,8 +202,13 @@ get '/programs/:program_id/episodes/:episode_no/:episode_type' do
     return { err_msg: 'パラメータが不正です' }.to_json
   end
 
-  # todo これ取得できなかった場合を考慮できてない
   episode = Episode.where({ :program_id => program_id, :episode_no => episode_no, :episode_type => episode_type }).first
+
+  if episode.nil?
+    status(400)
+    return { err_msg: 'パラメータが不正です' }.to_json
+  end
+
   results = Track.search_in_episode(episode.program_id, episode.episode_no, episode.episode_type)
   episode.tracks = results['hits']['hits'].collect { |h| h['_source'] }
 
@@ -249,7 +252,7 @@ get '/guests/:id/episodes' do
   per_page = params[:perpage]
   sort     = params[:sort]
 
-  unless valid_number?(page) and valid_number?(per_page) and ['asc', 'desc', 'ASC', 'DESC'].include?(sort)
+  unless valid_number?(page) and valid_number?(per_page) and %w(asc desc ASC DESC).include?(sort)
     status(400)
     return { err_msg: 'パラメータが不正です' }.to_json
   end
