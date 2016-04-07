@@ -544,6 +544,9 @@ a {
           color: #333333;
           font-size: 20px;
           letter-spacing: 0.5px; }
+          #main .track .head .track-information .title a:hover {
+            text-decoration: none;
+            border-bottom: 1px solid #315dca; }
         #main .track .head .track-information .time {
           float: left;
           margin: 4px 0 0 15px;
@@ -691,6 +694,9 @@ a {
           color: #333333;
           font-size: 20px;
           letter-spacing: 0.5px; }
+          #main .episode .head .track-information .title a:hover {
+            text-decoration: none;
+            border-bottom: 1px solid #315dca; }
         #main .episode .head .track-information .time {
           float: left;
           margin: 4px 0 0 15px;

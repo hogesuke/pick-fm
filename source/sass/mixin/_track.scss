@@ -28,6 +28,11 @@ $loading-bar-height: 2px;
                 color: $text-dark-gray;
                 font-size: 20px;
                 letter-spacing: 0.5px;
+
+                a:hover {
+                    text-decoration: none;
+                    border-bottom: 1px solid #315dca;
+                }
             }
             .time {
                 float: left;
