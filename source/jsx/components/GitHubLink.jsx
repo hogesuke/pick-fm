@@ -24,7 +24,7 @@ class GitHubLink extends Component {
     return (
       <a
         id="github-link"
-        href="https://github.com/hogesuke/pick-fm/issues"
+        href="https://github.com/hogesuke/pick-fm/issues/new"
         target="_blank"
         onMouseOver={this.handleMouseOver.bind(this)}
         onMouseOut={this.handleMouseOut.bind(this)}
