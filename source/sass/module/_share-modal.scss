@@ -1,0 +1,43 @@
+$share-window-height: 300px;
+$share-window-width: 400px;
+
+@keyframes pop {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes hide {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+#share-modal {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 20000;
+
+  .window {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: $share-window-height;
+    width: $share-window-width;
+    margin-top: #{$share-window-height / -2};
+    margin-left: #{$share-window-width / -2};
+    background-color: #ffc6d0;
+    z-index: 2;
+  }
+  .overray {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(241, 241, 241, 0.8);
+    z-index: 1;
+  }
+
+  &.showing {
+    animation: pop ease 0.2s forwards;
+  }
+  &.hiding {
+    animation: hide ease 0.2s forwards;
+  }
+}

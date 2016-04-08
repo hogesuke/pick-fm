@@ -33,7 +33,9 @@ import {
   FETCH_GUEST_EPISODES,
   FETCH_EPISODE,
   FETCH_GUESTS,
-  POST_COMMENT
+  POST_COMMENT,
+  SHOW_SHARE_MODAL,
+  CLOSE_SHARE_MODAL
 } from './actions';
 
 let initialState = {
@@ -61,7 +63,8 @@ let initialState = {
   currentPage         : 1,
   perPage             : 10,
   total               : 0,
-  sort                : 'desc'
+  sort                : 'desc',
+  visibleShareModal   : false
 };
 
 function pickApp(state = initialState, action = "") {
@@ -329,6 +332,14 @@ function pickApp(state = initialState, action = "") {
             self      : true
           })
         ]
+      });
+    case SHOW_SHARE_MODAL:
+      return Object.assign({}, state, {
+        visibleShareModal: true
+      });
+    case CLOSE_SHARE_MODAL:
+      return Object.assign({}, state, {
+        visibleShareModal: false
       });
     default:
       return state;

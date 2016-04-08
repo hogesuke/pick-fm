@@ -4,12 +4,11 @@ $dark-gray: #2f2f2f;
 $text-light-gray: #a0a0a0;
 $text-medium-gray: #4C4C4C;
 $text-dark-gray: #333333;
-$text-light-gray: #a0a0a0;
 $text-light-on-gray: #eeeeee;
 
 $header-height: 60px;
 $main-bar-width: 80px;
-$player-controllers-width: 200px;
+$player-controllers-width: 240px;
 $player-height: 65px;
 
 @import 'mixin/track';
@@ -79,4 +78,5 @@ a {
     @import 'module/page-controller';
     @import 'module/sort-controller';
     @import 'module/program-list';
+    @import 'module/share-modal';
 }

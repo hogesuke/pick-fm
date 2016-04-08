@@ -40,6 +40,7 @@
 
         #volume {
             box-sizing: border-box;
+            margin-right: 20px;
 
             .mute-toggle-button {
                 float: left;
@@ -69,6 +70,20 @@
                     height: 100%;
                     width: 100%;
                 }
+            }
+        }
+        #share {
+            padding: 0;
+            border: none;
+            background-color: transparent;
+            color: $text-light-on-gray;
+
+            .text {
+                padding-top: 2px;
+                font-size: 12px;
+            }
+            &:focus {
+                outline: none;
             }
         }
 

@@ -339,3 +339,17 @@ export function postComment(episodeId, comment, seconds) {
       );
   };
 }
+
+export const SHOW_SHARE_MODAL = 'SHOW_SHARE_MODAL';
+export function showShareModal() {
+  return {
+    type: SHOW_SHARE_MODAL
+  };
+}
+
+export const CLOSE_SHARE_MODAL = 'CLOSE_SHARE_MODAL';
+export function closeShareModal() {
+  return {
+    type: CLOSE_SHARE_MODAL
+  };
+}

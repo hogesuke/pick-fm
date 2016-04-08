@@ -38,7 +38,7 @@ a {
     padding: 10px;
     background-color: #2f2f2f;
     box-shadow: rgba(0, 0, 0, 0.3) 0 1px 2px 0;
-    z-index: 10000; }
+    z-index: 1000; }
     #main #header #header-container #logo {
       float: left;
       box-sizing: border-box;
@@ -422,14 +422,14 @@ a {
       #main #footer #player .track-info {
         float: left;
         height: 18px;
-        width: calc(100% - 200px);
+        width: calc(100% - 240px);
         margin-top: 10px;
         font-size: 16px;
         letter-spacing: 0.5px;
         color: #eeeeee; }
       #main #footer #player .time-info {
         float: left;
-        width: calc(100% - 200px);
+        width: calc(100% - 240px);
         margin-top: 2px;
         font-size: 12px;
         letter-spacing: 0.5px;
@@ -446,9 +446,10 @@ a {
         align-items: center;
         box-sizing: border-box;
         height: 100%;
-        width: 200px; }
+        width: 240px; }
         #main #footer #player .controllers #volume {
-          box-sizing: border-box; }
+          box-sizing: border-box;
+          margin-right: 20px; }
           #main #footer #player .controllers #volume .mute-toggle-button {
             float: left; }
           #main #footer #player .controllers #volume .slider {
@@ -472,6 +473,16 @@ a {
               position: relative;
               height: 100%;
               width: 100%; }
+        #main #footer #player .controllers #share {
+          padding: 0;
+          border: none;
+          background-color: transparent;
+          color: #eeeeee; }
+          #main #footer #player .controllers #share .text {
+            padding-top: 2px;
+            font-size: 12px; }
+          #main #footer #player .controllers #share:focus {
+            outline: none; }
         #main #footer #player .controllers .button {
           height: 40px;
           width: 40px;
@@ -493,7 +504,7 @@ a {
       #main #footer #player #time-bar {
         float: left;
         height: 3px;
-        width: calc(100% - 200px);
+        width: calc(100% - 240px);
         margin-top: 2px;
         padding: 5px 0;
         cursor: pointer; }
@@ -963,3 +974,39 @@ a {
         letter-spacing: 2px; }
       #main #program-list .program .description .personality {
         font-size: 13px; }
+
+@keyframes pop {
+  0% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } }
+
+@keyframes hide {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+  #main #share-modal {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 20000; }
+    #main #share-modal .window {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 300px;
+      width: 400px;
+      margin-top: -150px;
+      margin-left: -200px;
+      background-color: #ffc6d0;
+      z-index: 2; }
+    #main #share-modal .overray {
+      height: 100%;
+      width: 100%;
+      background-color: rgba(241, 241, 241, 0.8);
+      z-index: 1; }
+    #main #share-modal.showing {
+      animation: pop ease 0.2s forwards; }
+    #main #share-modal.hiding {
+      animation: hide ease 0.2s forwards; }

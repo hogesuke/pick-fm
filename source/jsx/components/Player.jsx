@@ -11,6 +11,7 @@ import {
 import PlayToggleButtonForPlayer from './PlayToggleButtonForPlayer';
 import TimeBar from './TimeBar';
 import Volume from './Volume';
+import ShareButton from './ShareButton';
 
 class Player extends Component {
   componentWillReceiveProps(nextProps) {
@@ -120,6 +121,7 @@ class Player extends Component {
         <div className="controllers">
           <PlayToggleButtonForPlayer />
           <Volume />
+          <ShareButton />
         </div>
         <div className="track-info">
           <span>{this.getTitle()}</span>

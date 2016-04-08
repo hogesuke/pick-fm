@@ -7,6 +7,7 @@ import GitHubLink from '../components/GitHubLink';
 import CommentButton from '../components/CommentButton';
 import CommentList from '../components/CommentList';
 import Player from '../components/Player';
+import ShareModal from '../components/ShareModal';
 import LocationUtil from '../util/LocationUtil'
 
 class App extends Component {
@@ -80,6 +81,7 @@ class App extends Component {
         <div id="footer">
           <Player />
         </div>
+        <ShareModal />
       </div>
     );
   }
