@@ -90,7 +90,7 @@ class App extends Component {
 export default connect(state => {
   return {
     currentLocation: state.router.location.pathname,
-    query: state.router.location.query,
-    currentPage : state.pickApp.currentPage
-  }
+    currentPage    : state.pickApp.currentPage,
+    query          : state.router.location.query
+  };
 })(App);
