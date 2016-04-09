@@ -113,7 +113,7 @@ class Player extends Component {
     if (playingTrack) {
       length = audioCurrentTime - playingTrack.start_time;
     }
-    return this.formatTime(Math.round(length));
+    return this.formatTime(Math.ceil(length));
   }
   render() {
     return (

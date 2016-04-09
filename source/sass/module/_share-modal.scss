@@ -1,5 +1,5 @@
-$share-window-height: 300px;
-$share-window-width: 400px;
+$share-window-height: 180px;
+$share-window-width: 520px;
 
 @keyframes pop {
   0% { opacity: 0; }
@@ -17,6 +17,7 @@ $share-window-width: 400px;
   z-index: 20000;
 
   .window {
+    box-sizing: border-box;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -24,8 +25,67 @@ $share-window-width: 400px;
     width: $share-window-width;
     margin-top: #{$share-window-height / -2};
     margin-left: #{$share-window-width / -2};
-    background-color: #ffc6d0;
+    padding: 30px;
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
     z-index: 2;
+
+    .social-buttons {
+      margin-bottom: 10px;
+
+      button {
+        border: none;
+        background-color: transparent;
+        font-size: 28px;
+        color: #333333;
+        transition: color 0.1s linear;
+
+        &:hover {
+          cursor: pointer;
+          color: #3880d5;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .url {
+      margin-bottom: 10px;
+
+      input {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 2px 5px;
+        font-size: 14px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .time-at {
+      input[type="checkbox"] {
+        margin-right: 5px;
+      }
+      label {
+        margin-right: 5px;
+      }
+      input[type="text"] {
+        box-sizing: border-box;
+        width: 60px;
+        padding: 2px 3px;
+        font-size: 14px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      input:disabled {
+        color: #c5c5c5;
+      }
+    }
   }
   .overray {
     height: 100%;

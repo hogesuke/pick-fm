@@ -46,4 +46,11 @@ export default class QueryUtil {
     }
     return Object.assign({}, currentQuery, { [key]: [value] });
   }
+  static toString(query) {
+    const items = [];
+    _.each(query, (v, k) => {
+      items.push(`${k}=${encodeURIComponent(v)}`);
+    });
+    return items.join('&');
+  }
 }
