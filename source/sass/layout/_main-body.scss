@@ -17,6 +17,13 @@
     #program-list {
         height: 100%;
     }
+    #episode-list {
+        &.episode-detail {
+            .episode {
+                margin-bottom: 75px;
+            }
+        }
+    }
 
     @import '../module/comment-button';
     @import '../module/comment-list';

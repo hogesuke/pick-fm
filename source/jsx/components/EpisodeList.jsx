@@ -19,7 +19,7 @@ export default class EpisodeList extends React.Component {
     const sorterDom = this.visibleController(currentLocation) ?  <Sorter /> : null;
 
     return (
-      <div id="episode-list">
+      <div id="episode-list" className={ LocationUtil.isProgramEpisodePage(currentLocation) ? 'episode-detail' : '' }>
         {sorterDom}
         {pagingDom}
         {episodeDoms}

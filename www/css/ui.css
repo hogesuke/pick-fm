@@ -147,6 +147,8 @@ a {
         color: #333333; }
     #main #main-body #program-list {
       height: 100%; }
+    #main #main-body #episode-list.episode-detail .episode {
+      margin-bottom: 75px; }
 
 @keyframes comment-form-show {
   0% {
