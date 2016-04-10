@@ -1013,8 +1013,11 @@ a {
           color: #333333;
           transition: color 0.1s linear; }
           #main #share-modal .window .social-buttons button:hover {
-            cursor: pointer;
-            color: #3880d5; }
+            cursor: pointer; }
+            #main #share-modal .window .social-buttons button:hover.twitter {
+              color: #34ccfe; }
+            #main #share-modal .window .social-buttons button:hover.facebook {
+              color: #344d82; }
           #main #share-modal .window .social-buttons button:focus {
             outline: none; }
       #main #share-modal .window .url {

@@ -42,7 +42,13 @@ $share-window-width: 520px;
 
         &:hover {
           cursor: pointer;
-          color: #3880d5;
+
+          &.twitter {
+            color: #34ccfe;
+          }
+          &.facebook {
+            color: #344d82;
+          }
         }
         &:focus {
           outline: none;
