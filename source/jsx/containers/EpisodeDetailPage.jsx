@@ -15,7 +15,7 @@ class EpisodeDetailPage extends Component {
     this.props.dispatch(fetchEpisode(programId, episodeNo, episodeType));
   }
   componentWillReceiveProps(nextProps) {
-    const { dispatch, query, playingAudio } = nextProps;
+    const { dispatch, query } = nextProps;
     const nextEpisodes = nextProps.episodes;
     const prevEpisodes = this.props.episodes;
 
@@ -45,11 +45,8 @@ class EpisodeDetailPage extends Component {
       return;
     }
 
-    if (playingAudio) {
-      dispatch(initPlaying());
-    }
+    dispatch(initPlaying());
     setTimeout(() => {
-      console.debug('generateAudio');
       dispatch(generateAudio(nextEpisodes[0], null, length));
       dispatch(toggleActiveEpisode(nextEpisodes[0].id));
     }, 100);
@@ -61,9 +58,8 @@ class EpisodeDetailPage extends Component {
 
 export default connect(state => {
     return {
-      playingAudio: state.pickApp.playingAudio,
-      episodes    : state.pickApp.episodes,
-      query       : state.router.location.query
+      episodes: state.pickApp.episodes,
+      query   : state.router.location.query
     };
   }
 )(EpisodeDetailPage);
