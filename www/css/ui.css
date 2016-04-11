@@ -1006,6 +1006,20 @@ a {
       background-color: #ffffff;
       box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
       z-index: 2; }
+      #main #share-modal .window .close-button {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        border: none;
+        background-color: transparent;
+        font-size: 18px;
+        color: #a0a0a0;
+        transition: color 0.1s linear; }
+        #main #share-modal .window .close-button:hover {
+          cursor: pointer;
+          color: #e14662; }
+        #main #share-modal .window .close-button:focus {
+          outline: none; }
       #main #share-modal .window .social-buttons {
         margin-bottom: 10px; }
         #main #share-modal .window .social-buttons button {

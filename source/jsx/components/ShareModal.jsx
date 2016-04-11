@@ -9,7 +9,6 @@ class ShareModal extends Component {
     super(props);
     this.state = {hiding: false, enabledAt: false, checkedAt: true, timeAt: null};
   }
-
   componentWillReceiveProps(nextProps) {
     const { playingEpisode } = nextProps;
     if (playingEpisode) {
@@ -18,7 +17,6 @@ class ShareModal extends Component {
       this.setState({enabledAt: false});
     }
   }
-
   handleCloseClick() {
     const { dispatch } = this.props;
 
@@ -29,20 +27,37 @@ class ShareModal extends Component {
       dispatch(closeShareModal());
     }, 200);
   }
-
   handleAtToggle() {
     const { checkedAt } = this.state;
     this.setState({checkedAt: !checkedAt});
   }
-
   handleTimeChange(e) {
     this.setState({timeAt: e.target.value});
   }
-
   handleUrlInputClick() {
     this.refs.url.select();
   }
+  handleTwitterShareClick() {
+    const { playingEpisode } = this.props;
+    const type = (() => {
+      if (playingEpisode === null) { return ''; }
+      const t = playingEpisode.episode_type;
+      return t === 'regular' ? '' : ' ' + t.charAt(0).toUpperCase() + t.slice(1);
+    })();
+    const text       = playingEpisode ? `${ playingEpisode.program.name } Episode ${ playingEpisode.episode_no + type }` : 'pickfm';
+    const shareUrl   = this.refs.url.value;
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${ text }&url=${ shareUrl }&hashtags=pickfm`;
 
+    window.open(encodeURI(decodeURI(twitterUrl)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
+    return false;
+  }
+  handleFacebookShareClick() {
+    const shareUrl    = /localhost/.test(this.refs.url.value) ? 'pickfm.net' : this.refs.url.value;
+    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
+
+    window.open(encodeURI(decodeURI(facebookUrl)), 'FBwindow', 'width=554, height=470, menubar=no, toolbar=no, scrollbars=yes');
+    return false;
+  }
   generateUrl() {
     const { playingEpisode, audioCurrentTime, currentLocation, query } = this.props;
     const { checkedAt, timeAt } = this.state;
@@ -92,7 +107,6 @@ class ShareModal extends Component {
     }
     return url;
   }
-
   formatTime(length) {
     if (Number.isNaN(length)) {
       length = 0;
@@ -100,27 +114,6 @@ class ShareModal extends Component {
     const min = ('0' + Math.floor(length / 60)).slice(-2);
     const sec = ('0' + length % 60).slice(-2);
     return `${min}:${sec}`;
-  }
-  handleTwitterShareClick() {
-    const { playingEpisode } = this.props;
-    const type = (() => {
-      if (playingEpisode === null) { return ''; }
-      const t = playingEpisode.episode_type;
-      return t === 'regular' ? '' : ' ' + t.charAt(0).toUpperCase() + t.slice(1);
-    })();
-    const text       = playingEpisode ? `${ playingEpisode.program.name } Episode ${ playingEpisode.episode_no + type }` : 'pickfm';
-    const shareUrl   = this.refs.url.value;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${ text }&url=${ shareUrl }&hashtags=pickfm`;
-
-    window.open(encodeURI(decodeURI(twitterUrl)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
-    return false;
-  }
-  handleFacebookShareClick() {
-    const shareUrl    = /localhost/.test(this.refs.url.value) ? 'pickfm.net' : this.refs.url.value;
-    const facebookUrl = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
-
-    window.open(encodeURI(decodeURI(facebookUrl)), 'FBwindow', 'width=554, height=470, menubar=no, toolbar=no, scrollbars=yes');
-    return false;
   }
   render() {
     const { visible, audioCurrentTime } = this.props;
@@ -133,6 +126,9 @@ class ShareModal extends Component {
     return (
       <div id="share-modal" className={ hiding ? 'hiding' : 'showing' }>
         <div className="window">
+          <button className="close-button" onClick={ this.handleCloseClick.bind(this) }>
+            <i className="fa fa-times"></i>
+          </button>
           <div className="social-buttons">
             <button className="twitter" onClick={ this.handleTwitterShareClick.bind(this) }>
               <i className="fa fa-twitter"></i>
@@ -167,7 +163,7 @@ class ShareModal extends Component {
             />
           </div>
         </div>
-        <div className="overray" onClick={this.handleCloseClick.bind(this)}></div>
+        <div className="overray" onClick={ this.handleCloseClick.bind(this) }></div>
       </div>
     );
   }

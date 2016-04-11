@@ -30,6 +30,24 @@ $share-window-width: 520px;
     box-shadow: rgba(0, 0, 0, 0.1) 0 0 3px 1px;
     z-index: 2;
 
+    .close-button {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      border: none;
+      background-color: transparent;
+      font-size: 18px;
+      color: $text-light-gray;
+      transition: color 0.1s linear;
+
+      &:hover {
+        cursor: pointer;
+        color: #e14662;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
     .social-buttons {
       margin-bottom: 10px;
 
@@ -37,7 +55,7 @@ $share-window-width: 520px;
         border: none;
         background-color: transparent;
         font-size: 28px;
-        color: #333333;
+        color: $text-dark-gray;
         transition: color 0.1s linear;
 
         &:hover {
