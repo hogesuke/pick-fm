@@ -9,7 +9,11 @@ import NotFound from './NotFound';
 class TrackList extends Component {
   getEpisode(track) {
     return this.props.episodes.find(function (e) {
-      return e.program_id === track.program_id && e.episode_no === track.episode_no;
+      return (
+        e.program_id === track.program_id &&
+        e.episode_no === track.episode_no &&
+        e.episode_type === track.episode_type
+      );
     });
   }
   render() {
