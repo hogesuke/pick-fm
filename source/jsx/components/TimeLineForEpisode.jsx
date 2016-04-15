@@ -35,8 +35,8 @@ class TimeLineForEpisode extends Component {
     }, 100);
   }
   render() {
-    let { episode } = this.props;
-    let episodeLength = _.last(episode.tracks).end_time;
+    const { episode } = this.props;
+    const episodeLength = _.last(episode.tracks).end_time;
 
     let blocks = episode.tracks.map((track) => {
       return (
