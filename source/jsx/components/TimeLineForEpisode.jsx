@@ -6,7 +6,7 @@ import TimeLineBlock from './TimeLineBlock';
 
 class TimeLineForEpisode extends Component {
   isActive(track) {
-    let { playingTrack, playingEpisode } = this.props;
+    const { playingTrack, playingEpisode } = this.props;
 
     if (!playingEpisode) {
       return false;
@@ -26,7 +26,7 @@ class TimeLineForEpisode extends Component {
     return true;
   }
   onClickTimeLineBlock(episode, track) {
-    let { dispatch } = this.props;
+    const { dispatch } = this.props;
 
     dispatch(initPlaying());
     setTimeout(() => {
