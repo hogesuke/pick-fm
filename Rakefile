@@ -3,11 +3,8 @@ require 'sinatra/activerecord/rake'
 require 'seed-fu'
 
 namespace :db do
-  task :seed_fu => :environment do
-
-    if ENV['FILTER']
-      filter = /#{ENV['FILTER'].gsub(/,/, '|')}/
-    end
+  task seed_fu: :environment do
+    filter = /#{ENV['FILTER'].tr(/,/, '|')}/ if ENV['FILTER']
 
     if ENV['FIXTURE_PATH']
       fixture_paths = [ENV['FIXTURE_PATH'], ENV['FIXTURE_PATH'] + '/' + settings.environment.to_s]

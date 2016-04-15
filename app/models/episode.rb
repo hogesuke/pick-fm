@@ -6,12 +6,12 @@ class Episode < ActiveRecord::Base
   attr_accessor :tracks
 
   scope :find_by_guest_id, -> (guest_id) do
-    joins(:persons).merge(Person.where({ :id => guest_id }))
+    joins(:persons).merge(Person.where(id: guest_id))
   end
 
   def save_comment(text, seconds)
     comment = Comment.new
-    comment.episode_id = self.id
+    comment.episode_id = id
     comment.comment    = text
     comment.seconds    = seconds
     comment.save!
@@ -19,16 +19,10 @@ class Episode < ActiveRecord::Base
     comment
   end
 
-  def as_json(options={})
-    super.as_json(options).merge({
-                                     program:  self.program,
-                                     guests:   self.persons,
-                                     comments: self.comments,
-                                     tracks:   get_tracks
-                                 })
-  end
-
-  def get_tracks
-    self.tracks
+  def as_json(options = {})
+    super.as_json(options).merge(program:  program,
+                                 guests:   persons,
+                                 comments: comments,
+                                 tracks:   tracks)
   end
 end

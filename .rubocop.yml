@@ -1,0 +1,27 @@
+# This file overrides https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'Gemfile'
+
+LineLength:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassVars:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false

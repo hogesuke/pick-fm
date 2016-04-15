@@ -1,17 +1,14 @@
 #!/usr/bin/env ruby
-require "csv"
+require 'csv'
 
 def wrap(str)
-  if str.nil?
-    return '""'
-  end
-  unless str.start_with?('[') and str.end_with?(']')
-    return '"' + str + '"'
-  end
+  return '""' if str.nil?
+  return '"' + str + '"' unless str.start_with?('[') && str.end_with?(']')
+
   str
 end
 
-CSV.open("data/tracks.csv", "r") do |f|
+CSV.open('data/tracks.csv', 'r') do |f|
   f.each_with_index do |item, i|
     next if i == 0
     p item
