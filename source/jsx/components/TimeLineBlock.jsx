@@ -51,8 +51,8 @@ class TimeLineBlock extends Component {
       unfillPercentage = 100;
     }
 
-    let padLeftPercent  = Math.round((track.start_time / episodeLength) * 100);
-    let trackPercent    = Math.round((track.end_time / episodeLength) * 100) - padLeftPercent;
+    let padLeftPercent  = Math.round((track.start_time / episodeLength) * 10000) / 100;
+    let trackPercent    = Math.round((track.end_time / episodeLength) * 10000) / 100 - padLeftPercent;
     let padRightPercent = 100 - padLeftPercent - trackPercent;
 
     let tags = this.getTags(track).map((tag) => {
