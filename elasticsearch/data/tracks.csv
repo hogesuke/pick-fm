@@ -55,12 +55,12 @@ program_id,episode_no,episode_type,tag_en,tag_ja,start_time,end_time
 1,10,regular,"[""TravisCI"", ""CoverWall""]",,2351,2635
 1,10,regular,,"[""Ruby会議""]",2635,2730
 1,10,regular,"[""Cookpad""]","[""クックパッド""]",2730,2862
-1,98,regular,,"[""一度死んだ話""]",0,196
+1,98,regular,,"[""ハッカーズチャンプルー"",""沖縄"",""一度死んだ話""]",0,196
 1,98,regular,"[""Docker"",""RunC""]",,197,775
 1,98,regular,"[""Elixir"",""Phoenix""]",,775,1449
 1,98,regular,"[""Crystal"",""Ruby""]",,1449,1530
 1,98,regular,"[""PM"",""Product Manager""]",,1531,4094
-1,98,aftershow,,"[""花粉症"",""アレルギー""]",0,49
+1,98,aftershow,,"[""ハッカーズチャンプルー"",""沖縄"",""花粉症"",""アレルギー""]",0,49
 1,98,aftershow,"[""Game"",""E3"",""FF7""]",,50,538
 1,98,aftershow,"[""Game"",""E3"",""Fallout 4""]",,539,714
 1,98,aftershow,"[""Game"",""Splatoon""]","[""スプラトゥーン""]",715,961
@@ -70,6 +70,102 @@ program_id,episode_no,episode_type,tag_en,tag_ja,start_time,end_time
 1,98,aftershow,"[""Anime""]","[""アニメ"",""シドニアの騎士"",""響け！ユーフォニアム""]",2318,2501
 1,98,aftershow,"[""Anime""]","[""アニメ"",""ブルーレイディスクレコーダー"",""nasne""]",2502,2696
 1,98,aftershow,"[""Anime""]","[""アニメ"",""ダンまち"",""ラノベ""]",2696,2973
+1,110,regular,"[""Rebuild.fm""]",,0,117
+1,110,regular,"[""iPhone6S""]","[""配送""]",118,359
+1,110,regular,"[""iPhone6S"",""iOS9""]",,360,2779
+1,110,regular,"[""Google Voice""]",,2780,3045
+1,110,regular,"[""YouTube"",""YouTuber"",""Twitch""]","[""デジタルネイティブ""]",3046,3206
+1,110,regular,,"[""コンテンツブロッキング"",""広告""]",3207,3829
+1,110,regular,"[""XCodeGhost""]",,3830,4280
+1,110,regular,"[""iPhone6S"",""Android"",""Instagram""]","[""カメラ""]",4281,4912
+1,110,aftershow,"[""4chan""]",,0,1007
+1,110,aftershow,"[""Google""]","[""リポジトリ""]",1008,1637
+1,110,aftershow,"[""Fastly""]","[""転職"",""通勤""]",1638,2335
+1,110,aftershow,"[""Drama"",""HEROES Reborn""]",,2336,2609
+1,110,aftershow,"[""Rebuild.fm""]",,2610,2664
+1,111,regular,"[""MacOSX"",""ElCapitan""]","[""バージョンアップ""]",0,1150
+1,111,regular,"[""Rebuild.fm""]","[""癒やし""]",1151,1224
+1,111,regular,"[""MVNO""]","[""ケータイ""]",1225,1405
+1,111,regular,"[""iPhone6"",""Android""]","[""戻るボタン""]",1406,1602
+1,111,regular,"[""iPhone6"",""3D Touch"",""WebView""]","[""3Dタッチ"",""Webビュー""]",1603,1905
+1,111,regular,"[""MacOSX"",""ElCapitan"",""Split View""]","[""スプリットビュー""]",1906,2030
+1,111,regular,"[""iOS9"",""iPhone6S"",""LivePhoto""]","[""カメラ"",""シャッター音""]",2031,2266
+1,111,regular,"[""Nexus6P"",""Android""]","[""カメラ"",""指紋センサー""]",2267,2681
+1,111,regular,"[""HashiCorp"",""Nomad""]",,2682,3054
+1,111,regular,"[""HashiCorp"",""Vault"",""SAML""]",,3055,3435
+1,111,regular,"[""HashiCorp"",""Otto""]",,3436,4032
+1,111,regular,"[""Heroku"",""Heroku private spaces""]",,4033,4694
+1,111,aftershow,,"[""寿司""]",0,85
+1,111,aftershow,"[""CTO""]","[""技術顧問""]",86,719
+1,111,aftershow,"[""Anime""]","[""アニメ"",""シャーロット"",""友利奈緒""]",720,1122
+1,111,aftershow,"[""Anime""]","[""アニメ"",""あの日見た花の名前を僕達はまだ知らない""]",1123,1283
+1,111,aftershow,"[""Anime""]","[""アニメ"",""シュタインズゲート""]",1284,1878
+1,111,aftershow,"[""Anime""]","[""アニメ"",""化物語"",""シャフト""]",1879,2015
+1,111,aftershow,"[""Netflix""]",,2016,2221
+1,111,aftershow,"[""Anime"",""Fate""]","[""アニメ"",""聖杯問答""]",2222,2351
+1,111,aftershow,"[""Anime""]","[""アニメ"",""シュタインズゲート""]",2352,2462
+1,111,aftershow,"[""Anime"",""SHIROBAKO""]","[""アニメ""]",2463,2544
+1,111,aftershow,"[""Anime""]","[""アニメ"",""シュタインズゲート""]",2545,2584
+1,111,aftershow,"[""Anime""]","[""アニメ"",""魔法少女まどか☆マギカ""]",2585,2663
+1,111,aftershow,"[""Anime""]","[""アニメ""]",2664,3210
+1,112,regular,"[""RedBull"",""Drink""]","[""レッドブル"",""ドリンク""]",0,156
+1,112,regular,"[""Apple"",""A9"",""Chip""]","[""チップ""]",157,1269
+1,112,regular,,"[""例え話""]",1137,1186
+1,112,regular,,"[""米"",""ドリンク""]",1187,1269
+1,112,regular,"[""Microsft"",""Windows10""]",,1270,2861
+1,112,regular,"[""HoloLens""]",,1371,1655
+1,112,regular,"[""Lumia"",""WindowsPhone""]",,1656,2232
+1,112,regular,"[""Surface4"",""SurfaceBook""]",,2233,2861
+1,112,regular,"[""MacOSX"",""iOS""]",,2862,2964
+1,112,regular,"[""2FA"",""YubiKey""]",,2965,3479
+1,112,regular,"[""SurfaceBook""]",,3480,3604
+1,112,regular,"[""Oculus""]",,3605,4719
+1,112,regular,"[""Game""]","[""ゲーム"",""PCゲーム""]",3907,4130
+1,112,regular,"[""Havok""]","[""ゲームエンジン""]",4720,5150
+1,112,aftershow,,"[""例え話""]",0,55
+1,112,aftershow,"[""Nexus""]",,56,431
+1,112,aftershow,"[""iPhone6""]",,432,688
+1,112,aftershow,"[""Android M""]",,689,954
+1,112,aftershow,"[""Android Pay""]",,955,1037
+1,112,aftershow,"[""Game"",""METAL GEAR SOLID 5""]","[""ゲーム"",""メタルギアソリッド 5""]",1038,1388
+1,112,aftershow,"[""Game"",""PS4"",""Steam""]","[""ゲーム""]",1389,1502
+1,112,aftershow,"[""Game"",""Shooty Skies""]","[""ゲーム""]",1503,1622
+1,112,aftershow,"[""San Francisco"",""Fleet Week""]",,1623,1683
+1,113,regular,"[""Rebuild.fm""]",,0,437
+1,113,regular,"[""Fastly"",""CDN""]",,43,437
+1,113,regular,"[""Twitter""]","[""レイオフ"", ""ビザ"",""海外""]",438,2629
+1,113,regular,"[""YouTube"",""YouTuber""]",,2630,3068
+1,113,regular,"[""Twitter""]","[""レイオフ"",""海外""]",3069,3740
+1,113,regular,"[""Rebuild.fm""]",,3741,3843
+1,113,aftershow,"[""Anime"",""Steins;Gate""]","[""アニメ"",""シュタインズゲート""]",0,516
+1,113,aftershow,"[""Drama"",""The Walking Dead""]","[""ドラマ"",""ウォーキング・デッド""]",517,933
+1,113,aftershow,"[""Movie"",""The Martian""]","[""映画"", ""火星の人"",""オデッセイ""]",934,1452
+1,113,aftershow,"[""Apple"",""Magic Trackpad2""]",,1453,1623
+1,113,aftershow,"[""Apple""]","[""日本語入力""]",1624,2077
+1,113,aftershow,"[""Apple"",""Magic Trackpad2""]",,2078,2492
+1,113,aftershow,"[""YouTube"",""YouTuber""]",,2493,2573
+1,113,aftershow,"[""LivePhoto"",""LiveGIF""]","[""アニメGIF""]",2574,3110
+1,113,aftershow,"[""iPhone6S"",""Force Touch""]","[""フォースタッチ""]",3111,3232
+1,113,aftershow,"[""Nexus5X""]","[""カメラ""]",3233,3405
+1,114,regular,"[""Rebuild.fm""]",,0,66
+1,114,regular,"[""React.js""]",,67,798
+1,114,regular,"[""React.js"",""Redux"", ""Flux""]",,799,1842
+1,114,regular,"[""React.js"",""Facebook""]",,1843,2280
+1,114,regular,"[""AngularJS"", ""Ember.js"", ""front-end""]","[""フロントエンド""]",2281,2428
+1,114,regular,"[""bootcamp""]","[""ブートキャンプ"", ""採用""]",2429,3394
+1,114,regular,"[""San Francisco"", ""AirBnB""]","[""サンフランシスコ"", ""家賃""]",3395,3902
+1,114,regular,"[""Uber""]",,3903,4145
+1,114,regular,"[""Twitter"", ""bootcamp""]","[""レイオフ"", ""ビザ""]",4146,4396
+1,114,regular,"[""Lawrence Lessig""]","[""既得権益"", ""ローレンス・レッシグ""]",4397,5064
+1,114,regular,"[""Net Neutrality""]","[""ネットニュートラリティ"", ""ネット中立性""]",5065,5388
+1,114,aftershow,"[""MacOSX"", ""ElCapitan""]",,0,110
+1,114,aftershow,"[""Nexus5x"", ""iPhone6s""]","[""カメラ""]",111,464
+1,114,aftershow,"[""AppleTV"", ""ChromeCast""]",,465,571
+1,114,aftershow,"[""Apple"", ""Steve Jobs""]","[""スティーブ・ジョブズ"", ""映画""]",572,1065
+1,114,aftershow,"[""Soylent""]","[""ソイレント"", ""食事""]",1066,1532
+1,114,aftershow,"[""BlueApron""]","[""食事""]",1533,1790
+1,114,aftershow,"[""Soylent""]","[""ソイレント"", ""食事""]",1791,1954
+1,114,aftershow,"[""Rebuild.fm""]",,1955,2029
 1,131,regular,"[""Mac mini""]",,0,99
 1,131,regular,,"[""清原"",""覚せい剤"",""ドラッグ""]",100,246
 1,131,regular,"[""Apple"",""FBI""]","[""パスロック""]",247,1322
@@ -152,6 +248,20 @@ program_id,episode_no,episode_type,tag_en,tag_ja,start_time,end_time
 1,135,aftershow,"[""VR"",""PlayStationVR""]","[""バイノーラル録音""]",1551,2099
 1,135,aftershow,"[""Microsoft""]","[""人工知能"",""執筆"",""星新一"",""りんな""]",2100,2438
 1,136,regular,"[""Microsoft"",""Build""]",,0,122
+1,136,regular,"[""Microsoft"",""Bash"",""Windows"",""Bash on Windows""]",,123,1796
+1,136,regular,"[""Microsoft"",""Windows Phone""]",,1797,1905
+1,136,regular,"[""Microsoft"",""Edge""]","[""ブラウザ""]",1906,2656
+1,136,regular,"[""Microsoft"",""Bot Framework"",""Skype""]",,2657,2962
+1,136,regular,"[""Microsoft"",""Cloud""]","[""クラウド""]",2963,3181
+1,136,regular,"[""Microsoft""]","[""企業文化""]",3182,3315
+1,136,regular,"[""Microsoft"",""Build"",""Google I/O""]",,3316,3585
+1,136,regular,"[""Windows NT""]","[""本"",""懐古話"",""コンピュータ""]",3586,3906
+1,136,regular,"[""Think Pad"",""Mac"",""DEC HiNote Ultra"",""Cray-1""]","[""懐古話"",""コンピュータ""]",3907,4210
+1,136,regular,"[""Surface"",""Chrome Book"",""Pixel"",""Think Pad"",""IBM""]","[""懐古話"",""コンピュータ"",""トラックポイント"",""トラックパッド"",""キーボード""]",4211,4800
+1,136,aftershow,"[""Azure"",""Cloud"",""Machine Learning"",""Plagger""]","[""クラウド"",""ピザ""]",0,368
+1,136,aftershow,"[""Microsoft"",""IME""]","[""日本語変換""]",369,516
+1,136,aftershow,"[""Google"",""Microsoft""]","[""エイプリルフール"",""イースターエッグ"",""フリック入力""]",517,927
+1,136,aftershow,"[""Microsoft"",""IME"",""Windows10""]",,928,984
 1,137,regular,,"[""花粉症""]",0,53
 1,137,regular,"[""Kindle""]","[""ブルーライトカット""]",54,770
 1,137,regular,"[""WebPack""]","[""フロントエンド"",""フロントエンドの進化""]",771,956
@@ -165,99 +275,3 @@ program_id,episode_no,episode_type,tag_en,tag_ja,start_time,end_time
 1,137,regular,"[""Management"",""Fastly""]","[""チーム"",""マネジメント""]",4239,4398
 1,137,regular,,"[""エモい話""]",4399,4622
 1,137,regular,"[""Rebuild.fm""]",,4623,4679
-1,114,regular,"[""Rebuild.fm""]",,0,66
-1,114,regular,"[""React.js""]",,67,798
-1,114,regular,"[""React.js"",""Redux"", ""Flux""]",,799,1842
-1,114,regular,"[""React.js"",""Facebook""]",,1843,2280
-1,114,regular,"[""AngularJS"", ""Ember.js"", ""front-end""]","[""フロントエンド""]",2281,2428
-1,114,regular,"[""bootcamp""]","[""ブートキャンプ"", ""採用""]",2429,3394
-1,114,regular,"[""San Francisco"", ""AirBnB""]","[""サンフランシスコ"", ""家賃""]",3395,3902
-1,114,regular,"[""Uber""]",,3903,4145
-1,114,regular,"[""Twitter"", ""bootcamp""]","[""レイオフ"", ""ビザ""]",4146,4396
-1,114,regular,"[""Lawrence Lessig""]","[""既得権益"", ""ローレンス・レッシグ""]",4397,5064
-1,114,regular,"[""Net Neutrality""]","[""ネットニュートラリティ"", ""ネット中立性""]",5065,5388
-1,114,aftershow,"[""MacOSX"", ""ElCapitan""]",,0,110
-1,114,aftershow,"[""Nexus5x"", ""iPhone6s""]","[""カメラ""]",111,464
-1,114,aftershow,"[""AppleTV"", ""ChromeCast""]",,465,571
-1,114,aftershow,"[""Apple"", ""Steve Jobs""]","[""スティーブ・ジョブズ"", ""映画""]",572,1065
-1,114,aftershow,"[""Soylent""]","[""ソイレント"", ""食事""]",1066,1532
-1,114,aftershow,"[""BlueApron""]","[""食事""]",1533,1790
-1,114,aftershow,"[""Soylent""]","[""ソイレント"", ""食事""]",1791,1954
-1,114,aftershow,"[""Rebuild.fm""]",,1955,2029
-1,113,regular,"[""Rebuild.fm""]",,0,437
-1,113,regular,"[""Fastly"",""CDN""]",,43,437
-1,113,regular,"[""Twitter""]","[""レイオフ"", ""ビザ"",""海外""]",438,2629
-1,113,regular,"[""YouTube"",""YouTuber""]",,2630,3068
-1,113,regular,"[""Twitter""]","[""レイオフ"",""海外""]",3069,3740
-1,113,regular,"[""Rebuild.fm""]",,3741,3843
-1,113,aftershow,"[""Anime"",""Steins;Gate""]","[""アニメ"",""シュタインズゲート""]",0,516
-1,113,aftershow,"[""Drama"",""The Walking Dead""]","[""ドラマ"",""ウォーキング・デッド""]",517,933
-1,113,aftershow,"[""Movie"",""The Martian""]","[""映画"", ""火星の人"",""オデッセイ""]",934,1452
-1,113,aftershow,"[""Apple"",""Magic Trackpad2""]",,1453,1623
-1,113,aftershow,"[""Apple""]","[""日本語入力""]",1624,2077
-1,113,aftershow,"[""Apple"",""Magic Trackpad2""]",,2078,2492
-1,113,aftershow,"[""YouTube"",""YouTuber""]",,2493,2573
-1,113,aftershow,"[""LivePhoto"",""LiveGIF""]","[""アニメGIF""]",2574,3110
-1,113,aftershow,"[""iPhone6S"",""Force Touch""]","[""フォースタッチ""]",3111,3232
-1,113,aftershow,"[""Nexus5X""]","[""カメラ""]",3233,3405
-1,112,regular,"[""RedBull"",""Drink""]","[""レッドブル"",""ドリンク""]",0,156
-1,112,regular,"[""Apple"",""A9"",""Chip""]","[""チップ""]",157,1269
-1,112,regular,,"[""例え話""]",1137,1186
-1,112,regular,,"[""米"",""ドリンク""]",1187,1269
-1,112,regular,"[""Microsft"",""Windows10""]",,1270,2861
-1,112,regular,"[""HoloLens""]",,1371,1655
-1,112,regular,"[""Lumia"",""WindowsPhone""]",,1656,2232
-1,112,regular,"[""Surface4"",""SurfaceBook""]",,2233,2861
-1,112,regular,"[""MacOSX"",""iOS""]",,2862,2964
-1,112,regular,"[""2FA"",""YubiKey""]",,2965,3479
-1,112,regular,"[""SurfaceBook""]",,3480,3604
-1,112,regular,"[""Oculus""]",,3605,4719
-1,112,regular,"[""Game""]","[""ゲーム"",""PCゲーム""]",3907,4130
-1,112,regular,"[""Havok""]","[""ゲームエンジン""]",4720,5150
-1,112,aftershow,,"[""例え話""]",0,55
-1,112,aftershow,"[""Nexus""]",,56,431
-1,112,aftershow,"[""iPhone6""]",,432,688
-1,112,aftershow,"[""Android M""]",,689,954
-1,112,aftershow,"[""Android Pay""]",,955,1037
-1,112,aftershow,"[""Game"",""METAL GEAR SOLID 5""]","[""ゲーム"",""メタルギアソリッド 5""]",1038,1388
-1,112,aftershow,"[""Game"",""PS4"",""Steam""]","[""ゲーム""]",1389,1502
-1,112,aftershow,"[""Game"",""Shooty Skies""]","[""ゲーム""]",1503,1622
-1,112,aftershow,"[""San Francisco"",""Fleet Week""]",,1623,1683
-1,111,regular,"[""MacOSX"",""ElCapitan""]","[""バージョンアップ""]",0,1150
-1,111,regular,"[""Rebuild.fm""]","[""癒やし""]",1151,1224
-1,111,regular,"[""MVNO""]","[""ケータイ""]",1225,1405
-1,111,regular,"[""iPhone6"",""Android""]","[""戻るボタン""]",1406,1602
-1,111,regular,"[""iPhone6"",""3D Touch"",""WebView""]","[""3Dタッチ"",""Webビュー""]",1603,1905
-1,111,regular,"[""MacOSX"",""ElCapitan"",""Split View""]","[""スプリットビュー""]",1906,2030
-1,111,regular,"[""iOS9"",""iPhone6S"",""LivePhoto""]","[""カメラ"",""シャッター音""]",2031,2266
-1,111,regular,"[""Nexus6P"",""Android""]","[""カメラ"",""指紋センサー""]",2267,2681
-1,111,regular,"[""HashiCorp"",""Nomad""]",,2682,3054
-1,111,regular,"[""HashiCorp"",""Vault"",""SAML""]",,3055,3435
-1,111,regular,"[""HashiCorp"",""Otto""]",,3436,4032
-1,111,regular,"[""Heroku"",""Heroku private spaces""]",,4033,4694
-1,111,aftershow,,"[""寿司""]",0,85
-1,111,aftershow,"[""CTO""]","[""技術顧問""]",86,719
-1,111,aftershow,"[""Anime""]","[""アニメ"",""シャーロット"",""友利奈緒""]",720,1122
-1,111,aftershow,"[""Anime""]","[""アニメ"",""あの日見た花の名前を僕達はまだ知らない""]",1123,1283
-1,111,aftershow,"[""Anime""]","[""アニメ"",""シュタインズゲート""]",1284,1878
-1,111,aftershow,"[""Anime""]","[""アニメ"",""化物語"",""シャフト""]",1879,2015
-1,111,aftershow,"[""Netflix""]",,2016,2221
-1,111,aftershow,"[""Anime"",""Fate""]","[""アニメ"",""聖杯問答""]",2222,2351
-1,111,aftershow,"[""Anime""]","[""アニメ"",""シュタインズゲート""]",2352,2462
-1,111,aftershow,"[""Anime"",""SHIROBAKO""]","[""アニメ""]",2463,2544
-1,111,aftershow,"[""Anime""]","[""アニメ"",""シュタインズゲート""]",2545,2584
-1,111,aftershow,"[""Anime""]","[""アニメ"",""魔法少女まどか☆マギカ""]",2585,2663
-1,111,aftershow,"[""Anime""]","[""アニメ""]",2664,3210
-1,110,regular,"[""Rebuild.fm""]",,0,117
-1,110,regular,"[""iPhone6S""]","[""配送""]",118,359
-1,110,regular,"[""iPhone6S"",""iOS9""]",,360,2779
-1,110,regular,"[""Google Voice""]",,2780,3045
-1,110,regular,"[""YouTube"",""YouTuber"",""Twitch""]","[""デジタルネイティブ""]",3046,3206
-1,110,regular,,"[""コンテンツブロッキング"",""広告""]",3207,3829
-1,110,regular,"[""XCodeGhost""]",,3830,4280
-1,110,regular,"[""iPhone6S"",""Android"",""Instagram""]","[""カメラ""]",4281,4912
-1,110,aftershow,"[""4chan""]",,0,1007
-1,110,aftershow,"[""Google""]","[""リポジトリ""]",1008,1637
-1,110,aftershow,"[""Fastly""]","[""転職"",""通勤""]",1638,2335
-1,110,aftershow,"[""Drama"",""HEROES Reborn""]",,2336,2609
-1,110,aftershow,"[""Rebuild.fm""]",,2610,2664

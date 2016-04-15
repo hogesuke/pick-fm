@@ -28,3 +28,6 @@ id,program_name,episode_no,episode_type,url,time,time_length,delivered_at
 27,Rebuild.fm,133,aftershow,http://cache.rebuild.fm/podcast-ep133a.mp3,0:50:39,3039,2016-03-17 0:00:00
 28,Rebuild.fm,135,regular,http://cache.rebuild.fm/podcast-ep135.mp3,1:18:56,4736,2016-03-26 0:00:00
 29,Rebuild.fm,135,aftershow,http://cache.rebuild.fm/podcast-ep135a.mp3,0:40:38,2438,2016-03-30 0:00:00
+30,Rebuild.fm,136,regular,http://cache.rebuild.fm/podcast-ep136.mp3,1:20:00,4800,2016-04-03 0:00:00
+31,Rebuild.fm,136,aftershow,http://cache.rebuild.fm/podcast-ep136a.mp3,0:16:24,984,2016-04-07 0:00:00
+32,Rebuild.fm,137,regular,http://cache.rebuild.fm/podcast-ep137.mp3,1:17:59,4679,2016-04-10 0:00:00
