@@ -429,6 +429,8 @@ a {
         font-size: 16px;
         letter-spacing: 0.5px;
         color: #eeeeee; }
+        #main #footer #player .track-info a {
+          color: #76b1e6; }
       #main #footer #player .time-info {
         float: left;
         width: calc(100% - 240px);

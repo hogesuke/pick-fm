@@ -10,27 +10,44 @@ class EpisodeDetailPage extends Component {
   }
   componentWillMount() {
     const { programId, episodeNo, episodeType } = this.props.params;
+    const { dispatch } = this.props;
 
-    this.props.dispatch(setSelectedProgramId(programId));
-    this.props.dispatch(fetchEpisode(programId, episodeNo, episodeType));
+    dispatch(setSelectedProgramId(programId));
+    dispatch(fetchEpisode(programId, episodeNo, episodeType));
   }
   componentWillReceiveProps(nextProps) {
-    const { dispatch, query } = nextProps;
+    const { programId, episodeNo, episodeType } = nextProps.params;
+    const { dispatch, query, playingEpisode } = nextProps;
     const nextEpisodes = nextProps.episodes;
     const prevEpisodes = this.props.episodes;
+    const nextLocation = nextProps.currentLocation;
+    const prevLocation = this.props.currentLocation;
 
-    if (!this.state.firstTime) {
+    if (nextLocation !== prevLocation) {
+      // エピソード単体ページを開いている状態でプレイヤーのエピソードリンクから飛んできた場合
+      dispatch(setSelectedProgramId(programId));
+      dispatch(fetchEpisode(programId, episodeNo, episodeType));
       return;
     }
 
-    this.setState({ firstTime: false });
-
-    if (nextEpisodes === prevEpisodes) {
+    if ((nextEpisodes[0] && nextEpisodes[0].id) === (prevEpisodes[0] && prevEpisodes[0].id)) {
+      // play時にepisodesの参照が変わって再びpropsの変更が検知されてしまうため、
+      // 同じエピソードであればここでリターン
       return;
     }
     if (!query.t || !/^([0-9]+m)?[0-5]?[0-9]s$/.test(query.t)) {
+      // クエリで再生時間の指定がない場合は再生を開始させないのでここでリターン
       return;
     }
+    if ((playingEpisode && playingEpisode.id) === (nextEpisodes[0] && nextEpisodes[0].id)) {
+      // すでに再生されている場合はここでリターン
+      return;
+    }
+
+    this.play(nextProps);
+  }
+  play(props) {
+    const { dispatch, query, episodes } = props;
 
     let length = 0;
 
@@ -41,14 +58,14 @@ class EpisodeDetailPage extends Component {
       length += parseInt(query.t, 10);
     }
 
-    if (length > nextEpisodes[0].time_length) {
+    if (length > episodes[0].time_length) {
       return;
     }
 
     dispatch(initPlaying());
     setTimeout(() => {
-      dispatch(generateAudio(nextEpisodes[0], null, length));
-      dispatch(toggleActiveEpisode(nextEpisodes[0].id));
+      dispatch(generateAudio(episodes[0], null, length));
+      dispatch(toggleActiveEpisode(episodes[0].id));
     }, 100);
   }
   render() {
@@ -58,8 +75,10 @@ class EpisodeDetailPage extends Component {
 
 export default connect(state => {
     return {
-      episodes: state.pickApp.episodes,
-      query   : state.router.location.query
+      currentLocation: state.router.location.pathname,
+      query          : state.router.location.query,
+      episodes       : state.pickApp.episodes,
+      playingEpisode : state.pickApp.playingEpisode
     };
   }
 )(EpisodeDetailPage);

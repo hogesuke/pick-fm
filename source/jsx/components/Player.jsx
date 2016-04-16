@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router';
 import {
   setAudioIntervalID,
   setAudioCurrentTime,
@@ -82,10 +83,21 @@ class Player extends Component {
       return '';
     }
 
-    let type = episode.episode_type.charAt(0).toUpperCase() + episode.episode_type.slice(1);
-    type = type === 'Regular' ? '' : ' ' + type;
+    const type = (() => {
+      if (episode.episode_type === 'regular') { return ''; }
+      return ' ' + episode.episode_type.charAt(0).toUpperCase() + episode.episode_type.slice(1);
+    })();
 
-    return `${episode.program.name} Episode ${episode.episode_no + type}`;
+    const url = (() => {
+      const type = episode.episode_type === 'regular' ? '' : episode.episode_type;
+      return `/programs/${ episode.program_id }/episodes/${ episode.episode_no }${ type ? '/' + type : '' }`;
+    })();
+
+    return (
+      <Link to={url}>
+        { `${episode.program.name} Episode ${episode.episode_no + type}` }
+      </Link>
+    );
   }
   formatTime(length) {
     if (Number.isNaN(length)) {
@@ -124,12 +136,12 @@ class Player extends Component {
           <ShareButton />
         </div>
         <div className="track-info">
-          <span>{this.getTitle()}</span>
+          <span>{ this.getTitle() }</span>
         </div>
         <TimeBar />
         <div className="time-info">
-          <div className="current">{this.getCurrentTimeText()}</div>
-          <div className="end">{this.getEndTimeText()}</div>
+          <div className="current">{ this.getCurrentTimeText() }</div>
+          <div className="end">{ this.getEndTimeText() }</div>
         </div>
       </div>
     );

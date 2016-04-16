@@ -11,6 +11,10 @@
         font-size: 16px;
         letter-spacing: 0.5px;
         color: $text-light-on-gray;
+
+        a {
+            color: #76b1e6;
+        }
     }
     .time-info {
         float: left;
