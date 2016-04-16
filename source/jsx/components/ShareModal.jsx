@@ -44,9 +44,10 @@ class ShareModal extends Component {
       const t = playingEpisode.episode_type;
       return t === 'regular' ? '' : ' ' + t.charAt(0).toUpperCase() + t.slice(1);
     })();
-    const text       = playingEpisode ? `${ playingEpisode.program.name } Episode ${ playingEpisode.episode_no + type }` : 'pickfm';
-    const shareUrl   = this.refs.url.value;
-    const twitterUrl = `https://twitter.com/intent/tweet?text=${ text }&url=${ shareUrl }&hashtags=pickfm`;
+    const programName = playingEpisode ? playingEpisode.program.name : '';
+    const text        = playingEpisode ? `${ programName } Episode ${ playingEpisode.episode_no + type }` : 'pickfm';
+    const shareUrl    = this.refs.url.value;
+    const twitterUrl  = `https://twitter.com/intent/tweet?text=${ text }&url=${ shareUrl }&hashtags=${ this.getProgramHashTag(programName) + ',' }pickfm`;
 
     window.open(encodeURI(decodeURI(twitterUrl)), 'tweetwindow', 'width=650, height=470, personalbar=0, toolbar=0, scrollbars=1, sizable=1');
     return false;
@@ -106,6 +107,9 @@ class ShareModal extends Component {
       url += `?${timeAtQuery}`
     }
     return url;
+  }
+  getProgramHashTag(programName) {
+    return programName.toLowerCase().replace(/\./g, '');
   }
   formatTime(length) {
     if (Number.isNaN(length)) {
