@@ -8,7 +8,7 @@ def wrap(str)
   str
 end
 
-CSV.open('data/tracks.csv', 'r') do |f|
+CSV.open("data/tracks_#{ARGV[0]}.csv", 'r') do |f|
   f.each_with_index do |item, i|
     next if i == 0
     p item

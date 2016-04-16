@@ -31,3 +31,5 @@ id,program_name,episode_no,episode_type,url,time,time_length,delivered_at
 30,Rebuild.fm,136,regular,http://cache.rebuild.fm/podcast-ep136.mp3,1:20:00,4800,2016-04-03 0:00:00
 31,Rebuild.fm,136,aftershow,http://cache.rebuild.fm/podcast-ep136a.mp3,0:16:24,984,2016-04-07 0:00:00
 32,Rebuild.fm,137,regular,http://cache.rebuild.fm/podcast-ep137.mp3,1:17:59,4679,2016-04-10 0:00:00
+33,wada.fm,51,regular,http://feeds.soundcloud.com/stream/245825586-wadafm-ep051.mp3,0:26:50,1610,2016-02-07 0:00:00
+34,wada.fm,52,regular,http://feeds.soundcloud.com/stream/250421632-wadafm-ep052.mp3,0:36:07,2167,2016-03-06 0:00:00
