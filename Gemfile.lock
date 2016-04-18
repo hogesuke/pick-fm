@@ -45,6 +45,7 @@ GEM
       rack (>= 1.0)
     rainbow (2.1.0)
     raindrops (0.15.0)
+    rake (11.1.2)
     rubocop (0.39.0)
       parser (>= 2.3.0.7, < 3.0)
       powerpack (~> 0.1)
@@ -86,6 +87,7 @@ DEPENDENCIES
   activerecord (~> 4.2.5)
   elasticsearch (~> 1.0.14)
   mysql2 (~> 0.4.2)
+  rake
   rubocop (~> 0.39.0)
   seed-fu (~> 2.3.5)
   sinatra (~> 1.4.6)
@@ -94,4 +96,4 @@ DEPENDENCIES
   unicorn (~> 4.8.3)
 
 BUNDLED WITH
-   1.10.4
+   1.11.2

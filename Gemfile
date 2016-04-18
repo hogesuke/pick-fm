@@ -7,6 +7,7 @@ gem 'mysql2', '~> 0.4.2'
 gem 'activerecord', '~> 4.2.5'
 gem 'sinatra-activerecord', '~> 2.0.9'
 gem 'seed-fu', '~> 2.3.5'
+gem 'rake'
 
 group :development do
   gem 'rubocop', '~> 0.39.0'
