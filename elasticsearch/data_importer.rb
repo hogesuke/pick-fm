@@ -20,7 +20,7 @@ end
 
 start_id = max_id
 
-CSV.open("data/tracks_#{ARGV[0]}.csv", 'r') do |f|
+CSV.open("data/tracks_#{ARGV[0]}.csv", 'r', encoding: 'UTF-8') do |f|
   f.each_with_index do |item, i|
     next if i == 0
     p item
