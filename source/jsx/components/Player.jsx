@@ -100,7 +100,7 @@ class Player extends Component {
     );
   }
   formatTime(length) {
-    if (Number.isNaN(length)) {
+    if (isNaN(length)) {
       length = 0;
     }
     const min = ('0' + Math.floor(length / 60)).slice(-2);
