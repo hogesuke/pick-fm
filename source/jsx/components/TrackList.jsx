@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import _ from 'underscore';
 import SearchOptions from './SearchOptions';
 import Track from './Track';
 import Paging from './Paging';
@@ -8,7 +9,7 @@ import NotFound from './NotFound';
 
 class TrackList extends Component {
   getEpisode(track) {
-    return this.props.episodes.find(function (e) {
+    return _.find(this.props.episodes, function (e) {
       return (
         e.program_id === track.program_id &&
         e.episode_no === track.episode_no &&

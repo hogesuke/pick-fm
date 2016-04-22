@@ -25,7 +25,7 @@ class TimeLineForTrack extends Component {
     const { episode, track } = this.props;
     const episodeLength = _.last(episode.tracks).end_time;
 
-    const targetTrack = episode.tracks.find((episodeTrack) => {
+    const targetTrack = _.find(episode.tracks, (episodeTrack) => {
       return track.id === episodeTrack.id;
     });
 
