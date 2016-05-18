@@ -216,6 +216,9 @@ export function fetchTracks(searchText) {
     if (!query.perpage) { query.perpage = getState().pickApp.perPage; }
     if (!query.sort)    { query.sort = getState().pickApp.sort; }
 
+    // todo wada.fm以外のプログラムを追加する場合は要修正
+    if (!query.program) { query.program = 2; }
+
     query.word = searchText;
 
     request

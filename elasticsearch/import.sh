@@ -6,4 +6,5 @@ curl -XDELETE 'http://localhost:9200/pickfm'
 curl -XPOST localhost:9200/pickfm -d @mapping.json
 
 bundle ex ruby data_importer.rb rebuildfm
+sleep 3s
 bundle ex ruby data_importer.rb wadafm

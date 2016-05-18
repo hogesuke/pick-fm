@@ -158,7 +158,10 @@ get '/programs/:id' do
 end
 
 get '/programs' do
-  Program.all.to_json
+  # FIXME 現在はwada.fmのみとする
+  # Program.all.to_json
+
+  Program.where(id: 2).to_json
 end
 
 get '/programs/:id/episodes' do
