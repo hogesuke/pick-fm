@@ -42,3 +42,4 @@ id,program_name,episode_no,episode_type,url,time,time_length,delivered_at
 41,wada.fm,51,regular,http://feeds.soundcloud.com/stream/245825586-wadafm-ep051.mp3,0:26:50,1610,2016-02-07 0:00:00
 42,wada.fm,52,regular,http://feeds.soundcloud.com/stream/250421632-wadafm-ep052.mp3,0:36:07,2167,2016-03-06 0:00:00
 43,wada.fm,53,regular,http://feeds.soundcloud.com/stream/253390061-wadafm-ep053.mp3,0:30:54,1854,2016-03-20 0:00:00
+44,wada.fm,54,regular,http://feeds.soundcloud.com/stream/265160147-wadafm-ep054.mp3,0:38:49,2329,2016-05-21 0:00:00
